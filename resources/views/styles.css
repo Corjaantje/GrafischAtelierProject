@@ -1,0 +1,61 @@
+@CHARSET "UTF-8";
+
+.content {
+	margin: 10px 10%;
+	paddig: 5px;
+	background: #888a85;
+	color: #000;
+	font-size: 12px;
+}
+
+.Agenda_Day {
+	margin: 10px 15px;
+	paddig: 0px;
+	background: #5c3566;
+	color: #000;
+	font-size: 12px;
+}
+
+.Agenda_timeTable {
+	border: 1px solid black;
+	margin: 5px 10px;
+	width: 80%;
+	heigth: 30px;
+}
+
+.Agenda_row {
+	width: 100%;
+	heigth: 30px;
+}
+
+.Agenda_cell {
+	width: 100%;
+	heigth: 30px;
+	border: 1px solid #ef2929;
+}
+
+.agenda {
+	
+}
+
+.blank_calender_cell {
+	background-color: #4e9a06;
+}
+
+.calender_cell {
+	background-color: #204a87;
+}
+
+.calender_row {
+	background-color: #c4a000;
+	border: 1px solid #c4a000
+}
+
+body {
+	background: #d3d7cf;
+	margin: 0px;
+	padding: 5px;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #000;
+	font-size: 12px;
+}
