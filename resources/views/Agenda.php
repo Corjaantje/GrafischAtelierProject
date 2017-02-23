@@ -21,6 +21,7 @@ if ($_POST != null and array_key_exists ( "submit", $_POST ) and array_key_exist
 			break;
 	}
 }
+include_once 'LanguageConverter.php';
 
 echo "<div class=\"agenda\">";
 
@@ -31,9 +32,9 @@ while ( $zCounter <= 5 ) {
 	
 	// can be used for selecting the agendafor a specific day.
 	// $week_day = date("d-m-Y", strtotime ( '-' . ($day - $counter - ($week_offset * 7)) . ' days' ));
-	
+	$test = new LanguageConverter();
 	echo "<div class =\"Agenda_Day\"> ";
-	echo "<h1>" . $week_day . " </h1>";
+	echo "<h1>" . $test->dateConverter($week_day) . " </h1>";
 	
 	// time table creation
 	echo "<table class=\"Agenda_timeTable\">";
