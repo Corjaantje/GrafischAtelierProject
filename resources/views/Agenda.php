@@ -1,7 +1,7 @@
 <html>
 </html>
 <head>
-<title>Home Page</title>
+<title>Agenda</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -10,37 +10,59 @@
 $day = date ( 'w' );
 $week_offset = 0;
 
+if ($_POST != null and array_key_exists ( "submit", $_POST ) and array_key_exists ( "offset", $_POST )) {
+	
+	switch ($_POST ["submit"]) {
+		case "Last Week" :
+			$week_offset = $_POST ["offset"] - 1;
+			break;
+		case "Next Week" :
+			$week_offset = $_POST ["offset"] + 1;
+			break;
+	}
+}
+
 echo "<div class=\"agenda\">";
 
-$counter = 1;
-while ( $counter <= 5 ) {
+$zCounter = 1;
+while ( $zCounter <= 5 ) {
 	// black magic, gets the moneday of this week. counter ofsets the day bt one and week ofsett the entire week.
-	$Monday = date ( 'D d F', strtotime ( '-' . ($day - $counter - ($week_offset * 7)) . ' days' ) );
+	$week_day = date ( 'D d F', strtotime ( '-' . ($day - $zCounter - ($week_offset * 7)) . ' days' ) );
+	
+	// can be used for selecting the agendafor a specific day.
+	// $week_day = date("d-m-Y", strtotime ( '-' . ($day - $counter - ($week_offset * 7)) . ' days' ));
 	
 	echo "<div class =\"Agenda_Day\"> ";
-	echo "<h1>" . $Monday . " </h1>";
-	?>
-	<table class="Agenda_timeTable">
-	<tr class="Agenda_row"><td class="Agenda_cell">a</td> </tr>
-	<tr class="Agenda_row"><td class="Agenda_cell">b</td> </tr>
-	<tr class="Agenda_row"><td class="Agenda_cell">c</td> </tr>
-	<tr class="Agenda_row"><td class="Agenda_cell">d</td> </tr>
-	<tr class="Agenda_row"><td class="Agenda_cell">e</td> </tr>
-
-
+	echo "<h1>" . $week_day . " </h1>";
 	
+	// time table creation
+	echo "<table class=\"Agenda_timeTable\">";
 	
+	$xCounter = 0;
+	$yCounter = 0;
+	while ( $xCounter < 4 ) {
+		echo "<tr class=\"Agenda_row\">";
+		
+		echo "<td class= \"Agenda_cell\">Event: " . $xCounter . "</td>";
+		
+		$yCounter = 0;
+		while ( $yCounter < 12 ) {
+			
+			if ($xCounter == 0) {
+				echo "<td class=\"Agenda_cell\">Tijd</td>";
+				$yCounter ++;
+				continue;
+			}
+			echo "<td class=\"Agenda_cell\">test</td>";
+			$yCounter ++;
+		}
+		$xCounter ++;
+		echo "</tr>";
+	}
 	
-	
-	
-	</table>
-	
-	
-	
-<?php
+	echo "</table>";
 	echo "</div>";
-	
-	$counter ++;
+	$zCounter ++;
 }
 
 echo "</div>"?>
@@ -48,5 +70,18 @@ echo "</div>"?>
 
 
 <?php include 'Calender.php'; ?>
-</div>
+
+<form action="Agenda.php" method=post>
+			<input type="text" style="display: none" name="offset"
+				value=<?php echo $week_offset;?>> <input type="submit" name="submit"
+				value="Last Week">
+		</form>
+
+		<form action="Agenda.php" method=post>
+			<input type="text" style="display: none" name="offset"
+				value=<?php echo $week_offset;?>> <input type="submit" name="submit"
+				value="Next Week">
+		</form>
+
+	</div>
 </body>

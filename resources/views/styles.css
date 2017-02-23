@@ -2,15 +2,14 @@
 
 .content {
 	margin: 10px 10%;
-	paddig: 5px;
+	paddig: 10px;
 	background: #888a85;
 	color: #000;
 	font-size: 12px;
 }
 
 .Agenda_Day {
-	margin: 10px 15px;
-	paddig: 0px;
+	margin: 15px 15px;
 	background: #5c3566;
 	color: #000;
 	font-size: 12px;
@@ -18,23 +17,23 @@
 
 .Agenda_timeTable {
 	border: 1px solid black;
-	margin: 5px 10px;
-	width: 80%;
-	heigth: 30px;
+	margin: 10px 5px 10px 5px;
+	width: 90%;
 }
 
 .Agenda_row {
 	width: 100%;
-	heigth: 30px;
+	margin: 10px 10px;
 }
 
 .Agenda_cell {
-	width: 100%;
-	heigth: 30px;
+	width: 50px;
 	border: 1px solid #ef2929;
+	margin: 0px;
 }
 
 .agenda {
+		margin: 0;
 	
 }
 
@@ -58,4 +57,8 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
 	color: #000;
 	font-size: 12px;
+}
+
+input {
+	margin: 10px;
 }
