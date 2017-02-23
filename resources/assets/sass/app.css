@@ -1,14 +1,7 @@
-
-// Fonts
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css);
 @import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css);
-
-// Variables
-@import "variables";
-
-// ADD YOUR CSS HERE \/
-
 body {
-  color: $text-color;
-}
+  color: #636b6f; }
+
+/*# sourceMappingURL=app.css.map */
