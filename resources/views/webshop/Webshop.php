@@ -8,13 +8,13 @@
 		
 			<?php 
 			
-				for ($x = 1; $x < 7; $x++){
+				for ($x = 0; $x < 6; $x++){
 					
 					echo "<div class=\"row\">";
 					
 					for($y = 1; $y < 4; $y++){
 						
-						$productnr = $x + $y;
+						$productnr = ($x * 3) + $y;
 						
 						echo "<div class=\"col-lg-4 col-md-4 col-sm-4 col-sm-offset-0 col-xs-10 col-xs-offset-1\" >";
 						
