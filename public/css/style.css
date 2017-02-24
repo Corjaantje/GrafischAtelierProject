@@ -6,20 +6,17 @@
     background: linear-gradient(to bottom, #ffffff 29%,#d6d6d6 99%)
 }
 
-#nav a:link
-{
+#nav  a:link {
     text-decoration: none;
     color: black;
 }
 
-#nav a:visited
-{
+#nav a:visited {
     text-decoration: none;
     color: black;
 }
 
-#nav a:hover
-{
+#nav a:hover {
     color: black;
     text-decoration: none;
     background-color: #b6b7a7;
@@ -28,13 +25,32 @@
     display: inline-block;
 }
 
-#nav a:active
-{
+#nav a:active {
     color: black;
     text-decoration: none;
 }
 
-#nav  ul{
+#nav ul li{
+    list-style-type: none;
+    display: inline-block;
+}
+
+#logo:hover {
+    background-color: transparent !important;
+}
+
+#dropdown-content{
     display: none;
     position: absolute;
+    background-color: lightgrey;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+#dropdown-content a
+{
+    display: block;
+}
+
+li:hover #dropdown-content {
+    display: block;
 }
