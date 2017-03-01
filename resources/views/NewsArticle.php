@@ -28,6 +28,16 @@
 					Peter Koene, Omhels de nacht
 			
 				</div>
+				<br>
+				<?php
+				echo "<div class=\"col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-10 col-xs-offset-1\">";
+				
+				$itemNumber = $_COOKIE['ItemNumber'];
+				
+				echo "</div>";
+				?>
+
+								
 			
 			</div>
 		</div>
