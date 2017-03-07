@@ -13,6 +13,7 @@
             </ul>
         </div>
         <div id="footerimages">
+            <img id="w2f" src="img/w2f_logo.png" alt="w2f logo" width="250px">;
             <img src="img/payments.png" alt="payments" width="225px">;
         </div>
     </div>
