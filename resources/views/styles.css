@@ -1,24 +1,40 @@
 @CHARSET "UTF-8";
 
 .content {
+	display: block;
 	margin: 10px 10%;
 	paddig: 10px;
 	background: #888a85;
 	color: #000;
 	font-size: 12px;
+	margin: 10px 10%;
 }
 
 .Agenda_Day {
+	display: block;
 	margin: 15px 15px;
+	padding: 5px;
 	background: #5c3566;
 	color: #000;
 	font-size: 12px;
+	background: #5c3566;
 }
 
 .Agenda_timeTable {
-	border: 1px solid black;
+	border: 0px solid black;
+	border-collapse: collapse;
+	text-align: left;
 	margin: 10px 5px 10px 5px;
-	width: 90%;
+	width: auto;
+	display: block;
+}
+
+.Agenda_timeTable_Wrapper {
+	display: block;
+	height: auto;
+	width: 95%;
+	margin: 5px;
+	overflow: auto;
 }
 
 .Agenda_row {
@@ -26,15 +42,32 @@
 	margin: 10px 10px;
 }
 
+.Agenda_row:hover {
+	background: #d3d7cf;
+}
+
 .Agenda_cell {
-	width: 50px;
+	white-space: nowrap;
+	border-top-width: 0px;
+	width: 40px;
 	border: 1px solid #ef2929;
 	margin: 0px;
 }
 
+.Agenda_cell_Event {
+	/*position: relative; 
+	border-top-width: 1px;
+	margin-top: -1px; 
+	*/
+	width: auto;
+	max-width: 100%;
+	white-space: nowrap;
+	background: #f2f2f2;
+}
+
 .agenda {
-		margin: 0;
-	
+	margin: 5px;
+	padding: 5px;
 }
 
 .blank_calender_cell {
