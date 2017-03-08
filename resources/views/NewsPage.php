@@ -1,6 +1,5 @@
 <?php
 use App\NewsData;
-use function Symfony\Component\Debug\header;
 
 ?>
 <html>
@@ -34,7 +33,7 @@ use function Symfony\Component\Debug\header;
 					$pictureName = $item->getPaths ()[0];
 					$sample = $item->getSampleText ();
 					
-					echo "<a href=\"#\" onclick=\"openNews($itemNr)\" style=\"text-decoration: none; color:black;\">";
+					echo "<a href=\"NewsArticle.php?itemId=$itemNr\" style=\"text-decoration: none; color:black;\">";
 					
 					echo "<img src=\"../assets/Images/NewsImages/$pictureName\" style=\"width: 100%;\">";
 					
@@ -53,13 +52,6 @@ use function Symfony\Component\Debug\header;
 			echo "</div>";
 		}
 
-		function openNews($passingItemNumber) {
-
-			$_COOKIE['ItemNumber'] = $passingItemNumber;
-			echo "HelloWorld + $passingItemNumber";
-			curl_exec (curl_init ("NewsArticle.php"));
-		
-		}
 		
 		?>
 		
