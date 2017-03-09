@@ -110,3 +110,9 @@ li:hover #dropdown-content {
 #footerimages #w2f{
     margin-right: 50px;
 }
+/* Too general, needs correcting
+body {
+    background-color: lightseagreen;
+    font-family: Calibri;
+}
+*/
