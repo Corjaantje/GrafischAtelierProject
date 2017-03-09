@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Technieken van het Grafisch Atelier</title>
-
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -14,15 +12,28 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+@include('layouts.header', array('title'=>'Werkplaats'));
 <div class="jumbotron text-center">
     <h1>Werkplaats</h1>
 </div>
 
 <div class="container">
     <div class="row">
+        <div class="col-md-9">
+            <div>
+                <h2><b>Welkom in de mooiste grafiekwerkplaats van Nederland!</b> </h2>
+                <p>Het Grafisch Atelier biedt kunstenaars, vormgevers en creatieven een goed geoutilleerde werkplaats met deskundige ondersteuning en een omgeving om te experimenteren. In het GA wordt zoveel mogelijk gewerkt met non-toxic materialen.</p>
+            </div>
 
-        <div class="col-md-3">
-            <h2>Technieken</h2>
+            <div>
+                <h3>Aan de slag</h3>
+                <p>Reserveer van te voren een werkplek. Dit kan telefonisch, via de email of middels de agenda die in de werkplaats ligt. Kun je niet komen? Meld je dan af. Anders zijn wij genoodzaakt kosten in rekening te brengen voor de tijd dat je de werkplek hebt gereserveerd.</p>
+
+                <h3>Voor het eerst aan de slag in het GA? </h3>
+                <p>Je bent verplicht een introductie te volgen. Als je in het GA een cursus hebt gevolgd in de techniek waarin je aan de slag gaat, dan staat dit gelijk aan een introductie.</p>
+            </div>
+
+            <h2><b>Technieken</b></h2>
             <h3>Zeefdruk</h3>
             <p>Er zijn 5 zeefdruktafels met vacuümafzuiging: een zeefdruktafel voor maximaal A1 formaat, drie tafels voor A2 formaat  en een tafel voor A3 formaat. Verder hebben we een grote collectie zeeframen in allerlei formaten.</p>
 
@@ -52,35 +63,7 @@
             <h3>Te koop</h3>
             <p>Heb je materialen nodig? Dan kun je ook bij ons terecht. Wij hebben vele soorten materialen voor alle technieken te koop. Zie hiervoor onze <a href="fedha.nl/prijzen">prijslijst</a>.</p>
         </div>
-        <div class="col-md-6">
-            <div>
-                <h3>Welkom in de mooiste grafiekwerkplaats van Nederland! </h3>
-                <p>Het Grafisch Atelier biedt kunstenaars, vormgevers en creatieven een goed geoutilleerde werkplaats met deskundige ondersteuning en een omgeving om te experimenteren. In het GA wordt zoveel mogelijk gewerkt met non-toxic materialen.</p>
-            </div>
 
-            <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner" role="listbox">
-                    <div class="carousel-item active">
-                        <img class="d-block img-fluid" src="http://gadenbosch.nl/fotosinfo/1_werkplaatsfoto%20web%201.jpg" alt="First slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block img-fluid" src="http://gadenbosch.nl/fotosinfo/1_werkplaatsfoto%20web%202.jpg" alt="Second slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block img-fluid" src="http://gadenbosch.nl/fotosinfo/1_werkplaatsfoto%20web%203.jpg" alt="Third slide">
-                    </div>
-                </div>
-            </div>
-            
-            <div>
-                <h3>Aan de slag</h3>
-                <p>Reserveer van te voren een werkplek. Dit kan telefonisch, via de email of middels de agenda die in de werkplaats ligt. Kun je niet komen? Meld je dan af. Anders zijn wij genoodzaakt kosten in rekening te brengen voor de tijd dat je de werkplek hebt gereserveerd.</p>
-
-                <h3>Voor het eerst aan de slag in het GA? </h3>
-                <p>Je bent verplicht een introductie te volgen. Als je in het GA een cursus hebt gevolgd in de techniek waarin je aan de slag gaat, dan staat dit gelijk aan een introductie.</p>
-            </div>
-
-        </div>
         <div class="col-md-3">
             <h3>Openingstijden werkplaats</h3>
             <p>Maandag tot en met vrijdag: 09:00 - 17:00<br>Zaterdag vanaf 13:00</p>
@@ -132,5 +115,6 @@
         </div>
     </div>
 </div>
+@include('layouts.footer');
 </body>
 </html>

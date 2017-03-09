@@ -15,6 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('techniques', function () {
-    return view('techniques');
+Route::get('werkplaats', function () {
+    return view('werkplaats');
 });
