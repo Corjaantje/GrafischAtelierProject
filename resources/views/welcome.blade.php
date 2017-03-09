@@ -7,7 +7,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" type="text/css" href="../resources/assets/sass/app.css">
+        <link rel="stylesheet" type="text/css" href="css/app.css">
         <script src="js/app.js"></script>
 
         <!-- Styles -->

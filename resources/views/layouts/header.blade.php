@@ -33,6 +33,12 @@
                 <a href="/" id="logo"> <img src="img/logo_ga.png" width="250px"> </a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
+
+                <div class="socials">
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                    <i class="fa fa-linkedin" aria-hidden="true"></i>
+                </div>
             <ul>
                 <li><a href="/"> <b>Nieuws</b> </a></li>
                 -
