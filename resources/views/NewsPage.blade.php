@@ -4,7 +4,7 @@ use App\NewsData;
 ?>
 <html>
 
-<link rel="stylesheet" href="../../public/css/app.css">
+<link rel="stylesheet" href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
 
 <body>
 
@@ -12,9 +12,9 @@ use App\NewsData;
 
 		<?php
 		
-		require '../../app/NewsData.php';
-		require '../../app/NewsItem.php';
-		
+			include '../app/NewsData.php';
+			include '../app/NewsItem.php';
+
 		$NewsData = new NewsData ();
 		
 		for($x = 0; $x < 8; $x ++) {
@@ -35,7 +35,7 @@ use App\NewsData;
 					
 					echo "<a href=\"NewsArticle.php?itemId=$itemNr\" style=\"text-decoration: none; color:black;\">";
 					
-					echo "<img src=\"../../public/Images/NewsImages/$pictureName\" style=\"width: 100%;\">";
+					echo "<img src=\"../../Images/NewsImages/$pictureName\" style=\"width: 100%;\">";
 					
 					echo "<br>$sample";
 					
@@ -55,7 +55,7 @@ use App\NewsData;
 		
 		?>
 		
-		</div>
+	</div>
 
 </body>
 

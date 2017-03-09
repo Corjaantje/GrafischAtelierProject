@@ -1,5 +1,7 @@
 <?php
 
+use App\NewsData;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,4 +15,10 @@
 
 Route::get('/', function () {
     return view('welcome');
+});
+Route::get('nieuws', function(){
+	return view('NewsPage');
+});
+Route::get('nieuwsdata', function(){
+	return model(NewsData::class);
 });
