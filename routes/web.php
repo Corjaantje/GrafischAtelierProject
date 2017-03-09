@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/aan_de_slag', array('as' => 'aan_de_slag', function () {
+    return view('aan_de_slag');
+}));
