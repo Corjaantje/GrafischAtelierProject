@@ -127,3 +127,8 @@ li:hover #dropdown-content {
     vertical-align: top;
     font-size: 16px;
 }
+
+.view-more {
+    font-size: 18px;
+    text-align: right;
+}

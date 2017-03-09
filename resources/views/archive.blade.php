@@ -20,7 +20,7 @@
 
 <div class="container">
     <div class="content">
-        @for($i = 0; $i < 20; $i++)
+        @for($i = 0; $i < 10; $i++)
             <div class="archive-block">
                 <img class="archive-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Smiley.svg/1200px-Smiley.svg.png" height="150" width="150">
                 <div class="archive-text">
@@ -29,6 +29,11 @@
                 </div>
             </div>
         @endfor
+
+        <div class="view-more">
+            <!-- Reload page with +10 articles -->
+            <a href="/archive">Show more...</a>
+        </div>
     </div>
 </div>
 
