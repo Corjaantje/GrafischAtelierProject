@@ -5,10 +5,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
-
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
 
         <!-- Styles -->
         <style>
@@ -44,12 +43,16 @@
         </style>
     </head>
     <body>
+
+    @include('layouts.header', array('title'=>'Home'));
+        <div class="flex-center position-ref full-height">
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    @for($i = 0; $i < 15; $i++)
+                        Home Pagina <br>
+                    @endfor
                 </div>
             </div>
         @include('layouts.footer')
-
     </body>
 </html>

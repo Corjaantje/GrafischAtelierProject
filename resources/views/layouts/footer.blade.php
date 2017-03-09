@@ -1,8 +1,3 @@
-<html>
-<head>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-</head>
-<body>
 @section('footer')
     <div id="footer">
         <div id="links">
@@ -18,5 +13,3 @@
         </div>
     </div>
 @show
-</body>
-</html>

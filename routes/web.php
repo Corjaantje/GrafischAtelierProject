@@ -14,11 +14,14 @@ use App\NewsData;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 Route::get('nieuws', function(){
 	return view('NewsPage');
 });
-Route::get('nieuwsdata', function(){
-	return model(NewsData::class);
+Route::get('/educatie', function () {
+    return view('educatie');
+});
+Route::get('werkplaats', function () {
+    return view('werkplaats');
 });
