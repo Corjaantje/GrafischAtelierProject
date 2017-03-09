@@ -1,0 +1,118 @@
+#nav{
+    text-align: left;
+    font-size: 30px;
+    border-style: solid;
+    border-color: lightgray;
+    background: linear-gradient(to bottom, #ffffff 29%,#d6d6d6 99%);
+    height: 19%;
+}
+
+li:hover #dropdown-content {
+    display: block;
+}
+
+#dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: lightgrey;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    min-width: 174px;
+    text-align: center;
+}
+#dropdown-content:hover{
+    display: block;
+}
+#nav  a:link {
+    text-decoration: none;
+    color: black;
+}
+
+#nav a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+#nav a:hover {
+    color: black;
+    text-decoration: none;
+    background-color: #b6b7a7;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+#nav a:active {
+    color: black;
+    text-decoration: none;
+}
+
+#nav ul li {
+    list-style-type: none;
+    display: inline-block;
+    }
+
+#logo:hover {
+    background-color: transparent !important;
+}
+
+#dropdown-content a
+{
+    display: block;
+}
+
+#footer {
+    color: #000;
+    background: linear-gradient(to bottom, #ffffff 29%,#d6d6d6 99%);
+    border-style: solid;
+    border-color: lightgray;
+    padding-top: 0;
+    padding-bottom: 0;}
+
+#links{
+
+    display: inline-block;
+    font-size: 24px;
+}
+#links ul li{
+    list-style: none;
+}
+
+
+#links a:link{
+    color: black;
+    text-decoration: none;
+}
+
+#links a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+#links a:visited{
+    color: black;
+    text-decoration: none;
+}
+
+#links a:active{
+    color: black;
+    text-decoration: none;
+}
+
+
+#footerimages {
+    position: absolute;
+    right: 0;
+    margin-top: 20px;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+#footerimages #w2f{
+    margin-right: 50px;
+}
+/* Too general, needs correcting
+body {
+    background-color: lightseagreen;
+    font-family: Calibri;
+}
+*/
