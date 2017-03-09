@@ -26,5 +26,9 @@ Route::get('/educatie', function () {
 	return view('educatie');
 });
 Route::get('werkplaats', function () {
-	return view('werkplaats');
+    return view('werkplaats');
+});
+
+Route::get('archive', function () {
+    return view('archive');
 });
