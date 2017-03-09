@@ -18,6 +18,7 @@ li:hover #dropdown-content {
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     min-width: 174px;
     text-align: center;
+    z-index: 1;
 }
 #dropdown-content:hover{
     display: block;
@@ -110,3 +111,9 @@ li:hover #dropdown-content {
 #footerimages #w2f{
     margin-right: 50px;
 }
+/* Too general, needs correcting
+body {
+    background-color: lightseagreen;
+    font-family: Calibri;
+}
+*/
