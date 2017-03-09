@@ -44,12 +44,12 @@
                 -
                 <li><a href="/"> <b>Winkel</b> </a></li>
                 -
-                <li id="dropdown"><a href="/"> <b>Aan De Slag</b> </a>
+                <li id="dropdown"><a href="{{URL::route('aan_de_slag')}}"> <b>Aan De Slag</b> </a>
                     <div id="dropdown-content">
-                        <a href="/"><b>Workshops</b></a>
-                        <a href="/"><b>Scholen</b></a>
-                        <a href="/"><b>Dagje uit</b></a>
-                        <a href="/"><b>Opfrissen</b></a>
+                        <a href="{{URL::route('aan_de_slag')}}"><b>Workshops</b></a>
+                        <a href="{{URL::route('scholen')}}"><b>Scholen</b></a>
+                        <a href="{{URL::route('dagje_uit')}}"><b>Dagje uit</b></a>
+                        <a href="{{URL::route('opfrissen')}}"><b>Opfrissen</b></a>
                     </div>
                 </li>
                 -
