@@ -31,3 +31,7 @@ Route::get('product/{ProductNr}', function ($ProductNr) {
 	
 	return view('Product', $data);
 });
+
+Route::get('archive', function () {
+    return view('archive');
+});
