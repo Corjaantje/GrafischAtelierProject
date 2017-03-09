@@ -16,5 +16,5 @@ Route::get('/', function () {
 });
 
 Route::get('techniques', function () {
-    return view('pages/techniques');
+    return view('techniques');
 });
