@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <link rel="stylesheet" type="text/css" href="../../public/css/app.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -23,15 +24,15 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
             <div class="item active">
-                <img src="http://www.grafisch-atelier-daglicht.nl/images/5226_IMG_5608.jpg" alt="Chania">
+                <img src="http://www.grafisch-atelier-daglicht.nl/images/5226_IMG_5608.jpg" alt="image1">
             </div>
 
             <div class="item">
-                <img src="http://www.grafisch-atelier-daglicht.nl/images/29426_IMG_4968.jpg" alt="Chania">
+                <img src="http://www.grafisch-atelier-daglicht.nl/images/29426_IMG_4968.jpg" alt="image2">
             </div>
 
             <div class="item">
-                <img src="https://2.bp.blogspot.com/-l_lsnMMs1Cw/Vxo7uLHqfnI/AAAAAAAAEIA/oqc1qqEm9pYDNVeqNpUOIi6D12us7MbZQCLcB/s1600/MAF-WSzeefdruk-web-06feb16-0221.jpg" alt="Flower">
+                <img src="https://2.bp.blogspot.com/-l_lsnMMs1Cw/Vxo7uLHqfnI/AAAAAAAAEIA/oqc1qqEm9pYDNVeqNpUOIi6D12us7MbZQCLcB/s1600/MAF-WSzeefdruk-web-06feb16-0221.jpg" alt="image3">
             </div>
         </div>
 
@@ -44,7 +45,7 @@
             <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
-    </div>
+    </div><br />
 </div>
 @include('layouts.footer');
 </body>
