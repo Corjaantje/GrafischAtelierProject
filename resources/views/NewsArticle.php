@@ -9,7 +9,7 @@ use App\NewsData;
 	<div class="container">
 
 		<div class="row">
-				<?php
+			<?php
 				
 				if ($_GET['itemId'] !== null && ctype_digit($_GET['itemId'])) {
 					
@@ -41,7 +41,7 @@ use App\NewsData;
 							if (isset($paths[$i])) {
 								$pictureName = $paths[$i];
 								
-								echo "<img src=\"../assets/Images/NewsImages/$pictureName\" style=\"width: 100%;\">";
+								echo "<img src=\"../../public/Images/NewsImages/$pictureName\" style=\"width: 100%;\">";
 								
 								if (isset($titles[$i])) {
 									
@@ -74,8 +74,8 @@ use App\NewsData;
 					echo "</div>";
 				}
 				
-				?>
-			</div>
+			?>
+		</div>
 
 
 	</div>
