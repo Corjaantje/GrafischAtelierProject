@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>GA Den Bosch - @yield('title')</title>
+        <title>GA Den Bosch - {{ $title }}</title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
     <body>
