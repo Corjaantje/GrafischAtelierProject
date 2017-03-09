@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
+@include('layouts.header', array('title'=>'Home'));
 <div class="container">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
@@ -45,5 +46,6 @@
         </a>
     </div>
 </div>
+@include('layouts.footer');
 </body>
 </html>
