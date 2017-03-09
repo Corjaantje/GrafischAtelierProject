@@ -18,3 +18,7 @@ Route::get('/', function () {
 Route::get('werkplaats', function () {
     return view('werkplaats');
 });
+
+Route::get('archive', function () {
+    return view('archive');
+});
