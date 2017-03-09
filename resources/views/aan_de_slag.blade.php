@@ -1,4 +1,4 @@
-﻿﻿<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <link rel="stylesheet" type="text/css" href="../../public/css/app.css">
@@ -7,9 +7,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>Aan de slag</title>
 </head>
 <body>
+@include('layouts.header', array('title'=>'Aan de slag'));
 <div class="container">
 
     <style>
@@ -26,7 +28,6 @@
     </style>
 
     <h1 class="title">Workshops & Cursusaanbod</h1>
-    <!--Text + Image-->
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-6">
             <h1 class="subtitle">Watervrije non toxische Lithografie</h1>
@@ -102,7 +103,7 @@
         </div>
 
         </div>
-    <!---->
 </div>
+@include('layouts.footer');
 </body>
 </html>
