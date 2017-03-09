@@ -30,15 +30,15 @@
     <h1 class="title">Dagje uit</h1>
     <div class="row"><br />
         <div class="col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-6">
+            <h1 class="subtitle">Grafiek als avontuur</h1>
             <p>
-                <b>Grafiek als avontuur</b><br />
                 Maak kennis met eeuwenoude en toch zeer moderne grafische technieken. Bijvoorbeeld een vriend(inn)en club, reünie, vrijgezellendag, familie, voetbalteam etc. Daarnaast kunnen bedrijven bij ons terecht voor een bedrijfsuitje, training of teambuilding.
             </p>
         </div>
 
         <div class="col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-6">
+            <h1 class="subtitle">Op maat</h1>
             <p>
-                <b>Op maat</b><br />
                 Workshops kunnen op maat worden gemaakt.<br /><br />
 
                 We hebben bijvoorbeeld voor werknemers van het Noordbrabants Museum een stoomcursus grafische technieken gemaakt en voor de personeelsvereniging van de gemeente ’s-Hertogenbosch hebben we een roulerende workshop gemaakt waarbij drie grafische technieken met elkaar werden gecombineerd.<br /><br />
@@ -48,15 +48,15 @@
         </div>
 
         <div class="col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-6">
+            <h1 class="subtitle">Basis</h1>
             <p>
-                <b>Basis</b><br />
                 In deze workshop leer je de basisbeginselen van een grafische techniek. Je werkt met professionele materialen. Het avontuur zit hem in het creatieve proces dat je aangaat en dat je uitdrukking geeft aan een eigen idee. Je bent vooral aan het doen i.p.v. denken en gaat mét prent naar huis. Alle workshops worden gegeven door professionele kunstenaars met ruime ervaring in lesgeven aan groepen.
             </p>
         </div>
 
         <div class="col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-6">
+            <h1 class="subtitle">Plus arrangementen</h1>
             <p>
-                <b>Plus arrangementen</b><br />
                 Deze arrangementen zijn extra bij een workshop te boeken.<br /><br />
 
                 + Inspiratie rondleiding<br />
@@ -72,8 +72,8 @@
         </div>
 
         <div class="col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-6">
+            <h1 class="subtitle">Aanbod</h1>
             <p>
-                <b>Aanbod</b><br />
                 • Zeefdruk: Bedruk je eigen tas of t-shirt; Experimenteren met kleur; Ruimer denken<br />
                 • Materiaaldruk: Groene vingers; Onkruid vergaat niet<br />
                 • Droge naald: In het voetspoor van Rembrandt; Van twijfelen naar handelen<br />
