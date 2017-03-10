@@ -12,15 +12,21 @@
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+		<!-- Google Maps -->
+
+
+
 	</head>
 	<body>
-		<div class="jumbotron text-center">
-			<h1>Over GA</h1>
+	@include('layouts.header', array('title'=>'Over Ons'));
+		<div id="about-title">
+			<h1>Over het Grafisch Atelier Den Bosch</h1>
 		</div>
 
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6">
+
 					<h1>Contact en Info</h1>
 					<p>
 						<b>Kristel van Genugten</b> - Coördinator
@@ -92,30 +98,29 @@
 					<p>Op 27 en 28 februari 2017, tijdens carnaval, zijn wij gesloten.</p>
 				</div>
 			</div>
-		</div>
 
-	<!-- 	Voor het GoogleMapsding onderaan de pagina
-			<div id="map" style="width:400px;height:400px;background:yellow"></div>
 
-			<script type="text/javascript">
-				function myMap(){
-					var mapCanvas = document.getElementById("map");
-					var mapOptions = {
-						center: new google.maps.LatLng(51.69545, 5.29674),
-						zoom: 10,
-						mapTypeId: google.maps.MapTypeId.ROADMAP
-					}
-					var map = new google.maps.Map(mapCanvas, mapOptions)
-					var marker = new google.maps.marker({
-						position: google.maps.LatLng(51.69545, 5.29674),
-						map: map,
-						title:"Grafisch Atelier Den Bosch"
-					})
-				}
+			<!-- Google Maps -->
+			<div id="google-map"></div>
+			<script>
+                function initMap() {
+                    var uluru = {lat: 51.69545, lng: 5.29674};
+                    var map = new google.maps.Map(document.getElementById('google-map'), {
+                        zoom: 14,
+                        center: uluru
+                    });
+                    var marker = new google.maps.Marker({
+                        position: uluru,
+                        map: map
+                    });
+                }
+			</script>
+			<script async defer
+					src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxrbCMt-RKFchvRagS6Mime0eUUqokIbM&callback=initMap">
 			</script>
 
-			<script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
-			<! w3 schools key = 'AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU' > -->
 
+		</div>
+	@include('layouts.footer');
 	</body>
 </html>

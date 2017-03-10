@@ -110,3 +110,13 @@ li:hover #dropdown-content {
 #footerimages #w2f{
     margin-right: 50px;
 }
+
+#about-title {
+    font-size: 30px;
+    text-align: center;
+}
+
+#google-map {
+    width: 100%;
+    height: 400px;
+}
