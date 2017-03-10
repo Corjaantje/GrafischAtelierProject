@@ -30,7 +30,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="/" id="logo"> <img src="img/logo_ga.png" width="250px"> </a>
+                <a href="/" id="logo"> <img src="{{ URL::asset('img/logo_ga.png') }}" width="250px"> </a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
 
@@ -53,7 +53,7 @@
                     </div>
                 </li>
                 -
-                <li><a href="/"> <b>Over Ons</b> </a></li>
+                <li><a href="{{URL::route('about')}}"> <b>Over Ons</b> </a></li>
             </ul>
             </div>
         </div>
