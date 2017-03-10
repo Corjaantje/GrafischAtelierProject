@@ -3,8 +3,14 @@
 <head>
 <title>Agenda</title>
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" type="text/css"
+	href="{{ URL::asset('css/app.css') }}">
+<script src="{{ URL::asset('js/app.js') }}"></script>
+
 </head>
 <body>
+
+@include('layouts.header', array('title'=>'Agenda'))
 	<div class="content">
 <?php
 $day = date ( 'w' );
@@ -70,7 +76,7 @@ while ( $zCounter <= 5 ) {
 		echo "<tr class=\"Agenda_row\">";
 		
 		if ($xCounter != 0) {
-			echo "<td class= \"Agenda_cell_Event\">".$eventList[$xCounter]. "</td>";
+			echo "<td class= \"Agenda_cell_Event\">" . $eventList [$xCounter] . "</td>";
 		} else {
 			echo "<td class= \"Agenda_cell_Event\"></td>";
 		}
@@ -112,4 +118,6 @@ echo "</div>"?>
 		</form>
 
 	</div>
+@include('layouts.footer')
+	
 </body>
