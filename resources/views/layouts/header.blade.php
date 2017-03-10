@@ -53,7 +53,7 @@
                     </div>
                 </li>
                 -
-                <li><a href="/"> <b>Over Ons</b> </a></li>
+                <li><a href="{{URL::route('about')}}"> <b>Over Ons</b> </a></li>
             </ul>
             </div>
         </div>
