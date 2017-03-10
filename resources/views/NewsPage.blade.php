@@ -36,7 +36,7 @@ use App\NewsData;
 					
 					echo "<a href=\"artikel/$itemNr\" style=\"text-decoration: none; color:black;\">";
 					
-					echo "<img src=\"../../Images/NewsImages/$pictureName\" style=\"width: 100%;\">";
+					echo "<img src=\"../../img/NewsImages/$pictureName\" style=\"width: 100%;\">";
 					
 					echo "<br>$sample";
 					
