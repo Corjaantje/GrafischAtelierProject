@@ -56,3 +56,7 @@ Route::get('dagje_uit', array('as' => 'dagje_uit', function () {
 Route::get('opfrissen', array('as' => 'opfrissen', function () {
     return view('opfrissen');
 }));
+
+Route::get('about', function() {
+	return view('about');
+});

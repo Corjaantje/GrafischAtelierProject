@@ -112,6 +112,16 @@ li:hover #dropdown-content {
     margin-right: 50px;
 }
 
+#about-title {
+    font-size: 30px;
+    text-align: center;
+}
+
+#google-map {
+    width: 100%;
+    height: 400px;
+}
+
 .archive-block {
     display: table-row;
 }
