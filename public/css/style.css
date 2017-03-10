@@ -121,3 +121,25 @@ li:hover #dropdown-content {
     width: 100%;
     height: 400px;
 }
+
+.archive-block {
+    display: table-row;
+}
+
+.archive-image {
+    display: table-cell;
+    vertical-align: top;
+    margin-right: 20px;
+    margin-bottom: 50px;
+}
+
+.archive-text {
+    display: table-cell;
+    vertical-align: top;
+    font-size: 16px;
+}
+
+.view-more {
+    font-size: 18px;
+    text-align: right;
+}
