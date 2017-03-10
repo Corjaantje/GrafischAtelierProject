@@ -12,9 +12,9 @@
 Route::get('/', function () {
 	return view('home');
 });
-Route::get('nieuws', function () {
+Route::get('nieuws', array('as' => 'nieuws', function () {
     return view('NewsPage');
-});
+}));
 Route::get('artikel/{ArtikelNr}', function ($ArtikelNr) {
     $data = array(
         'Id' => $ArtikelNr
@@ -27,9 +27,9 @@ Route::get('/educatie', function () {
 Route::get('werkplaats', function () {
 	return view('werkplaats');
 });
-Route::get('webshop', function () {
+Route::get('webshop', array('as' => 'webshop', function () {
 	return view('Webshop');
-});
+}));
 Route::get('product/{ProductNr}', function ($ProductNr) {
 	$data = array(
 			'Id' => $ProductNr 

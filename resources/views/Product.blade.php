@@ -8,7 +8,7 @@ use App\ShopItemNames;
     <link rel="stylesheet" type="text/css" href="../css/style.css">
 
 	<body>
-		@include('layouts.headerProduct', array('title'=>'Product'))
+		@include('layouts.headerChild', array('title'=>'Product'))
 
 
 		<div class="container">
@@ -42,7 +42,7 @@ use App\ShopItemNames;
 			?>	
 		
 		</div>
-		@include('layouts.footerProduct')
+		@include('layouts.footerChild')
 	</body>
 
 </html>
