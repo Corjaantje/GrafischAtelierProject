@@ -3,9 +3,15 @@ use App\ShopItemNames;
 ?>
 <html>
 
-	<link rel="stylesheet" href="css/app.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+<head>
+	<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/app.css') }}">
+	<script src="{{ URL::asset('js/app.js') }}"></script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+</head>
 	<body>
 	
 		@include('layouts.header', array('title'=>'Webshop'))
