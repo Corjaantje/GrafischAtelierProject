@@ -18,6 +18,7 @@ li:hover #dropdown-content {
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     min-width: 174px;
     text-align: center;
+    z-index: 1;
 }
 #dropdown-content:hover{
     display: block;
@@ -109,4 +110,26 @@ li:hover #dropdown-content {
 
 #footerimages #w2f{
     margin-right: 50px;
+}
+
+.archive-block {
+    display: table-row;
+}
+
+.archive-image {
+    display: table-cell;
+    vertical-align: top;
+    margin-right: 20px;
+    margin-bottom: 50px;
+}
+
+.archive-text {
+    display: table-cell;
+    vertical-align: top;
+    font-size: 16px;
+}
+
+.view-more {
+    font-size: 18px;
+    text-align: right;
 }
