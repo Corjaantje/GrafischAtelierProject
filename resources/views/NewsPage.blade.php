@@ -40,6 +40,10 @@ use App\NewsData;
 					
 					echo "<br>$sample";
 					
+					echo "<br>";
+					
+					echo "<p style=\"color:red;\">LEES VERDER > </p>";
+					
 					echo "</a>";
 					
 					echo "</div>";
