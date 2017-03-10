@@ -1,5 +1,4 @@
 <?php
-
 /*
  * |--------------------------------------------------------------------------
  * | Web Routes
@@ -11,24 +10,23 @@
  * |
  */
 Route::get('/', function () {
-	return view('home');
+    return view('home');
 });
 Route::get('nieuws', function () {
-	return view('NewsPage');
+    return view('NewsPage');
 });
 Route::get('artikel/{ArtikelNr}', function ($ArtikelNr) {
-	$data = array(
-			'Id' => $ArtikelNr 
-	);
-	return view('NewsArticle', $data);
+    $data = array(
+        'Id' => $ArtikelNr
+    );
+    return view('NewsArticle', $data);
 });
 Route::get('/educatie', function () {
-	return view('educatie');
+    return view('educatie');
 });
 Route::get('werkplaats', function () {
     return view('werkplaats');
 });
-
 Route::get('archive', function () {
     return view('archive');
 });
