@@ -12,7 +12,7 @@ use App\ShopItemNames;
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 	<body>
-		@include('layouts.headerProduct', array('title'=>'Product'))
+		@include('layouts.headerChild', array('title'=>'Product'))
 
 
 		<div class="container">
@@ -46,7 +46,7 @@ use App\ShopItemNames;
 			?>	
 		
 		</div>
-		@include('layouts.footerProduct')
+		@include('layouts.footerChild')
 	</body>
 
 </html>

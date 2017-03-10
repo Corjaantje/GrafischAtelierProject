@@ -10,7 +10,7 @@
     <title>Aan de slag</title>
 </head>
 <body>
-@include('layouts.header', array('title'=>'scholen'));
+@include('layouts.header', array('title'=>'scholen'))
 <div class="container">
 
     <style>
@@ -63,6 +63,6 @@
         </div>
     </div>
 </div>
-@include('layouts.footer');
+@include('layouts.footer')
 </body>
 </html>
