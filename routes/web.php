@@ -57,6 +57,6 @@ Route::get('opfrissen', array('as' => 'opfrissen', function () {
     return view('opfrissen');
 }));
 
-Route::get('about', function() {
+Route::get('about', array('as' => 'about', function() {
 	return view('about');
-});
+}));

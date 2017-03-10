@@ -142,6 +142,24 @@ li:hover #dropdown-content {
 #footerimages #w2f {
   margin-right: 50px; }
 
+.archive-block {
+  display: table-row; }
+
+.archive-image {
+  display: table-cell;
+  vertical-align: top;
+  margin-right: 20px;
+  margin-bottom: 50px; }
+
+.archive-text {
+  display: table-cell;
+  vertical-align: top;
+  font-size: 16px; }
+
+.view-more {
+  font-size: 18px;
+  text-align: right; }
+
 #nav .socials {
   float: right; }
 
@@ -158,7 +176,8 @@ li:hover #dropdown-content {
 .fa:hover {
   opacity: 0.7; }
 
-s
+/* Set a specific color for each brand */
+/* Facebook */
 .fa-facebook {
   background: #3B5998;
   color: white; }
