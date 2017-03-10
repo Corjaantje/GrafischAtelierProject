@@ -175,4 +175,14 @@ s
 .icon-bar {
   background-color: #333333; }
 
+h1.title {
+  text-align: center;
+  font-weight: bold;
+}
+h1.subtitle {
+  color: deeppink;
+}
+div.bigText {
+  font-size: large;
+}
 /*# sourceMappingURL=app.css.map */

@@ -12,21 +12,7 @@
 </head>
 <body>
 @include('layouts.header', array('title'=>'Aan de slag'))
-<div class="container">
-
-    <style>
-        h1.title {
-            text-align: center;
-            font-weight: bold;
-        }
-        h1.subtitle {
-            color: deeppink;
-        }
-        p {
-            font-size: large;
-        }
-    </style>
-
+<div class="container bigText">
     <h1 class="title">Workshops & Cursusaanbod</h1>
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-6">
