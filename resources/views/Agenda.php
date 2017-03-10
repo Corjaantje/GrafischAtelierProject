@@ -42,20 +42,51 @@ while ( $zCounter <= 5 ) {
 	
 	$xCounter = 0;
 	$yCounter = 0;
+	$timeList = array (
+			0 => '0:00',
+			1 => '1:00',
+			2 => '2:00',
+			3 => '3:00',
+			4 => '4:00',
+			5 => '5:00',
+			6 => '6:00',
+			7 => '7:00',
+			8 => '8:00',
+			9 => '9:00',
+			10 => '10:00' 
+	);
+	$eventList = array (
+			1 => 'Reservering - Hugo Bosch',
+			2 => 'School uitje, de korte steeg.',
+			3 => 'Tandarts - Mirjam',
+			4 => 'Hugo',
+			5 => 'Hugo',
+			6 => 'Hugo',
+			7 => 'Hugo',
+			8 => 'Hugo' 
+	);
+	
 	while ( $xCounter < 4 ) {
 		echo "<tr class=\"Agenda_row\">";
 		
-		echo "<td class= \"Agenda_cell_Event\">Event: " . $xCounter . "</td>";
-		
+		if ($xCounter != 0) {
+			echo "<td class= \"Agenda_cell_Event\">".$eventList[$xCounter]. "</td>";
+		} else {
+			echo "<td class= \"Agenda_cell_Event\"></td>";
+		}
 		$yCounter = 0;
-		while ( $yCounter < 12 ) {
+		while ( $yCounter < 10 ) {
 			
 			if ($xCounter == 0) {
-				echo "<td class=\"Agenda_cell\">Tijd</td>";
+				echo "<td class=\"Agenda_tijd_cell\">" . $timeList [$yCounter + 1] . "</td>";
 				$yCounter ++;
 				continue;
 			}
-			echo "<td class=\"Agenda_cell\">test</td>";
+			if (rand ( 0, 2 ) == 1) {
+				echo "<td class=\"Agenda_cell\"></td>";
+			} else {
+				echo "<td class=\"Agenda_filled_cell\"></td>";
+			}
 			$yCounter ++;
 		}
 		$xCounter ++;

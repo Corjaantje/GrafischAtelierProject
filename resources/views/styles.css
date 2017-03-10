@@ -4,20 +4,27 @@
 	display: block;
 	margin: 10px 10%;
 	paddig: 10px;
-	background: #888a85;
+	background: #F2F2F2;
 	color: #000;
 	font-size: 12px;
 	margin: 10px 10%;
+	border-top-right-radius: 10px;
+	border-bottom-left-radius: 10px;
 }
 
 .Agenda_Day {
 	display: block;
 	margin: 15px 15px;
 	padding: 5px;
-	background: #5c3566;
 	color: #000;
 	font-size: 12px;
-	background: #5c3566;
+	background: #d2d2d2;
+	border-top-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+.Agenda_Day h1 {
+	margin-left: 10px;
 }
 
 .Agenda_timeTable {
@@ -39,18 +46,40 @@
 
 .Agenda_row {
 	width: 100%;
-	margin: 10px 10px;
 }
 
-.Agenda_row:hover {
-	background: #d3d7cf;
-}
 
 .Agenda_cell {
 	white-space: nowrap;
-	border-top-width: 0px;
 	width: 40px;
-	border: 1px solid #ef2929;
+	background: #F2F2F2;
+	border: 0px;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	margin: 0px;
+}
+
+.Agenda_tijd_cell {
+	white-space: nowrap;
+	width: 40px;
+	min-width: 40px;
+	max-width: 40px;
+	background: #75507b;
+	border: 0px;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	margin: 0px;
+}
+
+.Agenda_filled_cell {
+	white-space: nowrap;
+	width: 40px;
+	min-width: 40px;
+	max-width: 40px;
+	background: #8ae234;
+	border: 0px;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
 	margin: 0px;
 }
 
@@ -62,7 +91,8 @@
 	width: auto;
 	max-width: 100%;
 	white-space: nowrap;
-	background: #f2f2f2;
+	background: #ad7fa8;
+	border: 1px solid black;
 }
 
 .agenda {
