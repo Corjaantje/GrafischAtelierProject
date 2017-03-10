@@ -139,6 +139,7 @@ li:hover #dropdown-content {
   padding-bottom: 0;}
 
 #links{
+
   display: inline-block;
   font-size: 24px;
 }
@@ -176,8 +177,32 @@ li:hover #dropdown-content {
   display: inline-block;
 }
 
-#footerimages #w2f {
+#footerimages #w2f{
   margin-right: 50px;
+}
+
+//Archive
+
+.archive-block {
+  display: table-row;
+}
+
+.archive-image {
+  display: table-cell;
+  vertical-align: top;
+  margin-right: 20px;
+  margin-bottom: 50px;
+}
+
+.archive-text {
+  display: table-cell;
+  vertical-align: top;
+  font-size: 16px;
+}
+
+.view-more {
+  font-size: 18px;
+  text-align: right;
 }
 
 //Socials
