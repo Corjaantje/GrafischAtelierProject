@@ -1,5 +1,4 @@
 <?php
-
 /*
  * |--------------------------------------------------------------------------
  * | Web Routes
@@ -13,11 +12,18 @@
 Route::get('/', function () {
 	return view('home');
 });
-
+Route::get('nieuws', function () {
+    return view('NewsPage');
+});
+Route::get('artikel/{ArtikelNr}', function ($ArtikelNr) {
+    $data = array(
+        'Id' => $ArtikelNr
+    );
+    return view('NewsArticle', $data);
+});
 Route::get('/educatie', function () {
 	return view('educatie');
 });
-
 Route::get('werkplaats', function () {
 	return view('werkplaats');
 });
@@ -31,7 +37,6 @@ Route::get('product/{ProductNr}', function ($ProductNr) {
 	
 	return view('Product', $data);
 });
-
 Route::get('archive', function () {
     return view('archive');
 });
