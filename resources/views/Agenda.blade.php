@@ -4,7 +4,7 @@ use function Composer\Autoload\includeFile;
 <html>
 </html>
 <head>
-<title>Agenda</title>
+
 <link rel="stylesheet" type="text/css"
 	href="{{ URL::asset('css/app.css') }}">
 	
