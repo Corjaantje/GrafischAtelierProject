@@ -24,9 +24,10 @@ Route::get('artikel/{ArtikelNr}', function ($ArtikelNr) {
 Route::get('/educatie', function () {
 	return view('educatie');
 });
-Route::get('werkplaats', function () {
+Route::get('werkplaats', array('as' => 'werkplaats', function () {
 	return view('werkplaats');
-});
+}));
+
 Route::get('webshop', array('as' => 'webshop', function () {
 	return view('Webshop');
 }));
