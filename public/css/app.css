@@ -255,23 +255,26 @@ li:hover #dropdown-content {
 .Agenda_Day {
 	display: block;
 	margin: 15px 15px;
-	padding: 5px;
+	padding: 0px;
+	padding-top: 5px;
 	color: #000;
 	font-size: 12px;
 	background: #d2d2d2;
 	border-top-right-radius: 10px;
 	border-bottom-left-radius: 10px;
+	color: #000;
 }
 
 .Agenda_Day h1 {
 	margin-left: 10px;
+	margin-top: 10px;
 }
 
 .Agenda_timeTable {
 	border: 0px solid black;
 	border-collapse: collapse;
 	text-align: left;
-	margin: 10px 5px 10px 5px;
+	margin: 10px 5px 10px 0px;
 	width: auto;
 	display: block;
 }
@@ -280,7 +283,8 @@ li:hover #dropdown-content {
 	display: block;
 	height: auto;
 	width: 95%;
-	margin: 5px;
+	margin: 10px;
+	padding: 0px;
 	overflow: auto;
 }
 
@@ -291,7 +295,7 @@ li:hover #dropdown-content {
 .Agenda_cell {
 	white-space: nowrap;
 	width: 40px;
-	background: #F2F2F2;
+	background: #f3f3f3;
 	border: 0px;
 	border-top: 1px solid black;
 	border-bottom: 1px solid black;

@@ -54,6 +54,8 @@
                 </li>
                 -
                 <li><a href="{{URL::route('about')}}"> <b>Over Ons</b> </a></li>
+                -
+                <li><a href="{{URL::route('agenda')}}"> <b>Agenda</b> </a></li>
             </ul>
             </div>
         </div>

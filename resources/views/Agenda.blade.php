@@ -1,10 +1,12 @@
+<?php
+use function Composer\Autoload\includeFile;
+?>
 <html>
 </html>
 <head>
 <title>Agenda</title>
 <link rel="stylesheet" type="text/css"
 	href="{{ URL::asset('css/app.css') }}">
-	<link rel="stylesheet" href="styles.css">
 	
 <script src="{{ URL::asset('js/app.js') }}"></script>
 
@@ -28,9 +30,9 @@ if ($_POST != null and array_key_exists ( "submit", $_POST ) and array_key_exist
 			break;
 	}
 }
-?>
-@include('LanguageConverter')
-<?php 
+
+include '../resources/lang/LanguageConverter.php';
+
 echo "<div class=\"agenda\">";
 
 $zCounter = 1;
