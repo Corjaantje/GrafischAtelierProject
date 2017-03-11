@@ -10,7 +10,7 @@
 <<<<<<< HEAD
 </head>
 <body>
-@include('layouts.header', array('title'=>'opfrissen'))
+@include('layouts.header', array('title'=>'Opfrissen'))
 
 <div class="container bigText">
     <h1 class="title">Opfrissen & kennismaking</h1>
