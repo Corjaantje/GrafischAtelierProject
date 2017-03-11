@@ -194,6 +194,18 @@ li:hover #dropdown-content {
 .icon-bar {
   background-color: #333333; }
 
+
+h1.title {
+  text-align: center;
+  font-weight: bold;
+}
+h1.subtitle {
+  color: deeppink;
+}
+div.bigText {
+  font-size: large;
+}
+
 #about-title {
   font-size: 30px;
   text-align: center;
