@@ -142,6 +142,24 @@ li:hover #dropdown-content {
 #footerimages #w2f {
   margin-right: 50px; }
 
+.archive-block {
+  display: table-row; }
+
+.archive-image {
+  display: table-cell;
+  vertical-align: top;
+  margin-right: 20px;
+  margin-bottom: 50px; }
+
+.archive-text {
+  display: table-cell;
+  vertical-align: top;
+  font-size: 16px; }
+
+.view-more {
+  font-size: 18px;
+  text-align: right; }
+
 #nav .socials {
   float: right; }
 
@@ -158,7 +176,8 @@ li:hover #dropdown-content {
 .fa:hover {
   opacity: 0.7; }
 
-s
+/* Set a specific color for each brand */
+/* Facebook */
 .fa-facebook {
   background: #3B5998;
   color: white; }
@@ -175,6 +194,7 @@ s
 .icon-bar {
   background-color: #333333; }
 
+
 h1.title {
   text-align: center;
   font-weight: bold;
@@ -185,4 +205,15 @@ h1.subtitle {
 div.bigText {
   font-size: large;
 }
+
+#about-title {
+  font-size: 30px;
+  text-align: center;
+}
+
+#google-map {
+  width: 100%;
+  height: 400px;
+}
+
 /*# sourceMappingURL=app.css.map */
