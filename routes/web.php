@@ -60,3 +60,7 @@ Route::get('opfrissen', array('as' => 'opfrissen', function () {
 Route::get('about', array('as' => 'about', function() {
 	return view('about');
 }));
+
+	Route::get('agenda', array('as' => 'agenda', function() {
+		return view('Agenda');
+	}));

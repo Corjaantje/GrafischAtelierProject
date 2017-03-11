@@ -3,7 +3,7 @@ class LanguageConverter {
 
 	public function dateConverter($date) {
 		
-		$dateArray = split ( " ", $date );
+		$dateArray = explode( " ", $date );
 		switch ($dateArray [0]) {
 			case "Mon" :
 				$dateArray [0] = "Maandag";

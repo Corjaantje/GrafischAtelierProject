@@ -2,9 +2,10 @@
 </html>
 <head>
 <title>Agenda</title>
-<link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" type="text/css"
 	href="{{ URL::asset('css/app.css') }}">
+	<link rel="stylesheet" href="styles.css">
+	
 <script src="{{ URL::asset('js/app.js') }}"></script>
 
 </head>
@@ -27,8 +28,9 @@ if ($_POST != null and array_key_exists ( "submit", $_POST ) and array_key_exist
 			break;
 	}
 }
-include_once 'LanguageConverter.php';
-
+?>
+@include('LanguageConverter')
+<?php 
 echo "<div class=\"agenda\">";
 
 $zCounter = 1;
@@ -107,15 +109,6 @@ while ( $zCounter <= 5 ) {
 
 echo "</div>"?>
 
-
-
-
-<form action="Agenda.php" method=post>
-			<input type="text" style="display: none" name="offset"
-				value=<?php echo $week_offset;?> /> <input type="submit"
-				name="submit" value="Last Week" /> <input type="submit"
-				name="submit" value="Next Week" />
-		</form>
 
 	</div>
 @include('layouts.footer')
