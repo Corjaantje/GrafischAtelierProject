@@ -22,6 +22,7 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
             <div class="item active">
+
                 <img src="http://www.grafisch-atelier-daglicht.nl/images/5226_IMG_5608.jpg" alt="image1">
             </div>
 
@@ -43,6 +44,7 @@
             <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
+
     </div><br />
 </div>
 @include('layouts.footer')
