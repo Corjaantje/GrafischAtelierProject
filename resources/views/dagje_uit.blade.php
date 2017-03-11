@@ -7,10 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<<<<<<< HEAD
 </head>
 <body>
-@include('layouts.header', array('title'=>'dagje uit'))
+@include('layouts.header', array('title'=>'Dagje uit'))
 <div class="container bigText">
     <h1 class="title">Dagje uit</h1>
     <div class="row"><br />
