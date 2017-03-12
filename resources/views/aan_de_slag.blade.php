@@ -7,25 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <title>Aan de slag</title>
+
 </head>
 <body>
 @include('layouts.header', array('title'=>'Aan de slag'))
-<div class="container">
-
-    <style>
-        h1.title {
-            text-align: center;
-            font-weight: bold;
-        }
-        h1.subtitle {
-            color: deeppink;
-        }
-        p {
-            font-size: large;
-        }
-    </style>
-
+<div class="container bigText">
     <h1 class="title">Workshops & Cursusaanbod</h1>
     <h3 class="nv-subtitle text-center">
         Op deze pagina vindt u de komende workshops en cursussen die aangeboden worden binnen het Grafisch Atelier Den Bosch.

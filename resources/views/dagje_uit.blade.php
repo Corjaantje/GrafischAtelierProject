@@ -7,25 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <title>Aan de slag</title>
 </head>
 <body>
-@include('layouts.header', array('title'=>'scholen'))
-<div class="container">
-
-    <style>
-        h1.title {
-            text-align: center;
-            font-weight: bold;
-        }
-        h1.subtitle {
-            color: deeppink;
-        }
-        p {
-            font-size: large;
-        }
-    </style>
-
+@include('layouts.header', array('title'=>'Dagje uit'))
+<div class="container bigText">
     <h1 class="title">Dagje uit</h1>
     <div class="row"><br />
         <div class="col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-6">

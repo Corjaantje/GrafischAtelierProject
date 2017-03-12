@@ -50,10 +50,13 @@
                         <a href="{{URL::route('scholen')}}"><b>Scholen</b></a>
                         <a href="{{URL::route('dagje_uit')}}"><b>Dagje uit</b></a>
                         <a href="{{URL::route('opfrissen')}}"><b>Opfrissen</b></a>
+                        <a href="{{URL::route('werkplaats')}}"><b>Werkplaats</b></a>
                     </div>
                 </li>
                 -
                 <li><a href="{{URL::route('about')}}"> <b>Over Ons</b> </a></li>
+                -
+                <li><a href="{{URL::route('agenda')}}"> <b>Agenda</b> </a></li>
             </ul>
             </div>
         </div>
