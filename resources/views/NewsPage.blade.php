@@ -14,6 +14,7 @@ use App\NewsData;
 <body>
 @include('layouts.header', array('title'=>'Nieuws'))
 	<div class="container">
+		<h1 class="title text-center">Nieuws</h1>
 
 		<?php
 		

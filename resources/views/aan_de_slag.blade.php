@@ -13,6 +13,10 @@
 @include('layouts.header', array('title'=>'Aan de slag'))
 <div class="container bigText">
     <h1 class="title">Workshops & Cursusaanbod</h1>
+    <h3 class="nv-subtitle text-center">
+        Op deze pagina vindt u de komende workshops en cursussen die aangeboden worden binnen het Grafisch Atelier Den Bosch.
+        Bij elk aanbod is een korte omschrijving gegeven van het aanbod, en door op de titel te klikken kunt u meer details te zien krijgen.
+    </h3>
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-6">
             <h1 class="subtitle">Watervrije non toxische Lithografie</h1>

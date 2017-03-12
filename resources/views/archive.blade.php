@@ -14,6 +14,9 @@
 <div class="title text-center">
     <h1>Archief</h1>
 </div>
+<div class="nv-subtitle text-center">
+    <h3>Op deze pagina zijn de nieuwsberichten uit het verleden te vinden. <br>Deze zijn gesorteerd van meest recent naar minst recent.</h3>
+</div>
 
 <div class="container">
     <div class="content">
@@ -33,7 +36,7 @@
 
         <div class="view-more">
             <!-- Reload page with +10 articles -->
-            <a href="/archive">Show more...</a>
+            <a href="/archive">Laad meer artikelen</a>
         </div>
     </div>
 </div>
