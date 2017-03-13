@@ -1,8 +1,3 @@
-<html>
-<head>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-</head>
-<body>
 @section('footer')
     <div id="footer">
         <div id="links">
@@ -13,10 +8,8 @@
             </ul>
         </div>
         <div id="footerimages">
-            <img id="w2f" src="img/w2f_logo.png" alt="w2f logo" width="250px">;
-            <img src="img/payments.png" alt="payments" width="225px">;
+            <img id="w2f" src="{{ URL::asset('img/w2f_logo.png') }}" alt="w2f logo" width="250px">;
+            <img src="{{ URL::asset('img/payments.png') }}" alt="payments" width="225px">;
         </div>
     </div>
 @show
-</body>
-</html>
