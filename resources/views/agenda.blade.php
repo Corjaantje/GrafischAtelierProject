@@ -4,16 +4,13 @@ use function Composer\Autoload\includeFile;
 <html>
 </html>
 <head>
-
-<link rel="stylesheet" type="text/css"
-	href="{{ URL::asset('css/app.css') }}">
-	
+	<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/app.css') }}">
 <script src="{{ URL::asset('js/app.js') }}"></script>
 
 </head>
 <body>
 
-@include('layouts.header', array('title'=>'Agenda'))
+@include('layouts.header', array('title'=>'agenda'))
 	<div class="content">
 <?php
 $day = date ( 'w' );
