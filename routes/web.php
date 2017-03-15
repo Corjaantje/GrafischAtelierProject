@@ -21,14 +21,14 @@ Route::get('artikel/{ArtikelNr}', function ($ArtikelNr) {
     );
     return view('NewsArticle', $data);
 });
-Route::get('/educatie', function () {
+Route::get('educatie', function () {
 	return view('educatie');
 });
 Route::get('werkplaats', array('as' => 'werkplaats', function () {
 	return view('werkplaats');
 }));
 
-Route::get('webshop', array('as' => 'webshop', function () {
+Route::get('winkel', array('as' => 'webshop', function () {
 	return view('Webshop');
 }));
 Route::get('product/{ProductNr}', function ($ProductNr) {
@@ -38,9 +38,10 @@ Route::get('product/{ProductNr}', function ($ProductNr) {
 	
 	return view('Product', $data);
 });
-Route::get('archive', function () {
+
+Route::get('archief', array('as' => 'archief', function () {
     return view('archive');
-});
+}));
 
 Route::get('aan_de_slag', array('as' => 'aan_de_slag', function () {
     return view('aan_de_slag');
@@ -58,7 +59,7 @@ Route::get('opfrissen', array('as' => 'opfrissen', function () {
     return view('opfrissen');
 }));
 
-Route::get('about', array('as' => 'about', function() {
+Route::get('over_ons', array('as' => 'about', function() {
 	return view('about');
 }));
 

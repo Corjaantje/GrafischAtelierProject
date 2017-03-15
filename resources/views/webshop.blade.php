@@ -14,7 +14,7 @@ use App\ShopItemNames;
 </head>
 	<body>
 	
-		@include('layouts.header', array('title'=>'Webshop'))
+		@include('layouts.header', array('title'=>'webshop'))
 	
 		<div class="container">
 		
