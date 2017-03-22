@@ -359,3 +359,13 @@ li:hover #dropdown-content {
   float: right;
   text-align: center;
 }
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: lightgrey;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  min-width: 80px;
+  text-align: center;
+  z-index: 1;
+}

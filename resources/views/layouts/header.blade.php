@@ -69,7 +69,7 @@
                     <li><a href="{{ route('login') }}"><b>Login</b></a></li>
                     <li><a href="{{ route('register') }}"><b>Register</b></a></li>
                 @else
-                    <li class="dropdown">
+                    <li id="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
@@ -94,3 +94,5 @@
         </div>
     </nav>
 @show
+
+<script src="{{ asset('js/app.js') }}"></script>
