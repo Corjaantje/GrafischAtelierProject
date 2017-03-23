@@ -103,8 +103,6 @@ li:hover #dropdown-content {
   text-decoration: none;
   background-color: #b6b7a7;
   text-align: center;
-  text-decoration: none;
-  display: inline-block;
 }
 
 #nav a:active {
@@ -357,6 +355,7 @@ li:hover #dropdown-content {
 
 .auth_links {
   float: right;
+  margin-left: 5px;
   text-align: center;
 }
 
@@ -369,3 +368,7 @@ li:hover #dropdown-content {
   text-align: center;
   z-index: 1;
 }
+
+.dropdown-menu:hover {
+   background-color: lightgrey;
+ }

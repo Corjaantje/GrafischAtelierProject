@@ -2,7 +2,7 @@
 
 @section('navigation')
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             //change the integers below to match the height of your upper dive, which I called
             //banner.  Just add a 1 to the last number.  console.log($(window).scrollTop())
             //to figure out what the scroll position is when exactly you want to fix the nav
@@ -43,53 +43,47 @@
                     <i class="fa fa-twitter" aria-hidden="true"></i>
                     <i class="fa fa-linkedin" aria-hidden="true"></i>
                 </div>
-            <ul>
-                <li><a href="{{URL::route('nieuws')}}"> <b>Nieuws</b> </a></li>
-                -
-                <li><a href="{{URL::route('webshop')}}"> <b>Winkel</b> </a></li>
-                -
-                <li id="dropdown"><a href="{{URL::route('aan_de_slag')}}"> <b>Aan De Slag</b> </a>
-                    <div id="dropdown-content">
-                        <a href="{{URL::route('aan_de_slag')}}"><b>Workshops</b></a>
-                        <a href="{{URL::route('scholen')}}"><b>Scholen</b></a>
-                        <a href="{{URL::route('dagje_uit')}}"><b>Dagje uit</b></a>
-                        <a href="{{URL::route('opfrissen')}}"><b>Opfrissen</b></a>
-                        <a href="{{URL::route('werkplaats')}}"><b>Werkplaats</b></a>
-                    </div>
-                </li>
-                -
-                <li><a href="{{URL::route('about')}}"> <b>Over Ons</b> </a></li>
-                -
-                <li><a href="{{URL::route('agenda')}}"> <b>Agenda</b> </a></li>
-                -
-                <li><a href="{{URL::route('archief')}}"> <b>Archief</b> </a></li>
-                <ul class="nav navbar-nav navbar-right auth_links">
-                <!-- Authentication Links -->
-                @if (Auth::guest())
-                    <li><a href="{{ route('login') }}"><b>Login</b></a></li>
-                    <li><a href="{{ route('register') }}"><b>Register</b></a></li>
-                @else
-                    <li id="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            {{ Auth::user()->name }} <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li>
+                <ul>
+                    <li><a href="{{URL::route('nieuws')}}"> <b>Nieuws</b> </a></li>
+                    -
+                    <li><a href="{{URL::route('webshop')}}"> <b>Winkel</b> </a></li>
+                    -
+                    <li id="dropdown"><a href="{{URL::route('aan_de_slag')}}"> <b>Aan De Slag</b> </a>
+                        <div id="dropdown-content">
+                            <a href="{{URL::route('aan_de_slag')}}"><b>Workshops</b></a>
+                            <a href="{{URL::route('scholen')}}"><b>Scholen</b></a>
+                            <a href="{{URL::route('dagje_uit')}}"><b>Dagje uit</b></a>
+                            <a href="{{URL::route('opfrissen')}}"><b>Opfrissen</b></a>
+                            <a href="{{URL::route('werkplaats')}}"><b>Werkplaats</b></a>
+                        </div>
+                    </li>
+                    -
+                    <li><a href="{{URL::route('about')}}"> <b>Over Ons</b> </a></li>
+                    -
+                    <li><a href="{{URL::route('agenda')}}"> <b>Agenda</b> </a></li>
+                    -
+                    <li><a href="{{URL::route('archief')}}"> <b>Archief</b> </a></li>
+                    <!-- Authentication Links -->
+                    @if (Auth::guest())
+                        <li class="auth_links"><a href="{{ route('register') }}"><b>Register</b></a></li>
+                        <li class="auth_links"><a href="{{ route('login') }}"><b>Login</b></a></li>
+                    @else
+                        <li id="dropdown" class="auth_links"><b>{{ Auth::user()->name }} <span class="caret"></span></b>
+                            <div id="dropdown-content">
                                 <a href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     Logout
                                 </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                      style="display: none;">
                                     {{ csrf_field() }}
                                 </form>
-                            </li>
-                        </ul>
-                    </li>
-                @endif
+                            </div>
+                        </li>
+                    @endif
                 </ul>
-            </ul>
             </div>
         </div>
     </nav>
