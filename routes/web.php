@@ -1,14 +1,12 @@
 <?php
 /*
- * |--------------------------------------------------------------------------
- * | Web Routes
- * |--------------------------------------------------------------------------
- * |
- * | Here is where you can register web routes for your application. These
- * | routes are loaded by the RouteServiceProvider within a group which
- * | contains the "web" middleware group. Now create something great!
- * |
- */
+    _____              _____               ____                 _
+    / ____|   /\       |  __ \             |  _ \               | |
+     | |  __   /  \      | |  | | ___ _ __   | |_) | ___  ___  ___| |__
+    | | |_ | / /\ \     | |  | |/ _ \ '_ \  |  _ < / _ \/ __|/ __| '_ \
+    | |__| |/ ____ \    | |__| |  __/ | | | | |_) | (_) \__ \ (__| | | |
+      \_____/_/    \_\   |_____/ \___|_| |_| |____/ \___/|___/\___|_| |_|
+*/
 
 #----Home Route----
 Route::get('/', function () {
