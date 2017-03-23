@@ -207,7 +207,6 @@ li:hover #dropdown-content {
   border-bottom-left-radius: 10px;
   color: #000; }
 
-tes
 .Agenda_Day h1 {
   margin-left: 10px;
   margin-top: 10px; }
@@ -286,5 +285,9 @@ tes
 .calender_row {
   background-color: #c4a000;
   border: 1px solid #c4a000; }
+
+#google-map {
+  width: 80%;
+  height: 400px; }
 
 /*# sourceMappingURL=app.css.map */
