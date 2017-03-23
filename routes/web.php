@@ -65,4 +65,4 @@ Route::get('over_ons', array('as' => 'about', function() {
 
 	Route::get('agenda', array('as' => 'agenda', function() {
 		return view('Agenda');
-	}));
+}));
