@@ -9,35 +9,39 @@
  * | contains the "web" middleware group. Now create something great!
  * |
  */
+
+#----Home Route----
 Route::get('/', function () {
 	return view('home');
 });
-Route::get('nieuws', array('as' => 'nieuws', function () {
-    return view('NewsPage');
-}));
+
+#----More detailed Routes----
+Route::get('product/{ProductNr}', function ($ProductNr) {
+    $data = array(
+        'Id' => $ProductNr
+    );
+    return view('Product', $data);
+});
+
 Route::get('artikel/{ArtikelNr}', function ($ArtikelNr) {
     $data = array(
         'Id' => $ArtikelNr
     );
     return view('NewsArticle', $data);
 });
-Route::get('educatie', function () {
-	return view('educatie');
-});
+
+#----Standard Page Routes----
+Route::get('nieuws', array('as' => 'nieuws', function () {
+    return view('NewsPage');
+}));
+
 Route::get('werkplaats', array('as' => 'werkplaats', function () {
-	return view('werkplaats');
+    return view('werkplaats');
 }));
 
 Route::get('winkel', array('as' => 'webshop', function () {
-	return view('Webshop');
+    return view('Webshop');
 }));
-Route::get('product/{ProductNr}', function ($ProductNr) {
-	$data = array(
-			'Id' => $ProductNr 
-	);
-	
-	return view('Product', $data);
-});
 
 Route::get('archief', array('as' => 'archief', function () {
     return view('archive');
@@ -60,9 +64,9 @@ Route::get('opfrissen', array('as' => 'opfrissen', function () {
 }));
 
 Route::get('over_ons', array('as' => 'about', function() {
-	return view('about');
+    return view('about');
 }));
 
-	Route::get('agenda', array('as' => 'agenda', function() {
-		return view('Agenda');
-	}));
+Route::get('agenda', array('as' => 'agenda', function() {
+    return view('Agenda');
+}));

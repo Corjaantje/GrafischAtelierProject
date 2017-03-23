@@ -39,6 +39,8 @@
                     <i class="fa fa-twitter" aria-hidden="true"></i>
                     <i class="fa fa-linkedin" aria-hidden="true"></i>
                 </div>
+
+            <!--Navigation Bar-->
             <ul>
                 <li><a href="{{URL::route('nieuws')}}"> <b>Nieuws</b> </a></li>
                 -
@@ -60,6 +62,7 @@
                 -
                 <li><a href="{{URL::route('archief')}}"> <b>Archief</b> </a></li>
             </ul>
+            <!--End of navigation bar-->
             </div>
         </div>
     </nav>
