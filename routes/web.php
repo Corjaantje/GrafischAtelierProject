@@ -66,3 +66,8 @@ Route::get('over_ons', array('as' => 'about', function() {
 	Route::get('agenda', array('as' => 'agenda', function() {
 		return view('Agenda');
 	}));
+
+
+Route::get('admin', array('as' => 'cmsPanel', function() {
+    return view('cmsHome');
+}));

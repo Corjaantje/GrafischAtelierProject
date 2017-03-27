@@ -207,7 +207,6 @@ li:hover #dropdown-content {
   border-bottom-left-radius: 10px;
   color: #000; }
 
-tes
 .Agenda_Day h1 {
   margin-left: 10px;
   margin-top: 10px; }
@@ -286,5 +285,50 @@ tes
 .calender_row {
   background-color: #c4a000;
   border: 1px solid #c4a000; }
+
+.sidenav {
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #EEEEEE;
+  border-right: #aaaaaa solid 1px;
+  overflow-x: hidden;
+  transition: 0.5s; }
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s; }
+
+a.active {
+  background-color: #00959c;
+  color: #FFFFFF; }
+
+.sidenav a:hover, .offcanvas a:focus {
+  background-color: #818181;
+  color: #FFFFFF; }
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px; }
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px; }
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px; }
+
+  .sidenav a {
+    font-size: 18px; } }
 
 /*# sourceMappingURL=app.css.map */
