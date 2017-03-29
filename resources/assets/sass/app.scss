@@ -103,8 +103,6 @@ li:hover #dropdown-content {
   text-decoration: none;
   background-color: #b6b7a7;
   text-align: center;
-  text-decoration: none;
-  display: inline-block;
 }
 
 #nav a:active {
@@ -354,3 +352,27 @@ li:hover #dropdown-content {
   background-color: #c4a000;
   border: 1px solid #c4a000
 }
+
+#google-map {
+  width: 80%;
+  height: 400px;
+}
+.auth_links {
+  float: right;
+  margin-left: 5px;
+  text-align: center;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: lightgrey;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  min-width: 80px;
+  text-align: center;
+  z-index: 1;
+}
+
+.dropdown-menu:hover {
+   background-color: lightgrey;
+ }
