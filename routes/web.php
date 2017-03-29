@@ -77,3 +77,14 @@ Route::get('cms', array('as' => 'cmsPanel', function() {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+/*
+ *
+ Route::get('/navdata', function() {
+    $NavigationData = App\HeaderNavigation::all();
+    foreach($NavigationData as $data)
+    {
+        echo $data->name . "<br>";
+    }
+});
+*/

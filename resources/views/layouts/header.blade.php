@@ -42,6 +42,14 @@
                     <i class="fa fa-linkedin" aria-hidden="true"></i>
                 </div>
                 <ul>
+                    <?php
+                    $NavigationData = App\HeaderNavigation::all();
+
+                        foreach($NavigationData as $data)
+                        {
+                            echo $data->name . "<br>";
+                        }
+                    ?>
                     <li><a href="{{URL::route('nieuws')}}"> <b>Nieuws</b> </a></li>
                     -
                     <li><a href="{{URL::route('webshop')}}"> <b>Winkel</b> </a></li>
