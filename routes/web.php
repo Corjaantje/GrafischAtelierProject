@@ -68,6 +68,6 @@ Route::get('over_ons', array('as' => 'about', function() {
 	}));
 
 
-Route::get('admin', array('as' => 'cmsPanel', function() {
+Route::get('cms', array('as' => 'cmsPanel', function() {
     return view('cmsHome');
 }));

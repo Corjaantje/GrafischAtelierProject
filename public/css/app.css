@@ -298,9 +298,9 @@ li:hover #dropdown-content {
   transition: 0.5s; }
 
 .sidenav a {
-  padding: 8px 8px 8px 32px;
+  padding: 8px 20px 8px 16px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 20px;
   color: #818181;
   display: block;
   transition: 0.3s; }

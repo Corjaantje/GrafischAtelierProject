@@ -15,6 +15,7 @@
         <a href="#" class="{{ (($currentPage)) == "Klanten" ? 'active' : ' ' }}">Klanten</a>
         <a href="#" class="{{ (($currentPage)) == "Accounts" ? 'active' : ' ' }}">Accounts</a>
         <br/>
+        <a href="/">Website</a>
         <a href="#">Logout</a>
     </div>
 @show
