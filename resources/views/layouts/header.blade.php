@@ -10,8 +10,6 @@
             //you know the position.
             $(window).scroll(function () {
 
-                console.log($(window).scrollTop());
-
                 if ($(window).scrollTop() > $(".navbar").height()) {
                     $('.navbar').addClass('navbar-fixed');
                 }

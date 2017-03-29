@@ -69,6 +69,11 @@ Route::get('agenda', array('as' => 'agenda', function() {
     return view('Agenda');
 }));
 
+
+Route::get('cms', array('as' => 'cmsPanel', function() {
+    return view('cmsHome');
+}));
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
