@@ -10,7 +10,7 @@
 	</head>
 	<body>
 	@include('layouts.header', array('title'=>'Over Ons'));
-		<div id="about-title">
+		<div class="title text-center">
 			<h1>Over het Grafisch Atelier Den Bosch</h1>
 		</div>
 
