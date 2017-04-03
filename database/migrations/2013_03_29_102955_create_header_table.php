@@ -16,8 +16,9 @@ class CreateHeaderTable extends Migration
         Schema::create('header_navigations', function (Blueprint $table) {
             $table->increments('id')->unique();
             $table->string('name');
-            $table->string('link');
-            $table->integer('parent_id');
+            $table->string('link_as');
+            $table->integer('parent_id')->unsigned()->nullable();
+            $table->foreign('parent_id')->references('id')->on('header_navigations');
             $table->boolean('visible');
         });
     }
