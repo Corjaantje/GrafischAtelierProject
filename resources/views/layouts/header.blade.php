@@ -43,12 +43,14 @@
                 </div>
                 <ul>
                     <?php
+                        /*
                     $NavigationData = App\HeaderNavigation::all();
 
                         foreach($NavigationData as $data)
                         {
                             echo $data->name . "<br>";
                         }
+                        */
                     ?>
                     <li><a href="{{URL::route('nieuws')}}"> <b>Nieuws</b> </a></li>
                     -
@@ -71,8 +73,9 @@
                     <li><a href="{{URL::route('archief')}}"> <b>Archief</b> </a></li>
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                        <li class="auth_links"><a href="{{ route('register') }}"><b>Register</b></a></li>
-                        <li class="auth_links"><a href="{{ route('login') }}"><b>Login</b></a></li>
+                        <li class="auth_links"><a href="{{ route('register') }}"><b>Registreren</b></a></li>
+                        <li class="auth_links"><a href="{{ route('login') }}"><b>Inloggen</b></a> -</li>
+
                     @else
                         <li id="dropdown" class="auth_links"><b>{{ Auth::user()->name }} <span class="caret"></span></b>
                             <div id="dropdown-content">
