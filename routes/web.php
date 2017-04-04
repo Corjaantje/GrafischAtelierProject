@@ -66,14 +66,28 @@ Route::get('over_ons', array('as' => 'about', function() {
 }));
 
 Route::get('agenda', array('as' => 'agenda', function() {
-    return view('Agenda');
+    return view('agenda');
 }));
 
+Route::get('cms', array('as' => 'cms_home', function() {
+    return view('cms.cms_home');
+}));
 
-Route::get('cms', array('as' => 'cmsPanel', function() {
-    return view('cmsHome');
+Route::get('cms/header', array('as' => 'cms_header', function() {
+    return view('cms.cms_header');
 }));
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+/*
+ *
+ Route::get('/navdata', function() {
+    $NavigationData = App\HeaderNavigation::all();
+    foreach($NavigationData as $data)
+    {
+        echo $data->name . "<br>";
+    }
+});
+*/
