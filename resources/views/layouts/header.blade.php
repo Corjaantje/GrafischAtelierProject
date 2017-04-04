@@ -42,35 +42,12 @@
                     <i class="fa fa-linkedin" aria-hidden="true"></i>
                 </div>
                 <ul>
-                    <?php
-                        /*
-                    $NavigationData = App\HeaderNavigation::all();
+                    <?php $NavigationData = App\HeaderNavigation::all(); ?>
 
-                        foreach($NavigationData as $data)
-                        {
-                            echo $data->name . "<br>";
-                        }
-                        */
-                    ?>
-                    <li><a href="{{URL::route('nieuws')}}"> <b>Nieuws</b> </a></li>
-                    -
-                    <li><a href="{{URL::route('webshop')}}"> <b>Winkel</b> </a></li>
-                    -
-                    <li id="dropdown"><a href="{{URL::route('aan_de_slag')}}"> <b>Aan De Slag</b> </a>
-                        <div id="dropdown-content">
-                            <a href="{{URL::route('aan_de_slag')}}"><b>Workshops</b></a>
-                            <a href="{{URL::route('scholen')}}"><b>Scholen</b></a>
-                            <a href="{{URL::route('dagje_uit')}}"><b>Dagje uit</b></a>
-                            <a href="{{URL::route('opfrissen')}}"><b>Opfrissen</b></a>
-                            <a href="{{URL::route('werkplaats')}}"><b>Werkplaats</b></a>
-                        </div>
-                    </li>
-                    -
-                    <li><a href="{{URL::route('about')}}"> <b>Over Ons</b> </a></li>
-                    -
-                    <li><a href="{{URL::route('agenda')}}"> <b>Agenda</b> </a></li>
-                    -
-                    <li><a href="{{URL::route('archief')}}"> <b>Archief</b> </a></li>
+                        @foreach ($NavigationData as $data)
+                            <li><a href="{{URL::route($data->link_as)}}"> <b>{{ $data->name }}</b> </a></li>
+                             -
+                        @endforeach
                     <!-- Authentication Links -->
                     @if (Auth::guest())
                         <li class="auth_links"><a href="{{ route('register') }}"><b>Registreren</b></a></li>
