@@ -42,13 +42,28 @@
                     <i class="fa fa-linkedin" aria-hidden="true"></i>
                 </div>
                 <ul>
-                    <?php $NavigationData = App\HeaderNavigation::all(); ?>
+                    <?php
+                    $NavMainArray = App\HeaderNavigation::getMainNavigationArray();
+                    $NavSubArray = App\HeaderNavigation::getSubNavigationArray();
+                    ?>
 
-                        @foreach ($NavigationData as $data)
+                    @foreach ($NavMainArray as $data)
+                        @if($data->has_children)
+                            <li id="dropdown"><a href="{{URL::route($data->link_as)}}"> <b>{{ $data->name }}</b> </a>
+
+                        @else
                             <li><a href="{{URL::route($data->link_as)}}"> <b>{{ $data->name }}</b> </a></li>
-                             -
-                        @endforeach
-                    <!-- Authentication Links -->
+                        @endif
+                        -
+                        <div id="dropdown-content">
+                            @foreach($NavSubArray as $subdata)
+                                <a href="{{URL::route($subdata->link_as)}}"><b> {{ $subdata->name }}</b></a>
+                            @endforeach
+                        </div>
+                            </li>
+                    @endforeach
+
+                <!-- Authentication Links -->
                     @if (Auth::guest())
                         <li class="auth_links"><a href="{{ route('register') }}"><b>Registreren</b></a></li>
                         <li class="auth_links"><a href="{{ route('login') }}"><b>Inloggen</b></a> -</li>
