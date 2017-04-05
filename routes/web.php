@@ -73,6 +73,19 @@ Route::get('agenda', array('as' => 'agenda', function() {
 Route::get('cms', array('as' => 'cmsPanel', function() {
     return view('cmsHome');
 }));
+Route::get('cms/productbewerker', array('as' => 'cmsProductEditor', function(){
+	return view('cmsProductEditor');
+}));
+Route::get('cms/productbewerker/{ProductId}', array('as' => 'cmsProductEditor', function($ProductId){
+	$data = array(
+		'Id' => $ProductId	
+	);
+	return view('cmsProductEditor');
+}));
+Route::get('cms/product_lijst', array('as' => 'ProductList', function(){
+	return view('cmsProductList');
+}));
+Route::post('cms/cmsCreateProduct', 'ProductController@insertProduct');
 
 Auth::routes();
 
