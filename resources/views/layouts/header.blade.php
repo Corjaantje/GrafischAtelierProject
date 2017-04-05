@@ -48,19 +48,21 @@
                     ?>
 
                     @foreach ($NavMainArray as $data)
-                        @if($data->has_children)
+                        @if($data->has_children && $data->visible)
                             <li id="dropdown"><a href="{{URL::route($data->link_as)}}"> <b>{{ $data->name }}</b> </a>
 
-                        @else
+                        @elseif($data->visible)
                             <li><a href="{{URL::route($data->link_as)}}"> <b>{{ $data->name }}</b> </a></li>
                         @endif
                         -
                         <div id="dropdown-content">
                             @foreach($NavSubArray as $subdata)
-                                <a href="{{URL::route($subdata->link_as)}}"><b> {{ $subdata->name }}</b></a>
+                                @if($subdata->parent_id == $data->id && $subdata->visible)
+                                    <a href="{{URL::route($subdata->link_as)}}"><b> {{ $subdata->name }}</b></a>
+                                @endif
                             @endforeach
                         </div>
-                            </li>
+                        </li>
                     @endforeach
 
                 <!-- Authentication Links -->
