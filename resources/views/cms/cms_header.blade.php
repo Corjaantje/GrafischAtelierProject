@@ -11,9 +11,37 @@
 <body>
 @include('layouts.cms_navigation', array('currentPage'=>'Header'))
 <div class="container">
-    <!--CONTENT IN HERE-->
+    <?php
+    $NavMainArray = App\HeaderNavigation::getAllNavigationArray();
+    ?>
 
-    <!---->
+    <br>
+        {!! Form::open(['route' => 'cms_header_store']) !!}
+        @foreach ($NavMainArray as $data)
+
+            Naam <input type="text" name="Name" value="{{$data->name}}"> -
+            Zichtbaar <input type="checkbox" name="Name" @if($data->visible)checked @endif > -
+            Item van
+            <select>
+                <option value=""></option>
+                @foreach($NavMainArray as $subdata)
+                    @if($data->id != $subdata->id)
+                        <option value="{{$data->parent_id}}"
+                                @if($data->parent_id == $subdata->id) selected @endif>{{$subdata->name}}</option>
+                    @endif
+                @endforeach
+            </select> -
+            <button type="submit" value="up">▲</button>
+            <button type="submit" value="down">▼</button>
+            <b>{{$data->priority}}</b> <!-- TODO REMOVE NUMBER-->
+
+            <br><br>
+
+        @endforeach
+        <button type="submit" value="Save">Opslaan</button>
+
+        {!! Form::close() !!}
+
 </div>
 </body>
 </html>

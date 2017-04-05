@@ -19,6 +19,8 @@ class NavigationTableSeeder extends Seeder
                 'name' => 'Nieuws',
                 'link_as' => 'nieuws',
                 'parent_id' => null,
+                'has_children' => false,
+                'priority' => 6,
                 'visible' => 1
             ),
             array(
@@ -26,69 +28,89 @@ class NavigationTableSeeder extends Seeder
                 'name' => 'Webshop',
                 'link_as' => 'winkel',
                 'parent_id' => null,
+                'has_children' => false,
+                'priority' => 5,
                 'visible' => 1
             ),
             array(
                 'id' => 3,
-                'name' => 'aan_de_slag',
+                'name' => 'Aan de slag',
                 'link_as' => 'aan_de_slag',
                 'parent_id' => null,
+                'has_children' => true,
+                'priority' => 4,
                 'visible' => 1
             ),
             array(
                 'id' => 4,
-                'name' => 'aan_de_slag',
+                'name' => 'Aan de slag',
                 'link_as' => 'aan_de_slag',
                 'parent_id' => 3,
+                'has_children' => false,
+                'priority' => 5,
                 'visible' => 1
             ),
             array(
                 'id' => 5,
-                'name' => 'scholen',
+                'name' => 'Scholen',
                 'link_as' => 'scholen',
                 'parent_id' => 3,
+                'has_children' => false,
+                'priority' => 4,
                 'visible' => 1
             ),
             array(
                 'id' => 6,
-                'name' => 'dagje_uit',
+                'name' => 'Dagje uit',
                 'link_as' => 'dagje_uit',
                 'parent_id' => 3,
+                'has_children' => false,
+                'priority' => 3,
                 'visible' => 1
             ),
             array(
                 'id' => 7,
-                'name' => 'opfrissen',
+                'name' => 'Opfrissen',
                 'link_as' => 'opfrissen',
                 'parent_id' => 3,
+                'has_children' => false,
+                'priority' => 2,
                 'visible' => 1
             ),
             array(
                 'id' => 8,
-                'name' => 'werkplaats',
+                'name' => 'Werkplaats',
                 'link_as' => 'werkplaats',
                 'parent_id' => 3,
+                'has_children' => false,
+                'priority' => 1,
                 'visible' => 1
             ),
             array(
                 'id' => 9,
-                'name' => 'over_ons',
+                'name' => 'Over ons',
                 'link_as' => 'about',
                 'parent_id' => null,
+                'has_children' => false,
+                'priority' => 3,
                 'visible' => 1
             ),
             array(
                 'id' => 10,
-                'name' => 'agenda',
+                'name' => 'Agenda',
                 'link_as' => 'agenda',
                 'parent_id' => null,
+                'has_children' => false,
+                'priority' => 2,
                 'visible' => 1
             ),
             array(
                 'id' => 11,
-                'name' => 'archief',
+                'name' => 'Archief',
                 'link_as' => 'archief',
                 'parent_id' => null,
+                'has_children' => false,
+                'priority' => 1,
                 'visible' => 1
             )
 

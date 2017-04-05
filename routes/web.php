@@ -37,7 +37,7 @@ Route::get('werkplaats', array('as' => 'werkplaats', function () {
     return view('werkplaats');
 }));
 
-Route::get('winkel', array('as' => 'webshop', function () {
+Route::get('winkel', array('as' => 'winkel', function () {
     return view('Webshop');
 }));
 
@@ -73,9 +73,14 @@ Route::get('cms', array('as' => 'cms_home', function() {
     return view('cms.cms_home');
 }));
 
-Route::get('cms/header', array('as' => 'cms_header', function() {
+/*Route::get('cms/header', array('as' => 'cms_header', function() {
     return view('cms.cms_header');
 }));
+*/
+Route::get('cms/header', ['as' => 'cms_header', 'uses' => 'CMSHeaderNavigationController@create']);
+
+Route::post('cms/header', ['as' => 'cms_header_store', 'uses' => 'CMSHeaderNavigationController@store']);
+
 
 Auth::routes();
 
