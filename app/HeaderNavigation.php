@@ -19,4 +19,10 @@ class HeaderNavigation extends Model
         //NEED TO SET ORDER PROPERLY!
         return $rawNavigationData;
     }
-}
+
+    public static function getAllNavigationArray()
+    {
+        $rawNavigationData = HeaderNavigation::all();
+        //NEED TO SET ORDER PROPERLY!
+        return $rawNavigationData;
+    }}
