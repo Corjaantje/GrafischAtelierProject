@@ -73,26 +73,28 @@ Route::get('cms', array('as' => 'cms_home', function() {
     return view('cms.cms_home');
 }));
 
-/*Route::get('cms/header', array('as' => 'cms_header', function() {
-    return view('cms.cms_header');
-}));
-*/
 Route::get('cms/header', ['as' => 'cms_header', 'uses' => 'CMSHeaderNavigationController@create']);
 
 Route::post('cms/header', ['as' => 'cms_header_store', 'uses' => 'CMSHeaderNavigationController@store']);
 
 
+Route::get('cms/productbewerker', array('as' => 'cmsProductEditor', function(){
+	return view('cmsProductEditor');
+}));
+Route::get('cms/productbewerker/{ProductId}', array('as' => 'cmsProductEditor', function($ProductId){
+	$data = array(
+		'Id' => $ProductId	
+	);
+	return view('cmsProductEditor', $data);
+}));
+Route::get('cms/product_lijst', array('as' => 'ProductList', function(){
+	return view('cmsProductList');
+}));
+Route::post('cms/cmsCreateProduct', 'ProductController@insertProduct');
+Route::post('cms/productbewerker/cmsCreateProduct', 'ProductController@insertProduct');
+Route::get('cms/verwijderProduct/{id}', ['uses' => 'ProductController@removeItem']);
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
-
-/*
- *
- Route::get('/navdata', function() {
-    $NavigationData = App\HeaderNavigation::all();
-    foreach($NavigationData as $data)
-    {
-        echo $data->name . "<br>";
-    }
-});
-*/
