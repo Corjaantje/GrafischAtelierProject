@@ -80,12 +80,14 @@ Route::get('cms/productbewerker/{ProductId}', array('as' => 'cmsProductEditor', 
 	$data = array(
 		'Id' => $ProductId	
 	);
-	return view('cmsProductEditor');
+	return view('cmsProductEditor', $data);
 }));
 Route::get('cms/product_lijst', array('as' => 'ProductList', function(){
 	return view('cmsProductList');
 }));
 Route::post('cms/cmsCreateProduct', 'ProductController@insertProduct');
+Route::post('cms/productbewerker/cmsCreateProduct', 'ProductController@insertProduct');
+Route::get('cms/verwijderProduct/{id}', ['uses' => 'ProductController@removeItem']);
 
 Auth::routes();
 

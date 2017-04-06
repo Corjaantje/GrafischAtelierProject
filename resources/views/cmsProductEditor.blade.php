@@ -1,8 +1,11 @@
 <?php 
 	use App\Http\Controllers\ProductController;
-	$id = -1;
-	if(isset($_POST['Id']))
-		$id = $_POST['Id']
+	
+	if(!isset($Id)){
+		$Id = -1;
+	}
+	
+	$controller = new ProductController();
 ?>
 <!DOCTYPE html>
 	<html xmlns="http://www.w3.org/1999/xhtml">
@@ -23,15 +26,12 @@
 
 				<div class="col-lg-12 col-md-12 col-sm-12 col-sm-offset-1 col-xs-10 col-xs-offset-1" >
 
-					<form action="cmsCreateProduct" method="post">
+					<form action="cmsCreateProduct" method="post" enctype="multipart/form-data">
+						<input type="hidden" name="_token" value="{{ csrf_token() }} " >
 			
-						<input type="hidden" value="<?php echo $id?>" name="Id" />
-			
-						Naam: <input type="text" name="Name" /> <br>
-						Prijs: <input type="number" name="Price" step="0.01"/><br>
-						Beschrijving: <input type="text" name="Description"/><br>
-				
-						<input type="submit" value="Aanmaken"/>
+						<?php 
+							echo $controller->fillForm($Id);
+						?>
 				
 					</form>
 				</div>
