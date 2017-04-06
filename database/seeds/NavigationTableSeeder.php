@@ -47,7 +47,7 @@ class NavigationTableSeeder extends Seeder
                 'link_as' => 'aan_de_slag',
                 'parent_id' => 3,
                 'has_children' => false,
-                'priority' => 5,
+                'priority' => 105,
                 'visible' => 1
             ),
             array(
@@ -56,7 +56,7 @@ class NavigationTableSeeder extends Seeder
                 'link_as' => 'scholen',
                 'parent_id' => 3,
                 'has_children' => false,
-                'priority' => 4,
+                'priority' => 104,
                 'visible' => 1
             ),
             array(
@@ -65,7 +65,7 @@ class NavigationTableSeeder extends Seeder
                 'link_as' => 'dagje_uit',
                 'parent_id' => 3,
                 'has_children' => false,
-                'priority' => 3,
+                'priority' => 103,
                 'visible' => 1
             ),
             array(
@@ -74,7 +74,7 @@ class NavigationTableSeeder extends Seeder
                 'link_as' => 'opfrissen',
                 'parent_id' => 3,
                 'has_children' => false,
-                'priority' => 2,
+                'priority' => 102,
                 'visible' => 1
             ),
             array(
@@ -83,7 +83,7 @@ class NavigationTableSeeder extends Seeder
                 'link_as' => 'werkplaats',
                 'parent_id' => 3,
                 'has_children' => false,
-                'priority' => 1,
+                'priority' => 101,
                 'visible' => 1
             ),
             array(
