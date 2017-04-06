@@ -48,13 +48,11 @@
                     ?>
 
                     @foreach ($NavMainArray as $data)
-                        @if($data->has_children && $data->visible)
+                        @if($data->visible)
                             <li id="dropdown"><a href="{{URL::route($data->link_as)}}"> <b>{{ $data->name }}</b> </a>
-
-                        @elseif($data->visible)
-                            <li><a href="{{URL::route($data->link_as)}}"> <b>{{ $data->name }}</b> </a></li>
+                                -
                         @endif
-                        -
+
                         <div id="dropdown-content">
                             @foreach($NavSubArray as $subdata)
                                 @if($subdata->parent_id == $data->id && $subdata->visible)

@@ -44,6 +44,8 @@ class CMSHeaderNavigationController extends Controller
             }
             DB::table('header_navigations')->where('id', $request->id)->update(['name' => $request->name]);
             DB::table('header_navigations')->where('id', $request->id)->update(['visible' => $visible]);
+            DB::table('header_navigations')->where('id', $request->id)->update(['parent_id' => $request->parent_id]);
+
             return view('cms.cms_header', ['message' => "- Succesvol opgeslagen!"]);
         }
 
