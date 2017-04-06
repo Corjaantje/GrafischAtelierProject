@@ -18,7 +18,7 @@
 
     <!-- Artikelen -->
     <?php
-    $articles = App\NewsArticle::all();
+    $articles = App\NewsArticle::where('Visible', '=', '1')->all();
     ?>
     <table id="table-style">
         <tr id="table-row-style">
