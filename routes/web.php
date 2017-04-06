@@ -82,6 +82,13 @@ Route::get('cms_nieuw_nieuws_artikel', array('as' => 'newNewsArticle', function(
     return view ('newNewsArticle');
 }));
 
+Route::get('cms_wijzig_nieuws_artikel/{ID}', array('as' => 'editNewsArticle', function($artikelNummer) {
+    $data = array(
+        'Id' => $artikelNummer
+    );
+    return view('editNewsArticle', $data);
+}));
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');

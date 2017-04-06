@@ -18,7 +18,7 @@
 
     <!-- Artikelen -->
     <?php
-    $articles = App\NewsArticle::where('Visible', '=', '1')->all();
+    $articles = App\NewsArticle::all();
     ?>
     <table id="table-style">
         <tr id="table-row-style">
@@ -29,6 +29,7 @@
             <th id="table-header-style">Text</th>
             <th id="table-header-style">Date</th>
             <th id="table-header-style">Visible</th>
+            <th></th>
         </tr>
         @foreach ($articles as $article)
             <tr id="table-row-style">
@@ -39,6 +40,7 @@
                 <td id="table-data-style"> {{ $article->Text }}</td>
                 <td id="table-data-style"> {{ $article->Date }}</td>
                 <td id="table-data-style"> {{ $article->Visible }}</td>
+                <td> <button type="button" onclick="window.location='{{URL::route('editNewsArticle', $article->ID)}}'">Edit</button></td>
             </tr>
         @endforeach
     </table>
