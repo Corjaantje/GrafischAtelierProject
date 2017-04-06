@@ -43,35 +43,27 @@
                 </div>
                 <ul>
                     <?php
-                        /*
-                    $NavigationData = App\HeaderNavigation::all();
-
-                        foreach($NavigationData as $data)
-                        {
-                            echo $data->name . "<br>";
-                        }
-                        */
+                    $NavMainArray = App\HeaderNavigation::getMainNavigationArray();
+                    $NavSubArray = App\HeaderNavigation::getSubNavigationArray();
                     ?>
-                    <li><a href="{{URL::route('nieuws')}}"> <b>Nieuws</b> </a></li>
-                    -
-                    <li><a href="{{URL::route('webshop')}}"> <b>Winkel</b> </a></li>
-                    -
-                    <li id="dropdown"><a href="{{URL::route('aan_de_slag')}}"> <b>Aan De Slag</b> </a>
+
+                    @foreach ($NavMainArray as $data)
+                        @if($data->visible)
+                            <li id="dropdown"><a href="{{URL::route($data->link_as)}}"> <b>{{ $data->name }}</b> </a>
+                                -
+                        @endif
+
                         <div id="dropdown-content">
-                            <a href="{{URL::route('aan_de_slag')}}"><b>Workshops</b></a>
-                            <a href="{{URL::route('scholen')}}"><b>Scholen</b></a>
-                            <a href="{{URL::route('dagje_uit')}}"><b>Dagje uit</b></a>
-                            <a href="{{URL::route('opfrissen')}}"><b>Opfrissen</b></a>
-                            <a href="{{URL::route('werkplaats')}}"><b>Werkplaats</b></a>
+                            @foreach($NavSubArray as $subdata)
+                                @if($subdata->parent_id == $data->id && $subdata->visible)
+                                    <a href="{{URL::route($subdata->link_as)}}"><b> {{ $subdata->name }}</b></a>
+                                @endif
+                            @endforeach
                         </div>
-                    </li>
-                    -
-                    <li><a href="{{URL::route('about')}}"> <b>Over Ons</b> </a></li>
-                    -
-                    <li><a href="{{URL::route('agenda')}}"> <b>Agenda</b> </a></li>
-                    -
-                    <li><a href="{{URL::route('archief')}}"> <b>Archief</b> </a></li>
-                    <!-- Authentication Links -->
+                        </li>
+                    @endforeach
+
+                <!-- Authentication Links -->
                     @if (Auth::guest())
                         <li class="auth_links"><a href="{{ route('register') }}"><b>Registreren</b></a></li>
                         <li class="auth_links"><a href="{{ route('login') }}"><b>Inloggen</b></a> -</li>
