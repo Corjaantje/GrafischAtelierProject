@@ -74,6 +74,14 @@ Route::get('cms', array('as' => 'cmsPanel', function() {
     return view('cmsHome');
 }));
 
+Route::get('cms_nieuws', array('as' => 'cmsNews', function() {
+    return view('cmsNews');
+}));
+
+Route::get('cms_nieuw_nieuws_artikel', array('as' => 'newNewsArticle', function() {
+    return view ('newNewsArticle');
+}));
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');

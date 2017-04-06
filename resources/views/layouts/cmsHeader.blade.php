@@ -6,7 +6,7 @@
         <a href="#" class="{{ (($currentPage)) == "Nieuws" ? 'active' : ' ' }}">Nieuws</a>
         <a href="#" class="{{ (($currentPage)) == "Shops" ? 'active' : ' ' }}">Shops</a>
         <br/>
-        <a href="#" class="{{ (($currentPage)) == "Paginas" ? 'active' : ' ' }}">Pagina's</a>
+        <a href="{{URL::route('cmsNews')}}" class="{{ (($currentPage)) == "Paginas" ? 'active' : ' ' }}">Pagina's</a> <!-- om te testen verwijst dit naar 'News' -->
         <br/>
         <a href="#" class="{{ (($currentPage)) == "Header" ? 'active' : ' ' }}">Header</a>
         <a href="#" class="{{ (($currentPage)) == "Bedankt" ? 'active' : ' ' }}">Bedankt</a>
