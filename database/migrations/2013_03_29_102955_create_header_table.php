@@ -19,7 +19,6 @@ class CreateHeaderTable extends Migration
             $table->string('link_as');
             $table->integer('parent_id')->unsigned()->nullable();
             $table->foreign('parent_id')->references('id')->on('header_navigations');
-            $table->boolean('has_children');
             $table->integer('priority');
             $table->boolean('visible');
         });

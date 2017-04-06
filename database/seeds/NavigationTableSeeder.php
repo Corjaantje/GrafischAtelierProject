@@ -19,7 +19,6 @@ class NavigationTableSeeder extends Seeder
                 'name' => 'Nieuws',
                 'link_as' => 'nieuws',
                 'parent_id' => null,
-                'has_children' => false,
                 'priority' => 6,
                 'visible' => 1
             ),
@@ -28,7 +27,6 @@ class NavigationTableSeeder extends Seeder
                 'name' => 'Webshop',
                 'link_as' => 'winkel',
                 'parent_id' => null,
-                'has_children' => false,
                 'priority' => 5,
                 'visible' => 1
             ),
@@ -37,7 +35,6 @@ class NavigationTableSeeder extends Seeder
                 'name' => 'Aan de slag',
                 'link_as' => 'aan_de_slag',
                 'parent_id' => null,
-                'has_children' => true,
                 'priority' => 4,
                 'visible' => 1
             ),
@@ -46,7 +43,6 @@ class NavigationTableSeeder extends Seeder
                 'name' => 'Aan de slag',
                 'link_as' => 'aan_de_slag',
                 'parent_id' => 3,
-                'has_children' => false,
                 'priority' => 105,
                 'visible' => 1
             ),
@@ -55,7 +51,6 @@ class NavigationTableSeeder extends Seeder
                 'name' => 'Scholen',
                 'link_as' => 'scholen',
                 'parent_id' => 3,
-                'has_children' => false,
                 'priority' => 104,
                 'visible' => 1
             ),
@@ -64,7 +59,6 @@ class NavigationTableSeeder extends Seeder
                 'name' => 'Dagje uit',
                 'link_as' => 'dagje_uit',
                 'parent_id' => 3,
-                'has_children' => false,
                 'priority' => 103,
                 'visible' => 1
             ),
@@ -73,7 +67,6 @@ class NavigationTableSeeder extends Seeder
                 'name' => 'Opfrissen',
                 'link_as' => 'opfrissen',
                 'parent_id' => 3,
-                'has_children' => false,
                 'priority' => 102,
                 'visible' => 1
             ),
@@ -82,7 +75,6 @@ class NavigationTableSeeder extends Seeder
                 'name' => 'Werkplaats',
                 'link_as' => 'werkplaats',
                 'parent_id' => 3,
-                'has_children' => false,
                 'priority' => 101,
                 'visible' => 1
             ),
@@ -91,7 +83,6 @@ class NavigationTableSeeder extends Seeder
                 'name' => 'Over ons',
                 'link_as' => 'about',
                 'parent_id' => null,
-                'has_children' => false,
                 'priority' => 3,
                 'visible' => 1
             ),
@@ -100,7 +91,6 @@ class NavigationTableSeeder extends Seeder
                 'name' => 'Agenda',
                 'link_as' => 'agenda',
                 'parent_id' => null,
-                'has_children' => false,
                 'priority' => 2,
                 'visible' => 1
             ),
@@ -109,7 +99,6 @@ class NavigationTableSeeder extends Seeder
                 'name' => 'Archief',
                 'link_as' => 'archief',
                 'parent_id' => null,
-                'has_children' => false,
                 'priority' => 1,
                 'visible' => 1
             )
