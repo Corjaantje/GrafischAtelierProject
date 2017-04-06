@@ -14,33 +14,29 @@
     <?php
     $NavMainArray = App\HeaderNavigation::getAllNavigationArray();
     ?>
-
+    <h1> {{ $message }}</h1>
     <br>
-        {!! Form::open(['route' => 'cms_header_store']) !!}
-        @foreach ($NavMainArray as $data)
+    @foreach ($NavMainArray as $data)
+        {{ Form::open(['route' => 'cms_header_store']) }}
 
-            Naam <input type="text" name="Name" value="{{$data->name}}"> -
-            Zichtbaar <input type="checkbox" name="Visible" @if($data->visible)checked @endif > -
-            Item van
-            <select>
-                <option value=""></option>
-                @foreach($NavMainArray as $subdata)
-                    @if($data->id != $subdata->id)
-                        <option value="{{$data->parent_id}}"
-                                @if($data->parent_id == $subdata->id) selected @endif>{{$subdata->name}}</option>
-                    @endif
-                @endforeach
-            </select> -
-            <button type="submit" value="up">▲</button>
-            <button type="submit" value="down">▼</button>
-            <b>{{$data->priority}}</b> <!-- TODO REMOVE NUMBER-->
+        <?php $options = ["" => ""] + App\HeaderNavigation::where('id', '<>', $data->id)->whereNull('parent_id')->pluck('name', 'id')->all();
+        echo $data->id;?>
+        {{ Form::hidden('id', $data->id) }}
 
-            <br><br>
+        Naam: {{ Form::text('name', $data->name) }}
+        Zichtbaar {{ Form::checkbox('visible', 1, $data->visible) }}
+        Item van {{  Form::select('parent_id', $options, $data->parent_id)}}
+        <input type="submit" name="priorityUp" id="priorityUp" value="▲">
+        <input type="submit" name="priorityDown" id="priorityDown" value="▼">
 
-        @endforeach
-        <button type="submit" value="Save">Opslaan</button>
+        <b>{{$data->priority}}</b> <!-- TODO REMOVE NUMBER-->
+        <input type="submit" name="save" id="save" value="Opslaan">
 
-        {!! Form::close() !!}
+        {{ Form::close() }}
+        <br><br>
+
+    @endforeach
+
 
 </div>
 </body>

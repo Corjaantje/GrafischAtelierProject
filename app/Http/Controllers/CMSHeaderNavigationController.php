@@ -9,11 +9,19 @@ class CMSHeaderNavigationController extends Controller
 {
     public function create()
     {
-        return view('cms.cms_header');
+        return view('cms.cms_header', ['message' => ""]);
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        DB::table('header_navigations')->where('id', 1)->update(['name' => 'hoi']);
+        echo $request->visible;
+        if ($request->visible == 1) {
+            $visible = 1;
+        } else {
+            $visible = 0;
+        }
+        DB::table('header_navigations')->where('id', $request->id)->update(['name' => $request->name]);
+        DB::table('header_navigations')->where('id', $request->id)->update(['visible' => $visible]);
+        return view('cms.cms_header', ['message' => "Succesvol opgeslagen!"]);
     }
 }
