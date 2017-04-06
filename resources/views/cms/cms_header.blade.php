@@ -19,9 +19,9 @@
     @foreach ($NavMainArray as $data)
         {{ Form::open(['route' => 'cms_header_store']) }}
 
-        <?php $options = ["" => ""] + App\HeaderNavigation::where('id', '<>', $data->id)->whereNull('parent_id')->pluck('name', 'id')->all();
-        echo $data->id;?>
+        <?php $options = ["" => ""] + App\HeaderNavigation::where('id', '<>', $data->id)->whereNull('parent_id')->pluck('name', 'id')->all()?>
         {{ Form::hidden('id', $data->id) }}
+        {{ Form::hidden('priority', $data->priority) }}
 
         Naam: {{ Form::text('name', $data->name) }}
         Zichtbaar {{ Form::checkbox('visible', 1, $data->visible) }}
@@ -29,8 +29,7 @@
         <input type="submit" name="priorityUp" id="priorityUp" value="▲">
         <input type="submit" name="priorityDown" id="priorityDown" value="▼">
 
-        <b>{{$data->priority}}</b> <!-- TODO REMOVE NUMBER-->
-        <input type="submit" name="save" id="save" value="Opslaan">
+        <input type="submit" name="store" id="store" value="Opslaan">
 
         {{ Form::close() }}
         <br><br>
