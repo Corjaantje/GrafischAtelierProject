@@ -11,13 +11,37 @@
 <body>
 @include('layouts.cmsHeader', array('currentPage'=>'Home'))
 <div class="container">
+
     <!--CONTENT IN HERE-->
     <!-- Knop om nieuwe artikelen aan te maken -->
     <button type="button" onclick="window.location='{{URL::route('newNewsArticle')}}'">Nieuw artikel aanmaken</button>
 
     <!-- Artikelen -->
-
-    <!---->
+    <?php
+    $articles = App\NewsArticle::all();
+    ?>
+    <table id="table-style">
+        <tr id="table-row-style">
+            <th id="table-header-style">ID</th>
+            <th id="table-header-style">Title</th>
+            <th id="table-header-style">ImageURL</th>
+            <th id="table-header-style">Description</th>
+            <th id="table-header-style">Text</th>
+            <th id="table-header-style">Date</th>
+            <th id="table-header-style">Visible</th>
+        </tr>
+        @foreach ($articles as $article)
+            <tr id="table-row-style">
+                <td id="table-data-style"> {{ $article->ID }}</td>
+                <td id="table-data-style"> {{ $article->Title }}</td>
+                <td id="table-data-style"> {{ $article->Image }}</td>
+                <td id="table-data-style"> {{ $article->Description }}</td>
+                <td id="table-data-style"> {{ $article->Text }}</td>
+                <td id="table-data-style"> {{ $article->Date }}</td>
+                <td id="table-data-style"> {{ $article->Visible }}</td>
+            </tr>
+        @endforeach
+    </table>
 </div>
 </body>
 </html>

@@ -11,11 +11,12 @@
 <body>
 @include('layouts.cmsHeader', array('currentPage'=>'Home'))
 <div class="container">
-    Titel: <input type="text" name="titel"> <br>
+    Titel: <input type="text" name="title"> <br>
     Image: <input type="file" accept=".jpeg, .jpg, .png" name="image"> <br>
     Description: <input type="text" name="description"> <br>
     Text: <input type="text" name="text"> <br>
     Visible: <input type="checkbox" name="visible"> <br>
+    <button type="button" formmethod="post">Voeg artikel toe</button>
 </div>
 
 </body>
