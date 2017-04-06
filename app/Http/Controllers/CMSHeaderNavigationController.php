@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CMSHeaderNavigationController extends Controller
 {
@@ -13,6 +14,6 @@ class CMSHeaderNavigationController extends Controller
 
     public function store()
     {
-        echo "trololo";
+        DB::table('header_navigations')->where('id', 1)->update(['name' => 'hoi']);
     }
 }

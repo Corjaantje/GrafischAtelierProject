@@ -20,7 +20,7 @@
         @foreach ($NavMainArray as $data)
 
             Naam <input type="text" name="Name" value="{{$data->name}}"> -
-            Zichtbaar <input type="checkbox" name="Name" @if($data->visible)checked @endif > -
+            Zichtbaar <input type="checkbox" name="Visible" @if($data->visible)checked @endif > -
             Item van
             <select>
                 <option value=""></option>
