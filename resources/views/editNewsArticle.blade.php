@@ -9,11 +9,13 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
     <body>
-    @include('layouts.cmsHeader', array('currentPage'=>'Paginas'))
+    @include('layouts.cmsHeader', array('currentPage'=>'Nieuws'))
             <div class="container">
                 <form action="cmsEditArticle" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="_token" value=" {{ csrf_token() }} " >
-                        <?php
+                    <!-- Het $parts gedeelte pakt de huidige url, split hem vervolgens op '/' en neemt daar het laatste deel van, oftewel het ID -->
+                    <?php
+
                             $parts=parse_url(url()->current());
                             $path_parts=explode('/', $parts['path']);
                             $article = App\NewsArticle::where('ID', '=', $path_parts[count($path_parts)-1] )->first();
@@ -28,8 +30,10 @@
                         <textarea rows="5" cols="60" name="Description">{{$article->Description}} </textarea> <br>
                     Text: <br>
                         <textarea rows="5" cols="60" name="Text"> {{$article->Text}} </textarea>  <br>
+                    Date:
+                        <input type="date" name="Date" value="{{$article->Date}}" /> <br>
                     Visible: <br>
-                        <input type="text" name="Visible" value="{{$article->Visible}}"> <br>
+                        <input type="number" name="Visible" value="{{$article->Visible}}" pattern="[0-1]"> <br>
                     <br>
                     <input type="submit" value="Wijzigen"/>
                 </form>

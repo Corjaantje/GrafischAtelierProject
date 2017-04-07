@@ -17,7 +17,7 @@ class CreateNewsarticleTable extends Migration
         Schema::create('newsarticles', function (Blueprint $table){
             $table->increments('ID')->unique();
             $table->string('Title');
-            $table->string('Image');
+            $table->string('Image')->nullable();
             $table->string('Description');
             $table->string('Text');
             $table->date('Date');

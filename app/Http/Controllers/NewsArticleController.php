@@ -20,13 +20,13 @@ class NewsArticleController extends Controller
 
     private function newArticle()
     {
-        NewsArticle::Insert(['Title' => $_POST['Title'], 'Image' => $_POST['Image'], 'Description' => $_POST['Description'], 'Text' => $_POST['Text'], 'Date' => $_POST['Date'], 'Visible' => $_POST['Visible'] ]);
+        NewsArticle::Insert(['Title' => $_POST['Title'], 'Description' => $_POST['Description'], 'Text' => $_POST['Text'], 'Date' => $_POST['Date'], 'Visible' => $_POST['Visible'] ]);
 
     }
 
     private function editArticle()
     {
-        NewsArticle::Where('ID', '=', $_POST['ID'])->update(['Title' => $_POST['Title'],  'Description' => $_POST['Description'], 'Text' => $_POST['Text'], 'Visible' => $_POST['Visible'] ]);
+        NewsArticle::Where('ID', '=', $_POST['ID'])->update(['Title' => $_POST['Title'], 'Description' => $_POST['Description'], 'Text' => $_POST['Text'], 'Date' => $_POST['Date'], 'Visible' => $_POST['Visible'] ]);
     }
 
     private function formValid(){
