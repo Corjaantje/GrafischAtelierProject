@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" class="html-headercms">
 <head>
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/app.css') }}">
     <script src="{{ URL::asset('js/app.js') }}"></script>
@@ -8,15 +8,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body class="body-headercms">
 @include('layouts.cms_navigation', array('currentPage'=>'Header'))
-<div class="container">
+<div class="container-headercms">
     <?php
     $NavMainArray = App\HeaderNavigation::getAllNavigationArray();
     $disableUpArrow = App\HeaderNavigation::getDisabledPriorityUpArray();
     $disableDownArrow = App\HeaderNavigation::getDisabledPriorityDownArray();
     ?>
-    <h2> Header beheer {{ $message }}</h2>
+    <h2 style="display:inline-block"> <b>Header beheer</b> &nbsp</h2><h2 style="display: inline-block;" class="greenText"> {{ $message }}</h2>
     <br>
     @foreach ($NavMainArray as $data)
 
@@ -32,7 +32,7 @@
 
         Naam: {{ Form::text('name', $data->name) }}
         Zichtbaar {{ Form::checkbox('visible', 1, $data->visible) }}
-        Item van {{  Form::select('parent_id', $options, $data->parent_id)}}
+        Item van {{  Form::select('parent_id', $options, $data->parent_id, array('class' => 'formText'))}}
 
         @if(!in_array($data->priority, $disableUpArrow))
             <input type="submit" name="priorityUp" id="priorityUp" value="▲">

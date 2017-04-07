@@ -427,3 +427,31 @@ a.active {
 .dropdown-menu:hover {
    background-color: lightgrey;
  }
+
+//Header CMS (The actual page, not to be confused with the CMS Header)
+
+.container-headercms
+{
+  margin-left:135px;
+}
+
+.body-headercms
+{
+  background: linear-gradient(to bottom, #ffffff 29%,#d6d6d6 99%);
+
+}
+.html-headercms
+{
+  min-height: 100%;
+}
+
+.formText
+{
+  width: 150px;
+}
+
+.greenText
+{
+  color: #32CD32;
+  display: inline-block;
+}

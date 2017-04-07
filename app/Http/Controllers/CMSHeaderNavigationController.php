@@ -24,7 +24,7 @@ class CMSHeaderNavigationController extends Controller
             $priority2 = $request->priority;
             DB::table('header_navigations')->where('id', $request->id)->update(['priority' => $priority1]);
             DB::table('header_navigations')->where('id', $toSwapNav->id)->update(['priority' => $priority2]);
-            return view('cms.cms_header', ['message' => "- Volgorde veranderd!"]);
+            return view('cms.cms_header', ['message' => " Volgorde veranderd!"]);
         }
 
         if (isset($data['priorityDown'])) {
@@ -33,7 +33,7 @@ class CMSHeaderNavigationController extends Controller
             $priority2 = $request->priority;
             DB::table('header_navigations')->where('id', $request->id)->update(['priority' => $priority1]);
             DB::table('header_navigations')->where('id', $toSwapNav->id)->update(['priority' => $priority2]);
-            return view('cms.cms_header', ['message' => "- Volgorde veranderd!"]);
+            return view('cms.cms_header', ['message' => " Volgorde veranderd!"]);
         }
 
         if (isset($data['store'])) {
@@ -46,7 +46,7 @@ class CMSHeaderNavigationController extends Controller
             DB::table('header_navigations')->where('id', $request->id)->update(['visible' => $visible]);
             DB::table('header_navigations')->where('id', $request->id)->update(['parent_id' => $request->parent_id]);
 
-            return view('cms.cms_header', ['message' => "- Succesvol opgeslagen!"]);
+            return view('cms.cms_header', ['message' => "Succesvol opgeslagen!"]);
         }
 
     }
