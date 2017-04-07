@@ -15,13 +15,14 @@ class CreateNewsarticleTable extends Migration
     {
         //
         Schema::create('newsarticles', function (Blueprint $table){
-            $table->increments('id')->unique();
-            $table->string('title');
-            $table->string('image');
-            $table->string('description');
-            $table->string('text');
-            $table->date('date');
-            $table->tinyInteger('visible');
+            $table->increments('ID')->unique();
+            $table->string('Title');
+            $table->string('Image');
+            $table->string('Description');
+            $table->string('Text');
+            $table->date('Date');
+            $table->tinyInteger('Visible');
+            $table->timestamps();
         });
     }
 

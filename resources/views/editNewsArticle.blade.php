@@ -10,9 +10,6 @@
     </head>
     <body>
     @include('layouts.cmsHeader', array('currentPage'=>'Paginas'))
-
-
-
             <div class="container">
                 <form action="cmsEditArticle" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="_token" value=" {{ csrf_token() }} " >
@@ -21,17 +18,18 @@
                             $path_parts=explode('/', $parts['path']);
                             $article = App\NewsArticle::where('ID', '=', $path_parts[count($path_parts)-1] )->first();
                         ?>
-                    <input type="hidden" value="{{ $article->ID}}" />
+                    <input type="hidden" name="ID" value="{{ $article->ID}}" />
+                    <br> <br>
                     Titel: <br>
-                        <input type="text" name="title" value="{{$article->Title}}"> <br> <br>
+                        <input type="text" name="Title" value="{{$article->Title}}"> <br> <br>
                     Image:
-                        <input type="file" accept=".jpeg, .jpg, .png" name="image" value="{{$article->Image}}"> <br>
+                        <input type="file" accept=".jpeg, .jpg, .png" name="Image" value="{{$article->Image}}"> <br>
                     Description: <br>
-                        <textarea rows="5" cols="60" name="description">{{$article->Description}} </textarea> <br>
+                        <textarea rows="5" cols="60" name="Description">{{$article->Description}} </textarea> <br>
                     Text: <br>
-                        <textarea rows="5" cols="60" name="text"> {{$article->Text}} </textarea>  <br>
+                        <textarea rows="5" cols="60" name="Text"> {{$article->Text}} </textarea>  <br>
                     Visible: <br>
-                        <input type="text" name="visible" value="{{$article->Visible}}"> <br>
+                        <input type="text" name="Visible" value="{{$article->Visible}}"> <br>
                     <br>
                     <input type="submit" value="Wijzigen"/>
                 </form>

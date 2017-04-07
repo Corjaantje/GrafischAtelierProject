@@ -78,7 +78,7 @@ Route::get('cms_nieuws', array('as' => 'cmsNews', function() {
     return view('cmsNews');
 }));
 
-Route::post('cmsEditArticle', 'NewsArticleController@editArticle');
+Route::post('cms_wijzig_nieuws_artikel/cmsEditArticle', 'NewsArticleController@insertNewsArticle');
 
 Route::get('cms_nieuw_nieuws_artikel', array('as' => 'newNewsArticle', function() {
     return view ('newNewsArticle');
