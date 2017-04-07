@@ -78,13 +78,15 @@ Route::get('cms_nieuws', array('as' => 'cmsNews', function() {
     return view('cmsNews');
 }));
 
+Route::post('cmsEditArticle', 'NewsArticleController@editArticle');
+
 Route::get('cms_nieuw_nieuws_artikel', array('as' => 'newNewsArticle', function() {
     return view ('newNewsArticle');
 }));
 
-Route::get('cms_wijzig_nieuws_artikel/{ID}', array('as' => 'editNewsArticle', function($artikelNummer) {
+Route::get('cms_wijzig_nieuws_artikel/{artikelNummer}', array('as' => 'editNewsArticle', function($artikelNummer) {
     $data = array(
-        'Id' => $artikelNummer
+        'ID' => $artikelNummer
     );
     return view('editNewsArticle', $data);
 }));

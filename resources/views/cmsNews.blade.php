@@ -14,7 +14,9 @@
 
     <!--CONTENT IN HERE-->
     <!-- Knop om nieuwe artikelen aan te maken -->
+    <br>
     <button type="button" onclick="window.location='{{URL::route('newNewsArticle')}}'">Nieuw artikel aanmaken</button>
+    <br>
 
     <!-- Artikelen -->
     <?php
