@@ -20,13 +20,15 @@ class NewsArticleController extends Controller
 
     private function newArticle()
     {
-        NewsArticle::Insert(['Title' => $_POST['Title'], 'Description' => $_POST['Description'], 'Text' => $_POST['Text'], 'Date' => $_POST['Date'], 'Visible' => $_POST['Visible'] ]);
+        $checked = (isset($_POST['Visible'])) ? 1 : 0;
+        NewsArticle::Insert(['Title' => $_POST['Title'], 'Description' => $_POST['Description'], 'Text' => $_POST['Text'], 'Date' => $_POST['Date'], 'Visible' => $checked ]);
 
     }
 
     private function editArticle()
     {
-        NewsArticle::Where('ID', '=', $_POST['ID'])->update(['Title' => $_POST['Title'], 'Description' => $_POST['Description'], 'Text' => $_POST['Text'], 'Date' => $_POST['Date'], 'Visible' => $_POST['Visible'] ]);
+        $checked = (isset($_POST['Visible'])) ? 1 : 0;
+        NewsArticle::Where('ID', '=', $_POST['ID'])->update(['Title' => $_POST['Title'], 'Description' => $_POST['Description'], 'Text' => $_POST['Text'], 'Date' => $_POST['Date'], 'Visible' => $checked ]);
     }
 
     private function formValid(){

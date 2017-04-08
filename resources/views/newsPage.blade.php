@@ -15,7 +15,7 @@
 
         <?php
 
-        $articles = App\NewsArticle::all();
+        $articles = App\NewsArticle::Where('Visible', '=', '1')->get();
         ?>
 
 		@foreach ($articles as $article)

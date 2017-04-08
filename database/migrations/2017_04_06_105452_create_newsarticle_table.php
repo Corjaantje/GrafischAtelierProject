@@ -14,7 +14,7 @@ class CreateNewsarticleTable extends Migration
     public function up()
     {
         //
-        Schema::create('newsarticles', function (Blueprint $table){
+        Schema::create('news_articles', function (Blueprint $table){
             $table->increments('ID')->unique();
             $table->string('Title');
             $table->string('Image')->nullable();

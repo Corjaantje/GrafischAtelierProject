@@ -12,6 +12,8 @@
 @include('layouts.cmsHeader', array('currentPage'=>'Nieuws'))
 <div class="container">
     <form action="newNewsArticle" method="post" enctype="multipart/form-data">
+
+
         <input type="hidden" name="_token" value=" {{ csrf_token() }} " >
 
         <input type="hidden" name="ID" value="-1" />
@@ -25,9 +27,11 @@
         Text: <br>
         <textarea rows="5" cols="60" name="Text"></textarea>  <br>
         Date:
-        <input type="date" name="Date" value="" /> <br>
+        <input type="date" name="Date" value="<?php echo date('Y-m-d'); ?>" /> <br>
         Visible: <br>
-        <input type="number" name="Visible" value=""> <br>
+
+
+        <input type="checkbox" name="Visible" value="1" checked> <br>
         <br>
         <input type="submit" value="Aanmaken"/>
     </form>

@@ -33,7 +33,6 @@
             <th id="table-header-style">Date</th>
             <th id="table-header-style">Visible</th>
             <th></th>
-            <th></th>
         </tr>
         @foreach ($articles as $article)
             <tr id="table-row-style">
@@ -45,7 +44,7 @@
                 <td id="table-data-style"> {{ $article->Date }}</td>
                 <td id="table-data-style"> {{ $article->Visible }}</td>
                 <td> <button type="button" onclick="window.location='{{URL::route('editNewsArticle', $article->ID)}}'">Edit</button></td>
-                <td> <button type="button" action="{{  $controller->deleteArticle($article->ID) }}" onclick="window.location.reload()">X</button></td>
+
             </tr>
         @endforeach
     </table>

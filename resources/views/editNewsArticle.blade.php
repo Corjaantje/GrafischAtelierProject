@@ -33,7 +33,7 @@
                     Date:
                         <input type="date" name="Date" value="{{$article->Date}}" /> <br>
                     Visible: <br>
-                        <input type="number" name="Visible" value="{{$article->Visible}}" pattern="[0-1]"> <br>
+                        <input type="checkbox" name="Visible" value="{{$article->Visible}}" checked> <br>
                     <br>
                     <input type="submit" value="Wijzigen"/>
                 </form>
