@@ -41,4 +41,11 @@ class NewsArticleController extends Controller
     {
         return App\NewsArticle::all();
     }
+
+    public function deleteArticle($id)
+    {
+        NewsArticle::Where('ID', '=', $id)->Delete();
+
+        return redirect('cms');
+    }
 }
