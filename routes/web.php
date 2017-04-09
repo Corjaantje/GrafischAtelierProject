@@ -37,7 +37,7 @@ Route::get('werkplaats', array('as' => 'werkplaats', function () {
     return view('werkplaats');
 }));
 
-Route::get('winkel', array('as' => 'webshop', function () {
+Route::get('winkel', array('as' => 'winkel', function () {
     return view('Webshop');
 }));
 
@@ -66,13 +66,34 @@ Route::get('over_ons', array('as' => 'about', function() {
 }));
 
 Route::get('agenda', array('as' => 'agenda', function() {
-    return view('Agenda');
+    return view('agenda');
 }));
 
-
-Route::get('cms', array('as' => 'cmsPanel', function() {
-    return view('cmsHome');
+Route::get('cms', array('as' => 'cms_home', function() {
+    return view('cms.cms_home');
 }));
+
+Route::get('cms/header', ['as' => 'cms_header', 'uses' => 'CMSHeaderNavigationController@create']);
+
+Route::post('cms/header', ['as' => 'cms_header_store', 'uses' => 'CMSHeaderNavigationController@store']);
+
+
+Route::get('cms/productbewerker', array('as' => 'cmsProductEditor', function(){
+	return view('cmsProductEditor');
+}));
+Route::get('cms/productbewerker/{ProductId}', array('as' => 'cmsProductEditor', function($ProductId){
+	$data = array(
+		'Id' => $ProductId	
+	);
+	return view('cmsProductEditor', $data);
+}));
+Route::get('cms/product_lijst', array('as' => 'ProductList', function(){
+	return view('cmsProductList');
+}));
+Route::post('cms/cmsCreateProduct', 'ProductController@insertProduct');
+Route::post('cms/productbewerker/cmsCreateProduct', 'ProductController@insertProduct');
+Route::get('cms/verwijderProduct/{id}', ['uses' => 'ProductController@removeItem']);
+
 
 Route::get('cms_nieuws', array('as' => 'cmsNews', function() {
     return view('cmsNews');
