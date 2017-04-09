@@ -9,7 +9,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-@include('layouts.cmsHeader', array('currentPage'=>'Nieuws'))
+@include('layouts.cms_navigation', array('currentPage'=>'Nieuws'))
 <div class="container">
     <form action="newNewsArticle" method="post" enctype="multipart/form-data">
 
