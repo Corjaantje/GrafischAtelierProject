@@ -428,6 +428,24 @@ a.active {
    background-color: lightgrey;
  }
 
+#table-style {
+  width: 80%;
+}
+
+#table-header-style {
+  height: 40px;
+  padding: 10px;
+}
+
+#table-row-style {
+  border-bottom: 1px solid black;
+
+}
+
+#table-data-style {
+  padding: 10px;
+}
+
 //Header CMS (The actual page, not to be confused with the CMS Header)
 
 .container-headercms

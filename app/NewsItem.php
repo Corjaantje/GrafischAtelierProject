@@ -2,7 +2,10 @@
 
 namespace App;
 
-class NewsItem {
+use Illuminate\Database\Eloquent\Model;
+
+class NewsItem extends Model {
+    protected $table = 'newsarticle';
 
 	private $picturePath;
 
@@ -13,7 +16,7 @@ class NewsItem {
 	private $sampleText;
 
 	public function __construct($picturePath, $pictureName, $sampleText, $text) {
-
+        parent::__construct();
 		$this->picturePath = $picturePath;
 		$this->pictureName = $pictureName;
 		$this->sampleText = $sampleText;

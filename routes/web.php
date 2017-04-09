@@ -95,6 +95,24 @@ Route::post('cms/productbewerker/cmsCreateProduct', 'ProductController@insertPro
 Route::get('cms/verwijderProduct/{id}', ['uses' => 'ProductController@removeItem']);
 
 
+Route::get('cms_nieuws', array('as' => 'cmsNews', function() {
+    return view('cmsNews');
+}));
+
+Route::post('cms_wijzig_nieuws_artikel/cmsEditArticle', 'NewsArticleController@insertNewsArticle');
+Route::post('newNewsArticle', 'NewsArticleController@insertNewsArticle');
+
+Route::get('cms_nieuw_nieuws_artikel', array('as' => 'newNewsArticle', function() {
+    return view ('newNewsArticle');
+}));
+
+Route::get('cms_wijzig_nieuws_artikel/{artikelNummer}', array('as' => 'editNewsArticle', function($artikelNummer) {
+    $data = array(
+        'ID' => $artikelNummer
+    );
+    return view('editNewsArticle', $data);
+}));
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
