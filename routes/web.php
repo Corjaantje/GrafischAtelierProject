@@ -1,43 +1,45 @@
 <?php
 /*
- * |--------------------------------------------------------------------------
- * | Web Routes
- * |--------------------------------------------------------------------------
- * |
- * | Here is where you can register web routes for your application. These
- * | routes are loaded by the RouteServiceProvider within a group which
- * | contains the "web" middleware group. Now create something great!
- * |
- */
+      _____               _____               ____                 _
+     / ____|    /\       |  __ \             |  _ \               | |
+     | |  __   /  \      | |  | | ___ _ __   | |_) | ___  ___  ___| |__
+     | | |_ | / /\ \     | |  | |/ _ \ '_ \  |  _ < / _ \/ __|/ __| '_ \
+     | |__| |/ ____ \    | |__| |  __/ | | | | |_) | (_) \__ \ (__| | | |
+      \_____/_/    \_\   |_____/ \___|_| |_| |____/ \___/|___/\___|_| |_|
+*/
+
+#----Home Route----
 Route::get('/', function () {
 	return view('home');
 });
-Route::get('nieuws', array('as' => 'nieuws', function () {
-    return view('NewsPage');
-}));
+
+#----More detailed Routes----
+Route::get('product/{ProductNr}', function ($ProductNr) {
+    $data = array(
+        'Id' => $ProductNr
+    );
+    return view('Product', $data);
+});
+
 Route::get('artikel/{ArtikelNr}', function ($ArtikelNr) {
     $data = array(
         'Id' => $ArtikelNr
     );
     return view('NewsArticle', $data);
 });
-Route::get('educatie', function () {
-	return view('educatie');
-});
-Route::get('werkplaats', array('as' => 'werkplaats', function () {
-	return view('werkplaats');
+
+#----Standard Page Routes----
+Route::get('nieuws', array('as' => 'nieuws', function () {
+    return view('NewsPage');
 }));
 
-Route::get('winkel', array('as' => 'webshop', function () {
-	return view('Webshop');
+Route::get('werkplaats', array('as' => 'werkplaats', function () {
+    return view('werkplaats');
 }));
-Route::get('product/{ProductNr}', function ($ProductNr) {
-	$data = array(
-			'Id' => $ProductNr 
-	);
-	
-	return view('Product', $data);
-});
+
+Route::get('winkel', array('as' => 'winkel', function () {
+    return view('Webshop');
+}));
 
 Route::get('archief', array('as' => 'archief', function () {
     return view('archive');
@@ -60,9 +62,57 @@ Route::get('opfrissen', array('as' => 'opfrissen', function () {
 }));
 
 Route::get('over_ons', array('as' => 'about', function() {
-	return view('about');
+    return view('about');
 }));
 
-	Route::get('agenda', array('as' => 'agenda', function() {
-		return view('Agenda');
-	}));
+Route::get('agenda', array('as' => 'agenda', function() {
+    return view('agenda');
+}));
+
+Route::get('cms', array('as' => 'cms_home', function() {
+    return view('cms.cms_home');
+}));
+
+Route::get('cms/header', ['as' => 'cms_header', 'uses' => 'CMSHeaderNavigationController@create']);
+
+Route::post('cms/header', ['as' => 'cms_header_store', 'uses' => 'CMSHeaderNavigationController@store']);
+
+
+Route::get('cms/productbewerker', array('as' => 'cmsProductEditor', function(){
+	return view('cmsProductEditor');
+}));
+Route::get('cms/productbewerker/{ProductId}', array('as' => 'cmsProductEditor', function($ProductId){
+	$data = array(
+		'Id' => $ProductId	
+	);
+	return view('cmsProductEditor', $data);
+}));
+Route::get('cms/product_lijst', array('as' => 'ProductList', function(){
+	return view('cmsProductList');
+}));
+Route::post('cms/cmsCreateProduct', 'ProductController@insertProduct');
+Route::post('cms/productbewerker/cmsCreateProduct', 'ProductController@insertProduct');
+Route::get('cms/verwijderProduct/{id}', ['uses' => 'ProductController@removeItem']);
+
+
+Route::get('cms_nieuws', array('as' => 'cmsNews', function() {
+    return view('cmsNews');
+}));
+
+Route::post('cms_wijzig_nieuws_artikel/cmsEditArticle', 'NewsArticleController@insertNewsArticle');
+Route::post('newNewsArticle', 'NewsArticleController@insertNewsArticle');
+
+Route::get('cms_nieuw_nieuws_artikel', array('as' => 'newNewsArticle', function() {
+    return view ('newNewsArticle');
+}));
+
+Route::get('cms_wijzig_nieuws_artikel/{artikelNummer}', array('as' => 'editNewsArticle', function($artikelNummer) {
+    $data = array(
+        'ID' => $artikelNummer
+    );
+    return view('editNewsArticle', $data);
+}));
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');

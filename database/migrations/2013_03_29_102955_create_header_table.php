@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class CreateHeaderTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,14 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('header_navigations', function (Blueprint $table) {
             $table->increments('id')->unique();
             $table->string('name');
-            $table->string('email');
-            $table->string('username');
-            $table->string('password');
-            $table->string('address');
-            $table->rememberToken();
-            $table->timestamps();
+            $table->string('link_as');
+            $table->integer('parent_id')->unsigned()->nullable();
+            $table->foreign('parent_id')->references('id')->on('header_navigations');
+            $table->integer('priority');
+            $table->boolean('visible');
         });
     }
 
@@ -32,6 +31,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('header_navigation');
     }
 }

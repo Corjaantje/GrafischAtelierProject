@@ -9,7 +9,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-@include('layouts.header', array('title'=>'Archive'));
+@include('layouts.header', array('title'=>'Archief'));
 
 <div class="title text-center">
     <h1>Archief</h1>
@@ -29,14 +29,14 @@
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     <br>
                     <!-- Deze link moet gekoppeld worden aan het desbetreffende product, waarschijnlijk op basis van id waarover ook geloopt wordt-->
-                    <a class="view-more" href="/archive">Bekijk artikel</a>
+                    <a class="view-more" href="{{URL::route('archief')}}">Bekijk artikel</a>
                 </div>
             </div>
         @endfor
 
         <div class="view-more">
             <!-- Reload page with +10 articles -->
-            <a href="/archive">Laad meer artikelen</a>
+            <a href="{{URL::route('archief')}}">Laad meer artikelen</a>
         </div>
     </div>
 </div>
