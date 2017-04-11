@@ -31,6 +31,6 @@ class CreateHeaderTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('header_navigation');
+        Schema::dropIfExists('header_navigations');
     }
 }
