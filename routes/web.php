@@ -18,19 +18,19 @@ Route::get('product/{ProductNr}', function ($ProductNr) {
     $data = array(
         'Id' => $ProductNr
     );
-    return view('Product', $data);
+    return view('product', $data);
 });
 
 Route::get('artikel/{ArtikelNr}', function ($ArtikelNr) {
     $data = array(
         'Id' => $ArtikelNr
     );
-    return view('NewsArticle', $data);
+    return view('newsArticle', $data);
 });
 
 #----Standard Page Routes----
 Route::get('nieuws', array('as' => 'nieuws', function () {
-    return view('NewsPage');
+    return view('newsPage');
 }));
 
 Route::get('werkplaats', array('as' => 'werkplaats', function () {
@@ -38,7 +38,7 @@ Route::get('werkplaats', array('as' => 'werkplaats', function () {
 }));
 
 Route::get('winkel', array('as' => 'winkel', function () {
-    return view('Webshop');
+    return view('webshop');
 }));
 
 Route::get('archief', array('as' => 'archief', function () {
@@ -73,46 +73,53 @@ Route::get('cms', array('as' => 'cms_home', function() {
     return view('cms.cms_home');
 }));
 
+#----CMS Routes----
+#------Header CMS------
 Route::get('cms/header', ['as' => 'cms_header', 'uses' => 'CMSHeaderNavigationController@create']);
 
 Route::post('cms/header', ['as' => 'cms_header_store', 'uses' => 'CMSHeaderNavigationController@store']);
 
-
+#------Product CMS------
 Route::get('cms/productbewerker', array('as' => 'cmsProductEditor', function(){
-	return view('cmsProductEditor');
+	return view('cms.cms_product_editor');
 }));
+
 Route::get('cms/productbewerker/{ProductId}', array('as' => 'cmsProductEditor', function($ProductId){
 	$data = array(
 		'Id' => $ProductId	
 	);
-	return view('cmsProductEditor', $data);
+	return view('cms.cms_product_editor', $data);
 }));
-Route::get('cms/product_lijst', array('as' => 'ProductList', function(){
-	return view('cmsProductList');
+
+Route::get('cms/product_lijst', array('as' => 'cms_product_list', function(){
+	return view('cms.cms_product_list'); #todo verander naam
 }));
+
 Route::post('cms/cmsCreateProduct', 'ProductController@insertProduct');
-Route::post('cms/productbewerker/cmsCreateProduct', 'ProductController@insertProduct');
+Route::post('cms/productbewerker/cmsCreateProduct', 'ProductController@insertProduct'); #todo Dubbele post naar zelfde route
+
 Route::get('cms/verwijderProduct/{id}', ['uses' => 'ProductController@removeItem']);
 
-
-Route::get('cms_nieuws', array('as' => 'cmsNews', function() {
-    return view('cmsNews');
+#------Nieuws CMS------
+Route::get('cms_nieuws', array('as' => 'cms_news', function() {
+    return view('cms.cms_news');
 }));
 
-Route::post('cms_wijzig_nieuws_artikel/cmsEditArticle', 'NewsArticleController@insertNewsArticle');
+Route::post('cms_wijzig_nieuws_artikel/cmsEditArticle', 'NewsArticleController@insertNewsArticle'); #todo Naam controle
 Route::post('newNewsArticle', 'NewsArticleController@insertNewsArticle');
 
 Route::get('cms_nieuw_nieuws_artikel', array('as' => 'newNewsArticle', function() {
-    return view ('newNewsArticle');
+    return view ('cms.cms_new_news_article');
 }));
 
 Route::get('cms_wijzig_nieuws_artikel/{artikelNummer}', array('as' => 'editNewsArticle', function($artikelNummer) {
     $data = array(
         'ID' => $artikelNummer
     );
-    return view('editNewsArticle', $data);
+    return view('cms.cms_edit_news_article', $data);
 }));
 
+#----Login & Register Routes----
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
