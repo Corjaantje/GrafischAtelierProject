@@ -1,11 +1,13 @@
 <?php 
 	use App\Http\Controllers\ProductController;
+	$controller = new ProductController();
 	
 	if(!isset($Id)){
 		$Id = -1;
 	}
 	
-	$controller = new ProductController();
+	$formData = $controller->getFormData($Id);
+	
 ?>
 <!DOCTYPE html>
 	<html xmlns="http://www.w3.org/1999/xhtml">
@@ -28,10 +30,14 @@
 
 					<form action="cmsCreateProduct" method="post" enctype="multipart/form-data">
 						<input type="hidden" name="_token" value="{{ csrf_token() }} " >
+						
+						<input type="hidden" value="{{ $Id }}" name="Id" />
 			
-						<?php 
-							echo $controller->fillForm($Id);
-						?>
+						Naam: <input type="text" name="Name" value="{{ $formData['name'] }}" size="40%"/> <br>
+						Prijs:   <input type="number" name="Price" step="0.01" value="{{ $formData['price'] }}" min="0"/><br>
+						Beschrijving: <br> <textarea name="Description" rows="5" cols="60">{{ $formData['description'] }}</textarea><br>
+				
+						<input type="submit" value="Bewerken"/>
 				
 					</form>
 				</div>

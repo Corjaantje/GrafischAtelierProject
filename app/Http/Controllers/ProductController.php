@@ -10,6 +10,12 @@ class ProductController extends Controller
     
 	public function insertProduct(){
 		
+		if(!$this->formValid()){
+			
+			return redirect('cms/product_lijst');
+			
+		}
+		
 		if($_POST['Id'] == -1){
 			$this->newProduct();
 		}
@@ -42,11 +48,11 @@ class ProductController extends Controller
 		return true;
 	}
 	
-	public function fillForm($id = -1){
+	public function getFormData($id = -1){
 				
-		$name = "Naam";
-		$price = "0.01";
-		$description = "Beschrijving";
+		$data['name'] = "Naam";
+		$data['price'] = "0.01";
+		$data['description'] = "Beschrijving";
 		
 		if($id != -1){
 			
@@ -54,24 +60,15 @@ class ProductController extends Controller
 			
 			if($product != null){
 				
-				$name = $product->Name;
-				$price = $product->Price;
-				$description = $product->Description;
+				$data['name'] = $product->Name;
+				$data['price'] = $product->Price;
+				$data['description'] = $product->Description;
 				
 			}
 			
 		}
 		
-		
-		$output = "<input type=\"hidden\" value=\"$id\" name=\"Id\" />
-			
-						Naam: <input type=\"text\" name=\"Name\" value=\"$name\" size=\"40%\"/> <br>
-						Prijs:   <input type=\"number\" name=\"Price\" step=\"0.01\" value=\"$price\"/><br>
-						Beschrijving: <br> <textarea name=\"Description\" rows=\"5\" cols=\"60\">$description</textarea><br>
-				
-						<input type=\"submit\" value=\"Aanmaken\"/>";
-		
-		return $output;
+		return $data;
 		
 	}
 	
