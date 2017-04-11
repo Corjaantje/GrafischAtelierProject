@@ -30,7 +30,7 @@ Route::get('artikel/{ArtikelNr}', function ($ArtikelNr) {
 
 #----Standard Page Routes----
 Route::get('nieuws', array('as' => 'nieuws', function () {
-    return view('NewsPage');
+    return view('newsPage');
 }));
 
 Route::get('werkplaats', array('as' => 'werkplaats', function () {
