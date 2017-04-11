@@ -9,11 +9,6 @@
             //bar or div or whatever.  I stuck in the console.log for you.  Just remove when
             //you know the position.
             $(window).scroll(function () {
-
-                if ($(window).scrollTop() > $(".navbar").height()) {
-                    $('.navbar').addClass('navbar-fixed');
-                }
-
                 if ($(window).scrollTop() < $(".navbar").height()) {
                     $('.navbar').removeClass('navbar-fixed');
                 }
@@ -51,39 +46,40 @@
                         @if($data->visible)
                             <li id="dropdown"><a href="{{URL::route($data->link_as)}}"> <b>{{ $data->name }}</b> </a>
                                 -
-                        @endif
-
-                        <div id="dropdown-content">
-                            @foreach($NavSubArray as $subdata)
-                                @if($subdata->parent_id == $data->id && $subdata->visible)
-                                    <a href="{{URL::route($subdata->link_as)}}"><b> {{ $subdata->name }}</b></a>
                                 @endif
+
+                                <div id="dropdown-content">
+                                    @foreach($NavSubArray as $subdata)
+                                        @if($subdata->parent_id == $data->id && $subdata->visible)
+                                            <a href="{{URL::route($subdata->link_as)}}"><b> {{ $subdata->name }}</b></a>
+                                        @endif
+                                    @endforeach
+                                </div>
+                            </li>
                             @endforeach
-                        </div>
-                        </li>
-                    @endforeach
 
-                <!-- Authentication Links -->
-                    @if (Auth::guest())
-                        <li class="auth_links"><a href="{{ route('register') }}"><b>Registreren</b></a></li>
-                        <li class="auth_links"><a href="{{ route('login') }}"><b>Inloggen</b></a> -</li>
+                        <!-- Authentication Links -->
+                            @if (Auth::guest())
+                                <li class="auth_links"><a href="{{ route('register') }}"><b>Registreren</b></a></li>
+                                <li class="auth_links"><a href="{{ route('login') }}"><b>Inloggen</b></a> -</li>
 
-                    @else
-                        <li id="dropdown" class="auth_links"><b>{{ Auth::user()->name }} <span class="caret"></span></b>
-                            <div id="dropdown-content">
-                                <a href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
+                            @else
+                                <li id="dropdown" class="auth_links"><b>{{ Auth::user()->name }} <span
+                                                class="caret"></span></b>
+                                    <div id="dropdown-content">
+                                        <a href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                    Logout
-                                </a>
+                                            Logout
+                                        </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                      style="display: none;">
-                                    {{ csrf_field() }}
-                                </form>
-                            </div>
-                        </li>
-                    @endif
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                              style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </div>
+                                </li>
+                            @endif
                 </ul>
             </div>
         </div>
