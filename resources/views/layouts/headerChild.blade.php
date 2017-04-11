@@ -3,6 +3,8 @@
 @section('navigation')
     <script>
         $(document).ready(function() {
+            //todo NOT SURE WHAT THE FUNCTION OF THIS FILE IS?!
+
             //change the integers below to match the height of your upper dive, which I called
             //banner.  Just add a 1 to the last number.  console.log($(window).scrollTop())
             //to figure out what the scroll position is when exactly you want to fix the nav
@@ -42,7 +44,7 @@
             <ul>
                 <li><a href="{{URL::route('nieuws')}}"> <b>Nieuws</b> </a></li>
                 -
-                <li><a href="{{URL::route('webshop')}}"> <b>Winkel</b> </a></li>
+                <li><a href="{{URL::route('winkel')}}"> <b>Winkel</b> </a></li>
                 -
                 <li id="dropdown"><a href="{{URL::route('aan_de_slag')}}"> <b>Aan De Slag</b> </a>
                     <div id="dropdown-content">
