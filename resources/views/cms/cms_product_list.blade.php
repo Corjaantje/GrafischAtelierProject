@@ -30,6 +30,7 @@ $products = App\Product::all();
 							<th id="table-header-style">Titel</th>
 							<th id="table-header-style">Prijs</th>
 							<th></th>
+							<th></th>
 							
 						</tr>
 						
@@ -41,6 +42,7 @@ $products = App\Product::all();
 								<td id="table-data-style"> {{ $product->Price }}</td>
 								
 								<td> <button type="button" onclick="window.location='{{URL::route('cmsProductEditor', $product->ID)}}'">Bewerk</button> </td>
+								<td> <form action="verwijderProduct/{{$product->ID}}"><input type="submit" value="verwijder"/></form> </td>
 							
 							</tr>
 						
@@ -48,7 +50,7 @@ $products = App\Product::all();
 					
 					</table>
 					
-					<button type="button" onclick="window.location='{{URL::route('cmsProductEditor', -1)}}'">Nieuw Product</button>
+					<button type="button" >Nieuw Product</button>
 					
 				</div>
 
