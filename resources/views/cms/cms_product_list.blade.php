@@ -50,7 +50,8 @@ $products = App\Product::all();
 					
 					</table>
 					
-					<button type="button" >Nieuw Product</button>
+                    <button type="button" onclick="window.location='{{URL::route('cmsProductEditor', -1)}}'">Nieuw Product</button>
+
 					
 				</div>
 
