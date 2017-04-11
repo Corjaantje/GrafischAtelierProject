@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\ProductController;
 $controller = new ProductController();
+$products = App\Product::all();
 ?>
 <!DOCTYPE html>
 	<html xmlns="http://www.w3.org/1999/xhtml">
@@ -22,8 +23,32 @@ $controller = new ProductController();
 				<div class="col-lg-12 col-md-12 col-sm-12 col-sm-offset-1 col-xs-10 col-xs-offset-1" >
 
 					
-					<?php echo $controller->getAllProducts()?>
+					<table id="table-style">
 					
+						<tr id="table-row-style">
+						
+							<th id="table-header-style">Titel</th>
+							<th id="table-header-style">Prijs</th>
+							<th></th>
+							
+						</tr>
+						
+						@foreach($products as $product)
+						
+							<tr id="table-row-style">
+							
+								<td id="table-data-style"> {{ $product->Name }}</td>
+								<td id="table-data-style"> {{ $product->Price }}</td>
+								
+								<td> <button type="button" onclick="window.location='{{URL::route('cmsProductEditor', $product->ID)}}'">Bewerk</button> </td>
+							
+							</tr>
+						
+						@endforeach
+					
+					</table>
+					
+					<button type="button" onclick="window.location='{{URL::route('cmsProductEditor', -1)}}'">Nieuw Product</button>
 					
 				</div>
 
