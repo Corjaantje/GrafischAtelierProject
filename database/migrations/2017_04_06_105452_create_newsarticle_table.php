@@ -18,8 +18,8 @@ class CreateNewsarticleTable extends Migration
             $table->increments('ID')->unique();
             $table->string('Title');
             $table->string('Image')->nullable();
-            $table->string('Description');
-            $table->string('Text');
+            $table->string('Description', 5000);
+            $table->string('Text', 5000);
             $table->date('Date');
             $table->tinyInteger('Visible');
             $table->timestamps();
