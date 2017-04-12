@@ -16,7 +16,7 @@ class CreateTablesTable extends Migration
         //Creates the database table to manage the tables, which consist of a technique and a number. An example is "Zeefdruk - 1".
         Schema::create('tables', function (Blueprint $table) {
             $table->increments('id')->unique();
-            $table->string('technique');
+            $table->integer('technique_id')->references('id')->on('techniques');
             $table->integer('table_number');
         });
     }
