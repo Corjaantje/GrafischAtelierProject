@@ -13,7 +13,7 @@ class CreateIndividualReserve extends Migration
      */
     public function up()
     {
-        Schema::create('individual_reserve', function (Blueprint $table){
+        Schema::create('individual_reservation_table', function (Blueprint $table){
             $table->increments('id')->unique();
             $table->integer('user_id');
             $table->integer('table_id');
@@ -30,6 +30,6 @@ class CreateIndividualReserve extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('individual_reserve');
+        Schema::dropIfExists('individual_reservation_table');
     }
 }
