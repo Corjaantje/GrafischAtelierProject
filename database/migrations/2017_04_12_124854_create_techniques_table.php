@@ -18,7 +18,8 @@ class CreateTechniquesTable extends Migration
         {
             $table->increments('id')->unique();
             $table->string('name');
-        };
+            $table->string('description', 5000);
+        });
     }
 
     /**
