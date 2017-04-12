@@ -15,8 +15,8 @@ class CreateIndividualReservation extends Migration
     {
         Schema::create('individual_reservation_table', function (Blueprint $table){
             $table->increments('id')->unique();
-            $table->integer('user_id');
-            $table->integer('table_id');
+            $table->integer('user_id')->references('id')->on('users');
+            $table->integer('table_id')->references('id')->on('techniques');
             $table->timestamp('start_time');
             $table->timestamp('end_time');
             $table->double('price');
