@@ -17,8 +17,6 @@ use App\ShopItemNames;
 
 		<div class="container">
 			<?php
-			require '../app/ShopItemNames.php';
-			$y = new ShopItemNames();
 			
 			echo "<div class=\"row\">";
 			
@@ -56,7 +54,7 @@ use App\ShopItemNames;
 			?>	
 		
 		</div>
-		@include('layouts.footerChild')
+		@include('layouts.footer')
 	</body>
 
 </html>
