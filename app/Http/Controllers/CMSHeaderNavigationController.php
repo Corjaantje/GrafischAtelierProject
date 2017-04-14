@@ -14,6 +14,10 @@ class CMSHeaderNavigationController extends Controller
         return view('cms.cms_header', ['message' => ""]);
     }
 
+    /**
+     * @param Request $request
+     * @return mixed
+     */
     public function store(Request $request)
     {
         $data = Input::all();

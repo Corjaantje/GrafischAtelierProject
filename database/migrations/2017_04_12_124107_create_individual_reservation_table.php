@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateIndividualReservation extends Migration
+class CreateIndividualReservationTable extends Migration
 {
     /**
      * Run the migrations.
@@ -17,8 +17,8 @@ class CreateIndividualReservation extends Migration
             $table->increments('id')->unique();
             $table->integer('user_id')->references('id')->on('users');
             $table->integer('table_id')->references('id')->on('techniques');
-            $table->timestamp('start_time');
-            $table->timestamp('end_time');
+            $table->timestamp('start_time')->nullable();
+            $table->timestamp('end_time')->nullable();
             $table->double('price');
         });
     }

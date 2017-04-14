@@ -11,12 +11,13 @@
 <body class="body-headercms">
 @include('layouts.cms_navigation', array('currentPage'=>'Header'))
 <div class="container-headercms">
-    <?php
-    $NavMainArray = App\HeaderNavigation::getAllNavigationArray();
-    $disableUpArrow = App\HeaderNavigation::getDisabledPriorityUpArray();
-    $disableDownArrow = App\HeaderNavigation::getDisabledPriorityDownArray();
-    ?>
-    <h2 style="display:inline-block"> <b>Header beheer</b> &nbsp</h2><h2 style="display: inline-block;" class="greenText"> {{ $message }}</h2>
+    @php
+        $NavMainArray = App\HeaderNavigation::getAllNavigationArray();
+        $disableUpArrow = App\HeaderNavigation::getDisabledPriorityUpArray();
+        $disableDownArrow = App\HeaderNavigation::getDisabledPriorityDownArray();
+    @endphp
+    <h2 style="display:inline-block"><b>Header beheer</b> &nbsp</h2>
+    <h2 style="display: inline-block;" class="greenText"> {{ $message }}</h2>
     <br>
     @foreach ($NavMainArray as $data)
 
