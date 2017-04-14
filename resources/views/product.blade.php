@@ -17,8 +17,6 @@ use App\ShopItemNames;
 
 		<div class="container">
 			<?php
-			require '../app/ShopItemNames.php';
-			$y = new ShopItemNames();
 			
 			echo "<div class=\"row\">";
 			
