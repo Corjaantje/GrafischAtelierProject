@@ -2,47 +2,40 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Product;
+use Illuminate\Support\Facades\Redirect;
 
 class ProductController extends Controller
 {
-    
-	public function insertProduct(){
-		
+	
+	public function newProduct()
+	{		
 		if(!$this->formValid()){
-			
-			return redirect('cms/product_lijst');
-			
+					
+			return Redirect::to('cms/product_lijst');
+					
 		}
 		
-		if($_POST['Id'] == -1){
-			$this->newProduct();
+		Product::Insert(['name' => $_POST['Name'], 'price' =>$_POST['Price'], 'description' => $_POST['Description'] ]);
+		
+		return Redirect::to('cms/product_lijst');
+	}
+	
+	public function editProduct()
+	{
+		if(!$this->formValid()){
+				
+			return Redirect::to('cms/product_lijst');
+				
 		}
-		else{
-			$this->editProduct();
-		}
+		Product::Where('id', '=', $_POST['Id'])->update(['name' => $_POST['Name'], 'price' =>$_POST['Price'], 'description' => $_POST['Description'] ]);
 		
-		return redirect('cms/product_lijst');
-		
+		return Redirect::to('cms/product_lijst');
 	}
 	
-	private function newProduct(){
-		
-		Product::Insert(['Name' => $_POST['Name'], 'Price' =>$_POST['Price'], 'Description' => $_POST['Description'] ]);
-	}
-	
-	private function editProduct(){
-		Product::Where('Id', '=', $_POST['Id'])->update(['Name' => $_POST['Name'], 'Price' =>$_POST['Price'], 'Description' => $_POST['Description'] ]);
-	}
-	
-	private function formValid(){
-		
+	private function formValid()
+	{		
 		$isValid = true;
-		
-		if(!isset($_POST['Id'])){
-			$isValid = false;
-		}
 		
 		if(!isset($_POST['Name'])){
 			$isValid = false;
@@ -59,8 +52,8 @@ class ProductController extends Controller
 		return $isValid;
 	}
 	
-	public function getFormData($id = -1){
-				
+	public function getFormData($id = -1)
+	{				
 		$data['name'] = "";
 		$data['price'] = "0";
 		$data['description'] = "";
@@ -71,20 +64,19 @@ class ProductController extends Controller
 			
 			if($product != null){
 				
-				$data['name'] = $product->Name;
-				$data['price'] = $product->Price;
-				$data['description'] = $product->Description;
+				$data['name'] = $product->name;
+				$data['price'] = $product->price;
+				$data['description'] = $product->description;
 				
 			}
 			
 		}
 		
 		return $data;
-		
 	}
 	
-	public function removeItem($id){
-		
+	public function removeItem($id)
+	{		
 		Product::Where('ID', '=', $id)->Delete();
 		
 		return redirect('cms/product_lijst');
