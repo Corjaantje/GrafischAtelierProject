@@ -38,21 +38,32 @@ class ProductController extends Controller
 	
 	private function formValid(){
 		
+		$isValid = true;
+		
 		if(!isset($_POST['Id'])){
-			return false;
+			$isValid = false;
 		}
 		
 		if(!isset($_POST['Name'])){
-			
+			$isValid = false;
 		}
-		return true;
+		
+		if(!isset($_POST['Price'])){
+			$isValid = false;
+		}
+		
+		if(!isset($_POST['Description'])){
+			$isValid = false;
+		}
+		
+		return $isValid;
 	}
 	
 	public function getFormData($id = -1){
 				
-		$data['name'] = "Naam";
-		$data['price'] = "0.01";
-		$data['description'] = "Beschrijving";
+		$data['name'] = "";
+		$data['price'] = "0";
+		$data['description'] = "";
 		
 		if($id != -1){
 			
