@@ -9,6 +9,14 @@
 // ADD YOUR CSS HERE \/
 
 // menu/nav
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+   /* Margin bottom by footer height */
+   margin-bottom: $footer-height;
+ }
 
 @media (max-width: 991px) {
   .navbar-header {
@@ -133,8 +141,10 @@ li:hover #dropdown-content {
   background: linear-gradient(to bottom, #ffffff 29%,#d6d6d6 99%);
   border-style: solid;
   border-color: lightgray;
-  padding-top: 0;
-  padding-bottom: 0;}
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
 
 #links{
   display: inline-block;

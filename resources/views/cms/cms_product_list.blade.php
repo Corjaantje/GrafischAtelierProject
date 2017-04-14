@@ -14,7 +14,7 @@ $products = App\Product::all();
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</head>
 	<body>
-		@include('layouts.cms_navigation', array('currentPage'=>'cmsProduct'))
+		@include('layouts.cms_navigation', array('currentPage'=>'Shops'))
 		
 		<div class="container">
 

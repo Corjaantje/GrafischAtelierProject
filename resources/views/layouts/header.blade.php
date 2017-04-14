@@ -9,9 +9,13 @@
             //bar or div or whatever.  I stuck in the console.log for you.  Just remove when
             //you know the position.
             $(window).scroll(function () {
+                if ($(window).scrollTop() > $(".navbar").height()) {
+                    $('.navbar').addClass('navbar-fixed');
+                }
                 if ($(window).scrollTop() < $(".navbar").height()) {
                     $('.navbar').removeClass('navbar-fixed');
                 }
+
             });
         });
 
