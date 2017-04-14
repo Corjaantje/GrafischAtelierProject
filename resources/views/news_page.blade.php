@@ -15,22 +15,25 @@
 
         <?php
 
-        $articles = App\NewsArticle::Where('Visible', '=', '1')->get();
+        $articles = App\NewsArticle::Where('visible', '=', '1')->get();
         ?>
 
 		@foreach ($articles as $article)
-
-			<div class="col-lg-4 col-md-4 col-sm-4 col-sm-offset-0 col-xs-10 col-xs-offset-1\">
-
-				<h1> {{ $article->title }}</h1>
-				<img src="{{ URL::to('/') }}/img/default.png" />
-				<p> {{$article->description}}</p>
-				<?php
-				$id = $article->id
-						?>
-				<a href="artikel/{{$id}}">LEES MEER</a>
+			@if( ($loop->index % 3) == 0 )
+			<div class="row">
+			@endif
+				<div class="col-lg-4 col-md-4 col-sm-4 col-sm-offset-0 col-xs-10 col-xs-offset-1\">
+					<h1> {{ $article->title }}</h1>
+					<img src="{{ URL::to('/') }}/img/default.png" />
+					<p> {{ $article->description }}</p>
+					@php
+					$id = $article->id
+					@endphp
+					<a href="artikel/{{$id}}">LEES MEER</a>
+				</div>
+			@if( ($loop->index % 3) == 2)
 			</div>
-
+			@endif
 		@endforeach
 	</div>
 @include('layouts.footer')
