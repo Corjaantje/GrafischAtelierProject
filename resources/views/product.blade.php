@@ -56,7 +56,7 @@ use App\ShopItemNames;
 			?>	
 		
 		</div>
-		@include('layouts.footerChild')
+		@include('layouts.footer')
 	</body>
 
 </html>

@@ -7,18 +7,27 @@ use Illuminate\Support\Facades\DB;
 
 class HeaderNavigation extends Model
 {
+    /**
+     * @return mixed
+     */
     public static function getMainNavigationArray()
     {
         $rawNavigationData = DB::table('header_navigations')->where('parent_id', null)->orderBy('priority', 'desc')->get();
         return $rawNavigationData;
     }
 
+    /**
+     * @return mixed
+     */
     public static function getSubNavigationArray()
     {
         $rawNavigationData = DB::table('header_navigations')->where('parent_id', '<>', null)->orderBy('priority', 'desc')->get();
         return $rawNavigationData;
     }
 
+    /**
+     * @return array
+     */
     public static function getAllNavigationArray()
     {
         $rawMainNavigation = self::getMainNavigationArray();
@@ -36,6 +45,9 @@ class HeaderNavigation extends Model
         return $sortedNavigation;
     }
 
+    /**
+     * @return array
+     */
     public static function getDisabledPriorityUpArray()
     {
         $priorityArray = array();
@@ -51,6 +63,9 @@ class HeaderNavigation extends Model
         return $priorityArray;
     }
 
+    /**
+     * @return array
+     */
     public static function getDisabledPriorityDownArray()
     {
         $priorityArray = array();

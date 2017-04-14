@@ -102,7 +102,6 @@ class NavigationTableSeeder extends Seeder
                 'priority' => 1,
                 'visible' => 1
             )
-
         );
 
         DB::table('header_navigations')->insert($header_navigation);
