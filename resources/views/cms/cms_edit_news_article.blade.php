@@ -11,29 +11,29 @@
     <body>
     @include('layouts.cms_navigation', array('currentPage'=>'Nieuws'))
             <div class="container">
-                <form action="cmsEditArticle" method="post" enctype="multipart/form-data">
+                <form action="wijzig_artikel" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="_token" value=" {{ csrf_token() }} " >
                     <!-- Het $parts gedeelte pakt de huidige url, split hem vervolgens op '/' en neemt daar het laatste deel van, oftewel het ID -->
-                    <?php
+                    @php
+                        $parts=parse_url(url()->current());
+                        $path_parts=explode('/', $parts['path']);
+                        $article = App\NewsArticle::where('id', '=', $path_parts[count($path_parts)-1] )->first();
+                    @endphp
 
-                            $parts=parse_url(url()->current());
-                            $path_parts=explode('/', $parts['path']);
-                            $article = App\NewsArticle::where('ID', '=', $path_parts[count($path_parts)-1] )->first();
-                        ?>
-                    <input type="hidden" name="ID" value="{{ $article->ID}}" />
+                    <input type="hidden" name="id" value="{{ $article->id}}" />
                     <br> <br>
                     Titel: <br>
-                        <input type="text" name="Title" value="{{$article->Title}}"> <br> <br>
-                    Image:
-                        <input type="file" accept=".jpeg, .jpg, .png" name="Image" value="{{$article->Image}}"> <br>
-                    Description: <br>
-                        <textarea rows="5" cols="60" name="Description">{{$article->Description}} </textarea> <br>
-                    Text: <br>
-                        <textarea rows="5" cols="60" name="Text"> {{$article->Text}} </textarea>  <br>
-                    Date:
-                        <input type="date" name="Date" value="{{$article->Date}}" /> <br>
-                    Visible: <br>
-                        <input type="checkbox" name="Visible" value="{{$article->Visible}}" checked> <br>
+                        <input type="text" name="title" value="{{$article->title}}"> <br> <br>
+                    Afbeelding:
+                        <input type="file" accept=".jpeg, .jpg, .png" name="image" value="{{$article->image}}"> <br>
+                    Omschrijving: <br>
+                        <textarea rows="5" cols="60" name="description">{{$article->description}} </textarea> <br>
+                    Tekst: <br>
+                        <textarea rows="5" cols="60" name="text"> {{$article->text}} </textarea>  <br>
+                    Datum:
+                        <input type="date" name="date" value="{{$article->date}}" /> <br>
+                    Zichtbaar?: <br>
+                        <input type="checkbox" name="visible" value="{{$article->visible}}" checked> <br>
                     <br>
                     <input type="submit" value="Wijzigen"/>
                 </form>

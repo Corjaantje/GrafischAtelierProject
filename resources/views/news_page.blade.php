@@ -19,15 +19,18 @@
         ?>
 
 		@foreach ($articles as $article)
+
 			<div class="col-lg-4 col-md-4 col-sm-4 col-sm-offset-0 col-xs-10 col-xs-offset-1\">
-				<h1> {{ $article->Title }}</h1>
-				<img src="https://i.vimeocdn.com/portrait/58832_300x300" />
-				<p> {{$article->Description}}</p>
+
+				<h1> {{ $article->title }}</h1>
+				<img src="{{ URL::to('/') }}/img/default.png" />
+				<p> {{$article->description}}</p>
 				<?php
-				$id = $article->ID
+				$id = $article->id
 						?>
 				<a href="artikel/{{$id}}">LEES MEER</a>
 			</div>
+
 		@endforeach
 	</div>
 @include('layouts.footer')

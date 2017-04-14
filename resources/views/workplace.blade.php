@@ -9,7 +9,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-@include('layouts.header', array('title'=>'workplace'));
+@include('layouts.header', array('title'=>'workplace'))
 <div class="jumbotron text-center">
     <h1>Werkplaats</h1>
 </div>
@@ -112,6 +112,6 @@
         </div>
     </div>
 </div>
-@include('layouts.footer');
+@include('layouts.footer')
 </body>
 </html>
