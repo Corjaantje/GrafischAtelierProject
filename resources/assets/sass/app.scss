@@ -54,10 +54,10 @@ body {
   }
   /* since 3.1.0 */
   .navbar-collapse.collapse.in {
-    display: block!important;
+    display: block !important;
   }
   .collapsing {
-    overflow: hidden!important;
+    overflow: hidden !important;
   }
 }
 .navbar-fixed {
@@ -146,47 +146,34 @@ li:hover #dropdown-content {
   width: 100%;
 }
 
-#links{
+#footer-links{
   display: inline-block;
   font-size: 24px;
 }
 
-#links ul li{
+#footer-links ul li{
   list-style: none;
 }
 
 
-#links a:link{
+#footer-links a:link{
   color: black;
   text-decoration: none;
 }
 
-#links a:hover {
+#footer-links a:hover {
   color: black;
   text-decoration: none;
 }
 
-#links a:visited{
+#footer-links a:visited{
   color: black;
   text-decoration: none;
 }
 
-#links a:active{
+#footer-links a:active{
   color: black;
   text-decoration: none;
-}
-
-
-#footerimages {
-  position: absolute;
-  right: 0;
-  margin-top: 20px;
-  margin-right: 10px;
-  display: inline-block;
-}
-
-#footerimages #w2f{
-  margin-right: 50px;
 }
 
 //Archive
@@ -482,4 +469,11 @@ a.active {
 {
   color: #32CD32;
   display: inline-block;
+}
+
+.cms-content-wrapper
+{
+  margin-top: 50px;
+  border: solid #aaaaaa 1px;
+  min-height: 75%;
 }
