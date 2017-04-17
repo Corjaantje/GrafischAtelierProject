@@ -12,25 +12,23 @@ class ProductSeeder extends Seeder
     public function run()
     {
         
-        DB::table('Products')->delete();
+        DB::table('products')->delete();
         
         $products = array(
         		array(
-        				'ID' => 1,
-        				'Name' => "Het eerste product",
-        				'Price' => 12.40,
-        				'Description' => "Dit is een product voor de database. Dit product is alleen een testproduct en dient meteen weggegooid te worden"
+        				'id' => 1,
+        				'name' => "Het eerste product",
+        				'price' => 12.40,
+        				'description' => "Dit is een product voor de database. Dit product is alleen een testproduct en dient meteen weggegooid te worden"
         		),
         		array(
-        				'ID' => 2,
-        				'Name' => "Het tweede product",
-        				'Price' => 40.12,
-        				'Description' => "Dit is een product voor de database. Dit product is alleen een testproduct en dient meteen weggegooid te worden"
+        				'id' => 2,
+        				'name' => "Het tweede product",
+        				'price' => 40.12,
+        				'description' => "Dit is een product voor de database. Dit product is alleen een testproduct en dient meteen weggegooid te worden"
         		)
-        		
         );
         
         DB::table('products')->insert($products);
-    	
     }
 }

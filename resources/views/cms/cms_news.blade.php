@@ -20,31 +20,32 @@
     <br>
 
     <!-- Artikelen -->
-    <?php
+    @php
     $articles = App\NewsArticle::all();
     $controller = new \App\Http\Controllers\NewsArticleController();
-    ?>
+    @endphp
+
     <table id="table-style">
         <tr id="table-row-style">
             <th id="table-header-style">ID</th>
-            <th id="table-header-style">Title</th>
-            <th id="table-header-style">ImageURL</th>
-            <th id="table-header-style">Description</th>
-            <th id="table-header-style">Text</th>
-            <th id="table-header-style">Date</th>
-            <th id="table-header-style">Visible</th>
+            <th id="table-header-style">Titel</th>
+            <th id="table-header-style">Afbeelding</th>
+            <th id="table-header-style">Omschrijving</th>
+            <th id="table-header-style">Tekst</th>
+            <th id="table-header-style">Datum</th>
+            <th id="table-header-style">Zichtbaar?</th>
             <th></th>
         </tr>
         @foreach ($articles as $article)
             <tr id="table-row-style">
-                <td id="table-data-style"> {{ $article->ID }}</td>
-                <td id="table-data-style"> {{ $article->Title }}</td>
-                <td id="table-data-style"> {{ $article->Image }}</td>
-                <td id="table-data-style"> {{ $article->Description }}</td>
-                <td id="table-data-style"> {{ $article->Text }}</td>
-                <td id="table-data-style"> {{ $article->Date }}</td>
-                <td id="table-data-style"> {{ $article->Visible }}</td>
-                <td> <button type="button" onclick="window.location='{{URL::route('editNewsArticle', $article->ID)}}'">Edit</button></td>
+                <td id="table-data-style"> {{ $article->id }}</td>
+                <td id="table-data-style"> {{ $article->title }}</td>
+                <td id="table-data-style"> {{ $article->image }}</td>
+                <td id="table-data-style"> {{ $article->description }}</td>
+                <td id="table-data-style"> {{ $article->text }}</td>
+                <td id="table-data-style"> {{ $article->date }}</td>
+                <td id="table-data-style"> {{ $article->visible }}</td>
+                <td> <button type="button" onclick="window.location='{{URL::route('editNewsArticle', $article->id)}}'">Wijzig</button></td>
 
             </tr>
         @endforeach
