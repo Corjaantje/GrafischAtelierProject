@@ -75,9 +75,9 @@ Route::get('cms', array('as' => 'cms_home', function() {
 
 #----CMS Routes----
 #------Header CMS------
-Route::get('cms/header', ['as' => 'cms_header', 'uses' => 'CMSHeaderNavigationController@create']);
+Route::get('cms/header', ['as' => 'cms_header', 'uses' => 'HeaderNavigationController@create']);
 
-Route::post('cms/header', ['as' => 'cms_header_store', 'uses' => 'CMSHeaderNavigationController@store']);
+Route::post('cms/header', ['as' => 'cms_header_store', 'uses' => 'HeaderNavigationController@store']);
 
 #------Product CMS------
 Route::get('cms/productbewerker', array('as' => 'cmsProductEditor', function(){

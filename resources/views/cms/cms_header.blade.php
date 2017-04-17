@@ -22,15 +22,16 @@
     @foreach ($NavMainArray as $data)
 
         {{ Form::open(['route' => 'cms_header_store']) }}
-        <?php
-        if ($data->parent_id != null) {
-            echo "&emsp; &emsp; ";
-        }
-        ?>
-        <?php $options = ["" => ""] + App\HeaderNavigation::where('id', '<>', $data->id)->whereNull('parent_id')->pluck('name', 'id')->all()?>
+        @php
+            if ($data->parent_id != null) {
+                echo "&emsp; &emsp; ";
+            }
+
+            $options = ["" => ""] + App\HeaderNavigation::where('id', '<>', $data->id)->whereNull('parent_id')->pluck('name', 'id')->all()
+        @endphp
+
         {{ Form::hidden('id', $data->id) }}
         {{ Form::hidden('priority', $data->priority) }}
-
         Naam: {{ Form::text('name', $data->name) }}
         Zichtbaar {{ Form::checkbox('visible', 1, $data->visible) }}
         Item van {{  Form::select('parent_id', $options, $data->parent_id, array('class' => 'formText'))}}
