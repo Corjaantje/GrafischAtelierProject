@@ -20,7 +20,8 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</head>
 	<body>
-		@include('layouts.cms_navigation', array('currentPage'=>'Shops'))
+	@if (Auth::check() && Auth::user()->role == "admin")
+		@include('layouts.cms_navigation', array('currentPage'=>'cmsProduct'))
 		
 		<div class="container">
 
@@ -45,6 +46,10 @@
 			</div>
 
 		</div>
-		
+	@else
+
+		<script>window.location.href = "{{ route('login') }}"</script>
+
+	@endif
 	</body>
 </html>
