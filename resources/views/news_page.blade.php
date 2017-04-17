@@ -22,7 +22,7 @@
 			@if( ($loop->index % 3) == 0 )
 			<div class="row">
 			@endif
-				<div class="col-lg-4 col-md-4 col-sm-4 col-sm-offset-0 col-xs-10 col-xs-offset-1\">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-sm-offset-0 col-xs-10 col-xs-offset-1">
 					<h1> {{ $article->title }}</h1>
 					<img src="{{ URL::to('/') }}/img/default.png" />
 					<p> {{ $article->description }}</p>
@@ -35,6 +35,7 @@
 			</div>
 			@endif
 		@endforeach
+	</div>
 	</div>
 @include('layouts.footer')
 </body>
