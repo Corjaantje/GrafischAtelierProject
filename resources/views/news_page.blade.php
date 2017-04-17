@@ -13,10 +13,9 @@
 	<div class="container">
 		<h1 class="title text-center">Nieuws</h1>
 
-        <?php
-
+        @php
         $articles = App\NewsArticle::Where('visible', '=', '1')->get();
-        ?>
+        @endphp
 
 		@foreach ($articles as $article)
 			@if( ($loop->index % 3) == 0 )
