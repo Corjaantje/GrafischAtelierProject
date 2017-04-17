@@ -24,9 +24,11 @@
 
 				<div class="col-lg-12 col-md-12 col-sm-12 col-sm-offset-1 col-xs-10 col-xs-offset-1" >
 
-					{{ Form::open(['route' => 'EditProduct']) }}
+					{{ Form::open(['route' => 'edit_product']) }}
 					
+						<!-- hidden "_token" is necessary for laravel, will throw tokenmismatch exception if not included -->
 						{{ Form::hidden('_token', csrf_token()) }}
+						
 						{{ Form::hidden('Id', $Id) }}
 						
 						Naam: {{ Form::text('Name', $formData['name']) }} <br>

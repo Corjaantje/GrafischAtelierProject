@@ -24,9 +24,11 @@ $formData = $controller->getFormData();
 
 				<div class="col-lg-12 col-md-12 col-sm-12 col-sm-offset-1 col-xs-10 col-xs-offset-1" >
 					
-					{{ Form::open(['route' => 'CreateProduct']) }}
+					{{ Form::open(['route' => 'create_product']) }}
 					
+						<!-- hidden "_token" is necessary for laravel, will throw tokenmismatch exception if not included -->
 						{{ Form::hidden('_token', csrf_token()) }}
+						
 						Naam: {{ Form::text('Name') }} <br>
 						Prijs: <input type="number" name="Price" min="0"/> <br>
 						Beschrijving <br>
