@@ -1,3 +1,5 @@
+<title>CMS - GA Den Bosch - {{ $currentPage }}</title>
+
 @section('navigation')
     <div class="sidenav">
         <a href="/" id="logo"> <img src="{{ URL::asset('img/logo_ga_house.png') }}" width="50px"> </a>

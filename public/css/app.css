@@ -1,6 +1,14 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css);
 @import url(https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css);
+html {
+  position: relative;
+  min-height: 100%; }
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 112px; }
+
 @media (max-width: 991px) {
   .navbar-header {
     float: none; }
@@ -104,8 +112,9 @@ li:hover #dropdown-content {
   background: linear-gradient(to bottom, #ffffff 29%, #d6d6d6 99%);
   border-style: solid;
   border-color: lightgray;
-  padding-top: 0;
-  padding-bottom: 0; }
+  position: absolute;
+  bottom: 0;
+  width: 100%; }
 
 #links {
   display: inline-block;
