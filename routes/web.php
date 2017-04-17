@@ -89,31 +89,28 @@ Route::get('cms', array('as' => 'cms_home', function()
 
 #----CMS Routes----
 #------Header CMS------
-Route::get('cms/header', ['as' => 'cms_header', 'uses' => 'CMSHeaderNavigationController@create']);
+Route::get('cms/header', ['as' => 'cms_header', 'uses' => 'HeaderNavigationController@create']);
 
-Route::post('cms/header', ['as' => 'cms_header_store', 'uses' => 'CMSHeaderNavigationController@store']);
+Route::post('cms/header', ['as' => 'cms_header_store', 'uses' => 'HeaderNavigationController@store']);
 
 #------Product CMS------
-Route::get('cms/productbewerker', array('as' => 'cmsProductEditor', function()
-{
-	return view('cms.cms_product_editor');
-}));
-
-Route::get('cms/productbewerker/{ProductId}', array('as' => 'cmsProductEditor', function($ProductId)
-{
+Route::get('cms/productbewerker/{ProductId}', array('as' => 'product_editor', function($ProductId){
 	$data = array(
 		'Id' => $ProductId	
 	);
-	return view('cms.cms_product_editor', $data);
+	return view('cms.cms_edit_product', $data);
 }));
 
-Route::get('cms/product_lijst', array('as' => 'cms_product_list', function()
-{
+Route::get('cms/nieuw_product', array('as' => 'product_creator', function(){
+	return view('cms.cms_new_product');
+}));
+
+Route::get('cms/product_lijst', array('as' => 'cms_product_list', function(){
 	return view('cms.cms_product_list');
 }));
 
-Route::post('cms/cmsCreateProduct', 'ProductController@insertProduct');
-Route::post('cms/productbewerker/cmsCreateProduct', 'ProductController@insertProduct'); #todo Dubbele post naar zelfde route
+Route::post('cms/cmsCreateProduct', array('as' => 'create_product', 'uses' => 'ProductController@newProduct'));
+Route::post('cms/productbewerker/cmsCreateProduct', array('as' => 'edit_product', 'uses' => 'ProductController@editProduct'));
 
 Route::get('cms/verwijderProduct/{id}', ['uses' => 'ProductController@removeItem']);
 

@@ -22,6 +22,7 @@ class CreateHeaderTable extends Migration
             $table->foreign('parent_id')->references('id')->on('header_navigations');
             $table->integer('priority');
             $table->boolean('visible');
+            $table->timestamps();
         });
     }
 

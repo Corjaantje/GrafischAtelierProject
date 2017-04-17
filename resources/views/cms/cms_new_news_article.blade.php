@@ -9,6 +9,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+@if (Auth::check() && Auth::user()->role == "admin")
 @include('layouts.cms_navigation', array('currentPage'=>'Nieuws'))
 <div class="container">
     <form action="nieuw_artikel" method="post" enctype="multipart/form-data">
@@ -33,6 +34,10 @@
         <input type="submit" value="Aanmaken"/>
     </form>
 </div>
+@else
 
+    <script>window.location.href = "{{ route('login') }}"</script>
+
+@endif
 </body>
 </html>
