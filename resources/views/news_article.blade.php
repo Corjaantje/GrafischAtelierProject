@@ -1,6 +1,3 @@
-<?php
-use App\NewsData;
-?>
 <html>
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/app.css') }}">
 <script src="{{ URL::asset('js/app.js') }}"></script>
@@ -14,36 +11,31 @@ use App\NewsData;
 	<div class="container">
 
 		<div class="row">
-			<?php
+			@php
 				
-				if ($Id !== null && ctype_digit($Id)) {
-					
+				if ($Id !== null && ctype_digit($Id))
+				{
 					$itemNr = intval($Id);
-
 					$article = App\NewsArticle::where('Id', '=', $Id)->first();
 
                     echo "<div class=\"col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-10 col-xs-offset-1\">";
 
                     echo "<h1>";
-                    echo $article->Title;
+                    echo $article->title;
 					echo "</h1>";
 
 					echo "<p> <br> <strong>";
-                    echo $article->Description;
+                    echo $article->description;
                     echo "</strong> <br> </p>";
 
                     echo "<p> <br>";
-                    echo $article->Text;
+                    echo $article->text;
                     echo "</p>";
 
                     echo "</div>";
-
-
-
-
-
-
-				} else {
+				}
+				else
+				{
 
 					echo "<div class=\"col-lg-12 col-md-12 col-sm-12 col-sm-offset-0 col-xs-10 col-xs-offset-1\">";
 
@@ -52,12 +44,9 @@ use App\NewsData;
 					echo "</div>";
 				}
 
-			?>
+			@endphp
 		</div>
-
-
 	</div>
 @include('layouts.footer')
 </body>
-
 </html>
