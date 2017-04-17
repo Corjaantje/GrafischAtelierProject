@@ -9,19 +9,14 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-@if (Auth::check() && Auth::user()->role == "admin")
-
-@include('layouts.cms_navigation', array('currentPage'=>'Home'))
+@include('layouts.header', array('title'=>'Home'))
 <div class="container">
-    <!--CONTENT IN HERE-->
-
-    <!---->
+    <div class="text-center">
+        <h1>404!</h1>
+        <div>De pagina die u zocht is niet hier!</div>
+    </div>
 </div>
-
-@else
-
-    <script>window.location.href = "{{ route('login') }}"</script>
-
-@endif
+@include('layouts.footer')
 </body>
 </html>
+

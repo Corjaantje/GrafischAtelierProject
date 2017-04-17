@@ -13,7 +13,8 @@ class CreateHeaderTable extends Migration
      */
     public function up()
     {
-        Schema::create('header_navigations', function (Blueprint $table) {
+        Schema::create('header_navigations', function (Blueprint $table)
+        {
             $table->increments('id')->unique();
             $table->string('name');
             $table->string('link_as');
@@ -21,6 +22,7 @@ class CreateHeaderTable extends Migration
             $table->foreign('parent_id')->references('id')->on('header_navigations');
             $table->integer('priority');
             $table->boolean('visible');
+            $table->timestamps();
         });
     }
 
