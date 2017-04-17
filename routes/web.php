@@ -25,16 +25,16 @@ Route::get('artikel/{ArtikelNr}', function ($ArtikelNr) {
     $data = array(
         'Id' => $ArtikelNr
     );
-    return view('newsArticle', $data);
+    return view('news_article', $data);
 });
 
 #----Standard Page Routes----
 Route::get('nieuws', array('as' => 'nieuws', function () {
-    return view('newsPage');
+    return view('news_page');
 }));
 
 Route::get('werkplaats', array('as' => 'werkplaats', function () {
-    return view('werkplaats');
+    return view('workplace');
 }));
 
 Route::get('winkel', array('as' => 'winkel', function () {
@@ -46,19 +46,19 @@ Route::get('archief', array('as' => 'archief', function () {
 }));
 
 Route::get('aan_de_slag', array('as' => 'aan_de_slag', function () {
-    return view('aan_de_slag');
+    return view('getting_started');
 }));
 
 Route::get('scholen', array('as' => 'scholen', function () {
-    return view('scholen');
+    return view('schools');
 }));
 
 Route::get('dagje_uit', array('as' => 'dagje_uit', function () {
-    return view('dagje_uit');
+    return view('day_out');
 }));
 
 Route::get('opfrissen', array('as' => 'opfrissen', function () {
-    return view('opfrissen');
+    return view('brush_up');
 }));
 
 Route::get('over_ons', array('as' => 'about', function() {
@@ -75,9 +75,9 @@ Route::get('cms', array('as' => 'cms_home', function() {
 
 #----CMS Routes----
 #------Header CMS------
-Route::get('cms/header', ['as' => 'cms_header', 'uses' => 'CMSHeaderNavigationController@create']);
+Route::get('cms/header', ['as' => 'cms_header', 'uses' => 'HeaderNavigationController@create']);
 
-Route::post('cms/header', ['as' => 'cms_header_store', 'uses' => 'CMSHeaderNavigationController@store']);
+Route::post('cms/header', ['as' => 'cms_header_store', 'uses' => 'HeaderNavigationController@store']);
 
 #------Product CMS------
 Route::get('cms/productbewerker', array('as' => 'cmsProductEditor', function(){
@@ -92,7 +92,7 @@ Route::get('cms/productbewerker/{ProductId}', array('as' => 'cmsProductEditor', 
 }));
 
 Route::get('cms/product_lijst', array('as' => 'cms_product_list', function(){
-	return view('cms.cms_product_list'); #todo verander naam
+	return view('cms.cms_product_list');
 }));
 
 Route::post('cms/cmsCreateProduct', 'ProductController@insertProduct');

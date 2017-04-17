@@ -9,7 +9,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-@include('layouts.header', array('title'=>'Opfrissen'))
+@include('layouts.header', array('title'=>'brush_up'))
 
 <div class="container bigText">
     <h1 class="title">Opfrissen & kennismaking</h1>

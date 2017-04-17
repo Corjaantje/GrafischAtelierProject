@@ -31,14 +31,6 @@ class NewsArticleController extends Controller
         NewsArticle::Where('ID', '=', $_POST['ID'])->update(['Title' => $_POST['Title'], 'Description' => $_POST['Description'], 'Text' => $_POST['Text'], 'Date' => $_POST['Date'], 'Visible' => $checked ]);
     }
 
-    private function formValid(){
-
-        if(!isset($_POST['ID'])){
-            return false;
-        }
-        return true;
-    }
-
     public function getAllArticles()
     {
         return App\NewsArticle::all();

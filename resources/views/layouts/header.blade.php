@@ -8,11 +8,15 @@
             //to figure out what the scroll position is when exactly you want to fix the nav
             //bar or div or whatever.  I stuck in the console.log for you.  Just remove when
             //you know the position.
-            $(window).scroll(function () {
-                if ($(window).scrollTop() < $(".navbar").height()) {
-                    $('.navbar').removeClass('navbar-fixed');
-                }
-            });
+//            $(window).scroll(function () {
+//                if ($(window).scrollTop() > $(".navbar").height()) {
+//                    $('.navbar').addClass('navbar-fixed');
+//                }
+//                if ($(window).scrollTop() < $(".navbar").height()) {
+//                    $('.navbar').removeClass('navbar-fixed');
+//                }
+//
+//            });
         });
 
         window.Laravel = {!! json_encode([
@@ -37,15 +41,24 @@
                     <i class="fa fa-linkedin" aria-hidden="true"></i>
                 </div>
                 <ul>
-                    <?php
-                    $NavMainArray = App\HeaderNavigation::getMainNavigationArray();
-                    $NavSubArray = App\HeaderNavigation::getSubNavigationArray();
-                    ?>
+                    @php
+                        $NavMainArray = App\HeaderNavigation::getMainNavigationArray();
+                        $NavSubArray = App\HeaderNavigation::getSubNavigationArray();
+                        $MainNavCount = $NavMainArray->count();
+                        $MainNavSubcounter = 0;
+                    @endphp
 
                     @foreach ($NavMainArray as $data)
+
                         @if($data->visible)
                             <li id="dropdown"><a href="{{URL::route($data->link_as)}}"> <b>{{ $data->name }}</b> </a>
-                                -
+                                @php
+                                    $MainNavSubcounter += 1;
+                                    if($MainNavSubcounter < $MainNavCount)
+                                    {
+                                    echo "-";
+                                    }
+                                @endphp
                                 @endif
 
                                 <div id="dropdown-content">

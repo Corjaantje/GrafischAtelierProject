@@ -35,7 +35,7 @@
 						<input type="hidden" value="{{ $Id }}" name="Id" />
 			
 						Naam: <input type="text" name="Name" value="{{ $formData['name'] }}" size="40%"/> <br>
-						Prijs:   <input type="number" name="Price" step="0.01" value="{{ $formData['price'] }}" min="0"/><br>
+						Prijs:   <input type="number" name="Price" step="1" value="{{ $formData['price'] }}" min="0"/><br>
 						Beschrijving: <br> <textarea name="Description" rows="5" cols="60">{{ $formData['description'] }}</textarea><br>
 				
 						<input type="submit" value="Bewerken"/>

@@ -12,25 +12,27 @@
 @if (Auth::check() && Auth::user()->role == "admin")
 @include('layouts.cms_navigation', array('currentPage'=>'Header'))
 <div class="container-headercms">
-    <?php
-    $NavMainArray = App\HeaderNavigation::getAllNavigationArray();
-    $disableUpArrow = App\HeaderNavigation::getDisabledPriorityUpArray();
-    $disableDownArrow = App\HeaderNavigation::getDisabledPriorityDownArray();
-    ?>
-    <h2 style="display:inline-block"> <b>Header beheer</b> &nbsp</h2><h2 style="display: inline-block;" class="greenText"> {{ $message }}</h2>
+    @php
+        $NavMainArray = App\HeaderNavigation::getAllNavigationArray();
+        $disableUpArrow = App\HeaderNavigation::getDisabledPriorityUpArray();
+        $disableDownArrow = App\HeaderNavigation::getDisabledPriorityDownArray();
+    @endphp
+    <h2 style="display:inline-block"><b>Header beheer</b> &nbsp</h2>
+    <h2 style="display: inline-block;" class="greenText"> {{ $message }}</h2>
     <br>
     @foreach ($NavMainArray as $data)
 
         {{ Form::open(['route' => 'cms_header_store']) }}
-        <?php
-        if ($data->parent_id != null) {
-            echo "&emsp; &emsp; ";
-        }
-        ?>
-        <?php $options = ["" => ""] + App\HeaderNavigation::where('id', '<>', $data->id)->whereNull('parent_id')->pluck('name', 'id')->all()?>
+        @php
+            if ($data->parent_id != null) {
+                echo "&emsp; &emsp; ";
+            }
+
+            $options = ["" => ""] + App\HeaderNavigation::where('id', '<>', $data->id)->whereNull('parent_id')->pluck('name', 'id')->all()
+        @endphp
+
         {{ Form::hidden('id', $data->id) }}
         {{ Form::hidden('priority', $data->priority) }}
-
         Naam: {{ Form::text('name', $data->name) }}
         Zichtbaar {{ Form::checkbox('visible', 1, $data->visible) }}
         Item van {{  Form::select('parent_id', $options, $data->parent_id, array('class' => 'formText'))}}

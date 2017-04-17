@@ -7,28 +7,40 @@ use Illuminate\Support\Facades\DB;
 
 class HeaderNavigation extends Model
 {
+    /**
+     * @return mixed
+     */
     public static function getMainNavigationArray()
     {
         $rawNavigationData = DB::table('header_navigations')->where('parent_id', null)->orderBy('priority', 'desc')->get();
         return $rawNavigationData;
     }
 
+    /**
+     * @return mixed
+     */
     public static function getSubNavigationArray()
     {
         $rawNavigationData = DB::table('header_navigations')->where('parent_id', '<>', null)->orderBy('priority', 'desc')->get();
         return $rawNavigationData;
     }
 
+    /**
+     * @return array
+     */
     public static function getAllNavigationArray()
     {
         $rawMainNavigation = self::getMainNavigationArray();
         $rawAllNavigation = DB::table('header_navigations')->orderBy('priority', 'desc')->get();
 
         $sortedNavigation = array();
-        foreach ($rawMainNavigation as $key => $value) {
+        foreach ($rawMainNavigation as $key => $value)
+        {
             $sortedNavigation[$value->id] = $value;
-            foreach ($rawAllNavigation as $subkey => $subvalue) {
-                if ($subvalue->parent_id == $value->id) {
+            foreach ($rawAllNavigation as $subkey => $subvalue)
+            {
+                if ($subvalue->parent_id == $value->id)
+                {
                     $sortedNavigation[$subvalue->id] = $subvalue;
                 }
             }
@@ -36,6 +48,9 @@ class HeaderNavigation extends Model
         return $sortedNavigation;
     }
 
+    /**
+     * @return array
+     */
     public static function getDisabledPriorityUpArray()
     {
         $priorityArray = array();
@@ -43,7 +58,7 @@ class HeaderNavigation extends Model
         $priorityArray['firstMainNav'] = $firstMainNav;
 
         $distinctParentIDs = DB::table('header_navigations')->whereNotNull('parent_id')->distinct()->get();
-        foreach($distinctParentIDs as $dist)
+        foreach ($distinctParentIDs as $dist)
         {
             $object = DB::table('header_navigations')->where('parent_id', $dist->parent_id)->max('priority');
             $priorityArray[$object] = $object;
@@ -51,6 +66,9 @@ class HeaderNavigation extends Model
         return $priorityArray;
     }
 
+    /**
+     * @return array
+     */
     public static function getDisabledPriorityDownArray()
     {
         $priorityArray = array();
@@ -58,7 +76,7 @@ class HeaderNavigation extends Model
         $priorityArray['lastMainNav'] = $lastMainNav;
 
         $distinctParentIDs = DB::table('header_navigations')->whereNotNull('parent_id')->distinct()->get();
-        foreach($distinctParentIDs as $dist)
+        foreach ($distinctParentIDs as $dist)
         {
             $object = DB::table('header_navigations')->where('parent_id', $dist->parent_id)->min('priority');
             $priorityArray[$object] = $object;
