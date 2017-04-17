@@ -34,7 +34,7 @@
 						Naam: {{ Form::text('Name', $formData['name']) }} <br>
 						Prijs: <input type="number" name="Price" min="0" value="{{ $formData['price']}}"/> <br>
 						Beschrijving <br>
-						{{ Form::textarea('Description', $formData['name'])}} <br>
+						{{ Form::textarea('Description', $formData['description'])}} <br>
 						
 						<input type="submit" value="Opslaan">
 						

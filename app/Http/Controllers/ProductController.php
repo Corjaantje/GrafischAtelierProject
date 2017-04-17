@@ -43,6 +43,12 @@ class ProductController extends Controller
 		
 		if(!isset($_POST['Price'])){
 			$isValid = false;
+		} else {
+			
+			if($_POST['Price'] == ''){
+				$isValid = false;
+			}
+			
 		}
 		
 		if(!isset($_POST['Description'])){
