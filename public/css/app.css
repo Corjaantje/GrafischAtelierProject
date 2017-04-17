@@ -114,7 +114,10 @@ li:hover #dropdown-content {
   border-color: lightgray;
   position: absolute;
   bottom: 0;
-  width: 100%; }
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center; }
 
 #footer-links {
   display: inline-block;
@@ -138,6 +141,11 @@ li:hover #dropdown-content {
 #footer-links a:active {
   color: black;
   text-decoration: none; }
+
+#footer-images {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap; }
 
 .archive-block {
   display: table-row; }
