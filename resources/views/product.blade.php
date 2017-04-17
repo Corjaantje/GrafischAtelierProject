@@ -16,16 +16,16 @@ use App\ShopItemNames;
 
 
 		<div class="container">
-			<?php
+			@php
 			
 			echo "<div class=\"row\">";
 			
 			if ($Id !== null) {		
 									
 				$product = App\Product::find($Id);
-				$name = $product->Name;
-				$price = $product->Price;
-				$description = $product->Description;
+				$name = $product->name;
+				$price = $product->price;
+				$description = $product->description;
 				
 				echo "<h3>$name</h3>";
 
@@ -51,7 +51,7 @@ use App\ShopItemNames;
 			
 			echo "</div>";
 			
-			?>	
+			@endphp
 		
 		</div>
 		@include('layouts.footer')

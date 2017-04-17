@@ -2,10 +2,6 @@
 	use App\Http\Controllers\ProductController;
 	$controller = new ProductController();
 	
-	if(!isset($Id)){
-		$Id = -1;
-	}
-	
 	$formData = $controller->getFormData($Id);
 	
 ?>
@@ -29,18 +25,23 @@
 
 				<div class="col-lg-12 col-md-12 col-sm-12 col-sm-offset-1 col-xs-10 col-xs-offset-1" >
 
-					<form action="cmsCreateProduct" method="post" enctype="multipart/form-data">
-						<input type="hidden" name="_token" value="{{ csrf_token() }} " >
+					{{ Form::open(['route' => 'edit_product']) }}
+					
+						<!-- hidden "_token" is necessary for laravel, will throw tokenmismatch exception if not included -->
+						{{ Form::hidden('_token', csrf_token()) }}
 						
-						<input type="hidden" value="{{ $Id }}" name="Id" />
-			
-						Naam: <input type="text" name="Name" value="{{ $formData['name'] }}" size="40%"/> <br>
-						Prijs:   <input type="number" name="Price" step="1" value="{{ $formData['price'] }}" min="0"/><br>
-						Beschrijving: <br> <textarea name="Description" rows="5" cols="60">{{ $formData['description'] }}</textarea><br>
-				
-						<input type="submit" value="Bewerken"/>
-				
-					</form>
+						{{ Form::hidden('Id', $Id) }}
+						
+						Naam: {{ Form::text('Name', $formData['name']) }} <br>
+						Prijs: <input type="number" name="Price" min="0" value="{{ $formData['price']}}"/> <br>
+						Beschrijving <br>
+						{{ Form::textarea('Description', $formData['description'])}} <br>
+						
+						<input type="submit" value="Opslaan">
+						
+					{{ Form::close() }}
+					
+					
 				</div>
 
 			</div>
