@@ -12,41 +12,49 @@ use App\ShopItemNames;
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 	<body>
-		@include('layouts.headerChild', array('title'=>'product'))
+		@include('layouts.header', array('title'=>'product'))
 
 
 		<div class="container">
-			<?php
-			require '../app/ShopItemNames.php';
-			$y = new ShopItemNames();
+			@php
 			
-			echo "<div class=\"row\"";
+			echo "<div class=\"row\">";
 			
-			echo "<div class=\"col-lg-8 col-md-8 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1\" >";
-			
-			if ($Id !== null) {
+			if ($Id !== null) {		
+									
+				$product = App\Product::find($Id);
+				$name = $product->name;
+				$price = $product->price;
+				$description = $product->description;
 				
-				$var = intval($Id);
+				echo "<h3>$name</h3>";
+
+				echo "<div class=\"col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-10 col-xs-offset-1\" >";
 				
-				$title = $y->getNames()[$var];
+				echo "<img src=\"../img/WebshopImages/Shop$Id.jpg\" style=\"width: 50%;\">";
 				
-				echo "<img src=\"../img/WebshopImages/Shop$var.jpg\" style=\"width: 50%;\">";
+				echo "</div>";
+
+				echo "<div class=\"col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-10 col-xs-offset-1\" >";
 				
-				echo "<h3>$title</h3>";
+				echo "<br> <p>$price</p> <br>";
+				
+				echo "<p>$description</p>";
+				
+				echo "</div>";
+				
 			} else {
 				echo "<h3>Product niet gevonden</h3>";
 			}
 			
-			echo "<p> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>";
-			
 			echo "</div>";
 			
 			echo "</div>";
 			
-			?>	
+			@endphp
 		
 		</div>
-		@include('layouts.footerChild')
+		@include('layouts.footer')
 	</body>
 
 </html>

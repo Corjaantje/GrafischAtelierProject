@@ -1,68 +1,142 @@
 <?php
 /*
- * |--------------------------------------------------------------------------
- * | Web Routes
- * |--------------------------------------------------------------------------
- * |
- * | Here is where you can register web routes for your application. These
- * | routes are loaded by the RouteServiceProvider within a group which
- * | contains the "web" middleware group. Now create something great!
- * |
- */
-Route::get('/', function () {
+      _____               _____               ____                 _
+     / ____|    /\       |  __ \             |  _ \               | |
+     | |  __   /  \      | |  | | ___ _ __   | |_) | ___  ___  ___| |__
+     | | |_ | / /\ \     | |  | |/ _ \ '_ \  |  _ < / _ \/ __|/ __| '_ \
+     | |__| |/ ____ \    | |__| |  __/ | | | | |_) | (_) \__ \ (__| | | |
+      \_____/_/    \_\   |_____/ \___|_| |_| |____/ \___/|___/\___|_| |_|
+*/
+
+#----Home Route----
+Route::get('/', function ()
+{
 	return view('home');
 });
-Route::get('nieuws', array('as' => 'nieuws', function () {
-    return view('NewsPage');
-}));
-Route::get('artikel/{ArtikelNr}', function ($ArtikelNr) {
+
+#----More detailed Routes----
+Route::get('product/{ProductNr}', function ($ProductNr)
+{
+    $data = array(
+        'Id' => $ProductNr
+    );
+    return view('product', $data);
+});
+
+Route::get('artikel/{ArtikelNr}', function ($ArtikelNr)
+{
     $data = array(
         'Id' => $ArtikelNr
     );
-    return view('NewsArticle', $data);
-});
-Route::get('educatie', function () {
-	return view('educatie');
-});
-Route::get('werkplaats', array('as' => 'werkplaats', function () {
-	return view('werkplaats');
-}));
-
-Route::get('winkel', array('as' => 'webshop', function () {
-	return view('Webshop');
-}));
-Route::get('product/{ProductNr}', function ($ProductNr) {
-	$data = array(
-			'Id' => $ProductNr 
-	);
-	
-	return view('Product', $data);
+    return view('news_article', $data);
 });
 
-Route::get('archief', array('as' => 'archief', function () {
+#----Standard Page Routes----
+Route::get('nieuws', array('as' => 'nieuws', function ()
+{
+    return view('news_page');
+}));
+
+Route::get('werkplaats', array('as' => 'werkplaats', function ()
+{
+    return view('workplace');
+}));
+
+Route::get('winkel', array('as' => 'winkel', function ()
+{
+    return view('webshop');
+}));
+
+Route::get('archief', array('as' => 'archief', function ()
+{
     return view('archive');
 }));
 
-Route::get('aan_de_slag', array('as' => 'aan_de_slag', function () {
-    return view('aan_de_slag');
+Route::get('aan_de_slag', array('as' => 'aan_de_slag', function ()
+{
+    return view('getting_started');
 }));
 
-Route::get('scholen', array('as' => 'scholen', function () {
-    return view('scholen');
+Route::get('scholen', array('as' => 'scholen', function ()
+{
+    return view('schools');
 }));
 
-Route::get('dagje_uit', array('as' => 'dagje_uit', function () {
-    return view('dagje_uit');
+Route::get('dagje_uit', array('as' => 'dagje_uit', function ()
+{
+    return view('day_out');
 }));
 
-Route::get('opfrissen', array('as' => 'opfrissen', function () {
-    return view('opfrissen');
+Route::get('opfrissen', array('as' => 'opfrissen', function ()
+{
+    return view('brush_up');
 }));
 
-Route::get('over_ons', array('as' => 'about', function() {
-	return view('about');
+Route::get('over_ons', array('as' => 'about', function()
+{
+    return view('about');
 }));
 
-	Route::get('agenda', array('as' => 'agenda', function() {
-		return view('Agenda');
-	}));
+Route::get('agenda', array('as' => 'agenda', function()
+{
+    return view('agenda');
+}));
+
+Route::get('cms', array('as' => 'cms_home', function()
+{
+    return view('cms.cms_home');
+}));
+
+#----CMS Routes----
+#------Header CMS------
+Route::get('cms/header', ['as' => 'cms_header', 'uses' => 'HeaderNavigationController@create']);
+
+Route::post('cms/header', ['as' => 'cms_header_store', 'uses' => 'HeaderNavigationController@store']);
+
+#------Product CMS------
+Route::get('cms/productbewerker/{ProductId}', array('as' => 'product_editor', function($ProductId){
+	$data = array(
+		'Id' => $ProductId	
+	);
+	return view('cms.cms_edit_product', $data);
+}));
+
+Route::get('cms/nieuw_product', array('as' => 'product_creator', function(){
+	return view('cms.cms_new_product');
+}));
+
+Route::get('cms/product_lijst', array('as' => 'cms_product_list', function(){
+	return view('cms.cms_product_list');
+}));
+
+Route::post('cms/cmsCreateProduct', array('as' => 'create_product', 'uses' => 'ProductController@newProduct'));
+Route::post('cms/productbewerker/cmsCreateProduct', array('as' => 'edit_product', 'uses' => 'ProductController@editProduct'));
+
+Route::get('cms/verwijderProduct/{id}', ['uses' => 'ProductController@removeItem']);
+
+#------Nieuws CMS------
+Route::get('cms/nieuws', array('as' => 'cms_news', function()
+{
+    return view('cms.cms_news');
+}));
+
+Route::post('cms/wijzig_artikel/wijzig_artikel', 'NewsArticleController@insertNewsArticle');
+Route::post('cms/nieuw_artikel', 'NewsArticleController@insertNewsArticle');
+
+Route::get('cms/nieuw_artikel', array('as' => 'newNewsArticle', function()
+{
+    return view ('cms.cms_new_news_article');
+}));
+
+Route::get('cms/wijzig_artikel/{artikelNummer}', array('as' => 'editNewsArticle', function($artikelNummer)
+{
+    $data = array(
+        'id' => $artikelNummer
+    );
+    return view('cms.cms_edit_news_article', $data);
+}));
+
+#----Login & Register Routes----
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');

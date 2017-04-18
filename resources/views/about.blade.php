@@ -9,15 +9,14 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</head>
 	<body>
-	@include('layouts.header', array('title'=>'Over Ons'));
-		<div id="about-title">
+	@include('layouts.header', array('title'=>'Over Ons'))
+		<div class="title text-center">
 			<h1>Over het Grafisch Atelier Den Bosch</h1>
 		</div>
 
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6">
-
 					<h1>Contact en Info</h1>
 					<p>
 						<b>Kristel van Genugten</b> - Coördinator
@@ -60,8 +59,6 @@
 				</div>
 
 				<div class="col-md-6">
-
-
                     <p>
                     <h1>
                         Adresgegevens
@@ -90,7 +87,6 @@
 				</div>
 			</div>
 
-
 			<!-- Google Maps -->
 			<div id="google-map"></div>
 			<script>
@@ -109,9 +105,9 @@
 			<script async defer
 					src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDxrbCMt-RKFchvRagS6Mime0eUUqokIbM&callback=initMap">
 			</script>
-
-
+			<br>
+			<br>
 		</div>
-	@include('layouts.footer');
+	@include('layouts.footer')
 	</body>
 </html>
