@@ -38,16 +38,16 @@
         Item van {{  Form::select('parent_id', $options, $data->parent_id, array('class' => 'formText'))}}
 
         @if(!in_array($data->priority, $disableUpArrow))
-            <input type="submit" name="priorityUp" id="priorityUp" value="▲">
+            <input type="submit" class="btn btn-basic"  name="priorityUp" id="priorityUp" value="▲">
             @else
             &emsp; &emsp;
         @endif
         @if(!in_array($data->priority, $disableDownArrow))
-            <input type="submit" name="priorityDown" id="priorityDown" value="▼">
+            <input type="submit" class="btn btn-basic" name="priorityDown" id="priorityDown" value="▼">
             @else
             &emsp; &emsp;
         @endif
-        <input type="submit" name="store" id="store" value="Opslaan">
+        <input class="btn btn-primary"  type="submit" name="store" id="store" value="Opslaan">
 
         {{ Form::close() }}
         <br>

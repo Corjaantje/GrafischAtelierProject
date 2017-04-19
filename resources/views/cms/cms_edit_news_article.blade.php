@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="html-cms">
     <head>
         <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/app.css') }}">
         <script src="{{ URL::asset('js/app.js') }}"></script>
@@ -8,10 +8,10 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
-    <body>
+    <body class="body-cms">
     @if (Auth::check() && Auth::user()->role == "admin")
     @include('layouts.cms_navigation', array('currentPage'=>'Nieuws'))
-            <div class="container">
+            <div  class="container-cms">
                 <form action="wijzig_artikel" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="_token" value=" {{ csrf_token() }} " >
                     <!-- Het $parts gedeelte pakt de huidige url, split hem vervolgens op '/' en neemt daar het laatste deel van, oftewel het ID -->
@@ -36,7 +36,7 @@
                     Zichtbaar?: <br>
                         <input type="checkbox" name="visible" value="{{$article->visible}}" checked> <br>
                     <br>
-                    <input type="submit" value="Wijzigen"/>
+                    <input class="btn btn-primary" type="submit" value="Wijzigen"/>
                 </form>
             </div>
     @else

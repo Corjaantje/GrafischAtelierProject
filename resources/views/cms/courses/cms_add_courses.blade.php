@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" class="html-cms">
 <head>
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/app.css') }}">
     <script src="{{ URL::asset('js/app.js') }}"></script>
@@ -8,14 +8,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body class="body-cms">
 @if (Auth::check() && Auth::user()->role == "admin")
 
     @include('layouts.cms_navigation', array('currentPage'=>'Cursus Toevoegen'))
-    <div class="container">
+    <div class="container-cms">
         <!--CONTENT IN HERE-->
         <br>
-        <button type="button" onclick="window.location='{{URL::route('cms_courses_list')}}'">Terug</button>
+        <button type="button" class="btn btn-primary"  onclick="window.location='{{URL::route('cms_courses_list')}}'">Terug</button>
         <!---->
     </div>
 @else
