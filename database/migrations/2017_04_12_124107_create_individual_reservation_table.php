@@ -13,7 +13,7 @@ class CreateIndividualReservationTable extends Migration
      */
     public function up()
     {
-        Schema::create('individual_reservation_table', function (Blueprint $table)
+        Schema::create('individual_reservation', function (Blueprint $table)
         {
             $table->increments('id')->unique();
             $table->integer('user_id')->references('id')->on('users');
