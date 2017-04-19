@@ -16,8 +16,6 @@
         <!--CONTENT IN HERE-->
         <br>
         <button type="button" onclick="window.location='{{URL::route('cms_courses_list')}}'">Terug</button>
-
-
         <!---->
     </div>
 @else

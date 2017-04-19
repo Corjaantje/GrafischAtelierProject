@@ -17,8 +17,6 @@
         <br>
         <button type="button" onclick="window.location='{{URL::route('cms_courses_add')}}'">TEMP Toevoegen</button>
         <button type="button" onclick="window.location='{{URL::route('cms_courses_edit')}}'">TEMP Bewerken</button>
-
-
         <!---->
     </div>
 @else
