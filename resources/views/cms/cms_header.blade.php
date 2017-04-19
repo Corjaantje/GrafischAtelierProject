@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" class="html-cms">
+<html xmlns="http://www.w3.org/1999/xhtml" class="html-headercms">
 <head>
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/app.css') }}">
     <script src="{{ URL::asset('js/app.js') }}"></script>
@@ -8,10 +8,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body class="body-cms">
+<body class="body-headercms">
 @if (Auth::check() && Auth::user()->role == "admin")
 @include('layouts.cms_navigation', array('currentPage'=>'Header'))
-<div class="container-cms">
+<div class="container-headercms">
     @php
         $NavMainArray = App\HeaderNavigation::getAllNavigationArray();
         $disableUpArrow = App\HeaderNavigation::getDisabledPriorityUpArray();

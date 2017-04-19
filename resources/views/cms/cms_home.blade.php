@@ -16,9 +16,7 @@
     <!--CONTENT IN HERE-->
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-                <br>
-            <h1>Welkom <b>@php echo Auth::user()->name; @endphp</b>!</h1>
-                <h3>Handleiding link: </h3>
+                <img src="{{ URL::asset('img/logo_ga_house.png') }}">
             </div>
         </div>
     <!---->
