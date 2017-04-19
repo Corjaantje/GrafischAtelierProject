@@ -11,23 +11,15 @@
 <body>
 @if (Auth::check() && Auth::user()->role == "admin")
 
-@include('layouts.cms_navigation', array('currentPage'=>'Home'))
-<div class="container">
-    <!--CONTENT IN HERE-->
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-                <br>
-            <h1>Welkom <b>@php echo Auth::user()->name; @endphp</b>!</h1>
-                <h3>Handleiding link: </h3>
-            </div>
-        </div>
-    <!---->
-</div>
-
+    @include('layouts.cms_navigation', array('currentPage'=>'Cursus Toevoegen'))
+    <div class="container">
+        <!--CONTENT IN HERE-->
+        <br>
+        <button type="button" onclick="window.location='{{URL::route('cms_courses_list')}}'">Terug</button>
+        <!---->
+    </div>
 @else
-
     <script>window.location.href = "{{ route('login') }}"</script>
-
 @endif
 </body>
 </html>
