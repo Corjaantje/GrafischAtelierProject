@@ -14,7 +14,8 @@
     @include('layouts.cms_navigation', array('currentPage'=>'Cursus Toevoegen'))
     <div class="container">
         <!--CONTENT IN HERE-->
-
+        <br>
+        <button type="button" onclick="window.location='{{URL::route('cms_courses_list')}}'">Terug</button>
 
         <!---->
     </div>

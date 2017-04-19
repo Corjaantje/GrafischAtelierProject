@@ -9,17 +9,19 @@
            class="{{ (($currentPage)) == "Nieuws" ? 'active' : ' ' }}"><b>Nieuws</b></a>
         <a href="{{URL::route('cms_product_list')}}"
            class="{{ (($currentPage)) == "Shops" ? 'active' : ' ' }}"><b>Shops</b></a>
-        <br/>
-        <a href="#" class="{{ (($currentPage)) == "Paginas" ? 'active' : ' ' }}"><i>Pagina's</i></a>
-        <br/>
-        <a href="{{URL::route('cms_header')}}" class="{{ (($currentPage)) == "Header" ? 'active' : ' ' }}"><b>Header</b></a>
-        <a href="#" class="{{ (($currentPage)) == "Bedankt" ? 'active' : ' ' }}"><i>Bedankt</i></a>
-        <a href="#" class="{{ (($currentPage)) == "Footer" ? 'active' : ' ' }}"><i>Footer</i></a>
-        <br/>
-        <a href="#" class="{{ (($currentPage)) == "Klanten" ? 'active' : ' ' }}"><i>Klanten</i></a>
-        <a href="#" class="{{ (($currentPage)) == "Accounts" ? 'active' : ' ' }}"><i>Accounts</i></a>
-        <br/>
-        <a href="/"><b>Website</b></a>
+        <a href="{{URL::route('cms_header')}}"
+           class="{{ (($currentPage)) == "Navigatie" ? 'active' : ' ' }}"><b>Navigatie</b></a>
+            <a href="{{URL::route('cms_courses_list')}}"
+               class="{{ (($currentPage)) == "Cursus Overzicht" ? 'active' : ' ' }}"><b>Cursus</b></a>
+            <br>
+
+        <div id="courseDropdown" class="collapse">
+            <a href="{{URL::route('cms_courses_add')}}"
+            class="{{ (($currentPage)) == "Cursus Toevoegen" ? 'active' : ' ' }}"><b>Toevoegen</b></a>
+        </div>
+        <br>
+        <br>
+        <a href="/"><b>Terug</b></a>
         <a href="{{ route('logout') }}"
            onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
