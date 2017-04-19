@@ -369,13 +369,13 @@ a.active {
 #table-data-style {
   padding: 10px; }
 
-.container-cms {
+.container-headercms {
   margin-left: 135px; }
 
-.body-cms {
+.body-headercms {
   background: linear-gradient(to bottom, #ffffff 29%, #d6d6d6 99%); }
 
-.html-cms {
+.html-headercms {
   min-height: 100%; }
 
 .formText {
