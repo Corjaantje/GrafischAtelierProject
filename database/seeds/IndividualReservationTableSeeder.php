@@ -11,7 +11,7 @@ class IndividualReservationTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('individual_reservation_table')->delete();
+        DB::table('individual_reservations')->delete();
 
         $reservations = array(
             array(
@@ -56,6 +56,6 @@ class IndividualReservationTableSeeder extends Seeder
             )
         );
 
-        DB::table('individual_reservation_table')->insert($reservations);
+        DB::table('individual_reservations')->insert($reservations);
     }
 }
