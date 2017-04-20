@@ -23,5 +23,11 @@ class CoursesController extends Controller
     {
         return view('cms.courses.cms_edit_courses');
     }
+	
+    /** Gets all the data from the POST variable and updates the database*/
+    public function editCourse()
+    {
+    	
+    }
 
 }

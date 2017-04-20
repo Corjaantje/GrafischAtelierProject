@@ -139,7 +139,9 @@ Route::get('cms/wijzig_artikel/{artikelNummer}', array('as' => 'editNewsArticle'
 #----Manage Courses Routes----
 Route::get('cms/courses', ['as' => 'cms_courses_list', 'uses' => 'CoursesController@createList']);
 Route::get('cms/courses/add', ['as' => 'cms_courses_add', 'uses' => 'CoursesController@createAdd']);
-Route::get('cms/courses/edit', ['as' => 'cms_courses_edit', 'uses' => 'CoursesController@createEdit']);
+Route::post('cms/courses/edit', ['as' => 'cms_courses_edit', 'uses' => 'CoursesController@createEdit']);
+
+Route::post('cms/courses/editCourse', ['as' => 'cms_edit_courses', 'uses' => 'CoursesController@editCourse']);
 
 #----Login & Register Routes----
 Auth::routes();
