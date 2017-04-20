@@ -1,115 +1,59 @@
-<?php
-use function Composer\Autoload\includeFile;
-?>
-<html>
-</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/app.css') }}">
-<script src="{{ URL::asset('js/app.js') }}"></script>
-
+	<link rel="stylesheet" type="text/css" href="{{ URL::asset('scheduler/dhtmlxscheduler.css') }}">
+	<script src="{{ URL::asset('js/app.js') }}"></script>
+	<script src="{{ URL::asset('scheduler/dhtmlxscheduler.js') }}"></script>
+	<script src="{{ URL::asset('scheduler/ext/dhtmlxscheduler_units.js') }}"></script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
-@include('layouts.header', array('title'=>'agenda'))
-	<div class="content">
-<?php
-$day = date ( 'w' );
-$week_offset = 0;
-
-if ($_POST != null and array_key_exists ( "submit", $_POST ) and array_key_exists ( "offset", $_POST )) {
-	
-	switch ($_POST ["submit"]) {
-		case "Last Week" :
-			$week_offset = $_POST ["offset"] - 1;
-			break;
-		case "Next Week" :
-			$week_offset = $_POST ["offset"] + 1;
-			break;
-	}
-}
-
-include '../resources/lang/LanguageConverter.php';
-
-echo "<div class=\"agenda\">";
-
-$zCounter = 1;
-while ( $zCounter <= 5 ) {
-	// black magic, gets the moneday of this week. counter ofsets the day bt one and week ofsett the entire week.
-	$week_day = date ( 'D d F', strtotime ( '-' . ($day - $zCounter - ($week_offset * 7)) . ' days' ) );
-	
-	// can be used for selecting the agendafor a specific day.
-	// $week_day = date("d-m-Y", strtotime ( '-' . ($day - $counter - ($week_offset * 7)) . ' days' ));
-	$test = new LanguageConverter ();
-	echo "<div class =\"Agenda_Day\"> ";
-	echo "<h1>" . $test->dateConverter ( $week_day ) . " </h1>";
-	
-	// time table creation
-	echo "<div class=\"Agenda_timeTable_Wrapper\">";
-	echo "<table class=\"Agenda_timeTable\">";
-	
-	$xCounter = 0;
-	$yCounter = 0;
-	$timeList = array (
-			0 => '0:00',
-			1 => '1:00',
-			2 => '2:00',
-			3 => '3:00',
-			4 => '4:00',
-			5 => '5:00',
-			6 => '6:00',
-			7 => '7:00',
-			8 => '8:00',
-			9 => '9:00',
-			10 => '10:00' 
-	);
-	$eventList = array (
-			1 => 'Reservering - Hugo Bosch',
-			2 => 'School uitje, de korte steeg.',
-			3 => 'Tandarts - Mirjam',
-			4 => 'Hugo',
-			5 => 'Hugo',
-			6 => 'Hugo',
-			7 => 'Hugo',
-			8 => 'Hugo' 
-	);
-	
-	while ( $xCounter < 4 ) {
-		echo "<tr class=\"Agenda_row\">";
-		
-		if ($xCounter != 0) {
-			echo "<td class= \"Agenda_cell_Event\">" . $eventList [$xCounter] . "</td>";
-		} else {
-			echo "<td class= \"Agenda_cell_Event\"></td>";
-		}
-		$yCounter = 0;
-		while ( $yCounter < 10 ) {
-			
-			if ($xCounter == 0) {
-				echo "<td class=\"Agenda_tijd_cell\">" . $timeList [$yCounter + 1] . "</td>";
-				$yCounter ++;
-				continue;
-			}
-			if (rand ( 0, 2 ) == 1) {
-				echo "<td class=\"Agenda_cell\"></td>";
-			} else {
-				echo "<td class=\"Agenda_filled_cell\"></td>";
-			}
-			$yCounter ++;
-		}
-		$xCounter ++;
-		echo "</tr>";
-	}
-	
-	echo "</table>";
-	echo "</div>";
-	echo "</div>";
-	$zCounter ++;
-}
-
-echo "</div>"?>
-
-
+@include('layouts.header', array('title'=>'Agenda'))
+<div class="container">
+	<!---->
+	<div class="row">
+		<div class="col-md-12">
+	<div id="scheduler_here" class="dhx_cal_container" style='width:100%; height:750px; padding:10px;'>
+		<div class="dhx_cal_navline">
+			<div class="dhx_cal_prev_button">&nbsp;</div>
+			<div class="dhx_cal_next_button">&nbsp;</div>
+			<div class="dhx_cal_today_button"></div>
+			<div class="dhx_cal_date"></div>
+			<div class="dhx_cal_tab" name="unit_tab" style="right:280px;"></div>
+		</div>
+		<div class="dhx_cal_header"></div>
+		<div class="dhx_cal_data"></div>
+	</div></div>
 	</div>
+	<!---->
+</div>
 @include('layouts.footer')
-	
+<script>
+	scheduler.locale.labels.unit_tab = "Unit"
+	scheduler.createUnitsView({
+		name:"unit",
+		property:"unit_id", //the mapped data property
+		list:[              //defines the units of the view
+			{key:1, label:"Section A"},
+			{key:2, label:"Section B"},
+			{key:3, label:"Section C"}
+		]
+	});
+
+	scheduler.init('scheduler_here', new Date(), "unit");
+	scheduler.parse([
+		{id:1, text:"Task1", start_date:"04/20/2017 12:00", end_date:"04/20/2017 15:00",
+			unit_id:"1"},
+		{id:2, text:"Task2", start_date:"04/20/2017 09:00", end_date:"04/20/2017 12:00",
+			unit_id:"3"},
+		{id:3, text:"Task3", start_date:"04/20/2017 09:00", end_date:"04/20/2017 14:00",
+			unit_id:"2"}
+	],"json");
+</script>
 </body>
+</html>
+
