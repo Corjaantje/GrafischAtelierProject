@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Course;
 use Illuminate\Http\Request;
 
 class CoursesController extends Controller
@@ -23,16 +24,16 @@ class CoursesController extends Controller
     {
         return view('cms.courses.cms_edit_courses');
     }
-	
+
     /** Gets all the data from the POST variable and updates the database*/
     public function editCourse()
     {
-    	
+
     }
 
-    public function createAddConfirmation()
+    public function createAddConfirmation(Request $request)
     {
-        return view('cms.courses.cms_add_courses_confirmation');
+        return view('cms.courses.cms_add_courses_confirmation', ['request' => $request]);
     }
 
 }

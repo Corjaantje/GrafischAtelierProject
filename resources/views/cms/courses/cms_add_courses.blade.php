@@ -23,11 +23,11 @@
         <br>
         {{ Form::open(['route' => 'cms_courses_add_confirmation']) }}
 
-        Cursus naam: {{ Form::text('name') }} <br><br>
+        Cursus naam: {{ Form::text('course_name') }} <br><br>
         Docent naam: {{ Form::text('coursegiver_name') }} <br><br>
-        Prijs: € <input type="number" name="Price" min="0" value="0"/> <br><br>
-        Maximum deelnemers: <input type="number" name="Price" min="0"/> <br><br>
-        Datum: {{ Form::date('name', \Carbon\Carbon::now()) }} <br><br>
+        Prijs: € <input type="number" name="price" min="0" value="0"/> <br><br>
+        Maximum deelnemers: <input type="number" name="max_people" min="0", value="0"/> <br><br>
+        Datum: {{ Form::date('date', \Carbon\Carbon::now()) }} <br><br>
         Starttijd: {{Form::selectRange('start_hours', 00, 23, 12)}} :  {{Form::selectRange('start_minutes', 00, 59)}} <br><br>
         Eindtijd: {{Form::selectRange('end_hours', 00, 23, 13)}} :  {{Form::selectRange('end_minutes', 00, 59)}} <br><br>
 
