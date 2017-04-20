@@ -30,4 +30,9 @@ class CoursesController extends Controller
     	
     }
 
+    public function createAddConfirmation()
+    {
+        return view('cms.courses.cms_add_courses_confirmation');
+    }
+
 }
