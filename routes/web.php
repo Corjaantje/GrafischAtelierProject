@@ -151,3 +151,8 @@ Route::get('reservation_step1', array('as' => 'reservationStep1', function()
 {
     return view('reservation.reservation_step1');
 }));
+
+Route::get('reservation_step4', array('as' => 'reservationStep4', function()
+{
+    return view('reservation.reservation_step4');
+}));
