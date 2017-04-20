@@ -16,6 +16,8 @@ $courses = App\Course::all();
 
     @include('layouts.cms_navigation', array('currentPage'=>'Cursus Overzicht'))
     <div class="container-cms">
+    
+    	<h2>Cursus overzicht</h2>
         <!--CONTENT IN HERE-->
         <table id="table-style">
         
@@ -32,10 +34,14 @@ $courses = App\Course::all();
         
         @foreach($courses as $course)
         
+        <?php 
+        	$price = number_format($course->price, 2)
+        ?>
+        
         	<tr id="table-row-style">
         	
         		<td id="table-data-style"> {{ $course->name }}</td>
-        		<td id="table-data-style"> {{ $course->price }}</td>
+        		<td id="table-data-style">&euro; {{ $price }}</td>
         		<td id="table-data-style"> {{ $course->datetime_start }}</td>
         		<td id="table-data-style"> {{ $course->datetime_end }}</td>
         		

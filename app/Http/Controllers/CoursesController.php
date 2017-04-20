@@ -29,5 +29,18 @@ class CoursesController extends Controller
     {
     	
     }
+    
+    public function prepareDatetime($input){
+    	
+    	$pieces = explode(" ", $input);
+    	
+    	$date = $pieces[0];
+    	
+    	$time = substr($pieces[1], 0, -3);
+    	
+    	$datetime = $date . "T" . $time;
+    	
+    	return $datetime;
+    }
 
 }
