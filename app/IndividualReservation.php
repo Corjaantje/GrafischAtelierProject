@@ -6,5 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class IndividualReservation extends Model
 {
-
+    protected $table = 'individual_reservations';
+    protected $primaryKey = 'id';
+    public $incrementing = true;
+    public $timestamps = false;
 }
