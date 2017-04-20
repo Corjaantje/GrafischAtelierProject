@@ -10,6 +10,7 @@
 </head>
 <body class="body-cms">
 @include('layouts.header', array('title'=>'Home'))
+<input type="button" class="btn btn-primary" onclick="window.location='/'" value="Terug">
 <div class="container">
     <h1 class="title reservationTitles">Wilt u een workshop of een cursus reserveren?</h1>
     <div class="row"><br />
