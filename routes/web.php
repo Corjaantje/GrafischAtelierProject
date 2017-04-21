@@ -145,3 +145,19 @@ Route::get('cms/courses/edit', ['as' => 'cms_courses_edit', 'uses' => 'CoursesCo
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+#----Reservation Routes----
+Route::get('reservation_step1', array('as' => 'reservationStep1', function()
+{
+    return view('reservation.reservation_step1');
+}));
+
+Route::get('reservation_step4', array('as' => 'reservationStep4', function()
+{
+    return view('reservation.reservation_step4');
+}));
+
+Route::get('reservation_step5', array('as' => 'reservationStep5', function()
+{
+    return view('reservation.reservation_step5');
+}));

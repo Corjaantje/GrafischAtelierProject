@@ -390,4 +390,13 @@ a.active {
   border: solid #aaaaaa 1px;
   min-height: 75%; }
 
+.reservationTitles {
+  text-align: center; }
+
+.reservationButtons {
+  width: 100%; }
+
+.reservationImages {
+  width: 100%; }
+
 /*# sourceMappingURL=app.css.map */
