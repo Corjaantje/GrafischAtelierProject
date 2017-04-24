@@ -19,10 +19,10 @@ class AgendaController extends Controller
         $data['techniques'] = Technique::orderBy('name', 'asc')->get();
 
         // time limitation for longterm efficiency.
-        $data['reservations'] = IndividualReservation::where([
+        $data['reservations'] = $this->reservationsConverter(IndividualReservation::where([
             ['start_date', '>', Date('Y-m-d H:i:s', strtotime('-1 month'))],
             ['start_date', '<', Date('Y-m-d H:i:s', strtotime('+1 month'))],
-        ])->get();
+        ])->get());
 
         $data['workshops'] = Course::where([
             ['start_date', '>', Date('Y-m-d H:i:s', strtotime('-1 month'))],
@@ -31,4 +31,26 @@ class AgendaController extends Controller
 
         return view('agenda', $data);
     }
+
+
+    private function reservationsConverter($list)
+    {
+
+        $newData = [];
+        $x = 0;
+        foreach ($list as $item) {
+            $newItem = [
+                'id' => $item->id,
+                'start_date' => $item->start_date,
+                'end_date' => $item->end_date,
+                'text' => $item->user->name,
+                'type' => $item->id,
+            ];
+            $newData[$x] = $newItem;
+            $x++;
+        }
+       
+        return $newData;
+    }
+
 }

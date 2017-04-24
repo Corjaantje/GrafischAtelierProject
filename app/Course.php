@@ -10,4 +10,10 @@ class Course extends Model
     protected $primaryKey = 'id';
     public $incrementing = true;
     public $timestamps = true;
+
+
+
+    
 }
+
+

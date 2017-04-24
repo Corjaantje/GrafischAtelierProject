@@ -10,4 +10,11 @@ class IndividualReservation extends Model
     protected $primaryKey = 'id';
     public $incrementing = true;
     public $timestamps = false;
+
+
+    function user()
+    {
+        return $this->hasOne('App\User', 'id', 'user_id');
+    }
+
 }
