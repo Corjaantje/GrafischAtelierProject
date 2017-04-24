@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="html-cms">
 <head>
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/app.css') }}">
     <script src="{{ URL::asset('js/app.js') }}"></script>
@@ -8,10 +8,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body class="body-cms">
 @if (Auth::check() && Auth::user()->role == "admin")
 @include('layouts.cms_navigation', array('currentPage'=>'Nieuws'))
-<div class="container">
+<div class="container-cms">
     <form action="nieuw_artikel" method="post" enctype="multipart/form-data">
         <input type="hidden" name="_token" value=" {{ csrf_token() }} " >
         <input type="hidden" name="id" value="-1" />
@@ -31,7 +31,7 @@
 
         <input type="checkbox" name="visible" value="1" checked> <br>
         <br>
-        <input type="submit" value="Aanmaken"/>
+        <input class="btn btn-primary" type="submit" value="Aanmaken"/>
     </form>
 </div>
 @else

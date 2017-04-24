@@ -11,20 +11,15 @@
 <body class="body-cms">
 @if (Auth::check() && Auth::user()->role == "admin")
 
-    @include('layouts.cms_navigation', array('currentPage'=>'Home'))
+    @include('layouts.cms_navigation', array('currentPage'=>'Cursus Toevoegen'))
     <div class="container-cms">
         <!--CONTENT IN HERE-->
         <br>
-        <h1>Welkom <b>@php echo Auth::user()->name; @endphp</b>!</h1>
-        <h3>Handleiding link: </h3>
+        <button type="button" class="btn btn-primary"  onclick="window.location='{{URL::route('cms_courses_list')}}'">Terug</button>
+        <!---->
     </div>
-    <!---->
-    </div>
-
 @else
-
     <script>window.location.href = "{{ route('login') }}"</script>
-
 @endif
 </body>
 </html>
