@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Course;
 use App\IndividualReservation;
 use App\Technique;
 use App\Table;
@@ -21,6 +22,11 @@ class AgendaController extends Controller
         $data['reservations'] = IndividualReservation::where([
             ['start_time', '>', Date('Y-m-d H:i:s', strtotime('-1 month'))],
             ['start_time', '<', Date('Y-m-d H:i:s', strtotime('+1 month'))],
+        ])->get();
+
+        $data['workshops'] = Course::where([
+            ['start_date', '>', Date('Y-m-d H:i:s', strtotime('-1 month'))],
+            ['start_date', '<', Date('Y-m-d H:i:s', strtotime('+1 month'))],
         ])->get();
 
         return view('agenda', $data);
