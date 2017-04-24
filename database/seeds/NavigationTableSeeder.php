@@ -19,7 +19,7 @@ class NavigationTableSeeder extends Seeder
                 'name' => 'Nieuws',
                 'link_as' => 'nieuws',
                 'parent_id' => null,
-                'priority' => 6,
+                'priority' => 7,
                 'visible' => 1
             ),
             array(
@@ -27,7 +27,7 @@ class NavigationTableSeeder extends Seeder
                 'name' => 'Webshop',
                 'link_as' => 'winkel',
                 'parent_id' => null,
-                'priority' => 5,
+                'priority' => 6,
                 'visible' => 1
             ),
             array(
@@ -35,7 +35,7 @@ class NavigationTableSeeder extends Seeder
                 'name' => 'Aan de slag',
                 'link_as' => 'aan_de_slag',
                 'parent_id' => null,
-                'priority' => 4,
+                'priority' => 5,
                 'visible' => 1
             ),
             array(
@@ -83,7 +83,7 @@ class NavigationTableSeeder extends Seeder
                 'name' => 'Over ons',
                 'link_as' => 'about',
                 'parent_id' => null,
-                'priority' => 3,
+                'priority' => 4,
                 'visible' => 1
             ),
             array(
@@ -91,7 +91,7 @@ class NavigationTableSeeder extends Seeder
                 'name' => 'Agenda',
                 'link_as' => 'agenda',
                 'parent_id' => null,
-                'priority' => 2,
+                'priority' => 3,
                 'visible' => 1
             ),
             array(
@@ -101,7 +101,15 @@ class NavigationTableSeeder extends Seeder
                 'parent_id' => null,
                 'priority' => 1,
                 'visible' => 1
-            )
+            ),
+             array(
+                 'id' => 12,
+                 'name' => 'Cursussen',
+                 'link_as' => 'courses',
+                 'parent_id' => null,
+                 'priority' => 2,
+                 'visible' => 1
+             )
         );
 
         DB::table('header_navigations')->insert($header_navigation);
