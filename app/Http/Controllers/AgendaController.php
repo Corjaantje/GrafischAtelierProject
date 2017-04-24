@@ -57,7 +57,7 @@ class AgendaController extends Controller
     {
 
         $newData = [];
-        $x = 0
+        $x = 0;
         foreach ($listTable as $item) {
             $newItem = [
                 'key' => $item->id,
