@@ -24,10 +24,10 @@ class AgendaController extends Controller
             ['start_date', '<', Date('Y-m-d H:i:s', strtotime('+1 month'))],
         ])->get());
 
-        $data['workshops'] = Course::where([
+        $data['workshops'] = workshopsConverter(Course::where([
             ['start_date', '>', Date('Y-m-d H:i:s', strtotime('-1 month'))],
             ['start_date', '<', Date('Y-m-d H:i:s', strtotime('+1 month'))],
-        ])->get();
+        ])->get());
 
         return view('agenda', $data);
     }
@@ -40,7 +40,6 @@ class AgendaController extends Controller
         $x = 0;
         foreach ($list as $item) {
             $newItem = [
-                'id' => $item->id,
                 'start_date' => $item->start_date,
                 'end_date' => $item->end_date,
                 'text' => $item->user->name,
@@ -49,7 +48,29 @@ class AgendaController extends Controller
             $newData[$x] = $newItem;
             $x++;
         }
-       
+
+        return $newData;
+    }
+
+
+    private function workshopsConverter($list)
+    {
+
+        $newData = [];
+        $x = 0;
+        foreach ($list as $item) {
+            if ($item->visible) {
+                $newItem = [
+                    'start_date' => $item->start_date,
+                    'end_date' => $item->end_date,
+                    'text' => $item->name,
+                    'type' => $item->id,
+                ];
+                $newData[$x] = $newItem;
+                $x++;
+            }
+        }
+
         return $newData;
     }
 
