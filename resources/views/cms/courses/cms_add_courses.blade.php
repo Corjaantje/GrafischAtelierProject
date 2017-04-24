@@ -28,7 +28,7 @@
         Prijs: € <input type="number" name="price" min="0" value="0"/> <br><br>
         (0 Deelnemers is geen limiet)<br>
         Maximum deelnemers: <input type="number" name="max_people" min="0" , value="0"/> <br><br>
-        Datum: <input type="date" id="date"/> <br><br>
+        Datum: <input type="date" name="date" id="date"/> <br><br>
         Starttijd: <input type="time" name="start_time" required> <br><br>
         Eindtijd: <input type="time" name="end_time" required> <br><br>
 

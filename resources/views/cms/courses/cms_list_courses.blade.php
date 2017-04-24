@@ -17,8 +17,10 @@ $courses = App\Course::all();
     @include('layouts.cms_navigation', array('currentPage'=>'Cursus Overzicht'))
     <div class="container-cms">
     
-    	<h2>Cursus overzicht</h2>
+        <h2><b>Cursus overzicht</b></h2>
         <!--CONTENT IN HERE-->
+        <button type="button" class="btn btn-primary" onclick="window.location='{{URL::route('cms_courses_add')}}'">Nieuwe Cursus
+        </button>
         <table id="table-style">
         
         <tr id="table-row-style">
@@ -57,16 +59,10 @@ $courses = App\Course::all();
         		</td>
         		
         		<td></td>
-        	
         	</tr>
-        
         @endforeach
-        
-        </table>        
-        
+        </table>
         <br>
-        <button type="button" class="btn btn-primary" onclick="window.location='{{URL::route('cms_courses_add')}}'">TEMP Toevoegen
-        </button>
         <!---->
     </div>
 @else

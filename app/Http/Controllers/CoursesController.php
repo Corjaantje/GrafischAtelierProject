@@ -130,7 +130,16 @@ class CoursesController extends Controller
 
     public function setAdd()
     {
-        var_dump($_POST['course_name']);
-        return view('cms.courses.cms_list_courses');
+        Course::Insert(
+            ['name' => $_POST['course_name'],
+                'description' => $_POST['description'],
+                'coursegiver_name' => $_POST['coursegiver_name'],
+                'max_signups' => $_POST['max_people'],
+                'price' => $_POST['price'],
+                'datetime_start' => $_POST['date'].' '.$_POST['start_time'].':00' ,
+                'datetime_end' => $_POST['date'].' '.$_POST['end_time'].':00' ,
+                'visible' => isset($_POST['visible'])]
+        );
+        return Redirect::to('cms/cursus');
     }
 }
