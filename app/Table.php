@@ -11,4 +11,10 @@ class Table extends Model
     protected $primaryKey = 'id';
     public $incrementing = true;
     public $timestamps = false;
+
+
+    function tech()
+    {
+        return $this->hasOne('App\Technique', 'id', 'technique_id');
+    }
 }
