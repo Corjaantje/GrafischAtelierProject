@@ -26,6 +26,13 @@ class CreateCoursesTable extends Migration
             $table->boolean('visible');
             $table->timestamps();
         });
+
+        Schema::create('course_has_tables', function (Blueprint $table)
+        {
+
+            $table->integer('course_id')->references('id')->on('courses');
+            $table->integer('table_id')->references('id')->on('tables');
+        });
     }
 
     /**
@@ -36,5 +43,6 @@ class CreateCoursesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('courses');
+        Schema::dropIfExists('course_has_tables');
     }
 }

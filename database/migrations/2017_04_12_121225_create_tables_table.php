@@ -18,7 +18,6 @@ class CreateTablesTable extends Migration
         {
             $table->increments('id')->unique();
             $table->integer('technique_id')->references('id')->on('techniques');
-            $table->integer('table_number');
         });
     }
 
