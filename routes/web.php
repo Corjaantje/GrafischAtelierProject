@@ -142,8 +142,7 @@ Route::get('cms/cursus/toevoegen', ['as' => 'cms_courses_add', 'uses' => 'Course
 Route::post('cms/cursus/bewerken', ['as' => 'cms_courses_edit', 'uses' => 'CoursesController@createEdit']);
 Route::post('cms/cursus/toevoegen/bevestiging', ['as' => 'cms_courses_add_confirmation', 'uses' => 'CoursesController@createAddConfirmation']);
 
-Route::post('cms/cursus/editCourse', ['as' => 'cms_edit_courses', 'uses' => 'CoursesController@editCourse']); //todo Rick, iets duidelijker zijn met je routes
-
+Route::post('cms/cursus/editAction', ['as' => 'cms_edit_action', 'uses' => 'CoursesController@editAction']);
 #----Login & Register Routes----
 Auth::routes();
 
