@@ -19,7 +19,6 @@ class CreateWorkshopsTable extends Migration
             $table->string('title');
             $table->string('description');
             $table->longText('text');
-            $table->dateTime('date');
             $table->boolean('visible');
             $table->dateTime('start_time');
             $table->dateTime('end_time');
