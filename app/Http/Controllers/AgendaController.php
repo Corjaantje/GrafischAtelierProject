@@ -20,8 +20,8 @@ class AgendaController extends Controller
 
         // time limitation for longterm efficiency.
         $data['reservations'] = IndividualReservation::where([
-            ['start_time', '>', Date('Y-m-d H:i:s', strtotime('-1 month'))],
-            ['start_time', '<', Date('Y-m-d H:i:s', strtotime('+1 month'))],
+            ['start_date', '>', Date('Y-m-d H:i:s', strtotime('-1 month'))],
+            ['start_date', '<', Date('Y-m-d H:i:s', strtotime('+1 month'))],
         ])->get();
 
         $data['workshops'] = Course::where([

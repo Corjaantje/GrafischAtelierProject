@@ -20,8 +20,8 @@ class CreateWorkshopsTable extends Migration
             $table->string('description');
             $table->longText('text');
             $table->boolean('visible');
-            $table->dateTime('start_time');
-            $table->dateTime('end_time');
+            $table->dateTime('start_date');
+            $table->dateTime('end_date');
             $table->float('cost');
             $table->integer('template');
             $table->timestamps();

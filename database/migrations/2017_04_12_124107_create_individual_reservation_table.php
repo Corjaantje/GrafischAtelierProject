@@ -18,8 +18,8 @@ class CreateIndividualReservationTable extends Migration
             $table->increments('id')->unique();
             $table->integer('user_id')->references('id')->on('users');
             $table->integer('table_id')->references('id')->on('techniques');
-            $table->dateTime('start_time');
-            $table->dateTime('end_time');
+            $table->dateTime('start_date');
+            $table->dateTime('end_date');
             $table->double('price');
         });
     }

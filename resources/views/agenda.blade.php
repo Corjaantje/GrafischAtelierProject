@@ -17,6 +17,8 @@
 	<!---->
 	<div class="row">
 		<div class="col-md-12">
+			{{$reservations}}
+			{{$workshops}}
 	<div id="scheduler_here" class="dhx_cal_container" style='width:100%; height:750px; padding:10px;'>
 		<div class="dhx_cal_navline">
 			<div class="dhx_cal_prev_button">&nbsp;</div>
@@ -34,6 +36,8 @@
 @include('layouts.footer')
 <script>
 	scheduler.locale.labels.unit_tab = "Unit";
+	scheduler.config.readonly = true;
+	scheduler.config.xml_date= "%Y-%m-%d %H:%i";
 	scheduler.createUnitsView({
 		name:"unit",
 		property:"unit_id", //the mapped data property
@@ -45,14 +49,9 @@
 	});
 
 	scheduler.init('scheduler_here', new Date(), "unit");
-	scheduler.parse([
-		{id:1, text:"Task1", start_date:"04/20/2017 12:00", end_date:"04/20/2017 15:00",
-			unit_id:"1"},
-		{id:2, text:"Task2", start_date:"04/20/2017 09:00", end_date:"04/20/2017 12:00",
-			unit_id:"3"},
-		{id:3, text:"Task3", start_date:"04/20/2017 09:00", end_date:"04/20/2017 14:00",
-			unit_id:"2"}
-	],"json");
+
+	scheduler.parse( @php echo $reservations; @endphp , "json" );
+	scheduler.parse( @php echo $workshops; @endphp , "json");
 </script>
 </body>
 </html>

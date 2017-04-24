@@ -21,8 +21,8 @@ class CoursesTableSeeder extends Seeder
                 'coursegiver_name' => "Rens Horn",
                 'max_signups' => 10,
                 'price' => 75.00,
-                'datetime_start' => "2017-05-13 13:30:00",
-                'datetime_end' => "2017-05-13 16:00:00",
+                'start_date' => "2017-05-13 13:30:00",
+                'end_date' => "2017-05-13 16:00:00",
                 'visible' => 1,
             ),
             array (
@@ -32,8 +32,8 @@ class CoursesTableSeeder extends Seeder
                 'coursegiver_name' => "Truzanne Lousberg",
                 'max_signups' => 10,
                 'price' => 110.00,
-                'datetime_start' => "2017-05-27 09:00:00",
-                'datetime_end' => "2017-05-27 16:30:00",
+                'start_date' => "2017-05-27 09:00:00",
+                'end_date' => "2017-05-27 16:30:00",
                 'visible' => 1,
             ),
         );
