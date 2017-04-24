@@ -13,7 +13,10 @@ class Course extends Model
 
 
 
-    
+    public function tables()
+    {
+        return $this->belongsToMany('App\Table', 'course_has_tables', 'course_id', 'table_id');
+    }
 }
 
 

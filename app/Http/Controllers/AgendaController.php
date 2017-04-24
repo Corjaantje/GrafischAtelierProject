@@ -42,8 +42,8 @@ class AgendaController extends Controller
             $newItem = [
                 'start_date' => $item->start_date,
                 'end_date' => $item->end_date,
-                'text' => $item->user->name,
-                'type' => $item->id,
+                'text' => "Gereserveerd door: " + $item->user->name,
+                'type' => $item->table_id,
             ];
             $newData[$x] = $newItem;
             $x++;
@@ -57,7 +57,7 @@ class AgendaController extends Controller
     {
 
         $newData = [];
-        $x = 0
+        $x = 0;
         foreach ($listTable as $item) {
             $newItem = [
                 'key' => $item->id,
@@ -78,11 +78,17 @@ class AgendaController extends Controller
         $x = 0;
         foreach ($list as $item) {
             if ($item->visible) {
+                $tables = $item->tables;
+                $tableID = [];
+                foreach ($tables as $table) {
+                    $tableID[$table->id] = $table->id;
+                }
+
                 $newItem = [
                     'start_date' => $item->start_date,
                     'end_date' => $item->end_date,
-                    'text' => $item->name,
-                    'type' => $item->id,
+                    'text' => "Workshop: " + $item->name,
+                    'type' => $tableID,
                 ];
                 $newData[$x] = $newItem;
                 $x++;
