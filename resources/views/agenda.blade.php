@@ -33,7 +33,7 @@
 </div>
 @include('layouts.footer')
 <script>
-	scheduler.locale.labels.unit_tab = "Unit"
+	scheduler.locale.labels.unit_tab = "Unit";
 	scheduler.createUnitsView({
 		name:"unit",
 		property:"unit_id", //the mapped data property
