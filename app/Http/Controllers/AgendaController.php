@@ -15,7 +15,7 @@ class AgendaController extends Controller
     {
         $data = [];
         // retrieves all tables and techniques
-        $data['tables'] = tableConverter(Table::orderBy('technique_id', 'asc')->orderBy('table_number', 'asc')->get());
+        $data['tables'] = $this->tableConverter(Table::orderBy('technique_id', 'asc')->orderBy('table_number', 'asc')->get());
         $data['techniques'] = Technique::orderBy('name', 'asc')->get();
 
         // time limitation for longterm efficiency.
@@ -24,7 +24,7 @@ class AgendaController extends Controller
             ['start_date', '<', Date('Y-m-d H:i:s', strtotime('+1 month'))],
         ])->get());
 
-        $data['workshops'] = workshopsConverter(Course::where([
+        $data['workshops'] = $this->workshopsConverter(Course::where([
             ['start_date', '>', Date('Y-m-d H:i:s', strtotime('-1 month'))],
             ['start_date', '<', Date('Y-m-d H:i:s', strtotime('+1 month'))],
         ])->get());
