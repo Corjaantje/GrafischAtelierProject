@@ -15,29 +15,45 @@
     <div class="container-cms">
         <!--CONTENT IN HERE-->
         <br>
-        <button type="button" class="btn btn-primary" onclick="window.location='{{URL::route('cms_courses_add')}}'">
-            Terug
-        </button>
+        <button class="btn btn-primary" onclick="goBack()">Terug</button>
         <h2><b>Cursus Bevestiging</b></h2><br>
-
-        Cursus naam: <b>@php echo $request->course_name @endphp</b><br><br>
-        Docent naam: <b>@php echo $request->coursegiver_name @endphp</b><br><br>
-        Prijs: <b>€ @php echo $request->price @endphp</b>  <br><br>
-        Maximum deelnemers: <b>@php echo $request->max_people @endphp</b><br><br>
-        Datum: <b>@php echo $request->date @endphp</b>  <br><br>
-        Starttijd: <b>@php echo $request->start_hours." : ".$request->start_minutes @endphp</b><br><br>
-        Eindtijd: <b>@php echo $request->end_hours." : ".$request->end_minutes @endphp</b><br><br>
-
-        Beschrijving:<br><b>@php echo $request->description @endphp</b>  <br><br>
-        Openbaar: <b>@php if($request->visible == 1){ echo "Ja";}else{echo "Nee";} @endphp</b><br><br>
-
-        <button type="button" class="btn btn-primary" onclick="window.location='{{URL::route('cms_courses_add')}}'">
-            Bevestigen
-        </button>
-        <!---->
+        @php
+            echo $request->course_name."<br>";
+            echo $request->date." van ".$request->start_time." - ".$request->end_time."<br>";
+            echo "Gegeven door ".$request->coursegiver_name."<br>";
+            if($request->max_people == 0)
+            {
+                echo "Limiet is onbeperkt"."<br><br>";
+            }
+            else
+            {
+                echo "Limiet is ".$request->max_people." personen"."<br><br>";
+            }
+            echo nl2br($request->description)."<br><br>";
+        @endphp
+    {{ Form::open(['route' => 'cms_courses_add_confirmed']) }}
+        {{Form::hidden('course_name', $request->course_name)}}
+        {{Form::hidden('coursegiver_name', $request->coursegiver_name)}}
+        {{Form::hidden('price', $request->price)}}
+        {{Form::hidden('max_people', $request->max_people)}}
+        {{Form::hidden('date', $request->date)}}
+        {{Form::hidden('start_time', $request->start_time)}}
+        {{Form::hidden('end_time', $request->end_time)}}
+        {{Form::hidden('description', $request->description)}}
+        {{Form::hidden('visible', $request->visible)}}
+        <input class="btn btn-primary" type="submit" value="Bevestigen">
+    {{ Form::close()}}
+    <!---->
     </div>
 @else
     <script>window.location.href = "{{ route('login') }}"</script>
 @endif
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+
+</script>
 </body>
 </html>

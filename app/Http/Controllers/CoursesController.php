@@ -49,4 +49,9 @@ class CoursesController extends Controller
     	return $datetime;
     }
 
+    public function setAdd()
+    {
+        var_dump($_POST['course_name']);
+        return view('cms.courses.cms_list_courses');
+    }
 }

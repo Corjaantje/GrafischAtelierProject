@@ -23,25 +23,41 @@
         <br>
         {{ Form::open(['route' => 'cms_courses_add_confirmation']) }}
 
-        Cursus naam: {{ Form::text('course_name') }} <br><br>
-        Docent naam: {{ Form::text('coursegiver_name') }} <br><br>
+        Cursus naam: {{ Form::text('course_name','',array('required' => 'required'))}} <br><br>
+        Docent naam: {{ Form::text('coursegiver_name','',array('required' => 'required')) }} <br><br>
         Prijs: € <input type="number" name="price" min="0" value="0"/> <br><br>
-        Maximum deelnemers: <input type="number" name="max_people" min="0", value="0"/> <br><br>
-        Datum: {{ Form::date('date', \Carbon\Carbon::now()) }} <br><br>
-        Starttijd: {{Form::selectRange('start_hours', 00, 23, 12)}} :  {{Form::selectRange('start_minutes', 00, 59)}} <br><br>
-        Eindtijd: {{Form::selectRange('end_hours', 00, 23, 13)}} :  {{Form::selectRange('end_minutes', 00, 59)}} <br><br>
+        (0 Deelnemers is geen limiet)<br>
+        Maximum deelnemers: <input type="number" name="max_people" min="0" , value="0"/> <br><br>
+        Datum: <input type="date" id="date"/> <br><br>
+        Starttijd: <input type="time" name="start_time" required> <br><br>
+        Eindtijd: <input type="time" name="end_time" required> <br><br>
 
         Beschrijving: <br>
-        {{ Form::textarea('description')}} <br>
+        {{ Form::textarea('description','',array('required' => 'required'))}} <br>
         Openbaar {{ Form::checkbox('visible', 1, 1) }} <br><br>
 
-        <input class="btn btn-primary" type="submit" value="Opslaan">
-
-    {{ Form::close() }}
+        <input class="btn btn-primary" onclick="validate()" type="submit" value="Opslaan">
+    {{ Form::close()}}
     <!---->
     </div>
 @else
     <script>window.location.href = "{{ route('login') }}"</script>
 @endif
+<script type="text/javascript">
+    //gets todays date and sets it as minimum for datetime start and end
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+    if(dd<10){
+        dd='0'+dd
+    }
+    if(mm<10){
+        mm='0'+mm
+    }
+
+    today = yyyy+'-'+mm+'-'+dd;
+    document.getElementById("date").setAttribute("min", today);
+</script>
 </body>
 </html>
