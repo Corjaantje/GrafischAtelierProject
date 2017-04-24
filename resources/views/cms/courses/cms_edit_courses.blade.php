@@ -37,7 +37,7 @@
     <div class="container-cms">
         <!--CONTENT IN HERE-->
          
-	        {{ Form::open(array('Route' => 'cms_edit_courses')) }}
+	        {{ Form::open(array('url' => 'cms/cursus/editAction')) }}
 	        
 	        	{{ Form::hidden('_token', csrf_token()) }}<br>
 	        	{{ Form::hidden('id', $_POST['id']) }}<br>
@@ -45,12 +45,12 @@
 	        	Naam: {{ Form::text('name', $course->name) }}<br>
 	        	Beschrijving: <br>
 	        	{{ Form::textarea('description', $course->description) }}<br>
-	        	Cursist: {{ Form::text('coursegiver_name', $course->coursegiver_name) }}<br>
+	        	Cursusgever: {{ Form::text('coursegiver_name', $course->coursegiver_name) }}<br>
 	        	
 	        	Maximaal aantal deelnemers(0 deelnemers betekend geen limiet)<br>
 	        	<input type="number" name="max_signups" min="0" value="{{ $course->max_signups}}"/><br>
 	        	
-	        	Prijs: <input type="number" name="Price" min="0" value="{{ $course->price}}"/><br>
+	        	Prijs: <input type="number" name="price" min="0" value="{{ $course->price}}"/><br>
 	        	
 	        	starttijd: <input type="datetime-local" name="datetime_start" id="startTime" value="{{ $controller->prepareDatetime($course->datetime_start) }}"/><br>
 	        	eindtijd: <input type="datetime-local" name="datetime_end" id="endTime" value="{{ $controller->prepareDatetime($course->datetime_end) }}"/><br>
