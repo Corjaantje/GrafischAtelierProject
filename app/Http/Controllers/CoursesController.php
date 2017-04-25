@@ -142,4 +142,9 @@ class CoursesController extends Controller
         );
         return Redirect::to('cms/cursus');
     }
+
+    public function createCoursesPage()
+    {
+        return view('courses');
+    }
 }
