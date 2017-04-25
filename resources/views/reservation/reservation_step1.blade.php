@@ -12,10 +12,10 @@
 @include('layouts.header', array('title'=>'Home'))
 <input type="button" class="btn btn-primary" onclick="window.location='/'" value="Terug">
 <div class="container">
-    <h1 class="title reservationTitles">Wilt u een workshop of een cursus reserveren?</h1>
+    <h1 class="title reservationTitles">Wat wilt u reserveren?</h1>
     <div class="row"><br />
         <div class="col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-6">
-            <img src="../../../public/img/Reservation/workshop.png" class="reservationImages">
+            <img src="../../../public/img/Reservation/werkplaats.png" class="reservationImages">
             <input type="hidden" value="Workshop">
             <input type="submit" name="workshop" class="btn btn-primary reservationButtons" value="Naar volgende stap">
         </div>
