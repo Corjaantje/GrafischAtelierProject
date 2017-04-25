@@ -15,11 +15,49 @@
     <div class="container-cms">
         <!--CONTENT IN HERE-->
         <br>
-        <button type="button" class="btn btn-primary"  onclick="window.location='{{URL::route('cms_courses_list')}}'">Terug</button>
-        <!---->
+        <button type="button" class="btn btn-primary" onclick="window.location='{{URL::route('cms_courses_list')}}'">
+            Terug
+        </button>
+
+        <h2><b>Nieuwe cursus</b></h2>
+        <br>
+        {{ Form::open(['route' => 'cms_courses_add_confirmation']) }}
+
+        Cursus naam: {{ Form::text('course_name','',array('required' => 'required'))}} <br><br>
+        Docent naam: {{ Form::text('coursegiver_name','',array('required' => 'required')) }} <br><br>
+        Prijs: € <input type="number" name="price" min="0" value="0"/> <br><br>
+        (0 Deelnemers is geen limiet)<br>
+        Maximum deelnemers: <input type="number" name="max_people" min="0" , value="0"/> <br><br>
+        Datum: <input type="date" name="date" id="date"/> <br><br>
+        Starttijd: <input type="time" name="start_time" required> <br><br>
+        Eindtijd: <input type="time" name="end_time" required> <br><br>
+
+        Beschrijving: <br>
+        {{ Form::textarea('description','',array('required' => 'required'))}} <br>
+        Openbaar {{ Form::checkbox('visible', 1, 1) }} <br><br>
+
+        <input class="btn btn-primary" onclick="validate()" type="submit" value="Opslaan">
+    {{ Form::close()}}
+    <!---->
     </div>
 @else
     <script>window.location.href = "{{ route('login') }}"</script>
 @endif
+<script type="text/javascript">
+    //gets todays date and sets it as minimum for datetime start and end
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+    if(dd<10){
+        dd='0'+dd
+    }
+    if(mm<10){
+        mm='0'+mm
+    }
+
+    today = yyyy+'-'+mm+'-'+dd;
+    document.getElementById("date").setAttribute("min", today);
+</script>
 </body>
 </html>
