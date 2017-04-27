@@ -14,6 +14,7 @@
 <div class="container">
     <h1 class="title reservationTitles">Wat wilt u reserveren?</h1>
     <div class="row"><br />
+        {{ Form::open(['route' => 'individualReservation_step1']) }}
         <div class="col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-6">
             <img src="../../../public/img/Reservation/werkplaats.png" class="reservationImages">
             <input type="hidden" value="Workshop">
@@ -24,6 +25,7 @@
             <input type="hidden" value="Cursus">
             <input type="submit" name="cursus" class="btn btn-primary reservationButtons" value="Naar volgende stap">
         </div>
+        {{ Form::close() }}
     </div>
 </div>
 @include('layouts.footer')

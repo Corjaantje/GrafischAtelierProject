@@ -13,7 +13,9 @@
 <div class="container">
     <h1 class="title reservationTitles">Controleer uw reservering</h1>
     <div class="row">
+        {{ Form::open(['route' => 'individualReservation_step5']) }}
 
+        {{ Form::close() }}
     </div>
 </div>
 @include('layouts.footer')
