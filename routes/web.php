@@ -86,6 +86,9 @@ Route::get('cms', array('as' => 'cms_home', function()
 {
     return view('cms.cms_home');
 }));
+#----Course Signup----
+Route::post('cursus_bevestigen', ['as' => 'confirm_course_signup', 'uses' => 'CourseSignupController@Signup']);
+Route::post('cursus_bevestigd', ['as' => 'course_signup_confirmed', 'uses' => 'CourseSignupController@Confirmed']);
 
 #----CMS Routes----
 #------Header CMS------
