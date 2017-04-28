@@ -57,7 +57,16 @@ $courses = App\Course::all();
         		{{ Form::close()}}
         		
         		</td>
-        		
+                <td>
+
+                    {{ Form::open(['route' => 'cms_courses_delete', 'onsubmit' => 'return confirm("Weet u zeker dat u deze cursus wilt verwijderen?")']) }}
+
+                    {{ Form::hidden('id', $course->id) }}
+                    <input class="btn btn-danger"  type="submit" value="Verwijderen">
+
+                    {{ Form::close()}}
+
+                </td>
         		<td></td>
         	</tr>
         @endforeach

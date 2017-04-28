@@ -142,4 +142,11 @@ class CoursesController extends Controller
         );
         return Redirect::to('cms/cursus');
     }
+
+    public function deleteAction()
+    {
+        Course::destroy($_POST['id']);
+        return view('cms.courses.cms_list_courses');
+
+    }
 }

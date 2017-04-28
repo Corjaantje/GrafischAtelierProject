@@ -147,6 +147,8 @@ Route::post('cms/cursus/toevoegen/bevestiging', ['as' => 'cms_courses_add_confir
 Route::post('cms/cursus/toevoegen/bevestigd', ['as' => 'cms_courses_add_confirmed', 'uses' => 'CoursesController@setAdd']);
 
 Route::post('cms/cursus/editAction', ['as' => 'cms_edit_action', 'uses' => 'CoursesController@editAction']);
+Route::post('cms/cursus/verwijderen', ['as' => 'cms_courses_delete', 'uses' => 'CoursesController@deleteAction']);
+
 #----Login & Register Routes----
 Auth::routes();
 
