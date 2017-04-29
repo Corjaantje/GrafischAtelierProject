@@ -18,9 +18,9 @@
             <img src="../../../public/img/Reservation/imgTemp1.jpg" class="reservationImages">
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-sm-offset-0 col-xs-4">
-            <b>Datum:</b><br /><input type="date" value="@php echo date("Y-m-d"); @endphp"><br /><br />
-            <b>Tijd:</b><br /><input type="time" value="12:00"><br /><br />
-            <input type="submit" value="Naar volgende stap" class="btn btn-primary">
+            <b>Datum:</b><br /><input type="date" name="date" value="@php echo date("Y-m-d"); @endphp"><br /><br />
+            <b>Tijd:</b><br /><input type="time" name="start_time" value="12:00"><br /><br />
+            <input type="submit" name="btnDateTime" value="Naar volgende stap" class="btn btn-primary">
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-sm-offset-0 col-xs-4">
             <img src="../../../public/img/Reservation/imgTemp2.jpg" class="reservationImages"><br />

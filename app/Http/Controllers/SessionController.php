@@ -7,27 +7,27 @@ use App\Http\Requests;
 
 class SessionController extends Controller
 {
-    public function accessSessionData(Request $request, $key)
+    // stap 1
+    public function storeType(Request $request)
     {
-        if ($request->session()->has($key))
+        if (isset($_POST['btnWorkshop']))
         {
-            echo $request->session()->get($key);
+            $type = $request->get('workshop');
         }
         else
         {
-            echo 'No data in the session.';
+           $type = $request->get('cursus');
         }
+        echo $type;
     }
 
-    public function storeSessionData(Request $request, $key, $value)
+    // stap 4
+    public function storeDateTime(Request $request)
     {
-        $request->session()->put($key, $value);
-        echo 'Data has been added to the session.';
-    }
-
-    public function deleteSessionData(Request $request, $key)
-    {
-        $request->session()->forget($key);
-        echo 'Data has been removed from session.';
+        $date = $request->get('date');
+        $time = $request->get('start_time');
+        echo $date;
+        echo "<br />";
+        echo $time;
     }
 }

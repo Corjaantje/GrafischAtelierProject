@@ -167,7 +167,7 @@ Route::get('reservation_step5', array('as' => 'reservationStep5', function()
     return view('reservation.reservation_step5');
 }));
 
-Route::post('individualReservation_step1', ['as' => 'individualReservation_step1', 'uses' => 'SessionController@accessSessionData']);
+Route::post('individualReservation_step1', ['as' => 'individualReservation_step1', 'uses' => 'SessionController@storeType']);
 Route::post('individualReservation_step2', ['as' => 'individualReservation_step2', 'uses' => 'SessionController@storeSessionData']);
 Route::post('individualReservation_step3', ['as' => 'individualReservation_step3', 'uses' => 'SessionController@storeSessionData']);
-Route::post('individualReservation_step4', ['as' => 'individualReservation_step4', 'uses' => 'SessionController@accessSessionData']);
+Route::post('individualReservation_step4', ['as' => 'individualReservation_step4', 'uses' => 'SessionController@storeDateTime']);
