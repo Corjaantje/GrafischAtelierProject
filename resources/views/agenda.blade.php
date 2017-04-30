@@ -39,6 +39,7 @@
 	scheduler.config.readonly = true;
 	scheduler.config.xml_date= "%Y-%m-%d %H:%i";
 	scheduler.config.default_date = "%l %j %M %Y";
+	scheduler.config.multisection = true;
 	scheduler.createUnitsView({
 		name:"unit",
 		property:"type", //the mapped data property
@@ -46,12 +47,12 @@
 	});
 	scheduler.templates.unitweek_date = scheduler.templates.week_date;
 	scheduler.templates.unitweek_scale_date = scheduler.templates.week_scale_date;
-	scheduler.locale.labels.unitweek_tab = "Week"
+	scheduler.locale.labels.unitweek_tab = "Week";
 	scheduler.createUnitsView({
 		name:"unitweek",
 		property:"type",
-		list: @php echo json_encode($tables) @endphp,
-		days:7
+		days:7,
+		list: @php echo json_encode($tables) @endphp
 	});
 /*[
 	{key:1, label:"Section A"},

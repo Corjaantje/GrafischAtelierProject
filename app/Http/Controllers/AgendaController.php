@@ -15,7 +15,7 @@ class AgendaController extends Controller
     {
         $data = [];
         // retrieves all tables and techniques
-        $data['tables'] = $this->tableConverter(Table::orderBy('technique_id', 'asc')->orderBy('table_number', 'asc')->get());
+        $data['tables'] = $this->tableConverter(Table::orderBy('technique_id', 'asc')->orderBy('id', 'asc')->get());
         $data['techniques'] = Technique::orderBy('name', 'asc')->get();
 
         // time limitation for longterm efficiency.
@@ -42,7 +42,7 @@ class AgendaController extends Controller
             $newItem = [
                 'start_date' => $item->start_date,
                 'end_date' => $item->end_date,
-                'text' => "Gereserveerd door: " + $item->user->name,
+                'text' => "Gereserveerd door: ".$item->user->name,
                 'type' => $item->table_id,
             ];
             $newData[$x] = $newItem;
@@ -87,7 +87,7 @@ class AgendaController extends Controller
                 $newItem = [
                     'start_date' => $item->start_date,
                     'end_date' => $item->end_date,
-                    'text' => "Workshop: " + $item->name,
+                    'text' => "Workshop: ".$item->name,
                     'type' => $tableID,
                 ];
                 $newData[$x] = $newItem;
