@@ -10,26 +10,27 @@ use Illuminate\Http\Request;
 
 class AgendaController extends Controller
 {
+    private $data = [];
 
     function show()
     {
-        $data = [];
+        $this->data = [];
         // retrieves all tables and techniques
-        $data['tables'] = $this->tableConverter(Table::orderBy('technique_id', 'asc')->orderBy('id', 'asc')->get());
-        $data['techniques'] = Technique::orderBy('name', 'asc')->get();
+        $this->data['tables'] = $this->tableConverter(Table::orderBy('technique_id', 'asc')->orderBy('id', 'asc')->get());
+        $this->data['techniques'] = Technique::orderBy('name', 'asc')->get();
 
         // time limitation for longterm efficiency.
-        $data['reservations'] = $this->reservationsConverter(IndividualReservation::where([
+        $this->data['reservations'] = $this->reservationsConverter(IndividualReservation::where([
             ['start_date', '>', Date('Y-m-d H:i:s', strtotime('-1 month'))],
             ['start_date', '<', Date('Y-m-d H:i:s', strtotime('+1 month'))],
         ])->get());
 
-        $data['workshops'] = $this->workshopsConverter(Course::where([
+        $this->data['workshops'] = $this->workshopsConverter(Course::where([
             ['start_date', '>', Date('Y-m-d H:i:s', strtotime('-1 month'))],
             ['start_date', '<', Date('Y-m-d H:i:s', strtotime('+1 month'))],
         ])->get());
 
-        return view('agenda', $data);
+        return view('agenda', $this->data);
     }
 
 
@@ -42,7 +43,7 @@ class AgendaController extends Controller
             $newItem = [
                 'start_date' => $item->start_date,
                 'end_date' => $item->end_date,
-                'text' => "Gereserveerd door: ".$item->user->name,
+                'text' => "Gereserveerd door: " . $item->user->name,
                 'type' => $item->table_id,
             ];
             $newData[$x] = $newItem;
@@ -61,7 +62,7 @@ class AgendaController extends Controller
         foreach ($listTable as $item) {
             $newItem = [
                 'key' => $item->id,
-                'label' => $item->tech->name];
+                'label' => "Tafel: " . $item->id . " " . $item->tech->name];
             $newData[$x] = $newItem;
             $x++;
         }
@@ -83,11 +84,17 @@ class AgendaController extends Controller
                 foreach ($tables as $table) {
                     $tableID[$table->id] = $table->id;
                 }
+                // prevents corupted week overview on the webpage.
+                if ($tableID == []) {
+                    foreach ($this->data['tables'] as $table) {
+                        $tableID[$table['key']] = $table['key'];
+                    }
+                }
 
                 $newItem = [
                     'start_date' => $item->start_date,
                     'end_date' => $item->end_date,
-                    'text' => "Workshop: ".$item->name,
+                    'text' => "Workshop: " . $item->name,
                     'type' => $tableID,
                 ];
                 $newData[$x] = $newItem;
