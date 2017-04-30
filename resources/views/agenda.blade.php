@@ -6,6 +6,8 @@
 	<script src="{{ URL::asset('js/app.js') }}"></script>
 	<script src="{{ URL::asset('scheduler/dhtmlxscheduler.js') }}"></script>
 	<script src="{{ URL::asset('scheduler/ext/dhtmlxscheduler_units.js') }}"></script>
+	<script src="{{ URL::asset('scheduler/ext/dhtmlxscheduler_multisection.js') }}"></script>
+	<script src="{{ URL::asset('scheduler/ext/dhtmlxscheduler_timeline.js') }}"></script>
 	<script src="{{ URL::asset('scheduler/locale/locale_nl.js') }}" charset="utf-8"></script>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,25 +16,19 @@
 </head>
 <body>
 @include('layouts.header', array('title'=>'Agenda'))
-<div class="container">
-	<!---->
-	<div class="row">
-		<div class="col-md-12">
-	<div id="scheduler_here" class="dhx_cal_container" style='width:100%; height:750px; padding:10px;'>
+	<div id="scheduler_here" class="dhx_cal_container" style='width:100%; height:750px; padding:10px;margin: 10px;'>
 		<div class="dhx_cal_navline">
 			<div class="dhx_cal_prev_button">&nbsp;</div>
 			<div class="dhx_cal_next_button">&nbsp;</div>
 			<div class="dhx_cal_today_button"></div>
 			<div class="dhx_cal_date"></div>
 			<div class="dhx_cal_tab" name="unitweek_tab" style="right:280px;"></div>
+			<div class="dhx_cal_tab" name="timeline_tab" style="right:280px;"></div>
 			<div class="dhx_cal_tab" name="unit_tab" style="right:280px;"></div>
 		</div>
 		<div class="dhx_cal_header"></div>
 		<div class="dhx_cal_data"></div>
-	</div></div>
 	</div>
-	<!---->
-</div>
 @include('layouts.footer')
 <script>
 	scheduler.locale.labels.unit_tab = "Dag";
@@ -54,11 +50,20 @@
 		days:7,
 		list: @php echo json_encode($tables) @endphp
 	});
-/*[
-	{key:1, label:"Section A"},
-	{key:2, label:"Section B"},
-	{key:3, label:"Section C"}
-	]*/
+
+	scheduler.locale.labels.timeline_tab = "Timeline";
+	scheduler.createTimelineView({
+		name:"timeline",
+		x_unit:"minute",//measuring unit of the X-Axis.
+		x_date:"%H:%i", //date format of the X-Axis
+		x_step:30,      //X-Axis step in 'x_unit's
+		x_size:21,      //X-Axis length specified as the total number of 'x_step's
+		x_start:16,     //X-Axis offset in 'x_unit's
+		x_length:48,    //number of 'x_step's that will be scrolled at a time
+		y_property:"type",
+		render: "bar",
+		y_unit: @php echo json_encode($tables) @endphp
+	});
 	scheduler.init('scheduler_here', new Date(), "unit");
 
 	scheduler.parse(@php echo json_encode($reservations); @endphp, "json" );

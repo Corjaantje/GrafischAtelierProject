@@ -45,6 +45,7 @@ class AgendaController extends Controller
                 'end_date' => $item->end_date,
                 'text' => "Gereserveerd door: " . $item->user->name,
                 'type' => $item->table_id,
+	            'color' => "#009966",
             ];
             $newData[$x] = $newItem;
             $x++;
@@ -62,7 +63,7 @@ class AgendaController extends Controller
         foreach ($listTable as $item) {
             $newItem = [
                 'key' => $item->id,
-                'label' => "Tafel: " . $item->id . " " . $item->tech->name];
+                'label' => $item->tech->name." ".$item->id];
             $newData[$x] = $newItem;
             $x++;
         }
@@ -80,22 +81,23 @@ class AgendaController extends Controller
         foreach ($list as $item) {
             if ($item->visible) {
                 $tables = $item->tables;
-                $tableID = [];
+                $tableID = "";
                 foreach ($tables as $table) {
-                    $tableID[$table->id] = $table->id;
+                    $tableID = $tableID.$table->id.",";
                 }
                 // prevents corupted week overview on the webpage.
-                if ($tableID == []) {
+                if ($tableID == "") {
                     foreach ($this->data['tables'] as $table) {
-                        $tableID[$table['key']] = $table['key'];
+                        $tableID = $tableID.$table['key'].",";
                     }
                 }
-
+	            $tableID = rtrim($tableID,",");
                 $newItem = [
                     'start_date' => $item->start_date,
                     'end_date' => $item->end_date,
                     'text' => "Workshop: " . $item->name,
                     'type' => $tableID,
+	                'color' => "#FF9933",
                 ];
                 $newData[$x] = $newItem;
                 $x++;
