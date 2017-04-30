@@ -14,7 +14,7 @@
     <h1 class="title reservationTitles">Controleer uw reservering</h1>
     <div class="row">
         {{ Form::open(['route' => 'reservationStep5']) }}
-        {{ Form::label(\App\Http\Controllers\SessionController::getType()) }}
+        {{ Form::label(\App\Http\Controllers\SessionController::getType()) }}<br />
         {{ Form::label(\App\Http\Controllers\SessionController::getDateTime()) }}
         {{ Form::close() }}
     </div>
