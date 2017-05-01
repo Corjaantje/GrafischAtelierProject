@@ -48,7 +48,7 @@
 	        	{{ Form::textarea('description', $course->description) }}<br>
 	        	Docent naam: {{ Form::text('coursegiver_name', $course->coursegiver_name) }}<br>
 	        	
-	        	Maximum deelnemers (0 Deelnemers is geen limiet)<br>
+	        	Maximum deelnemers (0 deelnemers betekent dat er geen limiet wordt gezet)<br>
 	        	<input type="number" name="max_signups" min="0" value="{{ $course->max_signups}}"/><br>
 	        	
 	        	Prijs: €<input type="number" name="price" min="0" value="{{ $course->price}}"/><br>
