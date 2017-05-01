@@ -58,7 +58,7 @@
         @php
             if($course->visible == 1)
             {
-                  echo 'Openbaar <input type="checkbox" checked="true"name="visible"/> <br><br>';
+                  echo 'Openbaar <input type="checkbox" checked="true" name="visible"/> <br><br>';
             }
             else
             {
