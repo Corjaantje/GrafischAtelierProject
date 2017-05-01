@@ -11,6 +11,7 @@ class SessionController extends Controller
     private static $type;
     private static $date;
     private static $time;
+    private static $end_time;
 
     // stap 1
     public function storeType(Request $request)
@@ -32,8 +33,10 @@ class SessionController extends Controller
     {
         $date = $request->get('date');
         $time = $request->get('start_time');
+        $end_time = $request->get('end_time');
         session()->put('date', $date);
         session()->put('time', $time);
+        session()->put('end_time', $end_time);
         return view('reservation.reservation_step5');
     }
 
@@ -42,8 +45,18 @@ class SessionController extends Controller
         return session()->get('type');
     }
 
-    public static function getDateTime()
+    public static function getDate()
     {
-        return session()->get('date') . ' ' . session()->get('time');
+        return session()->get('date');
+    }
+
+    public static function getTime()
+    {
+        return session()->get('time');
+    }
+
+    public static function getEndTime()
+    {
+        return session()->get('end_time');
     }
 }
