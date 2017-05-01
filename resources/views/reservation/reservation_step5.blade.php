@@ -17,11 +17,16 @@
         {{ Form::label('Type: '. \App\Http\Controllers\SessionController::getType()) }}<br />
         {{ Form::label('Datum: '. \App\Http\Controllers\SessionController::getDate()) }}<br />
         {{ Form::label('Starttijd: '. \App\Http\Controllers\SessionController::getTime()) }}<br />
-        {{ Form::label('Eindtijd: '. \App\Http\Controllers\SessionController::getEndTime()) }}<br /><br />
+        {{ Form::label('Eindtijd: '. \App\Http\Controllers\SessionController::getEndTime()) }}<br />
+        <b><p id="tafel"></p></b><br />
         <input type="submit" name="btnInsertReservation" value="Bevestig" class="btn btn-primary">
         {{ Form::close() }}
     </div>
 </div>
 @include('layouts.footer')
+
+<script defer>
+    document.getElementById('tafel').innerHTML = 'Tafel: ' + sessionStorage.getItem('tafel');
+</script>
 </body>
 </html>
