@@ -82,6 +82,10 @@ Route::get('agenda', array('as' => 'agenda', function()
     return view('agenda');
 }));
 
+
+Route::get('cursussen', ['as' => 'courses', 'uses' => 'CoursesController@createCoursesPage']);
+
+
 Route::get('cms', array('as' => 'cms_home', function()
 {
     return view('cms.cms_home');
