@@ -163,6 +163,7 @@ class CoursesController extends Controller
     public function createCoursesPage()
     {
         return view('courses');
+    }
 
     public function deleteAction()
     {
