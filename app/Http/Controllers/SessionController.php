@@ -26,7 +26,7 @@ class SessionController extends Controller
         {
            $type = $request->get('cursus');
             session()->put('type', $type);
-           return view('cursussen');
+           return view('courses');
         }
     }
 
