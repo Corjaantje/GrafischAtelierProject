@@ -10,19 +10,36 @@
 </head>
 <body class="body-cms">
 @include('layouts.header', array('title'=>'Home'))
+
 <input type="button" class="btn btn-primary" onclick="window.location='/'" value="Terug">
 
-<img src="{{URL::to('/')}}/img/werkplaats ga.png" alt="" usemap="#Map" />
-<map name="Map" id="Map">
-    <area alt="" title="" href="#" shape="rect" coords="11,100,52,154" />
-    <area alt="" title="" href="#" shape="rect" coords="13,188,61,248" />
-    <area alt="" title="" href="#" shape="rect" coords="13,276,61,336" />
-    <area alt="" title="" href="#" shape="rect" coords="13,368,60,428" />
-    <area alt="" title="" href="#" shape="rect" coords="111,428,194,492" />
-    <area alt="" title="" href="#" shape="rect" coords="688,86,747,149" />
-    <area alt="" title="" href="#" shape="rect" coords="671,250,761,314" />
-    <area alt="" title="" href="#" shape="rect" coords="638,366,793,465" />
-</map>
+<div class="container">
+    <h1>Selecteer een tafel</h1>
+    <p>Per techniek zijn een aantal tafels aanwezig. Selecteer aub een tafel die past bij de techniek die u wilt hanteren.</p>
+
+        <img src="{{URL::to('/')}}/img/werkplaats ga.png" alt="" usemap="#Map" />
+        <map name="Map" id="Map">
+            <area alt="Zeeftafel 5" title="Zeefdruk - tafel 5 (klein)" href="{{URL::route('reservationStep4')}}" shape="rect" coords="11,100,52,154" /> <!-- 5, 1 -->
+            <area alt="Zeeftafel 4" title="Zeefdruk - tafel 4 (middelgroot)" href="{{URL::route('reservationStep4')}}" shape="rect" coords="13,188,61,248" /> <!-- 4, 1 -->
+            <area alt="Zeeftafel 3" title="Zeefdruk - tafel 3 (middelgroot)" href="{{URL::route('reservationStep4')}}" shape="rect" coords="13,276,61,336" /> <!-- 3, 1 -->
+            <area alt="Zeeftafel 2" title="Zeefdruk - tafel 2 (middelgroot)" href="{{URL::route('reservationStep4')}}" shape="rect" coords="13,368,60,428" /> <!-- 2, 1 -->
+            <area alt="Zeeftafel 1" title="Zeefdruk - tafel 1 (groot)" href="{{URL::route('reservationStep4')}}" shape="rect" coords="111,428,194,492" /> <!-- 1,1 -->
+            <area alt="Lithotafel 1" title="Lithografie - tafel 1 (middelgroot)" href="{{URL::route('reservationStep4')}}" shape="rect" coords="688,86,747,149" /> <!--6, 2 -->
+            <area alt="Druktafel 1" title="Hoog- en Diepdruk - tafel 1 (groot)" href="{{URL::route('reservationStep4')}}" shape="rect" coords="671,250,761,314" /> <!--7, 3 -->
+            <area alt="Druktafel 2" title="Hoog- en Diepdruk - tafel 2 (extra groot)" href="{{URL::route('reservationStep4')}}" shape="rect" coords="638,366,793,465" /> <!--8, 3 -->
+        </map>
+</div>
+
+
+<!-- TODO : in .js plakken en dan nog steeds zorgen dat het werkt-->
+
+<script>
+    $("area").click(function()
+    {
+        sessionStorage.setItem('tafel', this.title);
+        window.location = '/reservation_step4';
+    });
+</script>
 
 @include('layouts.footer')
 </body>
