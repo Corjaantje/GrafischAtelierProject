@@ -19,13 +19,15 @@ class SessionController extends Controller
         if (isset($_POST['btnWerkplaats']))
         {
             $type = $request->get('werkplaats');
+            session()->put('type', $type);
+            return view('reservation.reservation_step3');
         }
         else
         {
            $type = $request->get('cursus');
+            session()->put('type', $type);
+           return view('cursussen');
         }
-        session()->put('type', $type);
-        return view('reservation.reservation_step3');
     }
 
     // stap 4

@@ -16,12 +16,12 @@
     <div class="row"><br />
         {{ Form::open(['route' => 'individualReservation_step1']) }}
         <div class="col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-6">
-            <img src="../../../public/img/Reservation/werkplaats.png" class="reservationImages">
+            <img src="{{URL::to('/')}}/img/Reservation/werkplaats.png" class="reservationImages">
             {{ Form::hidden('werkplaats', 'werkplaats') }}
             <input type="submit" name="btnWerkplaats" class="btn btn-primary reservationButtons" value="Naar volgende stap">
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-6">
-            <img src="../../../public/img/Reservation/cursus.png" class="reservationImages">
+            <img src="{{URL::to('/')}}/img/Reservation/cursus.png" class="reservationImages">
             {{ Form::hidden('cursus', 'cursus') }}
             <input type="submit" name="btnCursus" class="btn btn-primary reservationButtons" value="Naar volgende stap">
         </div>
