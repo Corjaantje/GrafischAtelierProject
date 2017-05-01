@@ -90,6 +90,9 @@ Route::get('cms', array('as' => 'cms_home', function()
 {
     return view('cms.cms_home');
 }));
+#----Course Signup----
+Route::post('cursus_bevestigen', ['as' => 'confirm_course_signup', 'uses' => 'CourseSignupController@Signup']);
+Route::post('cursus_bevestigd', ['as' => 'course_signup_confirmed', 'uses' => 'CourseSignupController@Confirmed']);
 
 #----CMS Routes----
 #------Header CMS------
@@ -147,7 +150,9 @@ Route::post('cms/cursus/bewerken', ['as' => 'cms_courses_edit', 'uses' => 'Cours
 Route::post('cms/cursus/toevoegen/bevestiging', ['as' => 'cms_courses_add_confirmation', 'uses' => 'CoursesController@createAddConfirmation']);
 Route::post('cms/cursus/toevoegen/bevestigd', ['as' => 'cms_courses_add_confirmed', 'uses' => 'CoursesController@setAdd']);
 
-Route::post('cms/cursus/editAction', ['as' => 'cms_edit_action', 'uses' => 'CoursesController@editAction']);
+Route::post('cms/cursus/bewerkenActie', ['as' => 'cms_edit_action', 'uses' => 'CoursesController@editAction']);
+Route::post('cms/cursus/verwijderen', ['as' => 'cms_courses_delete', 'uses' => 'CoursesController@deleteAction']);
+
 #----Login & Register Routes----
 Auth::routes();
 

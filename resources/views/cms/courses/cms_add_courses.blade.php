@@ -26,9 +26,9 @@
         Cursus naam: {{ Form::text('course_name','',array('required' => 'required'))}} <br><br>
         Docent naam: {{ Form::text('coursegiver_name','',array('required' => 'required')) }} <br><br>
         Prijs: € <input type="number" name="price" min="0" value="0"/> <br><br>
-        (0 Deelnemers is geen limiet)<br>
+        (0 deelnemers betekent dat er geen limiet wordt gezet)<br>
         Maximum deelnemers: <input type="number" name="max_people" min="0" , value="0"/> <br><br>
-        Datum: <input type="date" name="date" id="date"/> <br><br>
+        Datum: <input type="date" name="date" id="date" required> <br><br>
         Starttijd: <input type="time" name="start_time" required> <br><br>
         Eindtijd: <input type="time" name="end_time" required> <br><br>
 
@@ -44,19 +44,17 @@
     <script>window.location.href = "{{ route('login') }}"</script>
 @endif
 <script type="text/javascript">
-    //gets todays date and sets it as minimum for datetime start and end
     var today = new Date();
     var dd = today.getDate();
-    var mm = today.getMonth()+1; //January is 0!
+    var mm = today.getMonth() + 1;
     var yyyy = today.getFullYear();
-    if(dd<10){
-        dd='0'+dd
+    if (dd < 10) {
+        dd = '0' + dd
     }
-    if(mm<10){
-        mm='0'+mm
+    if (mm < 10) {
+        mm = '0' + mm
     }
-
-    today = yyyy+'-'+mm+'-'+dd;
+    today = yyyy + '-' + mm + '-' + dd;
     document.getElementById("date").setAttribute("min", today);
 </script>
 </body>
