@@ -163,6 +163,6 @@ class CoursesController extends Controller
     public function deleteAction()
     {
         Course::destroy($_POST['id']);
-        return view('cms.courses.cms_list_courses');
+        return Redirect::to('cms/cursus');
     }
 }
