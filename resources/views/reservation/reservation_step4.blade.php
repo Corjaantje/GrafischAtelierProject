@@ -25,7 +25,7 @@
             <input type="submit" value="Naar volgende stap" class="btn btn-primary">
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-sm-offset-0 col-xs-4">
-            <img src="{{URL::to('/')}}/img/Reservation/imgTemp2.jpg" class="reservationImages"><br />
+            <img src="{{URL::to('/')}}/img/Reservation/imgTemp2.jpg" class="reservationImages"><br><br>
             <img src="{{URL::to('/')}}/img/Reservation/imgTemp3.jpg" class="reservationImages">
         </div>
     </div>
