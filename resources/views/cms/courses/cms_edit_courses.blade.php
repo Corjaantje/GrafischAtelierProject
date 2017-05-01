@@ -39,25 +39,25 @@
         <button type="button" class="btn btn-primary" onclick="window.location='{{URL::route('cms_courses_list')}}'">Terug</button>
         <h2><b>Cursus Bewerken</b></h2>
 
-        {{ Form::open(array('url' => 'cms/cursus/editAction')) }}
+        {{ Form::open(array('url' => 'cms/cursus/bewerkenActie')) }}
 	        	{{ Form::hidden('_token', csrf_token()) }}
 	        	{{ Form::hidden('id', $_POST['id']) }}
 	        	
-	        	Naam: {{ Form::text('name', $course->name) }}<br>
+	        	Cursus naam: {{ Form::text('name', $course->name) }}<br>
 	        	Beschrijving: <br>
 	        	{{ Form::textarea('description', $course->description) }}<br>
-	        	Cursusgever: {{ Form::text('coursegiver_name', $course->coursegiver_name) }}<br>
+	        	Docent naam: {{ Form::text('coursegiver_name', $course->coursegiver_name) }}<br>
 	        	
-	        	Maximaal aantal deelnemers(0 deelnemers betekend geen limiet)<br>
+	        	Maximum deelnemers (0 Deelnemers is geen limiet)<br>
 	        	<input type="number" name="max_signups" min="0" value="{{ $course->max_signups}}"/><br>
 	        	
 	        	Prijs: €<input type="number" name="price" min="0" value="{{ $course->price}}"/><br>
 	        	
-	        	starttijd: <input type="datetime-local" name="datetime_start" id="startTime" value="{{ $controller->prepareDatetime($course->datetime_start) }}"/><br>
-	        	eindtijd: <input type="datetime-local" name="datetime_end" id="endTime" value="{{ $controller->prepareDatetime($course->datetime_end) }}"/><br>
+	        	Starttijd: <input type="datetime-local" name="datetime_start" id="startTime" value="{{ $controller->prepareDatetime($course->datetime_start) }}"/><br>
+	        	Eindtijd: <input type="datetime-local" name="datetime_end" id="endTime" value="{{ $controller->prepareDatetime($course->datetime_end) }}"/><br>
 	        	
-	        	<input type="checkbox" name="visible" {{$visible}} /> zichtbaar<br>
-	        	<input type="submit" class="btn btn-primary"/>
+	        	<input type="checkbox" name="visible" {{$visible}} /> Openbaar<br>
+	        	<input type="submit" value="Opslaan" class="btn btn-primary"/>
 	        {{ Form::close() }}
         <br>
         <script type="text/javascript">
