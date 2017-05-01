@@ -7,13 +7,7 @@
 
         $controller = new CoursesController();
 
-        $visible = "";
-        if($course->visible = 1){
-            $visible = "checked";
-        }
-
         $signupsIsNotNull = ($course->max_signups != null);
-
     }
     else {
         echo "<script>window.location.href = \"{{ route('cms_courses_list') }}\"</script>";
@@ -42,7 +36,6 @@
         <h2><b>Cursus Bewerken</b></h2>
 
         {{ Form::open(array('url' => 'cms/cursus/bewerkenActie')) }}
-        {{ Form::hidden('_token', csrf_token()) }}
         {{ Form::hidden('id', $_POST['id']) }}
 
         Cursus naam: {{ Form::text('name', $course->name) }}<br><br>
@@ -62,8 +55,16 @@
         Beschrijving: <br>
         {{ Form::textarea('description', $course->description) }}<br>
 
-
-        <input type="checkbox" name="visible" {{$visible}} /> Openbaar<br><br>
+        @php
+            if($course->visible == 1)
+            {
+                  echo 'Openbaar <input type="checkbox" checked="true"name="visible"/> <br><br>';
+            }
+            else
+            {
+                  echo 'Openbaar <input type="checkbox" name="visible"/> <br><br>';
+            }
+        @endphp
         <input type="submit" value="Opslaan" class="btn btn-primary"/>
         {{ Form::close() }}
         <br>
