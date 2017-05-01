@@ -33,9 +33,16 @@
                         <textarea rows="5" cols="60" name="text"> {{$article->text}} </textarea>  <br>
                     Datum:
                         <input type="date" name="date" value="{{$article->date}}" /> <br>
-                    Zichtbaar?: <br>
-                        <input type="checkbox" name="visible" value="{{$article->visible}}" checked> <br>
-                    <br>
+                    @php
+                        if($article->visible == 1)
+                        {
+                              echo 'Zichtbaar <input type="checkbox" checked="true"name="visible"/> <br><br>';
+                        }
+                        else
+                        {
+                              echo 'Zichtbaar <input type="checkbox" name="visible"/> <br><br>';
+                        }
+                    @endphp
                     <input class="btn btn-primary" type="submit" value="Wijzigen"/>
                 </form>
             </div>

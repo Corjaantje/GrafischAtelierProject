@@ -35,7 +35,7 @@ class CoursesTableSeeder extends Seeder
                 'datetime_start' => "2017-05-27 09:00:00",
                 'datetime_end' => "2017-05-27 16:30:00",
                 'visible' => 1,
-            ),
+            )
         );
 
         DB::table('courses')->insert($tables);
