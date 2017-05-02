@@ -6,6 +6,7 @@ use App\IndividualReservation;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class SessionController extends Controller
 {
@@ -67,11 +68,11 @@ class SessionController extends Controller
         IndividualReservation::Insert(
             [   'user_id' => Auth::user()->id,
                 'table_id' => self::getTable(),
-                'start_time' => date(self::getDate().".".self::getStartTime()),
-                'end_time' => date(self::getDate().".".self::getEndTime()),
+                'start_date' => date(self::getDate().".".self::getStartTime()),
+                'end_date' => date(self::getDate().".".self::getEndTime()),
                 'price' => 50
             ]);
 
-        return view('reservation.reservation_step1');
+        return Redirect::to('/agenda');
     }
 }
