@@ -20,7 +20,7 @@ class CreateCoursesHasUsersTable extends Migration
             $table->integer('users_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('courses_id')->references('id')->on('courses');
+            $table->foreign('courses_id')->references('id')->on('courses')->onDelete('cascade');
             $table->foreign('users_id')->references('id')->on('users');
 
         });
