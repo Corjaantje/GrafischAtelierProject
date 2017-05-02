@@ -10,10 +10,28 @@
 </head>
 <body class="body-cms">
 @include('layouts.cms_navigation', array('currentPage'=>'cmsReservation'))
-
+@php
+$userArray = App\Http\Controllers\ReservationController::getAllUsers();
+$courseArray = App\Http\Controllers\ReservationController::getAllCourses();
+@endphp
 <div class="container-cms">
     <br>
-    <h2><b>Beste page ooit</b></h2>
+    <h2><b>Nieuwe reservering</b></h2>
+    <br>
+    {{ Form::open(['route' => 'create_reservation']) }}
+    {{ Form::hidden('_token', csrf_token()) }}
+    User: <select name="cbUsers">
+        @foreach($userArray as $user)
+            <option name="{{ $user->id }}" value="{{ $user->id }}">{{ $user->name }}</option>
+        @endforeach
+    </select><br /><br />
+    Cursus: <select name="cbCursus">
+        @foreach($courseArray as $course)
+            <option name="{{ $course->id }}" value="{{ $course->id }}">{{ $course->name }}</option>
+        @endforeach
+    </select><br /><br />
+    <input class="btn btn-primary" type="submit" value="Opslaan">
+    {{ Form::close() }}
     <br>
 </div>
 

@@ -126,6 +126,7 @@ Route::get('cms/wijzig_artikel/{artikelNummer}', array('as' => 'editNewsArticle'
 }));
 
 Route::get('cms/reservations', ['as' => 'cms_reservations', 'uses' => 'ReservationController@create']);
+Route::post('cms/cmsCreateReservation', array('as' => 'create_reservation', 'uses' => 'ReservationController@newReservation'));
 
 Route::get('cms/users', ['as' => 'cms_users', 'uses' => 'UserController@create']);
 Route::post('cms/cmsCreateUser', array('as' => 'create_user', 'uses' => 'UserController@newUser'));
