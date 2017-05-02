@@ -82,10 +82,17 @@ Route::get('agenda', array('as' => 'agenda', function()
     return view('agenda');
 }));
 
+
+Route::get('cursussen', ['as' => 'courses', 'uses' => 'CoursesController@createCoursesPage']);
+
+
 Route::get('cms', array('as' => 'cms_home', function()
 {
     return view('cms.cms_home');
 }));
+#----Course Signup----
+Route::post('cursus_bevestigen', ['as' => 'confirm_course_signup', 'uses' => 'CourseSignupController@Signup']);
+Route::post('cursus_bevestigd', ['as' => 'course_signup_confirmed', 'uses' => 'CourseSignupController@Confirmed']);
 
 #----CMS Routes----
 #------Header CMS------
@@ -137,9 +144,14 @@ Route::get('cms/wijzig_artikel/{artikelNummer}', array('as' => 'editNewsArticle'
 }));
 
 #----Manage Courses Routes----
-Route::get('cms/courses', ['as' => 'cms_courses_list', 'uses' => 'CoursesController@createList']);
-Route::get('cms/courses/add', ['as' => 'cms_courses_add', 'uses' => 'CoursesController@createAdd']);
-Route::get('cms/courses/edit', ['as' => 'cms_courses_edit', 'uses' => 'CoursesController@createEdit']);
+Route::get('cms/cursus', ['as' => 'cms_courses_list', 'uses' => 'CoursesController@createList']);
+Route::get('cms/cursus/toevoegen', ['as' => 'cms_courses_add', 'uses' => 'CoursesController@createAdd']);
+Route::post('cms/cursus/bewerken', ['as' => 'cms_courses_edit', 'uses' => 'CoursesController@createEdit']);
+Route::post('cms/cursus/toevoegen/bevestiging', ['as' => 'cms_courses_add_confirmation', 'uses' => 'CoursesController@createAddConfirmation']);
+Route::post('cms/cursus/toevoegen/bevestigd', ['as' => 'cms_courses_add_confirmed', 'uses' => 'CoursesController@setAdd']);
+
+Route::post('cms/cursus/bewerkenActie', ['as' => 'cms_edit_action', 'uses' => 'CoursesController@editAction']);
+Route::post('cms/cursus/verwijderen', ['as' => 'cms_courses_delete', 'uses' => 'CoursesController@deleteAction']);
 
 #----Login & Register Routes----
 Auth::routes();

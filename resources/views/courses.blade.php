@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/app.css') }}">
     <script src="{{ URL::asset('js/app.js') }}"></script>
@@ -9,26 +9,24 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-@include('layouts.header', array('title'=>'Nieuws'))
+@include('layouts.header', array('title'=>'Home'))
 <div class="container">
-    <h1 class="title text-center">Nieuws</h1>
-
     @php
-        $articles = App\NewsArticle::Where('visible', '=', '1')->get();
+        $courses = App\Course::Where('visible', '1')->get();
     @endphp
-
-    @foreach ($articles as $article)
+    <h1>Cursussen</h1>
+    @foreach ($courses as $course)
         @if( ($loop->index % 3) == 0 )
             <div class="row">
                 @endif
                 <div class="col-lg-4 col-md-4 col-sm-4 col-sm-offset-0 col-xs-10 col-xs-offset-1">
-                    <h1> {{ $article->title }}</h1>
-                    <img src="{{ URL::to('/') }}/img/default.png"/>
-                    <p> {{ $article->description }}</p>
                     @php
-                        $id = $article->id
+                    echo "<h3>".$course->name." - ".\App\Courses_has_user::getSignedUp($course->id)."/".$course->max_signups." ingeschreven </h3>";
+                    echo "<h4>".$course->datetime_start." - ".$course->datetime_end."</h4>";
+                    echo "<h4>Door ".$course->coursegiver_name."</h4>";
+                    echo "<p>".$course->description." </p>";
+
                     @endphp
-                    <a href="artikel/{{$id}}">LEES MEER</a>
                 </div>
                 @if( ($loop->index % 3) == 2)
             </div>
@@ -38,5 +36,5 @@
 </div>
 @include('layouts.footer')
 </body>
-
 </html>
+
