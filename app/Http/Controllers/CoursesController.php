@@ -148,7 +148,7 @@ class CoursesController extends Controller
     public function setAdd()
     {
         Course::Insert(
-            ['name' => $_POST['course_name'],
+            [   'name' => $_POST['course_name'],
                 'description' => $_POST['description'],
                 'coursegiver_name' => $_POST['coursegiver_name'],
                 'max_signups' => $_POST['max_people'],
@@ -163,6 +163,11 @@ class CoursesController extends Controller
     public function createCoursesPage()
     {
         return view('courses');
+    }
+
+    public function createCourseReservationPage()
+    {
+        return view('course_reservation');
     }
 
     public function deleteAction()
