@@ -169,3 +169,4 @@ Route::any('reservation_step5', array('as' => 'reservationStep5', function()
 
 Route::any('individualReservation_step1', ['as' => 'individualReservation_step1', 'uses' => 'SessionController@storeType']);
 Route::any('individualReservation_step4', ['as' => 'individualReservation_step4', 'uses' => 'SessionController@storeDateTime']);
+Route::any('individualReservation_step5', ['as' => 'individualReservation_step5', 'uses' => 'SessionController@insertReservation']);

@@ -2,17 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\IndividualReservation;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 
 class SessionController extends Controller
 {
-
-    private static $type;
-    private static $date;
-    private static $time;
-    private static $end_time;
-
     // stap 1
     public function storeType(Request $request)
     {
@@ -60,5 +55,11 @@ class SessionController extends Controller
     public static function getEndTime()
     {
         return session()->get('end_time');
+    }
+
+    public function insertReservation()
+    {
+        IndividualReservation::Insert(['user_id' => Auth::id(), 'table_id' => 1, 'date' => $_POST['date'],
+            'start_time' => $_POST['start_time'], 'end_time' => $_POST['end_time'], 'price' => 50 ]);
     }
 }
