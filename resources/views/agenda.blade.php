@@ -85,8 +85,8 @@
 	scheduler.parse(@php echo json_encode($workshops); @endphp, "json");
 
     $('.dhx_cal_tab[name=unitweek_tab]').css("left", "0px");
-    $('.dhx_cal_tab[name=timeline_tab]').css("left", "50px");
-    $('.dhx_cal_tab[name=unit_tab]').css("left", "100px");
+    $('.dhx_cal_tab[name=timeline_tab]').css("left", "80px");
+    $('.dhx_cal_tab[name=unit_tab]').css("left", "160px");
 </script>
 </body>
 </html>
