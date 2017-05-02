@@ -164,21 +164,21 @@ Route::any('reservation_step1', array('as' => 'reservationStep1', function()
     return view('reservation.reservation_step1');
 }));
 
-Route::any('reservation_step3', array('as' => 'reservationStep3', function()
+Route::any('reservation_step2', array('as' => 'reservationStep2', function()
 {
     return view('reservation.reservation_step3');
 }));
 
-Route::any('reservation_step4', array('as' => 'reservationStep4', function()
+Route::any('reservation_step3', array('as' => 'reservationStep3', function()
 {
     return view('reservation.reservation_step4');
 }));
 
-Route::any('reservation_step5', array('as' => 'reservationStep5', function()
+Route::any('reservation_step4', array('as' => 'reservationStep4', function()
 {
     return view('reservation.reservation_step5');
 }));
 
-Route::any('individualReservation_step1', ['as' => 'individualReservation_step1', 'uses' => 'SessionController@storeType']);
-Route::any('individualReservation_step4', ['as' => 'individualReservation_step4', 'uses' => 'SessionController@storeDateTime']);
-Route::any('individualReservation_step5', ['as' => 'individualReservation_step5', 'uses' => 'SessionController@insertReservation']);
+Route::any('ReservationStep2', ['as' => 'ReservationStep_2', 'uses' => 'SessionController@storeType']);
+Route::any('ReservationStep3', ['as' => 'ReservationStep_3', 'uses' => 'SessionController@storeDateTime']);
+Route::any('ReservationStep4', ['as' => 'ReservationStep_4', 'uses' => 'SessionController@insertReservation']);

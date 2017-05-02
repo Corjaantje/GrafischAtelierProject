@@ -14,7 +14,7 @@
 <div class="container">
     <h1 class="title reservationTitles">Voor wanneer wilt u reserveren?</h1>
     <div class="row"><br /><br />
-        {{ Form::open(['route' => 'individualReservation_step4']) }}
+        {{ Form::open(['route' => 'ReservationStep_3']) }}
     <p id="tafel"></p>
     <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-4 col-sm-offset-0 col-xs-4">

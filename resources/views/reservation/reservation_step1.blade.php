@@ -14,7 +14,7 @@
 <div class="container">
     <h1 class="title reservationTitles">Wat wilt u reserveren?</h1>
     <div class="row"><br />
-        {{ Form::open(['route' => 'individualReservation_step1']) }}
+        {{ Form::open(['route' => 'ReservationStep_2']) }}
         <div class="col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-6">
             <img src="{{URL::to('/')}}/img/Reservation/werkplaats.png" class="reservationImages">
             {{ Form::hidden('werkplaats', 'werkplaats') }}

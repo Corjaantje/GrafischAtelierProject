@@ -14,7 +14,7 @@
 <div class="container">
     <h1 class="title reservationTitles">Controleer uw reservering</h1>
     <div class="row">
-        {{ Form::open(['route' => 'individualReservation_step5']) }}
+        {{ Form::open(['route' => 'ReservationStep_4']) }}
         {{ Form::hidden('_token', csrf_token()) }}
         {{ Form::label('type', 'Type: '. \App\Http\Controllers\SessionController::getType()) }}<br />
         {{ Form::label('date', 'Datum: '. \App\Http\Controllers\SessionController::getDate()) }}<br />
