@@ -33,6 +33,7 @@
         {{ Form::close() }}
     </div>
 </div>
+</div>
 @include('layouts.footer')
 
 <script defer>
