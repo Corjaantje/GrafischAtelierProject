@@ -21,7 +21,6 @@
         {{ Form::label('start_time', 'Starttijd: '. \App\Http\Controllers\SessionController::getStartTime()) }}<br />
         {{ Form::label('end_time', 'Eindtijd: '. \App\Http\Controllers\SessionController::getEndTime()) }}<br />
         <b><p id="tafel" name="table"></p></b>
-        <b><p id="tafel_id" name="table_id"><script>sessionStorage.getItem('table_id')</script></p></b><br />
         <input type="submit" name="btnInsertReservation" value="Bevestig" class="btn btn-primary">
         {{ Form::close() }}
     </div>

@@ -20,7 +20,7 @@ class SessionController extends Controller
         else
         {
            $type = $request->get('cursus');
-            session()->put('type', $type);
+           session()->put('type', $type);
            return view('courses');
         }
     }
@@ -28,12 +28,10 @@ class SessionController extends Controller
     // stap 4
     public function storeDateTime(Request $request)
     {
-        $date = $request->get('date');
-        $time = $request->get('start_time');
-        $end_time = $request->get('end_time');
-        session()->put('date', $date);
-        session()->put('start_time', $time);
-        session()->put('end_time', $end_time);
+        session()->put('date', $request->get('date'));
+        session()->put('start_time', $request->get('start_time'));
+        session()->put('end_time', $request->get('end_time'));
+        session()->put('table_id', $request->get('table_id'));
         return view('reservation.reservation_step5');
     }
 
@@ -57,11 +55,17 @@ class SessionController extends Controller
         return session()->get('end_time');
     }
 
-    public function insertReservation()
+    public static function getTable()
+    {
+        return session()->get('table_id');
+    }
+
+    // stap 5
+    public function insertReservation(Request $request)
     {
         IndividualReservation::Insert(
             [   'user_id' => 1,
-                'table_id' => 1,
+                'table_id' => self::getTable(),
                 'start_time' => date(self::getDate().".".self::getStartTime()),
                 'end_time' => date(self::getDate().".".self::getEndTime()),
                 'price' => 50

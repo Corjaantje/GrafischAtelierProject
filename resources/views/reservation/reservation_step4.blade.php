@@ -24,6 +24,7 @@
             <b>Datum:</b><br /><input type="date" name="date" value="@php echo date("Y-m-d"); @endphp"><br /><br />
             <b>Starttijd:</b><br /><input type="time" name="start_time" value="12:00"><br /><br />
             <b>Eindtijd:</b><br /><input type="time" name="end_time" value="15:00"><br /><br />
+            <input type="hidden" name ="table_id" id="table_id" value="">
             <input type="submit" name="btnDateTime" value="Naar volgende stap" class="btn btn-primary">
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-sm-offset-0 col-xs-4">
@@ -38,6 +39,7 @@
 
 <script defer>
     document.getElementById('tafel').innerHTML = 'U heeft ' + sessionStorage.getItem('tafel') + ' geselecteerd';
+    document.getElementById('table_id').value = sessionStorage.getItem('tafel_id');
 </script>
 </body>
 </html>
