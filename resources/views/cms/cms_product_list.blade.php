@@ -39,7 +39,7 @@ $products = App\Product::all();
                 <tr id="table-row-style">
 
                     <td id="table-data-style"> {{ $product->name }}</td>
-                    <td id="table-data-style"> {{ $product->price }}</td>
+                    <td id="table-data-style"> &euro; {{ number_format($product->price, 2) }}</td>
 
                     <td>
                         <button type="button" class="btn btn-primary"

@@ -42,10 +42,10 @@
 
         Docent naam: {{ Form::text('coursegiver_name', $course->coursegiver_name) }}<br><br>
 
-        Prijs: €<input type="number" name="price" min="0" value="{{ $course->price}}"/><br><br>
+        Prijs: €<input type="number" name="price" min="0" value="{{ $course->price}}" step="any"/><br><br>
         (0 deelnemers betekent dat er geen limiet wordt gezet)<br>
         Maximum deelnemers
-        <input type="number" name="max_signups" min="0" value="{{ $course->max_signups}}"/><br><br>
+        <input type="number" name="max_signups" min="0" value="{{ $course->max_signups}}" step="1"/><br><br>
 
         Starttijd: <input type="datetime-local" name="start_date" id="startTime"
                           value="{{ $controller->prepareDatetime($course->start_date) }}"/><br><br>
