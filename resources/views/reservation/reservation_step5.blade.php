@@ -14,12 +14,13 @@
 <div class="container">
     <h1 class="title reservationTitles">Controleer uw reservering</h1>
     <div class="row">
-        {{ Form::open(['route' => 'reservationStep5']) }}
+        {{ Form::open(['route' => 'individualReservation_step5']) }}
         {{ Form::label('type', 'Type: '. \App\Http\Controllers\SessionController::getType()) }}<br />
         {{ Form::label('date', 'Datum: '. \App\Http\Controllers\SessionController::getDate()) }}<br />
         {{ Form::label('start_time', 'Starttijd: '. \App\Http\Controllers\SessionController::getTime()) }}<br />
         {{ Form::label('end_time', 'Eindtijd: '. \App\Http\Controllers\SessionController::getEndTime()) }}<br />
-        <b><p id="tafel" name="table"></p></b><br />
+        <b><p id="tafel" name="table"></p></b>
+        <b><p id="tafel_id" name="table_id"><script>sessionStorage.getItem('table_id')</script></p></b><br />
         <input type="submit" name="btnInsertReservation" value="Bevestig" class="btn btn-primary">
         {{ Form::close() }}
     </div>

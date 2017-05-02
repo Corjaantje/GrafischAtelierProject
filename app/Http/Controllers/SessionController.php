@@ -59,7 +59,9 @@ class SessionController extends Controller
 
     public function insertReservation()
     {
-        IndividualReservation::Insert(['user_id' => Auth::id(), 'table_id' => 1, 'date' => $_POST['date'],
+        IndividualReservation::Insert(['user_id' => 1, 'table_id' => $_POST['table_id'], 'date' => $_POST['date'],
             'start_time' => $_POST['start_time'], 'end_time' => $_POST['end_time'], 'price' => 50 ]);
+
+        return view('reservation.reservation_step1');
     }
 }
