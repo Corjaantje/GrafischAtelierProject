@@ -39,8 +39,8 @@
                 <tr id="table-row-style">
                     <td id="table-data-style"> {{ $course->name }}</td>
                     <td id="table-data-style">&euro; {{ $price }}</td>
-                    <td id="table-data-style"> {{ $course->datetime_start }}</td>
-                    <td id="table-data-style"> {{ $course->datetime_end }}</td>
+                    <td id="table-data-style"> {{ $course->start_date }}</td>
+                    <td id="table-data-style"> {{ $course->end_date }}</td>
                     <td>
                         {{ Form::open(['route' => 'cms_courses_edit']) }}
                         {{ Form::hidden('id', $course->id) }}

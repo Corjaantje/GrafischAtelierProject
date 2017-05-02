@@ -47,10 +47,10 @@
         Maximum deelnemers
         <input type="number" name="max_signups" min="0" value="{{ $course->max_signups}}"/><br><br>
 
-        Starttijd: <input type="datetime-local" name="datetime_start" id="startTime"
-                          value="{{ $controller->prepareDatetime($course->datetime_start) }}"/><br><br>
-        Eindtijd: <input type="datetime-local" name="datetime_end" id="endTime"
-                         value="{{ $controller->prepareDatetime($course->datetime_end) }}"/><br><br>
+        Starttijd: <input type="datetime-local" name="start_date" id="startTime"
+                          value="{{ $controller->prepareDatetime($course->start_date) }}"/><br><br>
+        Eindtijd: <input type="datetime-local" name="end_date" id="endTime"
+                         value="{{ $controller->prepareDatetime($course->end_date) }}"/><br><br>
 
         Beschrijving: <br>
         {{ Form::textarea('description', $course->description) }}<br>

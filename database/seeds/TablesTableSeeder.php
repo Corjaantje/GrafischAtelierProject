@@ -17,12 +17,12 @@ class TablesTableSeeder extends Seeder
             array (
                 'id' => 1,
                 'technique_id' => 1,
-                'table_number' => 1
+
             ),
             array (
                 'id' => 2,
                 'technique_id' => 2,
-                'table_number' => 2
+
             )
         );
 
