@@ -10,8 +10,7 @@
 </head>
 <body class="body-cms">
 @include('layouts.header', array('title'=>'Home'))
-
-
+<input type="button" class="btn btn-primary" onclick="window.location='{{ route('reservationStep3') }}'" value="Terug">
 <div class="container">
     <h1 class="title reservationTitles">Voor wanneer wilt u reserveren?</h1>
     <div class="row"><br /><br />

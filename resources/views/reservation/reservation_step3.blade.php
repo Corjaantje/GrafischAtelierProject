@@ -10,9 +10,7 @@
 </head>
 <body class="body-cms">
 @include('layouts.header', array('title'=>'Home'))
-
-<input type="button" class="btn btn-primary" onclick="window.location='/'" value="Terug">
-
+<input type="button" class="btn btn-primary" onclick="window.location='{{ route('reservationStep1') }}'" value="Terug">
 <div class="container">
     <h1>Selecteer een tafel</h1>
     <p>Per techniek zijn een aantal tafels aanwezig. Selecteer aub een tafel die past bij de techniek die u wilt hanteren.</p>
