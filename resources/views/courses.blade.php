@@ -21,6 +21,10 @@
                 @endif
                 <div class="col-lg-4 col-md-4 col-sm-4 col-sm-offset-0 col-xs-10 col-xs-offset-1">
                     @php
+                    if($course->max_signups == null)
+                    {
+                        $course->max_signups = "∞";
+                    }
                     echo "<h3>".$course->name." - ".\App\Courses_has_user::getSignedUp($course->id)."/".$course->max_signups." ingeschreven </h3>";
                     echo "<h4>".$course->start_date." - ".$course->end_date."</h4>";
                     echo "<h4>Door ".$course->coursegiver_name."</h4>";
