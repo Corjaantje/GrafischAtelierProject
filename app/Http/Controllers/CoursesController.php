@@ -39,8 +39,8 @@ class CoursesController extends Controller
                     'coursegiver_name' => $_POST['coursegiver_name'],
                     'max_signups' => $_POST['max_signups'],
                     'price' => $_POST['price'],
-                    'datetime_start' => date('Y-m-d H:i:s', strtotime($_POST['datetime_start'])),
-                    'datetime_end' => date('Y-m-d H:i:s', strtotime($_POST['datetime_end'])),
+                    'start_date' => date('Y-m-d H:i:s', strtotime($_POST['start_date'])),
+                    'end_date' => date('Y-m-d H:i:s', strtotime($_POST['end_date'])),
                     'visible' => isset($_POST['visible'])]
             );
             return Redirect::to('cms/cursus');
@@ -153,8 +153,8 @@ class CoursesController extends Controller
                 'coursegiver_name' => $_POST['coursegiver_name'],
                 'max_signups' => $_POST['max_people'],
                 'price' => $_POST['price'],
-                'datetime_start' => $_POST['date'] . ' ' . $_POST['start_time'] . ':00',
-                'datetime_end' => $_POST['date'] . ' ' . $_POST['end_time'] . ':00',
+                'start_date' => $_POST['date'] . ' ' . $_POST['start_time'] . ':00',
+                'end_date' => $_POST['date'] . ' ' . $_POST['end_time'] . ':00',
                 'visible' => isset($_POST['visible'])]
         );
         return Redirect::to('cms/cursus');
