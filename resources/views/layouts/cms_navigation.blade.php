@@ -11,6 +11,8 @@
            class="{{ (($currentPage)) == "Shops" ? 'active' : ' ' }}"><b>Shops</b></a>
         <a href="{{URL::route('cms_header')}}"
            class="{{ (($currentPage)) == "Navigatie" ? 'active' : ' ' }}"><b>Navigatie</b></a>
+        <a href="{{URL::route('cms_reservations')}}"
+           class="{{ (($currentPage)) == "cmsReservation" ? 'active' : ' ' }}"><b>Reserveringen</b></a>
             <a href="{{URL::route('cms_courses_list')}}"
                class="{{ (($currentPage)) == "Cursus Overzicht" ? 'active' : ' ' }}"><b>Cursus</b></a>
             <br>

@@ -143,6 +143,8 @@ Route::get('cms/wijzig_artikel/{artikelNummer}', array('as' => 'editNewsArticle'
     return view('cms.cms_edit_news_article', $data);
 }));
 
+Route::get('cms/reservations', ['as' => 'cms_reservations', 'uses' => 'ReservationController@create']);
+
 #----Manage Courses Routes----
 Route::get('cms/cursus', ['as' => 'cms_courses_list', 'uses' => 'CoursesController@createList']);
 Route::get('cms/cursus/toevoegen', ['as' => 'cms_courses_add', 'uses' => 'CoursesController@createAdd']);
