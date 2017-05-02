@@ -13,8 +13,17 @@
 
 <div class="container-cms">
     <br>
-    <h2><b>Users coming soon</b></h2>
+    <h2><b>Nieuwe user</b></h2>
     <br>
+    {{ Form::open(['route' => 'create_user']) }}
+    {{ Form::hidden('_token', csrf_token()) }}
+    Naam: {{ Form::text('Name') }} <br><br>
+    Email: <input type="email" name="email" /> <br><br>
+    Accountnaam: {{ Form::text('AccountName') }} <br><br>
+    Password: <input type="password" name="password" /> <br><br>
+    Adres: {{ Form::text('Address') }} <br><br>
+    <input class="btn btn-primary" type="submit" value="Opslaan">
+    {{ Form::close() }}
 </div>
 
 </body>
