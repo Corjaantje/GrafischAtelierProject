@@ -18,7 +18,7 @@
         {{ Form::hidden('_token', csrf_token()) }}
         {{ Form::label('type', 'Type: '. \App\Http\Controllers\SessionController::getType()) }}<br />
         {{ Form::label('date', 'Datum: '. \App\Http\Controllers\SessionController::getDate()) }}<br />
-        {{ Form::label('start_time', 'Starttijd: '. \App\Http\Controllers\SessionController::getTime()) }}<br />
+        {{ Form::label('start_time', 'Starttijd: '. \App\Http\Controllers\SessionController::getStartTime()) }}<br />
         {{ Form::label('end_time', 'Eindtijd: '. \App\Http\Controllers\SessionController::getEndTime()) }}<br />
         <b><p id="tafel" name="table"></p></b>
         <b><p id="tafel_id" name="table_id"><script>sessionStorage.getItem('table_id')</script></p></b><br />

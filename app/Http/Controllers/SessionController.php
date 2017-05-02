@@ -32,7 +32,7 @@ class SessionController extends Controller
         $time = $request->get('start_time');
         $end_time = $request->get('end_time');
         session()->put('date', $date);
-        session()->put('time', $time);
+        session()->put('start_time', $time);
         session()->put('end_time', $end_time);
         return view('reservation.reservation_step5');
     }
@@ -47,9 +47,9 @@ class SessionController extends Controller
         return session()->get('date');
     }
 
-    public static function getTime()
+    public static function getStartTime()
     {
-        return session()->get('time');
+        return session()->get('start_time');
     }
 
     public static function getEndTime()
@@ -59,8 +59,13 @@ class SessionController extends Controller
 
     public function insertReservation()
     {
-        IndividualReservation::Insert(['user_id' => 1, 'table_id' => 1,
-            'start_time' => date('Y-m-d H:i:s', strtotime($_POST['start_time'])), 'end_time' => date('Y-m-d H:i:s', strtotime($_POST['end_time'])), 'price' => 50 ]);
+        IndividualReservation::Insert(
+            [   'user_id' => 1,
+                'table_id' => 1,
+                'start_time' => date(self::getDate().".".self::getStartTime()),
+                'end_time' => date(self::getDate().".".self::getEndTime()),
+                'price' => 50
+            ]);
 
         return view('reservation.reservation_step1');
     }
