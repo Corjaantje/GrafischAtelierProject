@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\IndividualReservation;
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use Auth;
 
 class SessionController extends Controller
 {
@@ -64,7 +65,7 @@ class SessionController extends Controller
     public function insertReservation(Request $request)
     {
         IndividualReservation::Insert(
-            [   'user_id' => 1,
+            [   'user_id' => Auth::user()->id,
                 'table_id' => self::getTable(),
                 'start_time' => date(self::getDate().".".self::getStartTime()),
                 'end_time' => date(self::getDate().".".self::getEndTime()),
