@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Course;
+use App\Courses_has_user;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Auth;
 
 class CoursesController extends Controller
 {
@@ -174,5 +176,29 @@ class CoursesController extends Controller
     {
         Course::destroy($_POST['id']);
         return Redirect::to('cms/cursus');
+    }
+
+    public function insertUserIntoCourse()
+    {
+        $courseID = $_POST['id'];
+        $course = \App\Course::find($courseID);
+        $maxSignups = $course->max_signups;
+        $currentSignups = Courses_has_user::Where('course_id', '=', $courseID)->count();
+
+
+        if ($currentSignups < $maxSignups ) //TODO && !(Courses_has_user::where('user_id', '=', Auth::user()->id, 'and', 'course_id', '=', $courseID )->count() > 0)
+        {
+            Courses_has_user::Insert(
+                [
+                    'course_id' => $courseID,
+                    'user_id' => Auth::user()->id
+                ]
+            );
+            return Redirect::to('cursussen');
+        }
+        else
+        {
+            return Redirect::to('error');
+        }
     }
 }

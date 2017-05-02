@@ -24,25 +24,27 @@
 <body>
 @include('layouts.header', array('title'=>'Home'))
 
-@if (Auth::check())
+@if (!Auth::check())
+    <script>window.location.href = "{{ route('login') }}"</script>
+@endif
 <div class="container">
 
 <div class="title">
-    <h1>Cursus "{{ $course->name }}"</h1>
+    <h1>Inschrijven voor de cursus "{{ $course->name }}"</h1>
+    <p><b>{{ $course->description }}</b></p>
+    <p>Door: <i>{{ $course->coursegiver_name }}</i></p>
+    <p><i>{{\App\Courses_has_user::getSignedUp($course->id)}}/{{$course->max_signups}} ingeschreven</i> </p>
 </div>
-<div>
-
-
-
+<div class="row">
+    {{Form::open(['route' => 'submitCourseReservation'])}}
+    <input type="hidden" name="id"  value="{{$course->id}}">
+    <input type="submit" name="btnInsertReservation" value="Inschrijven" class="btn btn-primary">
+    {{Form::close()}}
 </div>
 
 </div>
 
-@else
 
-    <script>window.location.href = "{{ route('login') }}"</script>
-
-@endif
 
 @include('layouts.footer')
 </body>

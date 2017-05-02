@@ -15,13 +15,13 @@ class CreateCoursesHasUsersTable extends Migration
     {
         Schema::create('courses_has_users', function (Blueprint $table)
         {
-            $table->integer('courses_id')->unsigned();
-            $table->integer('users_id')->unsigned();
+            $table->integer('course_id')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('courses_id')->references('id')->on('courses')->onDelete('cascade');
-            $table->foreign('users_id')->references('id')->on('users');
-            $table->primary(array('courses_id', 'users_id'));
+            $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->primary(array('course_id', 'user_id'));
         });
     }
 
