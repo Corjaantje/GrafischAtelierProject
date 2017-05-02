@@ -17,11 +17,11 @@
     <br>
     {{ Form::open(['route' => 'create_user']) }}
     {{ Form::hidden('_token', csrf_token()) }}
-    Naam: {{ Form::text('Name') }} <br><br>
-    Email: <input type="email" name="email" /> <br><br>
-    Accountnaam: {{ Form::text('AccountName') }} <br><br>
-    Password: <input type="password" name="password" /> <br><br>
-    Adres: {{ Form::text('Address') }} <br><br>
+    Naam: {{ Form::text('Name','',array('required' => 'required')) }} <br><br>
+    Email: <input type="email" name="email" required /> <br><br>
+    Accountnaam: {{ Form::text('AccountName','',array('required' => 'required')) }} <br><br>
+    Password: <input type="password" name="password" required /> <br><br>
+    Adres: {{ Form::text('Address','',array('required' => 'required')) }} <br><br>
     <input class="btn btn-primary" type="submit" value="Opslaan">
     {{ Form::close() }}
 </div>
