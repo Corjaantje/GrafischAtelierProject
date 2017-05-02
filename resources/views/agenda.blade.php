@@ -22,7 +22,7 @@
 			<div class="dhx_cal_next_button">&nbsp;</div>
 			<div class="dhx_cal_today_button"></div>
 			<div class="dhx_cal_date"></div>
-			<div class="dhx_cal_tab" name="unitweek_tab" style="right:280px;"></div>
+			<div class="dhx_cal_tab" name="unitweek_tab" style="left:76px;"></div>
 			<div class="dhx_cal_tab" name="timeline_tab" style="right:280px;"></div>
 			<div class="dhx_cal_tab" name="unit_tab" style="right:280px;"></div>
 		</div>
@@ -34,8 +34,23 @@
 	scheduler.locale.labels.unit_tab = "Dag";
 	scheduler.config.readonly = true;
 	scheduler.config.xml_date= "%Y-%m-%d %H:%i";
-	scheduler.config.default_date = "%l %j %M %Y";
+	scheduler.config.default_date = "%l %j %F %Y";
 	scheduler.config.multisection = true;
+
+    var step = 30;
+    var format = scheduler.date.date_to_str("%H:%i");
+
+    scheduler.templates.hour_scale = function(date){
+        html="";
+        for (var i=0; i<60/step; i++){
+            html+="<div style='height:22px;line-height:22px;'>"+format(date)+"</div>";
+            date = scheduler.date.add(date,step,"minute");
+        }
+        return html;
+    }
+
+    scheduler.config.first_hour = 9;
+    scheduler.config.last_hour = 18;
 	scheduler.createUnitsView({
 		name:"unit",
 		property:"type", //the mapped data property
@@ -51,14 +66,14 @@
 		list: @php echo json_encode($tables) @endphp
 	});
 
-	scheduler.locale.labels.timeline_tab = "Timeline";
+	scheduler.locale.labels.timeline_tab = "Tijdlijn";
 	scheduler.createTimelineView({
 		name:"timeline",
 		x_unit:"minute",//measuring unit of the X-Axis.
 		x_date:"%H:%i", //date format of the X-Axis
 		x_step:30,      //X-Axis step in 'x_unit's
-		x_size:21,      //X-Axis length specified as the total number of 'x_step's
-		x_start:16,     //X-Axis offset in 'x_unit's
+		x_size:17,      //X-Axis length specified as the total number of 'x_step's
+		x_start:18,     //X-Axis offset in 'x_unit's
 		x_length:48,    //number of 'x_step's that will be scrolled at a time
 		y_property:"type",
 		render: "bar",
@@ -68,6 +83,10 @@
 
 	scheduler.parse(@php echo json_encode($reservations); @endphp, "json" );
 	scheduler.parse(@php echo json_encode($workshops); @endphp, "json");
+
+    $('.dhx_cal_tab[name=unitweek_tab]').css("left", "0px");
+    $('.dhx_cal_tab[name=timeline_tab]').css("left", "50px");
+    $('.dhx_cal_tab[name=unit_tab]').css("left", "100px");
 </script>
 </body>
 </html>
