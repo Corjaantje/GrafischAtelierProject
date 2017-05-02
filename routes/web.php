@@ -84,6 +84,8 @@ Route::get('agenda', array('as' => 'agenda', function()
 
 
 Route::get('cursussen', ['as' => 'courses', 'uses' => 'CoursesController@createCoursesPage']);
+Route::post('cursus_reserveren', ['as' => 'course_reservation', 'uses' => 'CoursesController@createCourseReservationPage']);
+Route::post('cursussen', ['as' => 'submitCourseReservation', 'uses' => 'CoursesController@insertUserIntoCourse']);
 
 
 Route::get('cms', array('as' => 'cms_home', function()

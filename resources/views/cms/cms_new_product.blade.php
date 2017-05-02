@@ -20,7 +20,7 @@
 
 <div class="container-cms">
 <br>
-    <h2><b>Nieuw Product<b></b></h2>
+    <h2><b>Nieuw Product</b></h2>
     <br>
 {{ Form::open(['route' => 'create_product']) }}
 

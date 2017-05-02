@@ -24,7 +24,7 @@ $course = App\Course::find($id)
 <br>
 <strong>Weet u zeker dat u zich voor deze cursus wilt inschrijven?</strong>
 <br>
-{{Form::open(array('url' => 'cursus_bevestigd')}}
+{{Form::open(array('url' => 'cursus_bevestigd'))}}
 
 {{Form::hidden('id' , $id)}}
 <input type="submit" class="btn btn-primary" value="ja"/>

@@ -21,8 +21,8 @@ class CreateCoursesTable extends Migration
             $table->string('coursegiver_name');
             $table->integer('max_signups')->nullable();
             $table->double('price');
-            $table->dateTime('datetime_start');
-            $table->dateTime('datetime_end');
+            $table->dateTime('start_date');
+            $table->dateTime('end_date');
             $table->boolean('visible');
             $table->timestamps();
         });
