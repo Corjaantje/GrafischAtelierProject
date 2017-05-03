@@ -15,7 +15,7 @@ class UserController extends Controller
 
     public function newUser()
     {
-        User::Insert(['name' => $_POST['Name'], 'email' =>$_POST['email'], 'username' => $_POST['AccountName'], 'password' => $_POST['password'], 'address' => $_POST['Address'] ]);
+        User::Insert(['name' => $_POST['Name'], 'email' =>$_POST['email'], 'username' => $_POST['AccountName'], 'password' => Hash::make($_POST['password']), 'address' => $_POST['Address'] ]);
 
         return Redirect::to('/cms');
     }
