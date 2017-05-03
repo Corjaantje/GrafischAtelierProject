@@ -223,7 +223,7 @@ class CoursesController extends Controller
             }
             else
             {
-                return Redirect::to('error');
+                return Redirect::to('404');
             }
         }
 
