@@ -197,14 +197,12 @@ class CoursesController extends Controller
         }
         else
         {
-            if ($currentSignups < $maxSignups ) //TODO && !(Courses_has_user::where('user_id', '=', Auth::user()->id, 'and', 'course_id', '=', $courseID )->count() > 0)
+            if ($currentSignups < $maxSignups &&
+                Courses_has_user::where([
+                    [ 'user_id', '=', Auth::user()->id],
+                    ['course_id', '=', $courseID]
+                ])->count() === 0)
             {
-                Courses_has_user::Insert(
-                    [
-                        'course_id' => $courseID,
-                        'user_id' => Auth::user()->id
-                    ]
-                );
                 return Redirect::to('cursussen');
             }
             else
