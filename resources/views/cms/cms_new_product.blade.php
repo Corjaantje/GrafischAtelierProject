@@ -28,7 +28,7 @@
     {{ Form::hidden('_token', csrf_token()) }}
 
     Naam: {{ Form::text('Name') }} <br><br>
-    Prijs: <input type="number" name="Price" min="0"/> <br><br>
+    Prijs: <input type="number" name="Price" min="0" step="any"/> <br><br>
     Beschrijving <br><br>
     {{ Form::textarea('Description')}} <br>
 

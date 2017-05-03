@@ -33,7 +33,7 @@
 						{{ Form::hidden('Id', $Id) }}
 						
 						Naam: {{ Form::text('Name', $formData['name']) }} <br>
-						Prijs: <input type="number" name="Price" min="0" value="{{ $formData['price']}}"/> <br>
+						Prijs: <input type="number" name="Price" min="0" value="{{ $formData['price']}}" step="any"/> <br>
 						Beschrijving <br>
 						{{ Form::textarea('Description', $formData['description'])}} <br>
 						
