@@ -104,7 +104,7 @@ class NavigationTableSeeder extends Seeder
             ),
              array(
                  'id' => 12,
-                 'name' => 'Reserveringen',
+                 'name' => 'Reserveren',
                  'link_as' => 'reservationStep1',
                  'parent_id' => null,
                  'priority' => 2,
