@@ -187,13 +187,23 @@ class CoursesController extends Controller
 
         if (Auth::user()->role == 'admin')
         {
-            Courses_has_user::Insert(
-                [
-                    'course_id' => $courseID,
-                    'user_id' => Auth::user()->id
-                ]
-            );
-            return Redirect::to('cursussen');
+            if (Courses_has_user::where([
+                ['user_id', '=', Auth::user()->id],
+                ['course_id', '=', $courseID]
+            ])->count() === 0)
+            {
+                Courses_has_user::Insert(
+                    [
+                        'course_id' => $courseID,
+                        'user_id' => Auth::user()->id
+                    ]
+                );
+                return Redirect::to('cursussen');
+            }
+            else
+            {
+                return Redirect::to('error');
+            }
         }
         else
         {
@@ -203,6 +213,12 @@ class CoursesController extends Controller
                     ['course_id', '=', $courseID]
                 ])->count() === 0)
             {
+                Courses_has_user::Insert(
+                    [
+                        'course_id' => $courseID,
+                        'user_id' => Auth::user()->id
+                    ]
+                );
                 return Redirect::to('cursussen');
             }
             else
