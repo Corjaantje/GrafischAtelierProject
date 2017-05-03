@@ -13,10 +13,11 @@
 @include('layouts.cms_navigation', array('currentPage'=>'Nieuws'))
 <div class="container-cms">
 
+	<h2><b>Nieuws overzicht</b></h2>
     <!--CONTENT IN HERE-->
     <!-- Knop om nieuwe artikelen aan te maken -->
     <br>
-    <button type="button" class="btn btn-primary"  onclick="window.location='{{URL::route('newNewsArticle')}}'">Nieuw artikel aanmaken</button>
+    <button type="button" class="btn btn-primary"  onclick="window.location='{{URL::route('newNewsArticle')}}'">Nieuw artikel</button>
     <br>
 
     <!-- Artikelen -->
