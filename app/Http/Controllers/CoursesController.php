@@ -185,8 +185,7 @@ class CoursesController extends Controller
         $maxSignups = $course->max_signups;
         $currentSignups = Courses_has_user::Where('course_id', '=', $courseID)->count();
 
-
-        if ($currentSignups < $maxSignups ) //TODO && !(Courses_has_user::where('user_id', '=', Auth::user()->id, 'and', 'course_id', '=', $courseID )->count() > 0)
+        if (Auth::user()->role == 'admin')
         {
             Courses_has_user::Insert(
                 [
@@ -198,7 +197,22 @@ class CoursesController extends Controller
         }
         else
         {
-            return Redirect::to('error');
+            if ($currentSignups < $maxSignups ) //TODO && !(Courses_has_user::where('user_id', '=', Auth::user()->id, 'and', 'course_id', '=', $courseID )->count() > 0)
+            {
+                Courses_has_user::Insert(
+                    [
+                        'course_id' => $courseID,
+                        'user_id' => Auth::user()->id
+                    ]
+                );
+                return Redirect::to('cursussen');
+            }
+            else
+            {
+                return Redirect::to('error');
+            }
         }
+
+
     }
 }
