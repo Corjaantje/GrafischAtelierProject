@@ -27,10 +27,10 @@
 <!-- hidden "_token" is necessary for laravel, will throw tokenmismatch exception if not included -->
     {{ Form::hidden('_token', csrf_token()) }}
 
-    Naam: {{ Form::text('Name') }} <br><br>
-    Prijs: <input type="number" name="Price" min="0" step="any"/> <br><br>
+    Naam: {{ Form::text('Name','', array('required' => 'required')) }} <br><br>
+    Prijs: <input type="number" name="Price" min="0" step="any" required/> <br><br>
     Beschrijving <br><br>
-    {{ Form::textarea('Description')}} <br>
+    {{ Form::textarea('Description','', array('required' => 'required'))}} <br>
 
     <input class="btn btn-primary" type="submit" value="Opslaan">
 
