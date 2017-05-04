@@ -18,7 +18,7 @@
     <h1>Selecteer een tafel</h1>
     <p>Per techniek zijn een aantal tafels aanwezig. Selecteer aub een tafel die past bij de techniek die u wilt hanteren.</p>
 
-        <img src="{{URL::to('/')}}/img/werkplaats ga.png" alt="" usemap="#Map" />
+        <img src="{{URL::to('/')}}/img/werkplaats_ga.png" alt="" usemap="#Map" />
         <map name="Map" id="Map">
             <area alt="5" title="Zeefdruk - tafel 5 (klein)" href="{{URL::route('reservationStep3')}}" shape="rect" coords="11,100,52,154" /> <!-- 5, 1 -->
             <area alt="4" title="Zeefdruk - tafel 4 (middelgroot)" href="{{URL::route('reservationStep3')}}" shape="rect" coords="13,188,61,248" /> <!-- 4, 1 -->
