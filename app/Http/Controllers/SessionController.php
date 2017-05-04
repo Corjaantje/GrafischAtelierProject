@@ -10,19 +10,6 @@ use Illuminate\Support\Facades\Redirect;
 
 class SessionController extends Controller
 {
-    // stap 1
-    public function storeType(Request $request)
-    {
-        if (isset($_POST['btnWerkplaats']))
-        {
-            return view('reservation.reservation_step3');
-        }
-        else
-        {
-           return view('courses');
-        }
-    }
-
     // stap 4
     public function storeDateTime(Request $request)
     {
