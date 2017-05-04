@@ -38,22 +38,22 @@
         {{ Form::open(array('url' => 'cms/cursus/bewerkenActie')) }}
         {{ Form::hidden('id', $_POST['id']) }}
 
-        Cursus naam: {{ Form::text('name', $course->name) }}<br><br>
+        Cursus naam: {{ Form::text('name', $course->name, array('required' => 'required')) }}<br><br>
 
-        Docent naam: {{ Form::text('coursegiver_name', $course->coursegiver_name) }}<br><br>
+        Docent naam: {{ Form::text('coursegiver_name', $course->coursegiver_name, array('required' => 'required')) }}<br><br>
 
-        Prijs: €<input type="number" name="price" min="0" value="{{ $course->price}}" step="any"/><br><br>
+        Prijs: €<input type="number" name="price" min="0" value="{{ $course->price}}" step="any" required/><br><br>
         (0 deelnemers betekent dat er geen limiet wordt gezet)<br>
         Maximum deelnemers
-        <input type="number" name="max_signups" min="0" value="{{ $course->max_signups}}" step="1"/><br><br>
+        <input type="number" name="max_signups" min="0" value="{{ $course->max_signups}}" step="1" required/><br><br>
 
         Starttijd: <input type="datetime-local" name="start_date" id="startTime"
-                          value="{{ $controller->prepareDatetime($course->start_date) }}"/><br><br>
+                          value="{{ $controller->prepareDatetime($course->start_date) }}" required/><br><br>
         Eindtijd: <input type="datetime-local" name="end_date" id="endTime"
-                         value="{{ $controller->prepareDatetime($course->end_date) }}"/><br><br>
+                         value="{{ $controller->prepareDatetime($course->end_date) }}" required/><br><br>
 
         Beschrijving: <br>
-        {{ Form::textarea('description', $course->description) }}<br>
+        {{ Form::textarea('description', $course->description, array('required' => 'required')) }}<br>
 
         @php
             if($course->visible == 1)

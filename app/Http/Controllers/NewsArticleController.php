@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\NewsArticle;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class NewsArticleController extends Controller
 {
@@ -19,7 +20,7 @@ class NewsArticleController extends Controller
             $this->editArticle();
         }
 
-        return view('cms.cms_news');
+        return Redirect::to('cms/nieuws');
     }
 
     // Creates a new article

@@ -26,7 +26,7 @@
                         $course->max_signups = "∞";
                     }
                     echo "<h3>".$course->name." - ".\App\Courses_has_user::getSignedUp($course->id)."/".$course->max_signups." ingeschreven </h3>";
-                    echo "<h4>".$course->start_date." - ".$course->end_date."</h4>";
+                    echo "<h4>".substr($course->start_date,0,-3)." - ".substr($course->end_date,0,-3)."</h4>";
                     echo "<h4>Door ".$course->coursegiver_name."</h4>";
                     echo "<p>".$course->description." </p>";
 

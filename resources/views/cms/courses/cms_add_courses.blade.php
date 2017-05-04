@@ -27,7 +27,7 @@
         Docent naam: {{ Form::text('coursegiver_name','',array('required' => 'required')) }} <br><br>
         Prijs: € <input type="number" name="price" min="0" value="0"/> <br><br>
         (0 deelnemers betekent dat er geen limiet wordt gezet)<br>
-        Maximum deelnemers: <input type="number" name="max_people" min="0" , value="0"/> <br><br>
+        Maximum deelnemers: <input type="number" name="max_people" min="0" value="0" step="any"/> <br><br>
         Datum: <input type="date" name="date" id="date" required> <br><br>
         Starttijd: <input type="time" name="start_time" required> <br><br>
         Eindtijd: <input type="time" name="end_time" required> <br><br>
