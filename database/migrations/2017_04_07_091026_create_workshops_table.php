@@ -19,12 +19,11 @@ class CreateWorkshopsTable extends Migration
             $table->string('title');
             $table->string('description');
             $table->longText('text');
-            $table->dateTime('date');
             $table->boolean('visible');
-            $table->string('duration');
+            $table->dateTime('start_date');
+            $table->dateTime('end_date');
             $table->float('cost');
             $table->integer('template');
-            $table->rememberToken();
             $table->timestamps();
         });
     }

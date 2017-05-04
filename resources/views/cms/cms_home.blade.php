@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" class="html-cms">
 <head>
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/app.css') }}">
     <script src="{{ URL::asset('js/app.js') }}"></script>
@@ -8,19 +8,18 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body class="body-cms">
 @if (Auth::check() && Auth::user()->role == "admin")
 
-@include('layouts.cms_navigation', array('currentPage'=>'Home'))
-<div class="container">
-    <!--CONTENT IN HERE-->
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-sm-offset-1 col-xs-10 col-xs-offset-1">
-                <img src="{{ URL::asset('img/logo_ga_house.png') }}">
-            </div>
-        </div>
+    @include('layouts.cms_navigation', array('currentPage'=>'Home'))
+    <div class="container-cms">
+        <!--CONTENT IN HERE-->
+        <br>
+        <h1>Welkom <b>@php echo Auth::user()->name; @endphp</b>!</h1>
+        <h3>Handleiding link: </h3>
+    </div>
     <!---->
-</div>
+    </div>
 
 @else
 

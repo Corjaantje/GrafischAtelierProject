@@ -13,13 +13,13 @@ class CreateIndividualReservationTable extends Migration
      */
     public function up()
     {
-        Schema::create('individual_reservation_table', function (Blueprint $table)
+        Schema::create('individual_reservations', function (Blueprint $table)
         {
             $table->increments('id')->unique();
             $table->integer('user_id')->references('id')->on('users');
-            $table->integer('table_id')->references('id')->on('techniques');
-            $table->timestamp('start_time')->nullable();
-            $table->timestamp('end_time')->nullable();
+            $table->integer('table_id')->references('id')->on('tables');
+            $table->dateTime('start_date');
+            $table->dateTime('end_date');
             $table->double('price');
         });
     }
@@ -31,6 +31,6 @@ class CreateIndividualReservationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('individual_reservation_table');
+        Schema::dropIfExists('individual_reservations');
     }
 }

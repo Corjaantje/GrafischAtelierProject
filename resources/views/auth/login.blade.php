@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@include('layouts.header', array('title'=>'Login'))
 @section('content')
 <div class="container">
     <div class="row">

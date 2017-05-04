@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="html-cms">
     <head>
         <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/app.css') }}">
         <script src="{{ URL::asset('js/app.js') }}"></script>
@@ -8,10 +8,10 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
-    <body>
+    <body class="body-cms">
     @if (Auth::check() && Auth::user()->role == "admin")
     @include('layouts.cms_navigation', array('currentPage'=>'Nieuws'))
-            <div class="container">
+            <div  class="container-cms">
                 <form action="wijzig_artikel" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="_token" value=" {{ csrf_token() }} " >
                     <!-- Het $parts gedeelte pakt de huidige url, split hem vervolgens op '/' en neemt daar het laatste deel van, oftewel het ID -->
@@ -24,19 +24,26 @@
                     <input type="hidden" name="id" value="{{ $article->id}}" />
                     <br> <br>
                     Titel: <br>
-                        <input type="text" name="title" value="{{$article->title}}"> <br> <br>
+                        <input type="text" name="title" value="{{$article->title}}" required> <br> <br>
                     Afbeelding:
                         <input type="file" accept=".jpeg, .jpg, .png" name="image" value="{{$article->image}}"> <br>
                     Omschrijving: <br>
-                        <textarea rows="5" cols="60" name="description">{{$article->description}} </textarea> <br>
+                        <textarea rows="5" cols="60" name="description" required>{{$article->description}} </textarea> <br>
                     Tekst: <br>
-                        <textarea rows="5" cols="60" name="text"> {{$article->text}} </textarea>  <br>
+                        <textarea rows="5" cols="60" name="text" required> {{$article->text}} </textarea>  <br>
                     Datum:
-                        <input type="date" name="date" value="{{$article->date}}" /> <br>
-                    Zichtbaar?: <br>
-                        <input type="checkbox" name="visible" value="{{$article->visible}}" checked> <br>
-                    <br>
-                    <input type="submit" value="Wijzigen"/>
+                        <input type="date" name="date" value="{{$article->date}}" required/> <br>
+                    @php
+                        if($article->visible == 1)
+                        {
+                              echo 'Zichtbaar <input type="checkbox" checked="true"name="visible"/> <br><br>';
+                        }
+                        else
+                        {
+                              echo 'Zichtbaar <input type="checkbox" name="visible"/> <br><br>';
+                        }
+                    @endphp
+                    <input class="btn btn-primary" type="submit" value="Opslaan"/>
                 </form>
             </div>
     @else
