@@ -22,14 +22,16 @@ class TechniquesTableSeeder extends Seeder
             ),
             array (
                 'id' => 2,
-                'name' => "Steendruk",
+                'name' => "Lithografie",
                 'description' => "De lithopers van het GA is een handaangedreven mechanische pers, 
                  met een druktafel van 80 x 120 cm. Er zijn zo’n 50 lithostenen aanwezig, van diverse maten."
             ),
             array (
                 'id' => 3,
-                'name' => "Cyanotype & gomdruk",
-                'description' => "Voor het maken van cyanotype en gomdruk hebben wij een mooie DOKA, belichter en diverse papieren."
+                'name' => "Hoogdruk & Diepdruk",
+                'description' => "Op de etsafdeling zijn twee etspersen aanwezig, een van 100 x 200 cm en een van 100 x 60 cm. 
+                Alle noodzakelijke voorzieningen voor deze hoog- en diepdruk technieken zijn aanweizg. Voor inbijten van zink- en 
+                koperplaten wordt gebruik gemaakt van kopersulfaat en ijzderchloride."
             )
         );
 

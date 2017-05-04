@@ -1,4 +1,4 @@
-<title>GA Den Bosch - {{ $title }}</title>
+<title>GA - {{ $title }}</title>
 
 @section('navigation')
     <script>
