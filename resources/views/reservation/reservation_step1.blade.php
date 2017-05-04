@@ -17,22 +17,16 @@
 <div class="container">
     <h1 class="title reservationTitles">Wat wilt u reserveren?</h1>
     <div class="row"><br />
-        {{ Form::open(['route' => 'ReservationStep_2']) }}
         <div class="col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-6">
             <a href="{{URL::route('reservationStep2')}}">
                 <img src="{{URL::to('/')}}/img/Reservation/werkplaats.png" class="reservationImages">
             </a>
-            {{ Form::hidden('werkplaats', 'werkplaats') }}
-            <input type="submit" name="btnWerkplaats" class="btn btn-primary reservationButtons" value="Naar volgende stap">
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-6">
             <a href="{{URL::route('courses')}}">
                 <img src="{{URL::to('/')}}/img/Reservation/cursus.png" class="reservationImages">
             </a>
-            {{ Form::hidden('cursus', 'cursus') }}
-            <input type="submit" name="btnCursus" class="btn btn-primary reservationButtons" value="Naar volgende stap">
         </div>
-        {{ Form::close() }}
     </div>
 </div>
 @include('layouts.footer')

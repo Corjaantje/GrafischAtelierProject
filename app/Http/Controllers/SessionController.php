@@ -10,23 +10,6 @@ use Illuminate\Support\Facades\Redirect;
 
 class SessionController extends Controller
 {
-    // stap 1
-    public function storeType(Request $request)
-    {
-        if (isset($_POST['btnWerkplaats']))
-        {
-            $type = $request->get('werkplaats');
-            session()->put('type', $type);
-            return view('reservation.reservation_step3');
-        }
-        else
-        {
-           $type = $request->get('cursus');
-           session()->put('type', $type);
-           return view('courses');
-        }
-    }
-
     // stap 4
     public function storeDateTime(Request $request)
     {
@@ -35,11 +18,6 @@ class SessionController extends Controller
         session()->put('end_time', $request->get('end_time'));
         session()->put('table_id', $request->get('table_id'));
         return view('reservation.reservation_step5');
-    }
-
-    public static function getType()
-    {
-        return session()->get('type');
     }
 
     public static function getDate()

@@ -10,7 +10,7 @@
 </head>
 <body class="body-cms">
 @include('layouts.header', array('title'=>'Home'))
-<input type="button" class="btn btn-primary" onclick="window.location='{{ route('reservationStep4') }}'" value="Terug">
+<input type="button" class="btn btn-primary" onclick="window.location='{{ route('reservationStep3') }}'" value="Terug">
 @if (!Auth::check())
     <script>window.location.href = "{{ route('login') }}"</script>
 @endif
@@ -19,7 +19,6 @@
     <div class="row">
         {{ Form::open(['route' => 'ReservationStep_4']) }}
         {{ Form::hidden('_token', csrf_token()) }}
-        {{ Form::label('type', 'Type: '. \App\Http\Controllers\SessionController::getType()) }}<br />
         {{ Form::label('date', 'Datum: '. \App\Http\Controllers\SessionController::getDate()) }}<br />
         {{ Form::label('start_time', 'Starttijd: '. \App\Http\Controllers\SessionController::getStartTime()) }}<br />
         {{ Form::label('end_time', 'Eindtijd: '. \App\Http\Controllers\SessionController::getEndTime()) }}<br />
