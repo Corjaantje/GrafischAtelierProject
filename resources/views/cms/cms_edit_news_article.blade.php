@@ -43,7 +43,7 @@
                               echo 'Zichtbaar <input type="checkbox" name="visible"/> <br><br>';
                         }
                     @endphp
-                    <input class="btn btn-primary" type="submit" value="Wijzigen"/>
+                    <input class="btn btn-primary" type="submit" value="Opslaan"/>
                 </form>
             </div>
     @else

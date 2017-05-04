@@ -17,7 +17,7 @@
     <!--CONTENT IN HERE-->
     <!-- Knop om nieuwe artikelen aan te maken -->
     <br>
-    <button type="button" class="btn btn-primary"  onclick="window.location='{{URL::route('newNewsArticle')}}'">Nieuw artikel</button>
+    <button type="button" class="btn btn-primary"  onclick="window.location='{{URL::route('newNewsArticle')}}'">Nieuw Artikel</button>
     <br>
 
     <!-- Artikelen -->
@@ -42,7 +42,7 @@
                 <td id="table-data-style"> {{ $article->description }}</td>
                 <td id="table-data-style"> {{ $article->date }}</td>
                 <td id="table-data-style"> {{ $article->visible }}</td>
-                <td> <button type="button" class="btn btn-primary" onclick="window.location='{{URL::route('editNewsArticle', $article->id)}}'">Wijzig</button></td>
+                <td> <button type="button" class="btn btn-primary" onclick="window.location='{{URL::route('editNewsArticle', $article->id)}}'">Bewerken</button></td>
 
             </tr>
         @endforeach
