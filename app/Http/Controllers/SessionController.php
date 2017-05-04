@@ -15,14 +15,10 @@ class SessionController extends Controller
     {
         if (isset($_POST['btnWerkplaats']))
         {
-            $type = $request->get('werkplaats');
-            session()->put('type', $type);
             return view('reservation.reservation_step3');
         }
         else
         {
-           $type = $request->get('cursus');
-           session()->put('type', $type);
            return view('courses');
         }
     }
@@ -35,11 +31,6 @@ class SessionController extends Controller
         session()->put('end_time', $request->get('end_time'));
         session()->put('table_id', $request->get('table_id'));
         return view('reservation.reservation_step5');
-    }
-
-    public static function getType()
-    {
-        return session()->get('type');
     }
 
     public static function getDate()
