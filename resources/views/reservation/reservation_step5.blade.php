@@ -19,7 +19,6 @@
     <div class="row">
         {{ Form::open(['route' => 'ReservationStep_4']) }}
         {{ Form::hidden('_token', csrf_token()) }}
-        {{ Form::label('type', 'Type: '. \App\Http\Controllers\SessionController::getType()) }}<br />
         {{ Form::label('date', 'Datum: '. \App\Http\Controllers\SessionController::getDate()) }}<br />
         {{ Form::label('start_time', 'Starttijd: '. \App\Http\Controllers\SessionController::getStartTime()) }}<br />
         {{ Form::label('end_time', 'Eindtijd: '. \App\Http\Controllers\SessionController::getEndTime()) }}<br />
