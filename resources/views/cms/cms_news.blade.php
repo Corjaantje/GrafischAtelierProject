@@ -13,10 +13,11 @@
 @include('layouts.cms_navigation', array('currentPage'=>'Nieuws'))
 <div class="container-cms">
 
+	<h2><b>Nieuws overzicht</b></h2>
     <!--CONTENT IN HERE-->
     <!-- Knop om nieuwe artikelen aan te maken -->
     <br>
-    <button type="button" class="btn btn-primary"  onclick="window.location='{{URL::route('newNewsArticle')}}'">Nieuw artikel aanmaken</button>
+    <button type="button" class="btn btn-primary"  onclick="window.location='{{URL::route('newNewsArticle')}}'">Nieuw artikel</button>
     <br>
 
     <!-- Artikelen -->
@@ -29,9 +30,7 @@
         <tr id="table-row-style">
             <th id="table-header-style">ID</th>
             <th id="table-header-style">Titel</th>
-            <th id="table-header-style">Afbeelding</th>
             <th id="table-header-style">Omschrijving</th>
-            <th id="table-header-style">Tekst</th>
             <th id="table-header-style">Datum</th>
             <th id="table-header-style">Zichtbaar?</th>
             <th></th>
@@ -40,9 +39,7 @@
             <tr id="table-row-style">
                 <td id="table-data-style"> {{ $article->id }}</td>
                 <td id="table-data-style"> {{ $article->title }}</td>
-                <td id="table-data-style"> {{ $article->image }}</td>
                 <td id="table-data-style"> {{ $article->description }}</td>
-                <td id="table-data-style"> {{ $article->text }}</td>
                 <td id="table-data-style"> {{ $article->date }}</td>
                 <td id="table-data-style"> {{ $article->visible }}</td>
                 <td> <button type="button" class="btn btn-primary" onclick="window.location='{{URL::route('editNewsArticle', $article->id)}}'">Wijzig</button></td>

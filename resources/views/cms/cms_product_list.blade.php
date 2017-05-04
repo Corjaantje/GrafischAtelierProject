@@ -20,6 +20,7 @@ $products = App\Product::all();
 
     <div class="container-cms">
 
+		<h2><b>Product overzicht</b></h2>
         <br>
         <button type="button" class="btn btn-primary" onclick="window.location='{{URL::route('product_creator')}}'">Nieuw Product</button>
 
@@ -43,11 +44,11 @@ $products = App\Product::all();
 
                     <td>
                         <button type="button" class="btn btn-primary"
-                                onclick="window.location='{{URL::route('product_editor', $product->id)}}'">Bewerk
+                                onclick="window.location='{{URL::route('product_editor', $product->id)}}'">Bewerken
                         </button>
                     </td>
                     <td>
-                        <form action="verwijderProduct/{{$product->id}}"><input type="submit" class="btn btn-primary" value="verwijder"/></form>
+                        <form action="verwijderProduct/{{$product->id}}"><input type="submit" class="btn btn-danger" value="Verwijderen"/></form>
                     </td>
 
                 </tr>
