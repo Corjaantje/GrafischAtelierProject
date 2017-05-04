@@ -10,7 +10,7 @@
 </head>
 <body class="body-cms">
 @include('layouts.header', array('title'=>'Home'))
-<input type="button" class="btn btn-primary" onclick="window.location='{{ route('reservationStep4') }}'" value="Terug">
+<input type="button" class="btn btn-primary" onclick="window.location='{{ route('reservationStep3') }}'" value="Terug">
 @if (!Auth::check())
     <script>window.location.href = "{{ route('login') }}"</script>
 @endif
