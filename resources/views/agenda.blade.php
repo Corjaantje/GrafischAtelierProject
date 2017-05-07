@@ -58,11 +58,11 @@
 	});
 	scheduler.templates.unitweek_date = scheduler.templates.week_date;
 	scheduler.templates.unitweek_scale_date = scheduler.templates.week_scale_date;
-	scheduler.locale.labels.unitweek_tab = "Week";
+	scheduler.locale.labels.unitweek_tab = "3 Dagen";
 	scheduler.createUnitsView({
 		name:"unitweek",
 		property:"type",
-		days:7,
+		days:3,
 		list: @php echo json_encode($tables) @endphp
 	});
 

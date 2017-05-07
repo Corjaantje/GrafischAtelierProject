@@ -68,6 +68,8 @@ Route::get('over_ons', array('as' => 'about', function () {
 Route::get('agenda', ['as' => 'agenda', 'uses' => 'AgendaController@show']);
 
 Route::get('cursussen', ['as' => 'courses', 'uses' => 'CoursesController@createCoursesPage']);
+Route::post('cursus_reserveren', ['as' => 'course_reservation', 'uses' => 'CoursesController@createCourseReservationPage']);
+Route::post('cursussen', ['as' => 'submitCourseReservation', 'uses' => 'CoursesController@insertUserIntoCourse']);
 
 Route::get('cms', array('as' => 'cms_home', function(){
 
@@ -123,6 +125,12 @@ Route::get('cms/wijzig_artikel/{artikelNummer}', array('as' => 'editNewsArticle'
     return view('cms.cms_edit_news_article', $data);
 }));
 
+Route::get('cms/reservations', ['as' => 'cms_reservations', 'uses' => 'ReservationController@create']);
+Route::post('cms/cmsCreateReservation', array('as' => 'create_reservation', 'uses' => 'ReservationController@newReservation'));
+
+Route::get('cms/users', ['as' => 'cms_users', 'uses' => 'UserController@create']);
+Route::post('cms/cmsCreateUser', array('as' => 'create_user', 'uses' => 'UserController@newUser'));
+
 #----Manage Courses Routes----
 Route::get('cms/cursus', ['as' => 'cms_courses_list', 'uses' => 'CoursesController@createList']);
 Route::get('cms/cursus/toevoegen', ['as' => 'cms_courses_add', 'uses' => 'CoursesController@createAdd']);
@@ -137,3 +145,28 @@ Route::post('cms/cursus/verwijderen', ['as' => 'cms_courses_delete', 'uses' => '
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+#----Reservation Routes----
+Route::any('reservation_step1', array('as' => 'reservationStep1', function()
+{
+    return view('reservation.reservation_step1');
+}));
+
+Route::any('reservation_step2', array('as' => 'reservationStep2', function()
+{
+    return view('reservation.reservation_step3');
+}));
+
+Route::any('reservation_step3', array('as' => 'reservationStep3', function()
+{
+    return view('reservation.reservation_step4');
+}));
+
+Route::any('reservation_step4', array('as' => 'reservationStep4', function()
+{
+    return view('reservation.reservation_step5');
+}));
+
+Route::any('ReservationStep2', ['as' => 'ReservationStep_2', 'uses' => 'SessionController@storeType']);
+Route::any('ReservationStep3', ['as' => 'ReservationStep_3', 'uses' => 'SessionController@storeDateTime']);
+Route::any('ReservationStep4', ['as' => 'ReservationStep_4', 'uses' => 'SessionController@insertReservation']);

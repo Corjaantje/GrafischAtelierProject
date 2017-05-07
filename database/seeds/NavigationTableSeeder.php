@@ -104,8 +104,8 @@ class NavigationTableSeeder extends Seeder
             ),
              array(
                  'id' => 12,
-                 'name' => 'Cursussen',
-                 'link_as' => 'courses',
+                 'name' => 'Reserveren',
+                 'link_as' => 'reservationStep1',
                  'parent_id' => null,
                  'priority' => 2,
                  'visible' => 1

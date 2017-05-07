@@ -31,6 +31,10 @@
                     echo "<p>".$course->description." </p>";
 
                     @endphp
+                    {{ Form::open(['route' => 'course_reservation']) }}
+                    {{ Form::hidden('id', $course->id) }}
+                    <input class="btn btn-primary" type="submit" value="Inschrijven">
+                    {{ Form::close()}}
                 </div>
                 @if( ($loop->index % 3) == 2)
             </div>

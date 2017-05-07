@@ -8,11 +8,15 @@
         <a href="{{URL::route('cms_news')}}"
            class="{{ (($currentPage)) == "Nieuws" ? 'active' : ' ' }}"><b>Nieuws</b></a>
         <a href="{{URL::route('cms_product_list')}}"
-           class="{{ (($currentPage)) == "Shops" ? 'active' : ' ' }}"><b>Shops</b></a>
+           class="{{ (($currentPage)) == "Shops" ? 'active' : ' ' }}"><b>Producten</b></a>
         <a href="{{URL::route('cms_header')}}"
            class="{{ (($currentPage)) == "Navigatie" ? 'active' : ' ' }}"><b>Navigatie</b></a>
+        <a href="{{URL::route('cms_reservations')}}"
+           class="{{ (($currentPage)) == "cmsReservation" ? 'active' : ' ' }}"><b>Reserveringen</b></a>
+        <a href="{{URL::route('cms_users')}}"
+           class="{{ (($currentPage)) == "cmsUsers" ? 'active' : ' ' }}"><b>Gebruikers</b></a>
             <a href="{{URL::route('cms_courses_list')}}"
-               class="{{ (($currentPage)) == "Cursus Overzicht" ? 'active' : ' ' }}"><b>Cursus</b></a>
+               class="{{ (($currentPage)) == "Cursus Overzicht" ? 'active' : ' ' }}"><b>Cursussen</b></a>
             <br>
 
         <div id="courseDropdown" class="collapse">
