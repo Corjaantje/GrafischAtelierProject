@@ -170,3 +170,5 @@ Route::any('reservation_step4', array('as' => 'reservationStep4', function()
 Route::any('ReservationStep2', ['as' => 'ReservationStep_2', 'uses' => 'SessionController@storeType']);
 Route::any('ReservationStep3', ['as' => 'ReservationStep_3', 'uses' => 'SessionController@storeDateTime']);
 Route::any('ReservationStep4', ['as' => 'ReservationStep_4', 'uses' => 'SessionController@insertReservation']);
+
+Route::get('profiel', ['as' => 'profile', 'uses' => 'ProfileController@getProfile']);

@@ -12,15 +12,15 @@ class UsersTableSeeder extends Seeder {
             array(
                 'name' => 'Jan',
                 'email' => 'jan@gmail.com',
-                'username' => 'jan',
+                'username' => 'Jan',
                 'role' => '',
                 'password' => Hash::make('password'),
                 'address' => 'onderwijslaan 12'
             ),
             array(
-                'name' => 'admin',
+                'name' => 'Admin',
                 'email' => 'admin@admin.com',
-                'username' => 'admin',
+                'username' => 'Admin',
                 'role' => 'admin',
                 'password' => Hash::make('admin'),
                 'address' => 'admin'
