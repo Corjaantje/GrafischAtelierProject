@@ -17,7 +17,7 @@
         <input type="hidden" name="id" value="-1"/>
         <br> <br>
         Titel: <br>
-        <input type="text" name="title" value=" " required> <br> <br>
+        <input type="text" name="title" value="" required> <br> <br>
         Afbeelding:
         <input type="file" accept=".jpeg, .jpg, .png" name="image" value=""> <br>
         Omschrijving: <br>
@@ -26,7 +26,7 @@
         <textarea rows="5" cols="60" name="text" required></textarea>  <br>
         Datum:
         <input type="date" name="date" value="@php echo date('Y-m-d'); @endphp" required/> <br>
-        Zichtbaar?: <br>
+        Zichtbaar:
 
 
         <input type="checkbox" name="visible" value="1" checked> <br>
