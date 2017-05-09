@@ -17,7 +17,7 @@ class CreateNewsfilterTable extends Migration
         Schema::create('newsfilters', function (Blueprint $table)
         {
             $table->increments('id')->unique();
-            $table->string('name');
+            $table->string('name')->unique();
         });
     }
 
