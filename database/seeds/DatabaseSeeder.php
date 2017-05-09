@@ -21,5 +21,6 @@ class DatabaseSeeder extends Seeder
         $this->call('TechniquesTableSeeder');
         $this->call('ProductSeeder');
         $this->call('SponsorTableSeeder');
+        $this->call('NewsfilterTableSeeder');
     }
 }
