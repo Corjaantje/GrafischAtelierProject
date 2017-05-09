@@ -24,7 +24,6 @@ class CreateNewsarticleTable extends Migration
             $table->longText('text');
             $table->date('date');
             $table->tinyInteger('visible');
-            
             $table->timestamps();
         });
         
