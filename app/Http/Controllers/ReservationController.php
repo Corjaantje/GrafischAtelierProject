@@ -17,9 +17,21 @@ class ReservationController extends Controller
 
     public function newReservation(Request $request)
     {
-        Courses_has_user::Insert(['course_id' => $_POST['cbCursus'], 'user_id' => $_POST['cbUsers'] ]);
+        if (Courses_has_user::where([
+                ['user_id', '=', $request->cbUsers],
+                ['course_id', '=', $request->cbCursus]
+            ])->count() === 0
+        )
+        {
+            Courses_has_user::Insert(['course_id' => $request->cbCursus, 'user_id' => $request->cbUsers ]);
+            return Redirect::to('/cms/reservations');
+        }
+        else
+        {
+            return Redirect::to('error');
+        }
 
-        return Redirect::to('/cms');
+
     }
 
     public static function getAllUsers()

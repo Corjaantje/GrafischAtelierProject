@@ -226,7 +226,5 @@ class CoursesController extends Controller
                 return Redirect::to('404');
             }
         }
-
-
     }
 }
