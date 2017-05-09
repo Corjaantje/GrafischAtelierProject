@@ -16,7 +16,7 @@ class SponsorTableSeeder extends Seeder
         $sponsors = array(
             array(
                 'id' => 1,
-                'name' => "Willem II fabriek",
+                'name' => "Willem II Fabriek",
                 'image' => "w2.png",
                 'sponsor_url' => "https://www.willem-twee.nl/"
             )
