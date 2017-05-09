@@ -24,7 +24,7 @@ class NewsArticleTableSeeder extends Seeder
                            Locatie: Spiegelzaal en in de werkplaats van Grafisch Atelier Den Bosch (1ste verdieping)",
                 'date' => '2017-04-10',
                 'visible' => 1,
-            	'filterId' => 1
+            	'filter_id' => 1
             ),
             array (
                 'id' => 2,
@@ -34,7 +34,7 @@ class NewsArticleTableSeeder extends Seeder
                 Het atelier is zes dagen per week geopend en dit zou niet mogelijk zijn zonder de inzet van onze vrijwilligers. Om de gasten zo goed mogelijk van dienst te kunnen zijn zouden wij ons vrijwilligersteam graag uitbreiden met een aantal oproepkrachten en een vrijwilliger marketing & communicatie.",
                 'date' => '2017-02-15',
                 'visible' => 1,
-            	'filterId' => 1
+            	'filter_id' => 1
             )
         );
 
