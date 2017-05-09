@@ -23,7 +23,7 @@ class CreateNewsarticleTable extends Migration
             $table->longText('text');
             $table->date('date');
             $table->tinyInteger('visible');
-            $table->string('filter_id');
+            $table->foreign('filter_id')->references('id')->on('newsfilters');
             $table->timestamps();
         });
     }
