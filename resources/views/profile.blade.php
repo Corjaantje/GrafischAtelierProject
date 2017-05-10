@@ -9,7 +9,23 @@
 </head>
 <body>
 @include('layouts.header', array('title'=>'Profiel - '.Auth::user()->username))
-    @php
+
+<div class="profile">
+    <div class="profilePicture">
+        <img src="{{ URL::asset('img/defaultProfile.png') }}" alt="Profile" height="150px" width="150px">
+    </div>
+    <div class="userInfo">
+        @php
+            echo "<h3>".$userinfo['username']."</h3>";
+            echo $userinfo['role']."<br>";
+            echo $userinfo['mail'];
+        @endphp
+    </div> <br><br><br><br><br><br><br><br><br>
+    <div class="userReserved">
+        Lorem Ipsum
+    </div>
+</div>
+@php
     /*
     User Information
         -Username
@@ -26,7 +42,7 @@
         -Courses Reserved
         -Tables Reserved
     */
-    @endphp
+@endphp
 @include('layouts.footer')
 </body>
 </html>

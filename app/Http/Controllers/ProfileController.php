@@ -16,7 +16,20 @@ class ProfileController extends Controller
         }
         else
         {
-            return view('profile');
+            if(Auth::user()->role == "admin")
+            {
+                $role = "Beheerder";
+            }
+            else
+            {
+                $role = "Gebruiker";
+            }
+            $userinfo = array(
+                'username' => Auth::user()->username,
+                'role' => $role,
+                'mail' => Auth::user()->email,
+            );
+            return view('profile', compact('userinfo'));
         }
     }
 }

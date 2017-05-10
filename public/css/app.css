@@ -400,4 +400,44 @@ a.active {
 .reservationImages {
   width: 100%; }
 
+.profile {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 132px;
+  background-color: #EAE7E7;
+  border-style: solid;
+  border-color: #F5F3F3; }
+
+.profile .profilePicture {
+  width: 157px;
+  margin-left: 20px;
+  margin-top: 20px;
+  border-style: solid;
+  border-color: black;
+  float: left; }
+
+.profile .userInfo {
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-right: 20px;
+  padding-top: 2px;
+  padding-left: 20px;
+  border-style: solid;
+  border-color: black;
+  float: right;
+  width: 83%;
+  height: 157px; }
+
+.profile .userReserved {
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  padding-top: 5px;
+  padding-left: 20px;
+  border-style: solid;
+  border-color: black;
+  width: 97%;
+  height: 250px; }
+
 /*# sourceMappingURL=app.css.map */
