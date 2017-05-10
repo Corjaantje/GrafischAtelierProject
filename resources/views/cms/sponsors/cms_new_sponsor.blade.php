@@ -12,10 +12,16 @@
 @include('layouts.cms_navigation', array('currentPage'=>'cmsSponsors'))
 
 <div class="container-cms">
-    <br><br>
-    <button type="button" class="btn btn-primary" onclick="window.location='{{URL::route('cms_createSponsors')}}'">
-        Sponsor toevoegen
-    </button>
+    <br>
+    <h2><b>Nieuwe sponsor</b></h2>
+    <br>
+    {{ Form::open(['route' => 'create_sponsor']) }}
+    {{ Form::hidden('_token', csrf_token()) }}
+    Naam: {{ Form::text('Name','',array('required' => 'required')) }} <br><br>
+    Sponsor URL: {{ Form::text('URL','',array('required' => 'required')) }} <br><br>
+    Image: {{ Form::file('Image','',array('required' => 'required')) }} <br><br>
+    <input class="btn btn-primary" type="submit" value="Opslaan">
+    {{ Form::close() }}
 </div>
 
 </body>
