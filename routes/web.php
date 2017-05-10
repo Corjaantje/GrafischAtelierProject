@@ -130,6 +130,11 @@ Route::post('cms/cmsCreateReservation', array('as' => 'create_reservation', 'use
 
 Route::get('cms/users', ['as' => 'cms_users', 'uses' => 'UserController@create']);
 Route::post('cms/cmsCreateUser', array('as' => 'create_user', 'uses' => 'UserController@newUser'));
+#-------Nieuwsfilter-------
+Route::get('cms/nieuwsfilters', array('as' => 'cms_newsfilters', 'uses' => 'NewsfilterController@createList'));
+Route::get('cms/nieuwsfilters/toevoegen', array('as' => 'cms_newsfilters_add', 'uses' => 'NewsfilterController@createAdd'));
+Route::post('cms/nieuwsfilters/bewerken', array('as' => 'cms_newsfilters_edit', 'uses' => 'NewsfilterController@createEdit'));
+Route::post('cms/nieuwsfilters/verwijderen', array('as' => 'cms_newsfilters_remove', 'uses' => 'NewsfilterController@removeFilter'));
 
 #----Manage Courses Routes----
 Route::get('cms/cursus', ['as' => 'cms_courses_list', 'uses' => 'CoursesController@createList']);

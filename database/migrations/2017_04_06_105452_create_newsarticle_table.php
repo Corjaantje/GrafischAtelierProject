@@ -26,6 +26,7 @@ class CreateNewsarticleTable extends Migration
             $table->foreign('filter_id')->references('id')->on('newsfilters');
             $table->timestamps();
         });
+        
     }
 
     /**

@@ -1,0 +1,62 @@
+@php
+$filters = App\Newsfilter::all();
+@endphp
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" class="html-cms">
+<head>
+<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/app.css') }}">
+<script src="{{ URL::asset('js/app.js') }}"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body class="body-cms">
+@if (Auth::check() && Auth::user()->role == "admin")
+
+	@include('layouts.cms_navigation', array('currentPage'=>'Nieuwsfilters'))
+	<div class="container-cms">
+
+	<h2><b>Nieuwsfilters overzicht</b></h2>
+	<!--CONTENT IN HERE-->
+	<button type="button" class="btn btn-primary" onclick="window.location='{{URL::route('cms_newsfilters_add')}}'">Nieuw Filter</button>
+	<br>
+	
+	<table id="table-style">
+	
+		<tr id="table-row-style">
+            <th id="table-header-style">Naam</th>
+            <th></th>
+            <th></th>
+        </tr>
+	
+		@foreach($filters as $filter)
+		
+		<tr id="table-row-style">
+            <td id="table-header-style">{{$filter->name}}</td>
+            <td>
+            	
+                 {{ Form::open(['route' => 'cms_newsfilters_edit']) }}
+                 {{ Form::hidden('id', $filter->id) }}
+                 <input class="btn btn-primary" type="submit" value="Bewerken">
+                 {{ Form::close()}}
+
+            </td>
+            <td>
+                  {{ Form::open(['route' => 'cms_newsfilters_remove', 'onsubmit' => 'return confirm("I am absolutely pointless")']) }}
+                  {{ Form::hidden('id', $filter->id) }}
+                  <input class="btn btn-danger" type="submit" value="Verwijderen">
+                  {{ Form::close()}}
+            </td>
+        </tr>
+		
+		@endforeach
+	
+	</table>
+	
+    </div>
+@else
+    <script>window.location.href = "{{ route('login') }}"</script>
+@endif
+</body>
+</html>

@@ -16,11 +16,11 @@ class NewsfilterTableSeeder extends Seeder
     	$filters = [
     			[
     				'id' => 1,
-    				'name' => 'algemeen'
+    				'name' => 'Algemeen'
     			],
     			[
     				'id' => 2,
-    				'name' => 'vacatures'
+    				'name' => 'Vacatures'
     			]
     	];
     	
