@@ -23,7 +23,7 @@ class UsersTableSeeder extends Seeder {
                 'username' => 'Admin',
                 'role' => 'admin',
                 'password' => Hash::make('admin'),
-                'address' => 'admin'
+                'address' => 'Adminstraat 1337'
             )
         );
 

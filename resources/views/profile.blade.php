@@ -17,12 +17,31 @@
     <div class="userInfo">
         @php
             echo "<h3>".$userinfo['username']."</h3>";
-            echo $userinfo['role']."<br>";
+            echo $userinfo['role']."<br><br>";
+            echo $userinfo['address']."<br>";
             echo $userinfo['mail'];
         @endphp
-    </div> <br><br><br><br><br><br><br><br><br>
-    <div class="userReserved">
-        Lorem Ipsum
+    </div>
+    <br><br><br><br><br><br><br><br><br>
+    <div class="row">
+        <div class="userReservedTables col-md-6">
+            <h3>Gereserveerde Tafels</h3>
+            @php
+                foreach ($reservedTables as $table)
+                {
+                    echo $table->start_date."<br>";
+                }
+            @endphp
+    </div>
+        <div class="userReservedCourses col-md-6">
+            <h3>Gereserveerde Cursussen</h3>
+            @php
+                foreach ($reservedTables as $table)
+                {
+                    echo $table->start_date."<br>";
+                }
+            @endphp
+        </div>
     </div>
 </div>
 @php

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\IndividualReservation;
 use Illuminate\Http\Request;
 use Auth;
 use Redirect;
+use Illuminate\Support\Facades\DB;
 
 class ProfileController extends Controller
 {
@@ -16,20 +18,25 @@ class ProfileController extends Controller
         }
         else
         {
-            if(Auth::user()->role == "admin")
+            switch (Auth::user()->role)
             {
-                $role = "Beheerder";
+                case "admin":
+                    $role = "Administrator";
+                    break;
+                default:
+                    $role = "Gebruiker";
+                    break;
             }
-            else
-            {
-                $role = "Gebruiker";
-            }
+            $date = date('Y-m-d H:i:s');
+            $reservedTables = DB::table('individual_reservations')->where('user_id', Auth::user()->id)->where('end_date', '>', $date)->get();
+
             $userinfo = array(
                 'username' => Auth::user()->username,
                 'role' => $role,
                 'mail' => Auth::user()->email,
+                'address' => Auth::user()->address,
             );
-            return view('profile', compact('userinfo'));
+            return view('profile', compact('userinfo', "reservedTables"));
         }
     }
 }
