@@ -502,6 +502,8 @@ a.active {
 .profile{
   margin-left: 20px;
   margin-right: 20px;
+  padding-left:2%;
+  padding-right: 2%;
   margin-bottom: $footer-height+20px;
   background-color: #EAE7E7;
   border-style: solid;
@@ -510,17 +512,16 @@ a.active {
 
 .profile .profilePicture{
   width: 156px;
-  margin-left: 20px;
   margin-top: 20px;
   border-style: solid;
   border-color: $profileBorderColor;
-  float: left;
   background-color: $profileBackgroundColor;
   border-radius: 28px;
 }
 .profilePicture img
 {
   border-radius: 25px;
+  margin-left: -15px;
 }
 
 .profile .userInfo {
@@ -531,21 +532,17 @@ a.active {
   padding-left: 20px;
   border-style: solid;
   border-color: $profileBorderColor;
-  float:right;
-  width: 83%;
+  width: 85.5%;
   height: 157px;
   background-color: $profileBackgroundColor;
   border-radius: 25px;
 }
-
-
 .userInfo h3 {
   font-weight: bold;
   margin-bottom: 1px;
 }
 
 .profile .userReservedTables{
-  margin-left: 30px;
   margin-top: 20px;
   margin-right: 20px;
   margin-bottom: 20px;

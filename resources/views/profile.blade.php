@@ -11,18 +11,19 @@
 @include('layouts.header', array('title'=>'Profiel - '.Auth::user()->username))
 
 <div class="profile">
-    <div class="profilePicture">
-        <img src="{{ URL::asset('img/defaultProfile.png') }}" alt="Profile" height="150px" width="150px">
+    <div class="row">
+        <div class="profilePicture col-md-3">
+            <img src="{{ URL::asset('img/defaultProfile.png') }}" alt="Profile" height="150px" width="150px">
+        </div>
+        <div class="userInfo col-md-6">
+            @php
+                echo "<h3>".$userinfo['username']."</h3>";
+                echo $userinfo['role']."<br><br>";
+                echo $userinfo['address']."<br>";
+                echo $userinfo['mail'];
+            @endphp
+        </div>
     </div>
-    <div class="userInfo">
-        @php
-            echo "<h3>".$userinfo['username']."</h3>";
-            echo $userinfo['role']."<br><br>";
-            echo $userinfo['address']."<br>";
-            echo $userinfo['mail'];
-        @endphp
-    </div>
-    <br><br><br><br><br><br><br><br><br>
     <div class="row">
         <div class="userReservedTables col-md-6">
             <h3>Gereserveerde Tafels</h3>
