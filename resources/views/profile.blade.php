@@ -30,16 +30,18 @@
             @php
                 foreach ($reservedTables as $table)
                 {
-                    echo $table->start_date."<br>";
+                    $dateStart = new DateTime($table->start_date);
+                    $dateEnd = new DateTime($table->end_date);
+                    echo " <b>".$dateStart->format("d-m-Y")."</b> ".$dateStart->format("H:i")." - ". $dateEnd->format("H:i")." (".\App\Technique::getTechniqueByTableID($table->table_id).")<br>";
                 }
             @endphp
     </div>
         <div class="userReservedCourses col-md-6">
-            <h3>Gereserveerde Cursussen</h3>
+            <h3>Ingeschreven Cursussen</h3>
             @php
-                foreach ($reservedTables as $table)
+                foreach ($signedupCourses as $course)
                 {
-                    echo $table->start_date."<br>";
+                    echo $course."<br>";
                 }
             @endphp
         </div>
