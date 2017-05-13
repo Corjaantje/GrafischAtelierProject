@@ -178,6 +178,12 @@ Route::get('cms_sponsor', ['as' => 'cms_sponsor', function()
 }]);
 
 Route::get('cms/createSponsors', ['as' => 'cms_createSponsors', 'uses' => 'SponsorController@create']);
-Route::get('cms/cmsEditSponsors', ['as' => 'cms_editSponsors', 'uses' => 'SponsorController@edit']);
 Route::post('cms/cmsCreateSponsor', array('as' => 'create_sponsor', 'uses' => 'SponsorController@newSponsor'));
-Route::post('cms/cmsEditSponsor', array('as' => 'edit_sponsor', 'uses' => 'SponsorController@editSponsor'));
+Route::post('cms/cmsEditSponsor', array('as' => 'edit_sponsor', 'uses' => 'SponsorController@edit'));
+
+Route::get('cms/edit_sponsor/{sponsorNumber}', array('as' => 'editSponsor', function ($sponsorNumber) {
+    $data = array(
+        'id' => $sponsorNumber
+    );
+    return view('cms.sponsors.cms_edit_sponsor', $data);
+}));

@@ -31,7 +31,7 @@
                     <td id="table-data-style"><img src="{{URL::asset('/img/Sponsors/'.$sponsor->image)}}"/></td>
                     <td id="table-data-style">{{$sponsor->name}}</td>
                     <td id="table-data-style">{{$sponsor->sponsor_url}}</td>
-                    <td id="table-data-style"><button type="button" class="btn btn-primary" onclick="window.location='{{URL::route('cms_editSponsors', $sponsor->id)}}'">Bewerken</button></td> <!--Todo: linken naar sponsor wijzigen-->
+                    <td id="table-data-style"><button type="button" class="btn btn-primary" onclick="window.location='{{URL::route('editSponsor', $sponsor->id)}}'">Bewerken</button></td> <!--Todo: linken naar sponsor wijzigen-->
                     <td id="table-data-style"><button type="button" class="btn btn-primary" onclick="window.location='{{URL::route('editNewsArticle', $sponsor->id)}}'">Verwijderen</button></td> <!--Todo: Linken naar sponsor verwijderen-->
                 </tr>
 

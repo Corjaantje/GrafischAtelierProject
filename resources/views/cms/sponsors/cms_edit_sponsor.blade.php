@@ -27,17 +27,7 @@
             Image:
             <input type="file" accept=".jpeg, .jpg, .png" name="image" value="{{$sponsor->image}}"> <br>
             Sponsor URL: <br>
-            <input type="text" name="sponsor_url" value="{{$sponsor->sponsor_url}}" required> <br>
-            @php
-                if($sponsor->visible == 1)
-                {
-                      echo 'Zichtbaar <input type="checkbox" checked="true"name="visible"/> <br><br>';
-                }
-                else
-                {
-                      echo 'Zichtbaar <input type="checkbox" name="visible"/> <br><br>';
-                }
-            @endphp
+            <input type="text" name="sponsor_url" value="{{$sponsor->sponsor_url}}" required> <br><br>
             <input class="btn btn-primary" type="submit" value="Opslaan"/>
         {{ Form::close() }}
     </div>

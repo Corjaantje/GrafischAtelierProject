@@ -23,8 +23,8 @@ class SponsorController extends Controller
     public function edit()
     {
         $checked = (isset($_POST['visible'])) ? 1 : 0;
-        Sponsor::Where('id', '=', $_POST['id'])->update(['name' => $_POST['Name'],
-            'image' => $_POST['Image'], 'sponsor_url' => $_POST['URL'], 'visible' => $checked ]);
+        Sponsor::Where('id', '=', $_POST['id'])->update(['name' => $_POST['name'],
+            'image' => $_POST['image'], 'sponsor_url' => $_POST['sponsor_url'] ]);
 
         return Redirect::to('/cms_sponsor');
     }
