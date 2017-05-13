@@ -16,14 +16,19 @@ class SponsorController extends Controller
 
     public function newSponsor(Request $request)
     {
-        Sponsor::Insert(['name' => $_POST['Name'], 'image' => $_POST['Image'], 'sponsor_url' => $_POST['URL'] ]);
+        $this->validate($request, [
+            'Image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+        $imageName = $request->Image->getClientOriginalName();
+        $request->Image->move(public_path('img\Sponsors'), $imageName);
+
+        Sponsor::Insert(['name' => $_POST['Name'], 'image' => $imageName, 'sponsor_url' => $_POST['URL'] ]);
 
         return Redirect::to('/cms_sponsor');
     }
 
     public function edit()
     {
-        $checked = (isset($_POST['visible'])) ? 1 : 0;
         Sponsor::Where('id', '=', $_POST['id'])->update(['name' => $_POST['name'],
             'image' => $_POST['image'], 'sponsor_url' => $_POST['sponsor_url'] ]);
 

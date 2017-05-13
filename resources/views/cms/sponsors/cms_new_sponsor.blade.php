@@ -15,13 +15,13 @@
     <br>
     <h2><b>Nieuwe sponsor</b></h2>
     <br>
-    {{ Form::open(['route' => 'create_sponsor', 'files' => true]) }}
-    {{ Form::hidden('_token', csrf_token()) }}
-    Naam: {{ Form::text('Name','',array('required' => 'required')) }} <br><br>
-    Sponsor URL: {{ Form::text('URL','',array('required' => 'required')) }} <br><br>
-    Image: {{ Form::file('Image','',array('required' => 'required')) }} <br><br>
-    <input class="btn btn-primary" type="submit" value="Opslaan">
-    {{ Form::close() }}
+    <form action="{{ route('create_sponsor') }}" enctype="multipart/form-data" method="post">
+        {{ csrf_field() }}
+        Naam: <input type="text" name="Name" /><br><br>
+        Sponsor URL: <input type="text" name="URL" /><br><br>
+        Image: <input type="file" name="Image" /><br><br>
+        <button type="submit" class="btn btn-primary">Upload</button>
+    </form>
 </div>
 
 </body>
