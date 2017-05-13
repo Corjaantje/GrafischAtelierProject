@@ -170,3 +170,14 @@ Route::any('reservation_step4', array('as' => 'reservationStep4', function()
 Route::any('ReservationStep2', ['as' => 'ReservationStep_2', 'uses' => 'SessionController@storeType']);
 Route::any('ReservationStep3', ['as' => 'ReservationStep_3', 'uses' => 'SessionController@storeDateTime']);
 Route::any('ReservationStep4', ['as' => 'ReservationStep_4', 'uses' => 'SessionController@insertReservation']);
+
+#----Sponsor CMS Routes----
+Route::get('cms_sponsor', ['as' => 'cms_sponsor', function()
+{
+    return view('cms.sponsors.cms_sponsor');
+}]);
+
+Route::get('cms/createSponsors', ['as' => 'cms_createSponsors', 'uses' => 'SponsorController@create']);
+Route::get('cms/cmsEditSponsors', ['as' => 'cms_editSponsors', 'uses' => 'SponsorController@edit']);
+Route::post('cms/cmsCreateSponsor', array('as' => 'create_sponsor', 'uses' => 'SponsorController@newSponsor'));
+Route::post('cms/cmsEditSponsor', array('as' => 'edit_sponsor', 'uses' => 'SponsorController@editSponsor'));
