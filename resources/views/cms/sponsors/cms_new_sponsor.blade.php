@@ -15,7 +15,7 @@
     <br>
     <h2><b>Nieuwe sponsor</b></h2>
     <br>
-    {{ Form::open(['route' => 'create_sponsor']) }}
+    {{ Form::open(['route' => 'create_sponsor', 'files' => true]) }}
     {{ Form::hidden('_token', csrf_token()) }}
     Naam: {{ Form::text('Name','',array('required' => 'required')) }} <br><br>
     Sponsor URL: {{ Form::text('URL','',array('required' => 'required')) }} <br><br>

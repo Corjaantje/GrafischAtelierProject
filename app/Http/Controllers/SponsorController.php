@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Sponsor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 
 class SponsorController extends Controller
@@ -13,7 +14,7 @@ class SponsorController extends Controller
         return view('cms.sponsors.cms_new_sponsor');
     }
 
-    public function newSponsor()
+    public function newSponsor(Request $request)
     {
         Sponsor::Insert(['name' => $_POST['Name'], 'image' => $_POST['Image'], 'sponsor_url' => $_POST['URL'] ]);
 
