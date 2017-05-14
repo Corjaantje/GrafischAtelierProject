@@ -17,16 +17,19 @@ class CreateNewsarticleTable extends Migration
         Schema::create('news_articles', function (Blueprint $table)
         {
             $table->increments('id')->unique();
+            $table->integer('filter_id')->unsigned();
             $table->string('title');
             $table->string('image')->nullable();
             $table->longText('description');
             $table->longText('text');
             $table->date('date');
             $table->tinyInteger('visible');
-            $table->foreign('filter_id')->references('id')->on('newsfilters');
             $table->timestamps();
         });
         
+        Schema::table('news_articles', function (Blueprint $table){
+        	$table->foreign('filter_id')->references('id')->on('newsfilters');
+        });
     }
 
     /**

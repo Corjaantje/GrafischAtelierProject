@@ -19,7 +19,11 @@
            class="{{ (($currentPage)) == "cmsUsers" ? 'active' : ' ' }}"><b>Gebruikers</b></a>
             <a href="{{URL::route('cms_courses_list')}}"
                class="{{ (($currentPage)) == "Cursus Overzicht" ? 'active' : ' ' }}"><b>Cursussen</b></a>
+        <a href="{{URL::route('cms_sponsor')}}"
+           class="{{ (($currentPage)) == "cmsSponsor" ? 'active' : ' '  }}"><b>Sponsors</b></a>
             <br>
+
+
 
         <div id="courseDropdown" class="collapse">
             <a href="{{URL::route('cms_courses_add')}}"

@@ -13,16 +13,16 @@ class NewsfilterTableSeeder extends Seeder
     {
     	DB::table('newsfilters')->delete();
     	
-    	$filters = [
-    			[
-    				'id' => 1,
-    				'name' => 'Algemeen'
-    			],
-    			[
-    				'id' => 2,
-    				'name' => 'Vacatures'
-    			]
-    	];
+    	$filters = array(
+    	    array(
+    	        'id' => 1,
+                'name' => 'Algemeen'
+            ),
+            array(
+                'id' => 2,
+                'name' => 'Vacatures'
+            )
+        );
     	
     	DB::table('newsfilters')->insert($filters);
     	

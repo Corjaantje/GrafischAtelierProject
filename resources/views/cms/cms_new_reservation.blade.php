@@ -34,6 +34,5 @@ $courseArray = App\Http\Controllers\ReservationController::getAllCourses();
     {{ Form::close() }}
     <br>
 </div>
-
 </body>
 </html>
