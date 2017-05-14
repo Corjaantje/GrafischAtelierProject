@@ -28,7 +28,7 @@
             </tr>
             @foreach ($sponsors as $sponsor)
                 <tr id="table-row-style">
-                    <td id="table-data-style"><img src="{{URL::asset('/img/Sponsors/'.$sponsor->image)}}"/></td>
+                    <td id="table-data-style"><img src="{{URL::asset('/img/Sponsors/'.$sponsor->image)}}" height="50px" width="50px"/></td>
                     <td id="table-data-style">{{$sponsor->name}}</td>
                     <td id="table-data-style">{{$sponsor->sponsor_url}}</td>
                     <td id="table-data-style"><button type="button" class="btn btn-primary" onclick="window.location='{{URL::route('editSponsor', $sponsor->id)}}'">Bewerken</button></td> <!--Todo: linken naar sponsor wijzigen-->
