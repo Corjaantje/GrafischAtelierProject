@@ -17,9 +17,9 @@
     <br>
     <form action="{{ route('create_sponsor') }}" enctype="multipart/form-data" method="post">
         {{ csrf_field() }}
-        Naam: <input type="text" name="Name" /><br><br>
-        Sponsor URL: <input type="text" name="URL" /><br><br>
-        Image: <input type="file" name="Image" /><br><br>
+        Naam: <input type="text" name="Name" required /><br><br>
+        Sponsor URL: <input type="text" name="URL" required /><br><br>
+        Image: <input type="file" name="Image" required /><br><br>
         <button type="submit" class="btn btn-primary">Upload</button>
     </form>
 </div>
