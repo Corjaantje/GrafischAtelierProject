@@ -32,6 +32,7 @@
             <th id="table-header-style">Titel</th>
             <th id="table-header-style">Omschrijving</th>
             <th id="table-header-style">Datum</th>
+            <th id="table-header-style">Categorie</th>
             <th id="table-header-style">Zichtbaar?</th>
             <th></th>
         </tr>
@@ -41,6 +42,7 @@
                 <td id="table-data-style"> {{ $article->title }}</td>
                 <td id="table-data-style"> {{ $article->description }}</td>
                 <td id="table-data-style"> {{ $article->date }}</td>
+                <td id="table-data-style"> {{ App\Newsfilter::find($article->filter_id)->name }}</td>
                 <td id="table-data-style"> {{ $article->visible }}</td>
                 <td> <button type="button" class="btn btn-primary" onclick="window.location='{{URL::route('editNewsArticle', $article->id)}}'">Bewerken</button></td>
 

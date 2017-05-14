@@ -23,7 +23,6 @@
                         {
                         	$filters[] = $filter->name;
                         }
-                        
                         $currentFilter = App\Newsfilter::find($article->filter_id);
                     @endphp
 
@@ -42,15 +41,16 @@
                     @php
                         if($article->visible == 1)
                         {
-                              echo 'Zichtbaar <input type="checkbox" checked="true"name="visible"/> <br><br>';
+                              echo 'Zichtbaar <input type="checkbox" checked="true"name="visible"/> <br>';
                         }
                         else
                         {
-                              echo 'Zichtbaar <input type="checkbox" name="visible"/> <br><br>';
+                              echo 'Zichtbaar <input type="checkbox" name="visible"/> <br>';
                         }
                     @endphp
                     Categorie: 
                     	{{ Form::select('filter_id', $filters, --$currentFilter->id) }} <br>
+                    <br>
                     <input class="btn btn-primary" type="submit" value="Opslaan"/>
                 </form>
             </div>

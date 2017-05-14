@@ -30,7 +30,7 @@ class NewsArticleController extends Controller
     private function newArticle()
     {
         $checked = (isset($_POST['visible'])) ? 1 : 0;
-        NewsArticle::Insert(['title' => $_POST['title'], 'description' => $_POST['description'], 'text' => $_POST['text'],
+        NewsArticle::Insert(['filter_id' => $_POST['filter_id'], 'title' => $_POST['title'], 'description' => $_POST['description'], 'text' => $_POST['text'],
                              'date' => $_POST['date'], 'visible' => $checked ]);
 
     }
