@@ -176,4 +176,7 @@ Route::get('cms_sponsor', ['as' => 'cms_sponsor', function()
 {
     return view('cms.sponsors.cms_sponsor');
 }]);
+
+Route::get('cms/createSponsors', ['as' => 'cms_createSponsors', 'uses' => 'SponsorController@create']);
+Route::post('cms/cmsCreateSponsor', array('as' => 'create_sponsor', 'uses' => 'SponsorController@newSponsor'));
 Route::post('cms_sponsor/verwijderen', ['as' => 'cms_sponsor_delete', 'uses' => 'SponsorController@deleteAction']);
