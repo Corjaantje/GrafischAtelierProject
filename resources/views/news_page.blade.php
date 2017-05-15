@@ -11,10 +11,16 @@
 <body>
 @include('layouts.header', array('title'=>'Nieuws'))
 <div class="container">
-    <h1 class="title text-center">Nieuws</h1>
+    <div class="title text-center">
+        <h1 class="title text-center">Nieuws</h1>
+        {{ Form::open(['route' => 'nieuws']) }}
 
+        <h4 class="title text-center">Filter</h4>
+        {{ Form::select('filter',/* todo ARRAY WITH OPTIONS HERE*/ 'Algemeen')}}
+        {{ Form::close() }}
+    </div>
     @php
-        $articles = App\NewsArticle::Where('visible', '=', '1')->get();
+            $articles = App\NewsArticle::Where('visible', '=', '1')->get();
     @endphp
 
     @foreach ($articles as $article)
@@ -23,7 +29,7 @@
                 @endif
                 <div class="col-lg-4 col-md-4 col-sm-4 col-sm-offset-0 col-xs-10 col-xs-offset-1">
                     <h1> {{ $article->title }}</h1>
-                    <img src="{{ URL::to('/') }}/img/default.png"/>
+                    <img src="{{ URL::asset('img/default.png') }}"/>
                     <p> {{ $article->description }}</p>
                     @php
                         $id = $article->id
@@ -35,7 +41,7 @@
         @endif
     @endforeach
 </div>
-</div>
+</div><br>
 @include('layouts.footer')
 </body>
 
