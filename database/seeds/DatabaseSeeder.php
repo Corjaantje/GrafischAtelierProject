@@ -20,6 +20,6 @@ class DatabaseSeeder extends Seeder
         $this->call('IndividualReservationTableSeeder');
         $this->call('TechniquesTableSeeder');
         $this->call('ProductSeeder');
-
+        $this->call('SponsorTableSeeder');
     }
 }
