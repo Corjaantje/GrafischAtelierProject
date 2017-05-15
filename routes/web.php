@@ -172,3 +172,10 @@ Route::any('ReservationStep3', ['as' => 'ReservationStep_3', 'uses' => 'SessionC
 Route::any('ReservationStep4', ['as' => 'ReservationStep_4', 'uses' => 'SessionController@insertReservation']);
 
 Route::get('profiel', ['as' => 'profile', 'uses' => 'ProfileController@getProfile']);
+
+#----Sponsor CMS Routes----
+Route::get('cms_sponsor', ['as' => 'cms_sponsor', function()
+{
+    return view('cms.sponsors.cms_sponsor');
+}]);
+
