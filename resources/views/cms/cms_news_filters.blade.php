@@ -43,10 +43,13 @@ $filters = App\Newsfilter::all();
 
             </td>
             <td>
-                  {{ Form::open(['route' => 'cms_newsfilters_remove', 'onsubmit' => 'return confirm("I am absolutely pointless")']) }}
-                  {{ Form::hidden('id', $filter->id) }}
-                  <input class="btn btn-danger" type="submit" value="Verwijderen">
-                  {{ Form::close()}}
+            	{{ Form::open(['route' => 'cms_newsfilters_remove', 'onsubmit' => 'return confirm("Als u deze filter verwijderd worden alle artikelen uit deze categorie verplaatst naar de standaard categorie")']) }}
+            	{{ Form::hidden('id', $filter->id) }}
+            	<!-- dit zorgt ervoor dat de standaard filter niet verwijderd kan worden -->
+            	@if($filter->id != 1)
+            		<input class="btn btn-danger" type="submit" value="Verwijderen">
+            	@endif
+            	{{ Form::close()}}
             </td>
         </tr>
 		
