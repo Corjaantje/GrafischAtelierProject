@@ -32,7 +32,12 @@
                 <td id="table-data-style">{{$sponsor->name}}</td>
                 <td id="table-data-style">{{$sponsor->sponsor_url}}</td>
                 <td id="table-data-style"><button type="button" class="btn btn-primary" onclick="window.location='{{URL::route('editNewsArticle', $sponsor->id)}}'">Bewerken</button></td> <!--Todo: linken naar sponsor wijzigen-->
-                <td id="table-data-style"><button type="button" class="btn btn-primary" onclick="window.location='{{URL::route('editNewsArticle', $sponsor->id)}}'">Verwijderen</button></td> <!--Todo: Linken naar sponsor verwijderen-->
+                <td id="table-data-style">
+                    {{ Form::open(['route' => 'cms_sponsor_delete', 'onsubmit' => 'return confirm("Weet u zeker dat u deze sponsor wilt verwijderen?")']) }}
+                    {{ Form::hidden('id', $sponsor->id) }}
+                    <input class="btn btn-danger" type="submit" value="Verwijderen">
+                    {{ Form::close()}}
+                </td>
             </tr>
 
         @endforeach
