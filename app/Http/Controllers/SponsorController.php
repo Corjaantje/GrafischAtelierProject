@@ -21,6 +21,7 @@ class SponsorController extends Controller
             'Image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         $imageName = $request->Image->getClientOriginalName();
+
         $request->Image->move(public_path('img\Sponsors'), $imageName);
 
         Sponsor::Insert(['name' => $_POST['Name'], 'image' => $imageName, 'sponsor_url' => $_POST['URL'] ]);
