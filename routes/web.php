@@ -201,3 +201,6 @@ Route::get('chimp', array('as' => 'chimp', function ()
 {
     return view('chimp_test');
 }));
+Route::get('aboneren', ['as' => 'aboneren', 'uses' => 'SubscriptionController@showSubscriptionPage']);
+Route::post('aboneren', ['as' => 'aboneren_aanvraag', 'uses' => 'SubscriptionController@addSubscription']);
+
