@@ -13,7 +13,7 @@
     <div  class="container-cms">
         {{ Form::open(['route' => 'edit_sponsor']) }}
             <input type="hidden" name="_token" value=" {{ csrf_token() }} " >
-        <!-- Het $parts gedeelte pakt de huidige url, split hem vervolgens op '/' en neemt daar het laatste deel van, oftewel het ID -->
+        <!-- $parts takes the current url, the url will be split on '/' and the last part will be taken, the ID -->
             @php
                 $parts=parse_url(url()->current());
                 $path_parts=explode('/', $parts['path']);
