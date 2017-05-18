@@ -23,11 +23,11 @@
             <input type="hidden" name="id" value="{{ $sponsor->id}}" />
             <br> <br>
             Name: <br>
-            <input type="text" name="name" value="{{$sponsor->name}}" required> <br> <br>
+            <input type="text" name="Name" value="{{$sponsor->name}}" required> <br> <br>
             Image:
             <input type="file" accept=".jpeg, .jpg, .png" name="image" value="{{$sponsor->image}}" required> <br>
             Sponsor URL: <br>
-            <input type="url" name="sponsor_url" value="{{$sponsor->sponsor_url}}" required> <br><br>
+            <input type="url" name="URL" value="{{$sponsor->sponsor_url}}" required> <br><br>
             <input class="btn btn-primary" type="submit" value="Opslaan"/>
         {{ Form::close() }}
     </div>
