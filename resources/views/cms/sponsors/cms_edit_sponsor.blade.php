@@ -14,6 +14,7 @@
     <div  class="container-cms">
         {{ Form::open(['route' => 'edit_sponsor']) }}
             <input type="hidden" name="_token" value=" {{ csrf_token() }} " >
+        <!-- Het $parts gedeelte pakt de huidige url, split hem vervolgens op '/' en neemt daar het laatste deel van, oftewel het ID -->
             @php
                 $parts=parse_url(url()->current());
                 $path_parts=explode('/', $parts['path']);
@@ -22,9 +23,9 @@
 
             <input type="hidden" name="id" value="{{ $sponsor->id}}" />
             <br> <br>
-            Name: <br>
+            Naam: <br>
             <input type="text" name="Name" value="{{$sponsor->name}}" required> <br> <br>
-            Image:
+            Afbeelding:
             <input type="file" accept=".jpeg, .jpg, .png" name="image" value="{{$sponsor->image}}" required> <br>
             Sponsor URL: <br>
             <input type="url" name="URL" value="{{$sponsor->sponsor_url}}" required> <br><br>
