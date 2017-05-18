@@ -9,9 +9,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body class="body-cms">
-@if (Auth::check() && Auth::user()->role == "admin")
 @include('layouts.cms_navigation', array('currentPage'=>'cmsSponsors'))
-
 <div class="container-cms">
     <br>
     <h2><b>Nieuwe sponsor</b></h2>
@@ -24,9 +22,5 @@
         <button type="submit" class="btn btn-primary">Upload</button>
     </form>
 </div>
-
-    @else
-    <script>window.location.href = "{{ route('403') }}"</script>
-@endif
 </body>
 </html>

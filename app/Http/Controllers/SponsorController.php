@@ -12,7 +12,14 @@ class SponsorController extends Controller
 {
     public function create()
     {
-        return view('cms.sponsors.cms_new_sponsor');
+        if(!Auth::check() && Auth::user()->role == "admin")
+        {
+            return Redirect::to('403');
+        }
+        else
+        {
+            return view('cms.sponsors.cms_new_sponsor');
+        }
     }
 
     public function newSponsor(Request $request)

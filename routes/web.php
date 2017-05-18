@@ -185,7 +185,14 @@ Route::get('cms/edit_sponsor/{sponsorNumber}', array('as' => 'editSponsor', func
     $data = array(
         'id' => $sponsorNumber
     );
-    return view('cms.sponsors.cms_edit_sponsor', $data);
+    if(!Auth::check() && Auth::user()->role == "admin")
+    {
+        return \Illuminate\Support\Facades\Redirect::to('403');
+    }
+    else
+    {
+        return view('cms.sponsors.cms_edit_sponsor', $data);
+    }
 }));
 
 Route::post('cms_sponsor/verwijderen', ['as' => 'cms_sponsor_delete', 'uses' => 'SponsorController@deleteAction']);
