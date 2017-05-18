@@ -9,7 +9,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-@include('layouts.header', array('title'=>'Home'))
+@include('layouts.header', array('title'=>'401 - Authentication Error'))
 <div class="container">
     <div class="text-center">
         <h1>401!</h1>
