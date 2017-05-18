@@ -9,7 +9,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body class="body-cms">
-    @include('layouts.cms_navigation', array('currentPage'=>'cmsSponsors'))
+    @include('layouts.cms_navigation', array('currentPage'=>'CMS - Edit Sponsor'))
     <div  class="container-cms">
         {{ Form::open(['route' => 'edit_sponsor']) }}
             <input type="hidden" name="_token" value=" {{ csrf_token() }} " >

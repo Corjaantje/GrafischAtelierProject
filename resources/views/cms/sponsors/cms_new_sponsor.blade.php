@@ -9,7 +9,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body class="body-cms">
-@include('layouts.cms_navigation', array('currentPage'=>'cmsSponsors'))
+@include('layouts.cms_navigation', array('currentPage'=>'CMS - New Sponsor'))
 <div class="container-cms">
     <br>
     <h2><b>Nieuwe sponsor</b></h2>

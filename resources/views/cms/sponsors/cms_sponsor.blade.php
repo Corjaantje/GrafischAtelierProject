@@ -1,7 +1,7 @@
 @php
     $sponsors = App\Sponsor::all();
 @endphp
-        <!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" class="html-cms">
 <head>
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/app.css') }}">
@@ -13,7 +13,7 @@
 </head>
 <body class="body-cms">
 @if (Auth::check() && Auth::user()->role == "admin")
-    @include('layouts.cms_navigation', array('currentPage'=>'Sponsor Overzicht'))
+    @include('layouts.cms_navigation', array('currentPage'=>'CMS - Sponsor Overzicht'))
     <div class="container-cms">
         <br><br>
         <button type="button" class="btn btn-primary"  onclick="window.location='{{URL::route('cms_createSponsors')}}'">Sponsor toevoegen</button>  <!--Todo: linken naar sponsor aanmaken-->
