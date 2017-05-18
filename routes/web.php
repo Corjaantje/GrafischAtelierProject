@@ -29,9 +29,8 @@ Route::get('artikel/{ArtikelNr}', function ($ArtikelNr) {
 });
 
 #----Standard Page Routes----
-Route::get('nieuws', array('as' => 'nieuws', function () {
-    return view('news_page');
-}));
+Route::get('nieuws', ['as' => 'nieuws', 'uses' => 'NewsPageController@index']);
+Route::post('nieuws', array('as' => 'nieuwsFilter', 'uses' => 'NewsPageController@setFilter'));
 
 Route::get('werkplaats', array('as' => 'werkplaats', function () {
     return view('workplace');

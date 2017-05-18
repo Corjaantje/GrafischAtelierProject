@@ -13,28 +13,23 @@
 <div class="container">
     <div class="title text-center">
         <h1 class="title text-center">Nieuws</h1>
-        {{ Form::open(['route' => 'nieuws']) }}
+        {{ Form::open(['route' => 'nieuwsFilter']) }}
 
-        <h4 class="title text-center">Filter</h4>
-        {{ Form::select('filter',/* todo ARRAY WITH OPTIONS HERE*/ 'Algemeen')}}
+        {{ Form::select('filter', $filterOptions, $selectedFilter)}} <br><br>
+        <input class="btn btn-info"  type="submit" value="Filter Aanpassen">
+
         {{ Form::close() }}
     </div>
-    @php
-            $articles = App\NewsArticle::Where('visible', '=', '1')->get();
-    @endphp
-
     @foreach ($articles as $article)
         @if( ($loop->index % 3) == 0 )
             <div class="row">
                 @endif
                 <div class="col-lg-4 col-md-4 col-sm-4 col-sm-offset-0 col-xs-10 col-xs-offset-1">
                     <h1> {{ $article->title }}</h1>
-                    <img src="{{ URL::asset('img/default.png') }}"/>
-                    <p> {{ $article->description }}</p>
-                    @php
-                        $id = $article->id
-                    @endphp
-                    <a href="artikel/{{$id}}">LEES MEER</a>
+                    <h4> <i>{{ \App\Newsfilter::find($article->filter_id)->name }} - {{ $article->date }}</i></h4>
+                    <p> {{ $article->description }}</p><br>
+                    @php echo substr($article->text, 0, 500)."..." @endphp <br>
+                    <a href="artikel/{{$article->id}}">LEES MEER</a>
                 </div>
                 @if( ($loop->index % 3) == 2)
             </div>
