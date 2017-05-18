@@ -18,9 +18,9 @@ echo $statusMsg;
 <p><input type="submit" name="submit" value="SUBSCRIBE"/></p>
 {{Form::close()}}
 
-<p><?php  if (isset($Message))
+<p><?php  if (isset($message))
     {
-        echo $Message;
+        echo $message;
     } ?> </p>
 
 </body>

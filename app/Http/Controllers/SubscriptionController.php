@@ -60,10 +60,10 @@ class SubscriptionController extends Controller
             $user = Auth::user();
             $url = 'https://' . $this->dataCenter . '.api.mailchimp.com/3.0/lists/' . $this->listID . '/members/' . md5(strtolower($user->email));
 
-            if ($this->getStatus() != null)
+            if ($this->getStatus($user->email) != null)
             {
                 // warning the default case is subscribed, which might not be entirely safe spam wise.
-                if ($this->getStatus() == 'subscribed')
+                if ($this->getStatus($user->email) == 'subscribed')
                 {
                     $json = json_encode([
                         'status' => 'unsubscribed',
@@ -127,7 +127,7 @@ class SubscriptionController extends Controller
                 }
             }
         }
-        return view('subscription_page');
+        return view('errors.404');
     }
 
     private function validateInformation()
@@ -146,35 +146,29 @@ class SubscriptionController extends Controller
         return $data;
     }
 
-    private function getStatus()
+    public function getStatus($email)
     {
-        if (Auth::check())
-        {
-            $url = 'https://' . $this->dataCenter . '.api.mailchimp.com/3.0/lists/' . $this->listID . '/members/' . md5(strtolower(Auth::user()->email));
 
-            $ch = curl_init($url);
-            curl_setopt($ch, CURLOPT_USERPWD, 'SOQ:' . $this->apiKey);
-            curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_TIMEOUT, 10);
-            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-            $result = curl_exec($ch);
-            $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-            curl_close($ch);
+        $url = 'https://' . $this->dataCenter . '.api.mailchimp.com/3.0/lists/' . $this->listID . '/members/' . md5(strtolower($email));
 
-            if ($httpCode == 200)
-            {
-                return json_decode($result, true)['status'];
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_USERPWD, 'SOQ:' . $this->apiKey);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        $result = curl_exec($ch);
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
 
-            } else
-            {
-                return null;
-            }
-        }
+        if ($httpCode == 200) return json_decode($result, true)['status'];
+
+        return null;
     }
 
-    private function addSubscription()
+    // return 200 on succes and 400 on email already in use
+    public function addSubscription()
     {
         // error is also given in case of a non-complete post.
         $url = 'https://' . $this->dataCenter . '.api.mailchimp.com/3.0/lists/' . $this->listID . '/members';
