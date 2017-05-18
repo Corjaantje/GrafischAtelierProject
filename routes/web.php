@@ -190,6 +190,8 @@ Route::any('ReservationStep2', ['as' => 'ReservationStep_2', 'uses' => 'SessionC
 Route::any('ReservationStep3', ['as' => 'ReservationStep_3', 'uses' => 'SessionController@storeDateTime']);
 Route::any('ReservationStep4', ['as' => 'ReservationStep_4', 'uses' => 'SessionController@insertReservation']);
 
+Route::get('profiel', ['as' => 'profile', 'uses' => 'ProfileController@getProfile']);
+
 #----Sponsor CMS Routes----
 Route::get('cms_sponsor', ['as' => 'cms_sponsor', function ()
 {
@@ -203,4 +205,3 @@ Route::get('chimp', array('as' => 'chimp', function ()
 }));
 Route::get('aboneren', ['as' => 'aboneren', 'uses' => 'SubscriptionController@showSubscriptionPageGET']);
 Route::post('aboneren', ['as' => 'aboneren_aanvraag', 'uses' => 'SubscriptionController@showSubscriptionPagePOST']);
-Route::get('profiel_abonoment', ['as' => 'profile_subscription_change', 'uses' => 'SubscriptionController@showProfilePagePOST']);
