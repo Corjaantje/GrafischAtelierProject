@@ -25,7 +25,7 @@
             Naam: <br>
             <input type="text" name="Name" value="{{$sponsor->name}}" required> <br> <br>
             Afbeelding:
-            <input type="file" accept=".jpeg, .jpg, .png" name="image" value="{{$sponsor->image}}" required> <br>
+            <input type="file" accept=".jpeg, .jpg, .png" name="Image" value="{{$sponsor->image}}" required> <br>
             Sponsor URL: <br>
             <input type="url" name="URL" value="{{$sponsor->sponsor_url}}" required> <br><br>
             <input class="btn btn-primary" type="submit" value="Opslaan"/>
