@@ -31,7 +31,14 @@ class NewsPageController extends Controller
 
     public function setFilter()
     {
-        session()->put('newsFilter', $_POST['filter']);
+        if($_POST['filter'] != null)
+        {
+            session()->put('newsFilter', $_POST['filter']);
+        }
+        else
+        {
+            session()->put('newsFilter', 0);
+        }
         return redirect('nieuws');
     }
 }
