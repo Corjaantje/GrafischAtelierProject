@@ -181,21 +181,9 @@ Route::get('cms/createSponsors', ['as' => 'cms_createSponsors', 'uses' => 'Spons
 Route::post('cms/cmsCreateSponsor', array('as' => 'create_sponsor', 'uses' => 'SponsorController@newSponsor'));
 Route::post('cms/cmsEditSponsor', array('as' => 'edit_sponsor', 'uses' => 'SponsorController@edit'));
 
-Route::get('cms/edit_sponsor/{sponsorNumber}', array('as' => 'editSponsor', function ($sponsorNumber) {
-    $data = array(
-        'id' => $sponsorNumber
-    );
-    if(!Auth::check() && Auth::user()->role == "admin")
-    {
-        return \Illuminate\Support\Facades\Redirect::to('403');
-    }
-    else
-    {
-        return view('cms.sponsors.cms_edit_sponsor', $data);
-    }
-}));
+Route::get('cms/edit_sponsor/{sponsorNumber}', ['as' => 'editSponsor', 'uses' => 'SponsorController@editView']);
 
-Route::post('cms_sponsor/verwijderen', ['as' => 'cms_sponsor_delete', 'uses' => 'SponsorController@deleteAction']);
+Route::post('cms_sponsor/verwijderen', ['as' => 'cms_sponsor_delete', 'uses' => 'SponsorController@delete']);
 
 Route::get('403', ["as" => "403", function()
 {

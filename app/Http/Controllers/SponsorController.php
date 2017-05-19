@@ -10,8 +10,7 @@ use Auth;
 
 class SponsorController extends Controller
 {
-    //TODO: validatiecheck
-
+    //authenticatie
     private function validateUser()
     {
         if(!Auth::check() || !Auth::user()->role == "admin")
@@ -27,14 +26,14 @@ class SponsorController extends Controller
         {
             return Redirect::to('403');
         }
-        return view('cms.sponsors.cms_new_sponsor');
 
+        return view('cms.sponsors.cms_new_sponsor');
     }
 
     public function newSponsor(Request $request)
     {
-        if ($this->validateUser() === false)
-        {
+        //authenticatie
+        if ($this->validateUser() === false) {
             return Redirect::to('403');
         }
 
@@ -45,13 +44,18 @@ class SponsorController extends Controller
 
         $request->Image->move(public_path('img\Sponsors'), $imageName);
 
-        Sponsor::Insert(['name' => $_POST['Name'], 'image' => $imageName, 'sponsor_url' => $_POST['URL'] ]);
+        //validatie
+        if (isset($_POST['Name']) && isset($imageName) && isset($_POST['URL']))
+        {
+            Sponsor::Insert(['name' => $_POST['Name'], 'image' => $imageName, 'sponsor_url' => $_POST['URL'] ]);
+        }
 
         return Redirect::to('/cms_sponsor');
     }
 
     public function edit(Request $request)
     {
+        //authenticatie
         if ($this->validateUser() === false)
         {
             return Redirect::to('403');
@@ -64,29 +68,47 @@ class SponsorController extends Controller
 
         $request->Image->move(public_path('img\Sponsors'), $imageName);
 
-        Sponsor::Where('id', '=', $_POST['id'])->update(['name' => $_POST['Name'],
-            'image' => $imageName, 'sponsor_url' => $_POST['URL'] ]);
+        //validatie
+        if (isset($_POST['Name']) && isset($imageName) && isset($_POST['URL']))
+        {
+            Sponsor::Where('id', '=', $_POST['id'])->update(['name' => $_POST['Name'],
+                'image' => $imageName, 'sponsor_url' => $_POST['URL']]);
+        }
+        /* else
+         * {
+         *  return error page
+         * }
+         */
 
         return Redirect::to('/cms_sponsor');
     }
 
     function editView($sponsorNumber)
     {
+        //authenticatie
         if ($this->validateUser() === false)
         {
             return Redirect::to('403');
         }
+
         $data = ['number' => $sponsorNumber];
         return view('cms.sponsors.cms_edit_sponsor', $data);
     }
 
     function delete()
     {
+        //authenticatie
         if ($this->validateUser() === false)
         {
             return Redirect::to('403');
         }
-        Sponsor::destroy($_POST['id']);
+
+        //validatie
+        if (isset($_POST['id']))
+        {
+            Sponsor::destroy($_POST['id']);
+        }
+
         return Redirect::to('cms_sponsor');
     }
 }
