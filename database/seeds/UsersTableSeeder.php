@@ -10,7 +10,7 @@ class UsersTableSeeder extends Seeder {
 
         $users = array(
             array(
-                'first_name' => 'Jan',
+                'name' => 'Jan',
                 'last_name' => 'pieter',
                 'email' => 'jan@gmail.com',
                 'username' => 'Jan',
@@ -19,7 +19,7 @@ class UsersTableSeeder extends Seeder {
                 'address' => 'onderwijslaan 12'
             ),
             array(
-                'first_name' => 'admin',
+                'name' => 'admin',
                 'last_name' => 'de beste',
                 'email' => 'admin@admin.com',
                 'username' => 'Admin',

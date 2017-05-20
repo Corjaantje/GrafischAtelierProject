@@ -29,7 +29,7 @@ class SubscriptionController extends Controller
         // error is also given in case of a non-complete post.
         if (!$this->validateInformation()) return view('subscription_page', ['message' => 'Uw emailadress is niet geldig. Als uw emailadress wel geldig is neem dan contact op met het Grafische Atelier.']);
 
-        $httpCode = $this->addSubscription();
+        $httpCode = $this->addSubscription('subscribed');
 
         if ($httpCode == 200)
         {
@@ -105,7 +105,7 @@ class SubscriptionController extends Controller
                 $_POST['firstName'] = $user->name;
                 $_POST['lastName'] = '';
 
-                $httpCode = $this->addSubscription();
+                $httpCode = $this->addSubscription('unsubscribed');
 
                 if ($httpCode == 200)
                 {
@@ -168,14 +168,21 @@ class SubscriptionController extends Controller
     }
 
     // return 200 on succes and 400 on email already in use
-    public function addSubscription()
+    public function addSubscription($status = null)
     {
+        if ($status == 'subscribed' || $status == 'unsubscribed')
+        {
+            $tempStatus = $status;
+        } else
+        {
+            $tempStatus = 'unsubscribed';
+        }
         // error is also given in case of a non-complete post.
         $url = 'https://' . $this->dataCenter . '.api.mailchimp.com/3.0/lists/' . $this->listID . '/members';
 
         $json = json_encode([
             'email_address' => $this->cleanData($_POST['email']),
-            'status' => 'subscribed',
+            'status' => $tempStatus,
             'merge_fields' => [
                 'FNAME' => $this->cleanData($_POST['firstName']),
                 'LNAME' => $this->cleanData($_POST['lastName'])
