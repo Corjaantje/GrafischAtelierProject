@@ -1,3 +1,9 @@
+@php
+foreach(App\Newsfilter::all() as $filter)
+{
+	$filters[] = $filter->name;
+}
+@endphp
 <!DOCTYPE html>
 <html class="html-cms">
 <head>
@@ -30,6 +36,8 @@
 
 
         <input type="checkbox" name="visible" value="1" checked> <br>
+        Categorie: 
+        {{ Form::select('filter_id', $filters) }} <br>
         <br>
         <input class="btn btn-primary" type="submit" value="Aanmaken"/>
     </form>

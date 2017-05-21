@@ -19,6 +19,11 @@
                         $parts=parse_url(url()->current());
                         $path_parts=explode('/', $parts['path']);
                         $article = App\NewsArticle::where('id', '=', $path_parts[count($path_parts)-1] )->first();
+                        foreach(App\Newsfilter::all() as $filter)
+                        {
+                        	$filters[] = $filter->name;
+                        }
+                        $currentFilter = App\Newsfilter::find($article->filter_id);
                     @endphp
 
                     <input type="hidden" name="id" value="{{ $article->id}}" />
@@ -36,13 +41,16 @@
                     @php
                         if($article->visible == 1)
                         {
-                              echo 'Zichtbaar <input type="checkbox" checked="true"name="visible"/> <br><br>';
+                              echo 'Zichtbaar <input type="checkbox" checked="true"name="visible"/> <br>';
                         }
                         else
                         {
-                              echo 'Zichtbaar <input type="checkbox" name="visible"/> <br><br>';
+                              echo 'Zichtbaar <input type="checkbox" name="visible"/> <br>';
                         }
                     @endphp
+                    Categorie: 
+                    	{{ Form::select('filter_id', $filters, --$currentFilter->id) }} <br>
+                    <br>
                     <input class="btn btn-primary" type="submit" value="Opslaan"/>
                 </form>
             </div>
