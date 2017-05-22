@@ -52,4 +52,54 @@ class ProfileController extends Controller
             return view('profile', compact('userinfo', "reservedTables", "signedupCourses"));
         }
     }
+    
+    public function getChangePassword()
+    {
+    	if (!Auth::check())
+    	{
+    		return Redirect::to('login');
+    	}
+    	else
+    	{
+    		return view('change_password');
+    	}
+    }
+    
+    public function changePassword()
+    {
+    	if(!Auth::check())
+    	{
+    		return Redirect::to('login');
+    	}
+    	else
+    	{
+    		$currentPassword = Auth::User()->passwordp;
+    		if(Hash::check($_POST['current_password'], $currentPassword))
+    		{
+    			
+    			if($_POST['new_password'] == $_POST['confirmation_password'])
+    			{
+    				$userId = Auth::User()->id;
+    				$userObj = User::find($userId);
+    				$userObj->password = Hash::make($_POST['new_password']);
+    				$userObj->save();
+    				
+    				return Redirect::to('profiel');
+    			}
+    			else 
+    			{
+    				
+    				return Redirect::to('wachtwoord_wijzigen'); 
+    			}
+    			
+    		}
+    		else 
+    		{
+    			
+    			return Redirect::to('wachtwoord_wijzigen'); 
+    		}
+    		
+    	}
+    }
+    
 }

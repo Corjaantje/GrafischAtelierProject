@@ -173,6 +173,9 @@ Route::any('ReservationStep4', ['as' => 'ReservationStep_4', 'uses' => 'SessionC
 
 Route::get('profiel', ['as' => 'profile', 'uses' => 'ProfileController@getProfile']);
 
+Route::get('wachtwoord_wijzigen', ['as' => 'change_password', 'uses' => 'ProfileController@getChangePassword']);
+Route::post('wachtwoord_wijzigen_actie', ['as' => 'change_password_action', 'uses' => 'ProfileController@changePassword']);
+
 #----Sponsor CMS Routes----
 Route::get('cms_sponsor', ['as' => 'cms_sponsor', function()
 {

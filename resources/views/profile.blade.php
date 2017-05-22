@@ -47,6 +47,7 @@
                     echo $course."<br>";
                 }
             @endphp
+            
         </div>
     </div>
 </div>
