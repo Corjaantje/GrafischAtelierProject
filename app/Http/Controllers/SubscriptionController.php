@@ -7,6 +7,12 @@ use Illuminate\Support\Facades\Auth;
 
 class SubscriptionController extends Controller
 {
+    /*// Peters mailchimp keys en listID
+    private $apiKey = '5ea0382d7019111b5aa170d369bee4f6-us11';
+    //  key number 2 edb8c93d45388229498845e2ad9eeda4-us11
+    private $listID = '2d1e53d478';*/
+
+
     // keys corrospond with test acount , not peters acount.
     private $apiKey = '6f9fd4af7d2ae16d0d6d2686266c03ac-us15';
     private $listID = '0f1d25b386';
