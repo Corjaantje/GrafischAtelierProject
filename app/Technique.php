@@ -11,4 +11,10 @@ class Technique extends Model
     protected $primaryKey = 'id';
     public $incrementing = true;
     public $timestamps = false;
+
+    public static function getTechniqueByTableID($id)
+    {
+        $tables = Table::where('id', $id)->first();
+        return self::where('id', $tables->technique_id)->first()->name;
+    }
 }

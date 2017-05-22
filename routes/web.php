@@ -29,9 +29,8 @@ Route::get('artikel/{ArtikelNr}', function ($ArtikelNr) {
 });
 
 #----Standard Page Routes----
-Route::get('nieuws', array('as' => 'nieuws', function () {
-    return view('news_page');
-}));
+Route::get('nieuws', ['as' => 'nieuws', 'uses' => 'NewsPageController@index']);
+Route::post('nieuws', array('as' => 'nieuwsFilter', 'uses' => 'NewsPageController@setFilter'));
 
 Route::get('werkplaats', array('as' => 'werkplaats', function () {
     return view('workplace');
@@ -130,6 +129,11 @@ Route::post('cms/cmsCreateReservation', array('as' => 'create_reservation', 'use
 
 Route::get('cms/users', ['as' => 'cms_users', 'uses' => 'UserController@create']);
 Route::post('cms/cmsCreateUser', array('as' => 'create_user', 'uses' => 'UserController@newUser'));
+#-------Nieuwsfilter-------
+Route::get('cms/nieuwsfilters', array('as' => 'cms_newsfilters', 'uses' => 'NewsfilterController@createList'));
+Route::get('cms/nieuwsfilters/toevoegen', array('as' => 'cms_newsfilters_add', 'uses' => 'NewsfilterController@createAdd'));
+Route::post('cms/nieuwsfilters/bewerken', array('as' => 'cms_newsfilters_edit', 'uses' => 'NewsfilterController@createEdit'));
+Route::post('cms/nieuwsfilters/verwijderen', array('as' => 'cms_newsfilters_remove', 'uses' => 'NewsfilterController@removeFilter'));
 
 #----Manage Courses Routes----
 Route::get('cms/cursus', ['as' => 'cms_courses_list', 'uses' => 'CoursesController@createList']);
@@ -171,6 +175,8 @@ Route::any('ReservationStep2', ['as' => 'ReservationStep_2', 'uses' => 'SessionC
 Route::any('ReservationStep3', ['as' => 'ReservationStep_3', 'uses' => 'SessionController@storeDateTime']);
 Route::any('ReservationStep4', ['as' => 'ReservationStep_4', 'uses' => 'SessionController@insertReservation']);
 
+Route::get('profiel', ['as' => 'profile', 'uses' => 'ProfileController@getProfile']);
+
 #----Sponsor CMS Routes----
 Route::get('cms_sponsor', ['as' => 'cms_sponsor', function()
 {
@@ -189,3 +195,4 @@ Route::get('403', ["as" => "403", function()
 {
     return view('errors/403');
 }]);
+

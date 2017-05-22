@@ -11,6 +11,9 @@ class NewsArticleController extends Controller
     //
     public function insertNewsArticle()
     {
+    	//de array van de filter dropdown heeft als eerste index 0, de database heeft als eerste index 1.
+    	//voor conversie wordt het filter id met 1 verhoogd
+    	$_POST['filter_id']++;
         if ($_POST['id'] == -1 )
         {
             $this->newArticle();
@@ -27,7 +30,7 @@ class NewsArticleController extends Controller
     private function newArticle()
     {
         $checked = (isset($_POST['visible'])) ? 1 : 0;
-        NewsArticle::Insert(['title' => $_POST['title'], 'description' => $_POST['description'], 'text' => $_POST['text'],
+        NewsArticle::Insert(['filter_id' => $_POST['filter_id'], 'title' => $_POST['title'], 'description' => $_POST['description'], 'text' => $_POST['text'],
                              'date' => $_POST['date'], 'visible' => $checked ]);
 
     }
@@ -37,7 +40,7 @@ class NewsArticleController extends Controller
     private function editArticle() //TODO add argument that will be edited
     {
         $checked = (isset($_POST['visible'])) ? 1 : 0;
-        NewsArticle::Where('id', '=', $_POST['id'])->update(['title' => $_POST['title'],
+        NewsArticle::Where('id', '=', $_POST['id'])->update(['filter_id' => $_POST['filter_id'], 'title' => $_POST['title'],
                            'description' => $_POST['description'], 'text' => $_POST['text'], 'date' => $_POST['date'], 'visible' => $checked ]);
     }
 
