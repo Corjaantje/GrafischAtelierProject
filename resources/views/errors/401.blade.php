@@ -9,11 +9,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-@include('layouts.header', array('title'=>'404 - Page not found'))
+@include('layouts.header', array('title'=>'401 - Authentication Error'))
 <div class="container">
     <div class="text-center">
-        <h1>404!</h1>
-        <div>De pagina die u zocht is niet hier!</div>
+        <h1>401!</h1>
+        <div>Authentication Error</div>
     </div>
 </div>
 @include('layouts.footer')

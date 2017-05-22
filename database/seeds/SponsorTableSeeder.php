@@ -17,7 +17,7 @@ class SponsorTableSeeder extends Seeder
             array(
                 'id' => 1,
                 'name' => "Willem II Fabriek",
-                'image' => "w2.png",
+                'image' => "w2f_logo.png",
                 'sponsor_url' => "https://www.willem-twee.nl/"
             )
         );

@@ -183,3 +183,16 @@ Route::get('cms_sponsor', ['as' => 'cms_sponsor', function()
     return view('cms.sponsors.cms_sponsor');
 }]);
 
+Route::get('cms/createSponsors', ['as' => 'cms_createSponsors', 'uses' => 'SponsorController@create']);
+Route::post('cms/cmsCreateSponsor', array('as' => 'create_sponsor', 'uses' => 'SponsorController@newSponsor'));
+Route::post('cms/cmsEditSponsor', array('as' => 'edit_sponsor', 'uses' => 'SponsorController@edit'));
+
+Route::get('cms/edit_sponsor/{sponsorNumber}', ['as' => 'editSponsor', 'uses' => 'SponsorController@editView']);
+
+Route::post('cms_sponsor/verwijderen', ['as' => 'cms_sponsor_delete', 'uses' => 'SponsorController@delete']);
+
+Route::get('403', ["as" => "403", function()
+{
+    return view('errors/403');
+}]);
+
