@@ -20,6 +20,7 @@ class CreateSponsorTable extends Migration
             $table->string('name')->unique();
             $table->string('image');
             $table->string('sponsor_url');
+            $table->timestamps();
         });
     }
 

@@ -29,9 +29,8 @@ Route::get('artikel/{ArtikelNr}', function ($ArtikelNr) {
 });
 
 #----Standard Page Routes----
-Route::get('nieuws', array('as' => 'nieuws', function () {
-    return view('news_page');
-}));
+Route::get('nieuws', ['as' => 'nieuws', 'uses' => 'NewsPageController@index']);
+Route::post('nieuws', array('as' => 'nieuwsFilter', 'uses' => 'NewsPageController@setFilter'));
 
 Route::get('werkplaats', array('as' => 'werkplaats', function () {
     return view('workplace');
@@ -176,8 +175,24 @@ Route::any('ReservationStep2', ['as' => 'ReservationStep_2', 'uses' => 'SessionC
 Route::any('ReservationStep3', ['as' => 'ReservationStep_3', 'uses' => 'SessionController@storeDateTime']);
 Route::any('ReservationStep4', ['as' => 'ReservationStep_4', 'uses' => 'SessionController@insertReservation']);
 
+Route::get('profiel', ['as' => 'profile', 'uses' => 'ProfileController@getProfile']);
+
 #----Sponsor CMS Routes----
 Route::get('cms_sponsor', ['as' => 'cms_sponsor', function()
 {
     return view('cms.sponsors.cms_sponsor');
 }]);
+
+Route::get('cms/createSponsors', ['as' => 'cms_createSponsors', 'uses' => 'SponsorController@create']);
+Route::post('cms/cmsCreateSponsor', array('as' => 'create_sponsor', 'uses' => 'SponsorController@newSponsor'));
+Route::post('cms/cmsEditSponsor', array('as' => 'edit_sponsor', 'uses' => 'SponsorController@edit'));
+
+Route::get('cms/edit_sponsor/{sponsorNumber}', ['as' => 'editSponsor', 'uses' => 'SponsorController@editView']);
+
+Route::post('cms_sponsor/verwijderen', ['as' => 'cms_sponsor_delete', 'uses' => 'SponsorController@delete']);
+
+Route::get('403', ["as" => "403", function()
+{
+    return view('errors/403');
+}]);
+
