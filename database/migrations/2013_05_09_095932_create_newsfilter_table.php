@@ -18,6 +18,7 @@ class CreateNewsfilterTable extends Migration
         {
             $table->increments('id')->unique();
             $table->string('name')->unique();
+            $table->timestamps();
         });
     }
 

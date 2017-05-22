@@ -135,6 +135,9 @@ Route::get('cms/nieuwsfilters/toevoegen', array('as' => 'cms_newsfilters_add', '
 Route::post('cms/nieuwsfilters/bewerken', array('as' => 'cms_newsfilters_edit', 'uses' => 'NewsfilterController@createEdit'));
 Route::post('cms/nieuwsfilters/verwijderen', array('as' => 'cms_newsfilters_remove', 'uses' => 'NewsfilterController@removeFilter'));
 
+Route::post('cms/nieuwsfilters/toevoegen/opslaan', array('as' => 'cms_newsfilters_add_save', 'uses' => 'NewsfilterController@newFilter'));
+Route::post('cms/nieuwsfilter/bewerken/opslaan', array('as' => 'cms_newsfilters_edit_save', 'uses' => 'NewsfilterController@editFilter'));
+
 #----Manage Courses Routes----
 Route::get('cms/cursus', ['as' => 'cms_courses_list', 'uses' => 'CoursesController@createList']);
 Route::get('cms/cursus/toevoegen', ['as' => 'cms_courses_add', 'uses' => 'CoursesController@createAdd']);
