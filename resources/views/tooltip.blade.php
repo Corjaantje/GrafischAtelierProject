@@ -1,1 +1,1 @@
-<img width="50px" height="50px" src="https://cdn3.iconfinder.com/data/icons/ose/Help-and-Support.png" data-toggle="tooltip" title="{{ $text }}">
+<img width="50px" height="50px" src="../../public/img/tooltip.png" data-toggle="tooltip" title="{{ $text }}">
