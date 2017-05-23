@@ -12,11 +12,9 @@ class NewsfilterController extends Controller
 {
     public function createList()
     {
-        if($this->checkAdmin()) {
+        if ($this->checkAdmin()) {
             return view("cms.cms_news_filters");
-        }
-        else
-        {
+        } else {
             return Redirect::to('403');
         }
     }
@@ -26,20 +24,16 @@ class NewsfilterController extends Controller
         if ($this->checkAdmin()) {
             $matchingFilter = Newsfilter::find($_POST['id']);
             return view("cms.cms_edit_newsfilter", compact('matchingFilter'));
-        }
-        else
-        {
+        } else {
             return Redirect::to('403');
         }
     }
 
     public function createAdd()
     {
-        if($this->checkAdmin()) {
+        if ($this->checkAdmin()) {
             return view("cms.cms_new_newsfilter");
-        }
-        else
-        {
+        } else {
             return Redirect::to('403');
         }
     }
@@ -85,10 +79,8 @@ class NewsfilterController extends Controller
 
     private function checkAdmin()
     {
-        if (Auth::check()) {
-            if (Auth::user()->role == "admin") {
-                return true;
-            }
+        if (Auth::check() || Auth::user()->role == "admin") {
+            return true;
         }
         return false;
     }
