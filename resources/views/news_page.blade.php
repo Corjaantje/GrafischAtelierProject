@@ -11,12 +11,12 @@
 <body>
 @include('layouts.header', array('title'=>'Nieuws'))
 <div class="container">
-    <div class="title text-center">
-        <h1 class="title text-center">Nieuws</h1>
-        {{ Form::open(['route' => 'nieuwsFilter']) }}
+    <h1 class="title text-center">Nieuws</h1>
 
-        {{ Form::select('filter', $filterOptions, $selectedFilter)}} <br><br>
-        <input class="btn btn-info"  type="submit" value="Filter Aanpassen">
+    <div class="title text-center">
+        {{ Form::open(['route' => 'nieuwsFilter', 'id' => 'form']) }}
+
+        {{ Form::select('filter', $filterOptions, $selectedFilter, array('onchange' => 'sendForm()'))}} <br><br>
 
         {{ Form::close() }}
     </div>
@@ -38,6 +38,7 @@
 </div>
 </div><br>
 @include('layouts.footer')
+<script> function sendForm(){document.getElementById('form').submit()}</script>
 </body>
 
 </html>
