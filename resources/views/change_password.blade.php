@@ -9,27 +9,32 @@
 </head>
 <body>
 @include('layouts.header', array('title'=>'Profiel - '.Auth::user()->username))
+<div class="profile">
+	<div class="row"></div>
 
-<h1>Wachtwoord wijzigen</h1>
+		<h1>Wachtwoord wijzigen</h1>
+	
+		@isset($error)
+			<h2>{{$error}}</h2>
+		@endisset
+	
+		{{Form::open(['route' => 'change_password_action'])}}
+	
+		Huidig wachtwoord:<br>
+		{{Form::password('current_password', array('required' => 'required'))}}<br>
+	
+		Nieuw wachtwoord:<br>
+		{{Form::password('new_password', array('required' => 'required'))}}<br>
+	
+		Bevestig nieuw wachtwoord:<br>
+		{{Form::password('confirmation_password', array('required' => 'required'))}}<br>
+	
+		<input type="submit" value="Opslaan" class="btn btn-primary"/>
+	
+		{{Form::close()}}
 
-@isset($error)
-	<h2>{{$error}}</h2>
-@endisset
-
-{{Form::open(['route' => 'change_password_action'])}}
-
-Huidig wachtwoord:<br>
-{{Form::password('current_password', array('required' => 'required'))}}<br>
-
-Nieuw wachtwoord:<br>
-{{Form::password('new_password', array('required' => 'required'))}}<br>
-
-Bevestig nieuw wachtwoord:<br>
-{{Form::password('confirmation_password', array('required' => 'required'))}}<br>
-
-<input type="submit" value="Opslaan" class="btn btn-primary"/>
-
-{{Form::close()}}
+	</div>
+</div>
 
 @include('layouts.footer')
 </body>
