@@ -23,7 +23,8 @@
         <h1>Welkom <b>@php echo Auth::user()->name; @endphp</b>!</h1>
         <h3>Handleiding link: </h3>
         <div class="container">
-            <img width="50px" height="50px" src="https://cdn3.iconfinder.com/data/icons/ose/Help-and-Support.png" data-toggle="tooltip" title="Tooltip tekst">
+            <!--IMAGE MOET NOG WORDEN VERVANGEN MET DE ZELFGEMAAKTE IMAGE-->
+            @include('tooltip', array('text'=>'Tooltip tekst voor cms home'))
         </div>
     </div>
     <!---->
