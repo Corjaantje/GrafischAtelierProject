@@ -467,22 +467,30 @@ a.active {
   border-radius: 25px; }
 
 .tooltip {
-  position: relative;
-  display: inline-block;
-  border-bottom: 1px dotted black; }
+  display: inline;
+  position: relative; }
 
-.tooltip .tooltip-text {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
+.tooltip:hover:after {
+  background: #333;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 5px;
+  bottom: 26px;
   color: #fff;
-  text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
+  content: attr(title);
+  left: 20%;
+  padding: 5px 15px;
   position: absolute;
-  z-index: 500 !important; }
+  z-index: 98;
+  width: 220px; }
 
-.tooltip:hover .tooltip-text {
-  visibility: visible; }
+.tooltip:hover:before {
+  border: solid;
+  border-color: #333 transparent;
+  border-width: 6px 6px 0 6px;
+  bottom: 20px;
+  content: "";
+  left: 50%;
+  position: absolute;
+  z-index: 99; }
 
 /*# sourceMappingURL=app.css.map */
