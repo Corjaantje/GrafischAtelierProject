@@ -9,24 +9,21 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body class="body-cms">
-@if (Auth::check() && Auth::user()->role == "admin")
-    @include('layouts.cms_navigation', array('currentPage'=>'Nieuwsfilters'))
-    <div class="container-cms">
+@include('layouts.cms_navigation', array('currentPage'=>'Nieuwsfilters'))
+<div class="container-cms">
 
-        <h2><b>Nieuwsfilter bewerken</b></h2>
-         {{ Form::open(['route' => 'cms_newsfilters_edit_save']) }}
-         {{ Form::hidden('id', $matchingFilter->id) }}
-         <!-- hidden "_token" is necessary for laravel, will throw tokenmismatch exception if not included -->
-        {{ Form::hidden('_token', csrf_token()) }}
-        Naam: {{ Form::text('name', $matchingFilter->name, array('required' => 'required')) }} <br><br>
+    <h2><b>Nieuwsfilter bewerken</b></h2>
+{{ Form::open(['route' => 'cms_newsfilters_edit_save']) }}
+{{ Form::hidden('id', $matchingFilter->id) }}
+<!-- hidden "_token" is necessary for laravel, will throw tokenmismatch exception if not included -->
+    {{ Form::hidden('_token', csrf_token()) }}
+    Naam: {{ Form::text('name', $matchingFilter->name, array('required' => 'required')) }} <br><br>
 
-        <input class="btn btn-primary" type="submit" value="Wijzigen">
+    <input class="btn btn-primary" type="submit" value="Wijzigen">
 
-        {{ Form::close() }}
+    {{ Form::close() }}
 
-    </div>
-@else
-    <script>window.location.href = "{{ route('login') }}"</script>
-@endif
+</div>
+
 </body>
 </html>
