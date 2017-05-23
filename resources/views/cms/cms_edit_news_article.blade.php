@@ -16,12 +16,15 @@
                     <input type="hidden" name="_token" value=" {{ csrf_token() }} " >
                     <!-- Het $parts gedeelte pakt de huidige url, split hem vervolgens op '/' en neemt daar het laatste deel van, oftewel het ID -->
                     @php
+                    //Sketchy code from Rick that needs to be refactored in the future by ways of controller passing
                         $parts=parse_url(url()->current());
                         $path_parts=explode('/', $parts['path']);
                         $article = App\NewsArticle::where('id', '=', $path_parts[count($path_parts)-1] )->first();
-                        foreach(App\Newsfilter::all() as $filter)
+                        $filters = array();
+                        $filterList = App\Newsfilter::all();
+                        foreach($filterList as $filter)
                         {
-                        	$filters[] = $filter->name;
+                        	$filters[$filter->id-1] = $filter->name;
                         }
                         $currentFilter = App\Newsfilter::find($article->filter_id);
                     @endphp
