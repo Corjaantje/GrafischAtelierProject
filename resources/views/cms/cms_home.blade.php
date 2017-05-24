@@ -7,11 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $('[data-toggle="tooltip"]').tooltip();
-        });
-    </script>
 </head>
 <body class="body-cms">
 @if (Auth::check() && Auth::user()->role == "admin")
@@ -22,15 +17,10 @@
         <br>
         <h1>Welkom <b>@php echo Auth::user()->name; @endphp</b>!</h1>
         <h3>Handleiding link: </h3>
-            @include('tooltip', array('text'=>'Tooltip tekst voor cms home'))
     </div>
-    <!---->
     </div>
-
 @else
-
     <script>window.location.href = "{{ route('login') }}"</script>
-
 @endif
 </body>
 </html>

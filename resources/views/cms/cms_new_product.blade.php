@@ -14,13 +14,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
 </head>
 <body class="body-cms">
 @include('layouts.cms_navigation', array('currentPage'=>'cmsProduct'))
 
 <div class="container-cms">
-<br>
-    <h2><b>Nieuw Product</b></h2>
+    <br><br>
+    <h2><b>Nieuw product</b> @include('tooltip', array('text'=>'Tooltip tekst voor cms producten')) </h2>
     <br>
 {{ Form::open(['route' => 'create_product']) }}
 
