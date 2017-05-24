@@ -21,8 +21,8 @@ $filters = App\Newsfilter::all();
 
 	@include('layouts.cms_navigation', array('currentPage'=>'Nieuwsfilters'))
 	<div class="container-cms">
-    <br><br>
-	<h2><b>Nieuwsfilters overzicht</b> @include('tooltip', array('text'=>'Tooltip tekst voor cms nieuwsfilters')) </h2>
+    <br><br><br>
+	<h2><b>Nieuwsfilters overzicht</b> @include('tooltip', array('text'=>'Hier zie je het overzicht van de verschillende nieuwsfilters. Deze worden gebruikt om te filteren op bepaalde types nieuws.')) </h2>
 	<!--CONTENT IN HERE-->
 	<button type="button" class="btn btn-primary" onclick="window.location='{{URL::route('cms_newsfilters_add')}}'">Nieuw Filter</button>
 	<br>

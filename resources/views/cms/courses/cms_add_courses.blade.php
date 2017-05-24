@@ -16,15 +16,15 @@
 <body class="body-cms">
 @if (Auth::check() && Auth::user()->role == "admin")
 
-    @include('layouts.cms_navigation', array('currentPage'=>'Cursus Toevoegen'))
+    @include('layouts.cms_navigation', array('currentPage'=>'Cursussen'))
     <div class="container-cms">
         <!--CONTENT IN HERE-->
         <button type="button" class="btn btn-primary" onclick="window.location='{{URL::route('cms_courses_list')}}'">
             Terug
         </button>
 
-        <br><br>
-        <h2><b>Cursus toevoegen</b> @include('tooltip', array('text'=>'Tooltip tekst voor cms cursussen')) </h2>
+        <br><br><br>
+        <h2><b>Cursus toevoegen</b> @include('tooltip', array('text'=>'Hier kun je een nieuwe cursus aanmaken. Als je oneindig veel deelnemers wil, vul dan in het veld 0 in.')) </h2>
         <br>
         {{ Form::open(['route' => 'cms_courses_add_confirmation']) }}
 

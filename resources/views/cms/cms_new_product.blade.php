@@ -21,11 +21,11 @@
     </script>
 </head>
 <body class="body-cms">
-@include('layouts.cms_navigation', array('currentPage'=>'cmsProduct'))
+@include('layouts.cms_navigation', array('currentPage'=>'Producten'))
 
 <div class="container-cms">
-    <br><br>
-    <h2><b>Nieuw product</b> @include('tooltip', array('text'=>'Tooltip tekst voor cms producten')) </h2>
+    <br><br><br>
+    <h2><b>Nieuw product</b> @include('tooltip', array('text'=>'Hier kun je nieuwe producten toevoegen aan de webshop.')) </h2>
     <br>
 {{ Form::open(['route' => 'create_product']) }}
 

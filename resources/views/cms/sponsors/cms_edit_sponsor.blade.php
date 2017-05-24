@@ -14,10 +14,10 @@
     </script>
 </head>
 <body class="body-cms">
-    @include('layouts.cms_navigation', array('currentPage'=>'CMS - Edit Sponsor'))
+    @include('layouts.cms_navigation', array('currentPage'=>'Sponsors'))
     <div  class="container-cms">
-        <br><br>
-        <h2><b>Sponsor bewerken</b> @include('tooltip', array('text'=>'Tooltip tekst voor cms sponsors')) </h2>
+        <br><br><br>
+        <h2><b>Sponsor bewerken</b> @include('tooltip', array('text'=>'Hier kun je een bestaande sponsor bewerken.')) </h2>
         <form action="{{ route('edit_sponsor') }}" enctype="multipart/form-data" method="post">
             {{ csrf_field() }}
             <!-- $parts takes the current url, the url will be split on '/' and the last part will be taken, the ID -->

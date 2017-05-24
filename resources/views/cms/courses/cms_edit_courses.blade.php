@@ -31,14 +31,14 @@
 <body class="body-cms">
 @if (Auth::check() && Auth::user()->role == "admin")
 
-    @include('layouts.cms_navigation', array('currentPage'=>'Cursus Wijzigen'))
+    @include('layouts.cms_navigation', array('currentPage'=>'Cursussen'))
     <div class="container-cms">
         <!--CONTENT IN HERE-->
         <button type="button" class="btn btn-primary" onclick="window.location='{{URL::route('cms_courses_list')}}'">
             Terug
         </button>
-        <br><br>
-        <h2><b>Cursus bewerken</b> @include('tooltip', array('text'=>'Tooltip tekst voor cms cursussen')) </h2>
+        <br><br><br>
+        <h2><b>Cursus bewerken</b> @include('tooltip', array('text'=>'Hier kun je de gegevens van een cursus wijzigen.')) </h2>
 
         {{ Form::open(array('url' => 'cms/cursus/bewerkenActie')) }}
         {{ Form::hidden('id', $_POST['id']) }}

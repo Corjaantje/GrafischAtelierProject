@@ -17,8 +17,8 @@
     @if (Auth::check() && Auth::user()->role == "admin")
     @include('layouts.cms_navigation', array('currentPage'=>'Nieuws'))
             <div  class="container-cms">
-                <br><br>
-                <h2><b>Nieuwsartikel bewerken</b> @include('tooltip', array('text'=>'Tooltip tekst voor cms nieuws')) </h2>
+                <br><br><br>
+                <h2><b>Nieuwsartikel bewerken</b> @include('tooltip', array('text'=>'Hier kun je de gegevens van bestaande nieuwsartikelen wijzigen.')) </h2>
                 <form action="wijzig_artikel" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="_token" value=" {{ csrf_token() }} " >
                     <!-- Het $parts gedeelte pakt de huidige url, split hem vervolgens op '/' en neemt daar het laatste deel van, oftewel het ID -->

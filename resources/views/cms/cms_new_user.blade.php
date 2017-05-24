@@ -14,11 +14,11 @@
     </script>
 </head>
 <body class="body-cms">
-@include('layouts.cms_navigation', array('currentPage'=>'cmsUsers'))
+@include('layouts.cms_navigation', array('currentPage'=>'Gebruikers'))
 
 <div class="container-cms">
-    <br><br>
-    <h2><b>Nieuwe gebruiker</b> @include('tooltip', array('text'=>'Tooltip tekst voor cms users')) </h2>
+    <br><br><br>
+    <h2><b>Nieuwe gebruiker</b> @include('tooltip', array('text'=>'Hier kun je handmatig een nieuwe gebruiker toevoegen aan het systeem. Deze gebruiker kan vervolgens zelf inloggen.')) </h2>
     <br>
     {{ Form::open(['route' => 'create_user']) }}
     {{ Form::hidden('_token', csrf_token()) }}

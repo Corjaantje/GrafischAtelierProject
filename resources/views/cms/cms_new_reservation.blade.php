@@ -14,14 +14,14 @@
     </script>
 </head>
 <body class="body-cms">
-@include('layouts.cms_navigation', array('currentPage'=>'cmsReservation'))
+@include('layouts.cms_navigation', array('currentPage'=>'Reserveringen'))
 @php
 $userArray = App\Http\Controllers\ReservationController::getAllUsers();
 $courseArray = App\Http\Controllers\ReservationController::getAllCourses();
 @endphp
 <div class="container-cms">
-    <br><br>
-    <h2><b>Nieuwe reservering</b> @include('tooltip', array('text'=>'Tooltip tekst voor cms reserveringen')) </h2>
+    <br><br><br>
+    <h2><b>Nieuwe reservering</b> @include('tooltip', array('text'=>'Hier kun je handmatig gebruikers toevoegen aan een cursus. Je kunt hiermee het maximaal aantal deelnemers overschrijven.')) </h2>
     <br>
     {{ Form::open(['route' => 'create_reservation']) }}
     {{ Form::hidden('_token', csrf_token()) }}

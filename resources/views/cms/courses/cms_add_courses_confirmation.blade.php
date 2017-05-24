@@ -16,13 +16,13 @@
 <body class="body-cms">
 @if (Auth::check() && Auth::user()->role == "admin")
 
-    @include('layouts.cms_navigation', array('currentPage'=>'Cursus Toevoegen - Bevestiging'))
+    @include('layouts.cms_navigation', array('currentPage'=>'Cursussen'))
     <div class="container-cms">
         <!--CONTENT IN HERE-->
-        <br><br>
-        <h2><b>Cursus overzicht</b> @include('tooltip', array('text'=>'Tooltip tekst voor cms cursussen')) </h2>
+        <br><br><br>
+        <h2><b>Cursus overzicht</b>  </h2> <!-- wat doet dit hier -->
         <button class="btn btn-primary" onclick="goBack()">Terug</button>
-        <h2><b>Cursus Bevestiging</b></h2><br>
+        <h2><b>Cursus Bevestiging</b>@include('tooltip', array('text'=>'Weet je zeker dat je deze cursus wil opslaan? Druk dan op "Bevestigen".'))</h2><br>
         @php
             echo $request->course_name."<br>";
             echo $request->date." van ".$request->start_time." - ".$request->end_time."<br>";

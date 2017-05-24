@@ -21,11 +21,11 @@ $products = App\Product::all();
 </head>
 <body class="body-cms">
 @if (Auth::check() && Auth::user()->role == "admin")
-    @include('layouts.cms_navigation', array('currentPage'=>'cmsProduct'))
+    @include('layouts.cms_navigation', array('currentPage'=>'Producten'))
 
     <div class="container-cms">
-        <br><br>
-		<h2><b>Product overzicht</b> @include('tooltip', array('text'=>'Tooltip tekst voor cms producten')) </h2>
+        <br><br><br>
+		<h2><b>Product overzicht</b> @include('tooltip', array('text'=>'Dit is het overzicht van alle producten in de webshop met hun titel en prijs.')) </h2>
         <br>
         <button type="button" class="btn btn-primary" onclick="window.location='{{URL::route('product_creator')}}'">Nieuw Product</button>
 

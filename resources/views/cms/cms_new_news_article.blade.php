@@ -23,8 +23,8 @@ foreach(App\Newsfilter::all() as $filter)
 @if (Auth::check() && Auth::user()->role == "admin")
 @include('layouts.cms_navigation', array('currentPage'=>'Nieuws'))
 <div class="container-cms">
-    <br><br>
-    <h2><b>Nieuw nieuwsartikel</b> @include('tooltip', array('text'=>'Tooltip tekst voor cms nieuws')) </h2>
+    <br><br><br>
+    <h2><b>Nieuw nieuwsartikel</b> @include('tooltip', array('text'=>'Hier kun je nieuwe nieuwsartikelen aanmaken.')) </h2>
     <form action="nieuw_artikel" method="post" enctype="multipart/form-data">
         <input type="hidden" name="_token" value=" {{ csrf_token() }} ">
         <input type="hidden" name="id" value="-1"/>

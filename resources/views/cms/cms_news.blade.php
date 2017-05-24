@@ -17,8 +17,8 @@
 @if (Auth::check() && Auth::user()->role == "admin")
 @include('layouts.cms_navigation', array('currentPage'=>'Nieuws'))
 <div class="container-cms">
-    <br><br>
-	<h2><b>Nieuws overzicht</b> @include('tooltip', array('text'=>'Tooltip tekst voor cms nieuws')) </h2>
+    <br><br><br>
+	<h2><b>Nieuws overzicht</b> @include('tooltip', array('text'=>'Dit is het overzicht van nieuwsartikelen. Je kunt hier artikelen aanmaken, aanpassen en verwijderen.')) </h2>
     <!--CONTENT IN HERE-->
     <!-- Knop om nieuwe artikelen aan te maken -->
     <br>

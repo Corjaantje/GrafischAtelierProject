@@ -14,10 +14,10 @@
     </script>
 </head>
 <body class="body-cms">
-@include('layouts.cms_navigation', array('currentPage'=>'CMS - New Sponsor'))
+@include('layouts.cms_navigation', array('currentPage'=>'Sponsors'))
 <div class="container-cms">
-    <br><br>
-    <h2><b>Nieuwe sponsor</b> @include('tooltip', array('text'=>'Tooltip tekst voor cms cursussen')) </h2>
+    <br><br><br>
+    <h2><b>Nieuwe sponsor</b> @include('tooltip', array('text'=>'Hier kun je een nieuwe sponsor toevoegen. Deze zal ook in de footer van de pagina tevoorschijn komen.')) </h2>
     <br>
     <form action="{{ route('create_sponsor') }}" enctype="multipart/form-data" method="post">
         {{ csrf_field() }}

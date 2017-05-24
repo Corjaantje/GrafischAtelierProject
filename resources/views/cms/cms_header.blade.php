@@ -22,8 +22,8 @@
         $disableUpArrow = App\HeaderNavigation::getDisabledPriorityUpArray();
         $disableDownArrow = App\HeaderNavigation::getDisabledPriorityDownArray();
     @endphp
-    <br><br>
-    <h2 style="display:inline-block"><b>Header beheer</b> @include('tooltip', array('text'=>'Tooltip tekst voor cms header')) &nbsp</h2>
+    <br><br><br>
+    <h2 style="display:inline-block"><b>Header beheer</b> @include('tooltip', array('text'=>'Hier kun je de header van de website beheren. Je kunt de volgorde en de submenus aanpassen.')) &nbsp</h2>
     <h2 style="display: inline-block;" class="greenText"> {{ $message }}</h2>
     <br>
     @foreach ($NavMainArray as $data)
