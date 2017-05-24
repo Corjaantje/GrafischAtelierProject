@@ -573,7 +573,7 @@ a.active {
 
 .tooltip{
   display: inline;
-  position: relative;
+  position: absolute;
 }
 
 .tooltip:hover:after{
@@ -583,7 +583,7 @@ a.active {
   bottom: 26px;
   color: #fff;
   content: attr(title);
-  left: 20%;
+
   padding: 5px 15px;
   position: absolute;
   z-index: 98;
@@ -596,7 +596,6 @@ a.active {
   border-width: 6px 6px 0 6px;
   bottom: 20px;
   content: "";
-  left: 50%;
   position: absolute;
   z-index: 99;
 }

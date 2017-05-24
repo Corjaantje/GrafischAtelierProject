@@ -22,10 +22,7 @@
         <br>
         <h1>Welkom <b>@php echo Auth::user()->name; @endphp</b>!</h1>
         <h3>Handleiding link: </h3>
-        <div class="container">
-            <!--IMAGE MOET NOG WORDEN VERVANGEN MET DE ZELFGEMAAKTE IMAGE-->
             @include('tooltip', array('text'=>'Tooltip tekst voor cms home'))
-        </div>
     </div>
     <!---->
     </div>
