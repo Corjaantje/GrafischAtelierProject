@@ -135,6 +135,9 @@ Route::get('cms/nieuwsfilters/toevoegen', array('as' => 'cms_newsfilters_add', '
 Route::post('cms/nieuwsfilters/bewerken', array('as' => 'cms_newsfilters_edit', 'uses' => 'NewsfilterController@createEdit'));
 Route::post('cms/nieuwsfilters/verwijderen', array('as' => 'cms_newsfilters_remove', 'uses' => 'NewsfilterController@removeFilter'));
 
+Route::post('cms/nieuwsfilters/toevoegen/opslaan', array('as' => 'cms_newsfilters_add_save', 'uses' => 'NewsfilterController@newFilter'));
+Route::post('cms/nieuwsfilter/bewerken/opslaan', array('as' => 'cms_newsfilters_edit_save', 'uses' => 'NewsfilterController@editFilter'));
+
 #----Manage Courses Routes----
 Route::get('cms/cursus', ['as' => 'cms_courses_list', 'uses' => 'CoursesController@createList']);
 Route::get('cms/cursus/toevoegen', ['as' => 'cms_courses_add', 'uses' => 'CoursesController@createAdd']);
@@ -178,10 +181,7 @@ Route::any('ReservationStep4', ['as' => 'ReservationStep_4', 'uses' => 'SessionC
 Route::get('profiel', ['as' => 'profile', 'uses' => 'ProfileController@getProfile']);
 
 #----Sponsor CMS Routes----
-Route::get('cms_sponsor', ['as' => 'cms_sponsor', function()
-{
-    return view('cms.sponsors.cms_sponsor');
-}]);
+Route::get('cms_sponsor', ['as' => 'cms_sponsor', 'uses' => 'SponsorController@overview']);
 
 Route::get('cms/createSponsors', ['as' => 'cms_createSponsors', 'uses' => 'SponsorController@create']);
 Route::post('cms/cmsCreateSponsor', array('as' => 'create_sponsor', 'uses' => 'SponsorController@newSponsor'));
