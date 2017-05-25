@@ -49,7 +49,30 @@
             @endphp
         </div>
     </div>
+    <div class="row">
+        {{Form::open(['route' => 'abonoment_wijzigen'])}}
+        @php
+
+            // zou een laad icoon kunnen gebruiken voor gebruiksvriendelijkheid
+            if ($subscriptionStatus == 'subscribed')
+            {
+            echo  '<input type="submit" class="unsubscribeButton" name="wijzigen" value="Opzeggen">';
+            }
+            else
+            {
+             echo  '<input type="submit" class="subscribeButton" name="wijzigen" value="Aboneren">';
+            }
+
+        @endphp
+        {{Form::close()}}
+        @php
+            if ($subscriptionText != null)
+                   echo '<p>' .$subscriptionText. '</p>';
+
+        @endphp
+    </div>
 </div>
+
 @php
     /*
     User Information --DONE--

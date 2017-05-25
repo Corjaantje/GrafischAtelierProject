@@ -69,11 +69,13 @@ class SubscriptionController extends Controller
             if ($this->getStatus($user->email) != null)
             {
                 // warning the default case is subscribed, which might not be entirely safe spam wise.
+                $subFlag = false;
                 if ($this->getStatus($user->email) == 'subscribed')
                 {
                     $json = json_encode([
                         'status' => 'unsubscribed',
                     ]);
+                    $subFlag = true;
                 } else
                 {
                     $json = json_encode([
@@ -93,14 +95,21 @@ class SubscriptionController extends Controller
                 $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
                 curl_close($ch);
 
-                echo $result . " : " . $httpCode;
-
                 if ($httpCode == 200)
                 {
-                    return view('profile', ['message' => '']);
+                    if ($subFlag)
+                    {
+                        $_POST['wijzigen'] = 'U bent succesvol uitgeschreven ';
+
+                    } else
+                    {
+                        $_POST['wijzigen'] = 'U bent succesvol geaboneerd ';
+                    }
+                    return app('App\Http\Controllers\ProfileController')->getProfile();
                 } else
                 {
-                    return view('profile', ['message' => 'ERROR']);
+                    $_POST['wijzigen'] = 'Er ging iets fout, probeer het later opnieuw.';
+                    return app('App\Http\Controllers\ProfileController')->getProfile();
                 }
 
 
@@ -111,28 +120,32 @@ class SubscriptionController extends Controller
                 $_POST['firstName'] = $user->name;
                 $_POST['lastName'] = '';
 
-                $httpCode = $this->addSubscription('unsubscribed');
+                $httpCode = $this->addSubscription('subscribed');
 
                 if ($httpCode == 200)
                 {
-                    return view('', ['message' => 'U bent succesvol geaboneerd.']);
+                    $_POST['wijzigen'] = 'U bent succesvol geaboneerd.';
+                    return app('App\Http\Controllers\ProfileController')->getProfile();
                 } else
                 {
                     switch ($httpCode)
                     {
                         // 400 isn't the default return error, but it is what i was consistently getting.
                         case 400:
-                            $msg = 'Dit email is al gebruikt om te aboneren. ';
-                            return view('', ['message' => $msg]);
+
+                            $_POST['wijzigen'] = 'Dit email is al gebruikt om te aboneren. ';
+                            return app('App\Http\Controllers\ProfileController')->getProfile();
                             break;
                         default:
-                            $msg = 'Een onverwachte fout is opgetreden, onze excusses. ';
-                            return view('', ['message' => $msg]);
+
+                            $_POST['wijzigen'] = 'Een onverwachte fout is opgetreden, onze excusses. ';
+                            return app('App\Http\Controllers\ProfileController')->getProfile();
                             break;
                     }
                 }
             }
         }
+
         return view('errors.404');
     }
 

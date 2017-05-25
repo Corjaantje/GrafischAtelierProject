@@ -16,8 +16,7 @@ class ProfileController extends Controller
         if (!Auth::check())
         {
             return Redirect::to('login');
-        }
-        else
+        } else
         {
             switch (Auth::user()->role)
             {
@@ -34,10 +33,10 @@ class ProfileController extends Controller
             //get signed up courses
             $courses = DB::table('courses_has_users')->where('user_id', Auth::user()->id)->get();
             $signedupCourses = array();
-            foreach($courses as $course)
+            foreach ($courses as $course)
             {
                 $matchingCourse = Course::find($course->course_id);
-                if($matchingCourse->end_date > $date)
+                if ($matchingCourse->end_date > $date)
                 {
                     array_push($signedupCourses, $matchingCourse->name);
                 }
@@ -49,7 +48,19 @@ class ProfileController extends Controller
                 'mail' => Auth::user()->email,
                 'address' => Auth::user()->address,
             );
-            return view('profile', compact('userinfo', "reservedTables", "signedupCourses"));
+
+            $subscriptionStatus = app('App\Http\Controllers\SubscriptionController')->getStatus($userinfo['mail']);
+
+            if (isset($_POST['wijzigen']))
+            {
+                $subscriptionText = $_POST['wijzigen'];
+            } else
+            {
+                $subscriptionText = null;
+            }
+
+
+            return view('profile', compact('userinfo', "reservedTables", "signedupCourses", 'subscriptionStatus', 'subscriptionText'));
         }
     }
 }
