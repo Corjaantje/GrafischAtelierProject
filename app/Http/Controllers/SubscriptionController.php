@@ -14,6 +14,8 @@ class SubscriptionController extends Controller
 
 
     // keys corrospond with test acount , not peters acount.
+    // username : jasperopstok
+    // password : Fratsbal1!
     private $apiKey = '6f9fd4af7d2ae16d0d6d2686266c03ac-us15';
     private $listID = '0f1d25b386';
 
