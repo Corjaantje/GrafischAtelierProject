@@ -32,10 +32,10 @@ Route::get('artikel/{ArtikelNr}', function ($ArtikelNr)
 });
 
 #----Standard Page Routes----
-Route::get('nieuws', array('as' => 'nieuws', function ()
-{
-    return view('news_page');
-}));
+
+Route::get('nieuws', ['as' => 'nieuws', 'uses' => 'NewsPageController@index']);
+Route::post('nieuws', array('as' => 'nieuwsFilter', 'uses' => 'NewsPageController@setFilter'));
+
 
 Route::get('werkplaats', array('as' => 'werkplaats', function ()
 {
@@ -147,6 +147,14 @@ Route::post('cms/cmsCreateReservation', array('as' => 'create_reservation', 'use
 
 Route::get('cms/users', ['as' => 'cms_users', 'uses' => 'UserController@create']);
 Route::post('cms/cmsCreateUser', array('as' => 'create_user', 'uses' => 'UserController@newUser'));
+#-------Nieuwsfilter-------
+Route::get('cms/nieuwsfilters', array('as' => 'cms_newsfilters', 'uses' => 'NewsfilterController@createList'));
+Route::get('cms/nieuwsfilters/toevoegen', array('as' => 'cms_newsfilters_add', 'uses' => 'NewsfilterController@createAdd'));
+Route::post('cms/nieuwsfilters/bewerken', array('as' => 'cms_newsfilters_edit', 'uses' => 'NewsfilterController@createEdit'));
+Route::post('cms/nieuwsfilters/verwijderen', array('as' => 'cms_newsfilters_remove', 'uses' => 'NewsfilterController@removeFilter'));
+
+Route::post('cms/nieuwsfilters/toevoegen/opslaan', array('as' => 'cms_newsfilters_add_save', 'uses' => 'NewsfilterController@newFilter'));
+Route::post('cms/nieuwsfilter/bewerken/opslaan', array('as' => 'cms_newsfilters_edit_save', 'uses' => 'NewsfilterController@editFilter'));
 
 #----Manage Courses Routes----
 Route::get('cms/cursus', ['as' => 'cms_courses_list', 'uses' => 'CoursesController@createList']);
@@ -191,16 +199,21 @@ Route::any('ReservationStep4', ['as' => 'ReservationStep_4', 'uses' => 'SessionC
 Route::get('profiel', ['as' => 'profile', 'uses' => 'ProfileController@getProfile']);
 
 #----Sponsor CMS Routes----
-Route::get('cms_sponsor', ['as' => 'cms_sponsor', function ()
-{
-    return view('cms.sponsors.cms_sponsor');
-}]);
+Route::get('cms_sponsor', ['as' => 'cms_sponsor', 'uses' => 'SponsorController@overview']);
+
+Route::get('cms/createSponsors', ['as' => 'cms_createSponsors', 'uses' => 'SponsorController@create']);
+Route::post('cms/cmsCreateSponsor', array('as' => 'create_sponsor', 'uses' => 'SponsorController@newSponsor'));
+Route::post('cms/cmsEditSponsor', array('as' => 'edit_sponsor', 'uses' => 'SponsorController@edit'));
+
+Route::get('cms/edit_sponsor/{sponsorNumber}', ['as' => 'editSponsor', 'uses' => 'SponsorController@editView']);
+
+Route::post('cms_sponsor/verwijderen', ['as' => 'cms_sponsor_delete', 'uses' => 'SponsorController@delete']);
+
+Route::get('403', ["as" => "403", function()
+
 
 #---testing chimp routes---
-Route::get('chimp', array('as' => 'chimp', function ()
-{
-    return view('chimp_test');
-}));
+
 Route::get('aboneren', ['as' => 'aboneren', 'uses' => 'SubscriptionController@showSubscriptionPageGET']);
 Route::post('aboneren', ['as' => 'aboneren_aanvraag', 'uses' => 'SubscriptionController@showSubscriptionPagePOST']);
 
