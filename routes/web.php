@@ -210,7 +210,9 @@ Route::get('cms/edit_sponsor/{sponsorNumber}', ['as' => 'editSponsor', 'uses' =>
 Route::post('cms_sponsor/verwijderen', ['as' => 'cms_sponsor_delete', 'uses' => 'SponsorController@delete']);
 
 Route::get('403', ["as" => "403", function()
-
+{
+    return view('errors/403');
+}]);
 
 #---testing chimp routes---
 
