@@ -46,11 +46,11 @@
                 {
                     echo $course."<br>";
                 }
-            @endphp
+            @endphpf
         </div>
     </div>
     <div class="row">
-        {{Form::open(['route' => 'abonoment_wijzigen'])}}
+        {{Form::open(['route' => 'abonnement_wijzigen'])}}
         @php
 
             // zou een laad icoon kunnen gebruiken voor gebruiksvriendelijkheid
@@ -60,7 +60,7 @@
             }
             else
             {
-             echo  '<input type="submit" class="subscribeButton" name="wijzigen" value="Aboneren">';
+             echo  '<input type="submit" class="subscribeButton" name="wijzigen" value="Abonneren">';
             }
 
         @endphp

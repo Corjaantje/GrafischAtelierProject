@@ -8,12 +8,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<?php session_start(); // place it on the top of the script ?>
-<?php
-$statusMsg = !empty($_SESSION['msg']) ? $_SESSION['msg'] : '';
-unset($_SESSION['msg']);
-echo $statusMsg;
-?>
 @include('layouts.header', array('title'=>'Aboneren'))
 
 <div class="container">
@@ -22,7 +16,7 @@ echo $statusMsg;
             <div class="panel panel-default">
                 <div class="panel-heading">Aboneren</div>
                 <div class="panel-body">
-                    <?php  if (isset($message)) {
+                    @php  if (isset($message)) {
                         if ($message == "U bent succesvol geaboneerd.")
                             {
                                 echo "<p>";
@@ -33,7 +27,8 @@ echo $statusMsg;
                             }
                         echo $message;
                         echo "</p>";
-                        } ?>
+                        }
+                    @endphp
                     <div class="row">
                         <div class="col-md-3 col-sm-3 col-xs-4">
                             <div style="text-align: end;">
@@ -50,18 +45,17 @@ echo $statusMsg;
                         </div>
                         <div class="col-md-6 col-sm-3 col-xs-3">
 
-                            {{Form::open(['route' => 'aboneren_aanvraag'])}}
+                            {{Form::open(['route' => 'abonneren_aanvraag'])}}
                             <input type="text" name="firstName" style="margin-bottom: 20px;"/>
                             <br/>
                             <input type="text" name="lastName" style="margin-bottom: 20px;"/>
                             <br/>
-                            <input type="text" name="email"  style="margin-bottom: 20px;"/>
+                            <input type="text" name="email" style="margin-bottom: 20px;"/>
                             <br/>
-                            <input type="submit" name="submit" value="Aboneren" style="margin-left: 96px"/>
+                            <input type="submit" name="submit" value="Abonneren" style="margin-left: 96px"/>
                             {{Form::close()}}
                         </div>
                     </div>
-
 
 
                 </div>

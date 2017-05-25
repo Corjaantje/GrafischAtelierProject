@@ -41,14 +41,14 @@ class SubscriptionController extends Controller
 
         if ($httpCode == 200)
         {
-            return view('subscription_page', ['message' => 'U bent succesvol geaboneerd.']);
+            return view('subscription_page', ['message' => 'U bent succesvol geabonneerd.']);
         } else
         {
             switch ($httpCode)
             {
                 // 400 isn't the default return error, but it is what i was consistently getting.
                 case 400:
-                    $msg = 'Dit email is al gebruikt om te aboneren. ';
+                    $msg = 'Dit email is al gebruikt om te abonneren. ';
                     return view('subscription_page', ['message' => $msg]);
                     break;
                 default:
@@ -105,7 +105,7 @@ class SubscriptionController extends Controller
 
                     } else
                     {
-                        $_POST['wijzigen'] = 'U bent succesvol geaboneerd ';
+                        $_POST['wijzigen'] = 'U bent succesvol geabonneerd ';
                     }
                     return app('App\Http\Controllers\ProfileController')->getProfile();
                 } else
@@ -126,7 +126,7 @@ class SubscriptionController extends Controller
 
                 if ($httpCode == 200)
                 {
-                    $_POST['wijzigen'] = 'U bent succesvol geaboneerd.';
+                    $_POST['wijzigen'] = 'U bent succesvol geabonneerd.';
                     return app('App\Http\Controllers\ProfileController')->getProfile();
                 } else
                 {
@@ -135,7 +135,7 @@ class SubscriptionController extends Controller
                         // 400 isn't the default return error, but it is what i was consistently getting.
                         case 400:
 
-                            $_POST['wijzigen'] = 'Dit email is al gebruikt om te aboneren. ';
+                            $_POST['wijzigen'] = 'Dit email is al gebruikt om te abonneren. ';
                             return app('App\Http\Controllers\ProfileController')->getProfile();
                             break;
                         default:

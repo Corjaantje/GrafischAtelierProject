@@ -216,9 +216,9 @@ Route::get('403', ["as" => "403", function()
 
 #---testing chimp routes---
 
-Route::get('aboneren', ['as' => 'aboneren', 'uses' => 'SubscriptionController@showSubscriptionPageGET']);
-Route::post('aboneren', ['as' => 'aboneren_aanvraag', 'uses' => 'SubscriptionController@showSubscriptionPagePOST']);
+Route::get('abonneren', ['as' => 'abonneren', 'uses' => 'SubscriptionController@showSubscriptionPageGET']);
+Route::post('abonneren', ['as' => 'abonneren_aanvraag', 'uses' => 'SubscriptionController@showSubscriptionPagePOST']);
 
-Route::post('profiel', ['as' => 'abonoment_wijzigen', 'uses' => 'SubscriptionController@showProfilePagePOST']);
+Route::post('profiel', ['as' => 'abonnement_wijzigen', 'uses' => 'SubscriptionController@showProfilePagePOST']);
 
 
