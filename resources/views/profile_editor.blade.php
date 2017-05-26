@@ -29,7 +29,7 @@
 			Adres:<br>
 				<input type="text" value="{{ $userinfo['address'] }}" name="address" required/><br>
 				
-			Wachtwoord voor bevestiging:<br>
+			Huidig wachtwoord:<br>
 				<input type="password" name="password" required/><br>
 				
 			Nieuwsbrief:
