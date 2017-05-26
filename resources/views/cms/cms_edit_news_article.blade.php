@@ -7,11 +7,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $('[data-toggle="tooltip"]').tooltip();
+            });
+        </script>
     </head>
     <body class="body-cms">
     @if (Auth::check() && Auth::user()->role == "admin")
     @include('layouts.cms_navigation', array('currentPage'=>'Nieuws'))
             <div  class="container-cms">
+                <br><br><br>
+                <h2><b>Nieuwsartikel bewerken</b> @include('tooltip', array('text'=>'Hier kun je de gegevens van bestaande nieuwsartikelen wijzigen.')) </h2>
                 <form action="wijzig_artikel" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="_token" value=" {{ csrf_token() }} " >
                     <!-- Het $parts gedeelte pakt de huidige url, split hem vervolgens op '/' en neemt daar het laatste deel van, oftewel het ID -->

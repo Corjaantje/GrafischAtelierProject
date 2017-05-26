@@ -10,14 +10,19 @@ $filters = App\Newsfilter::all();
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
 </head>
 <body class="body-cms">
 @if (Auth::check() && Auth::user()->role == "admin")
 
 	@include('layouts.cms_navigation', array('currentPage'=>'Nieuwsfilters'))
 	<div class="container-cms">
-
-	<h2><b>Nieuwsfilters overzicht</b></h2>
+    <br><br><br>
+	<h2><b>Nieuwsfilters overzicht</b> @include('tooltip', array('text'=>'Hier zie je het overzicht van de verschillende nieuwsfilters. Deze worden gebruikt om te filteren op bepaalde types nieuws.')) </h2>
 	<!--CONTENT IN HERE-->
 	<button type="button" class="btn btn-primary" onclick="window.location='{{URL::route('cms_newsfilters_add')}}'">Nieuw Filter</button>
 	<br>
