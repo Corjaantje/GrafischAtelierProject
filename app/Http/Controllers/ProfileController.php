@@ -78,9 +78,9 @@ class ProfileController extends Controller
     		$currentPassword = Auth::User()->password;
     		if(Hash::check($_POST['current_password'], $currentPassword))
     		{
-    			if(strlen($_POST['new_password']) < 7)
+    			if(strlen($_POST['new_password']) < 6)
     			{
-    				$error = "het wachtwoord moet minimaal 7 tekens bevatten";
+    				$error = "het wachtwoord moet minimaal 6 tekens bevatten";
     				return view('change_password', compact('error'));
     			}
     			
