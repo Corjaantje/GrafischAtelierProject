@@ -75,9 +75,15 @@ class ProfileController extends Controller
     	}
     	else
     	{
-    		$currentPassword = Auth::User()->passwordp;
+    		$currentPassword = Auth::User()->password;
     		if(Hash::check($_POST['current_password'], $currentPassword))
     		{
+    			
+    			if(strlen($_POST['new_password']) < 7)
+    			{
+    				$error = "het wachtwoord moet minimaal 7 tekens bevatten";
+    				return view('change_password', compact('error'));
+    			}
     			
     			if($_POST['new_password'] == $_POST['confirmation_password'])
     			{
@@ -90,15 +96,15 @@ class ProfileController extends Controller
     			}
     			else 
     			{
-    				
-    				return Redirect::to('wachtwoord_wijzigen'); 
+    				$error = "Het bevestigde wachtwoord kwam niet overeen met het nieuwe wachtwoord";
+    				return view('change_password', compact('error')); 
     			}
     			
     		}
     		else 
     		{
-    			
-    			return Redirect::to('wachtwoord_wijzigen'); 
+    			$error = "Uw huidig wachtwoord was niet juist";
+    			return view('change_password', compact('error'));
     		}
     		
     	}
