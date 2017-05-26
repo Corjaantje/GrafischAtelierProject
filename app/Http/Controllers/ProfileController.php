@@ -78,7 +78,6 @@ class ProfileController extends Controller
     		$currentPassword = Auth::User()->password;
     		if(Hash::check($_POST['current_password'], $currentPassword))
     		{
-    			
     			if(strlen($_POST['new_password']) < 7)
     			{
     				$error = "het wachtwoord moet minimaal 7 tekens bevatten";
@@ -99,7 +98,6 @@ class ProfileController extends Controller
     				$error = "Het bevestigde wachtwoord kwam niet overeen met het nieuwe wachtwoord";
     				return view('change_password', compact('error')); 
     			}
-    			
     		}
     		else 
     		{
@@ -113,7 +111,6 @@ class ProfileController extends Controller
 
     public function getProfileEditor()
     {
-    	 
     	if (!Auth::check())
     	{
     		return Redirect::to('login');
@@ -129,8 +126,8 @@ class ProfileController extends Controller
     	return view('profile_editor', compact('userinfo'));
     }
     
-    public function editProfile(){
-    	 
+    public function editProfile()
+    {
     	if (!Auth::check())
     	{
     		return Redirect::to('login');

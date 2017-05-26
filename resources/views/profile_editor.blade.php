@@ -12,10 +12,10 @@
 <div class="profile">
 	<div class="row">
 		
-		<h1>Profielgegevens aanpassen</h1>
+		<h1>Persoonsgegevens aanpassen</h1>
 
 		@if(isset($error))
-			<p>{{$error}}</p>
+			<h2>{{$error}}</h2>
 		@endif
 		
 		{{ Form::open(['route' => 'edit_profile_action']) }}
