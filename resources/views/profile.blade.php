@@ -47,7 +47,7 @@
                     echo $course."<br>";
                 }
             @endphp
-            
+
         </div>
     </div>
     <div class="row">
@@ -57,11 +57,11 @@
             // zou een laad icoon kunnen gebruiken voor gebruiksvriendelijkheid
             if ($subscriptionStatus == 'subscribed')
             {
-            echo  '<input type="submit" class="unsubscribeButton" name="wijzigen" value="Opzeggen">';
+            echo  '<input type="submit" class="btn btn-primary" name="wijzigen" value="Opzeggen">';
             }
             else
             {
-             echo  '<input type="submit" class="subscribeButton" name="wijzigen" value="Abonneren">';
+             echo  '<input type="submit" class="btn btn-primary" name="wijzigen" value="Abonneren">';
             }
 
         @endphp
@@ -71,10 +71,14 @@
                    echo '<p>' .$subscriptionText. '</p>';
 
         @endphp
+
     </div>
-    <a href="{{ route('edit_profile') }}" type="button" class="btn btn-primary">Gegevens wijzigen</a> 
-    <a href="{{ route('change_password') }}" type="button" class="btn btn-primary">Wachtwoord wijzigen</a>
-    
+
+    <div class="row">
+        <a href="{{ route('edit_profile') }}" type="button" class="btn btn-primary">Gegevens wijzigen</a>
+        <a href="{{ route('change_password') }}" type="button" class="btn btn-primary">Wachtwoord wijzigen</a>
+    </div>
+
 </div>
 
 @php
