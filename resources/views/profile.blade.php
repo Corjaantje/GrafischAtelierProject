@@ -47,9 +47,14 @@
                     echo $course."<br>";
                 }
             @endphp
+            
         </div>
     </div>
+    <a href="{{ route('edit_profile') }}" type="button" class="btn btn-primary">Gegevens wijzigen</a> 
+    <a href="{{ route('change_password') }}" type="button" class="btn btn-primary">Wachtwoord wijzigen</a>
+	
 </div>
+
 @php
     /*
     User Information --DONE--
