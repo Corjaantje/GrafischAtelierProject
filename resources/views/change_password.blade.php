@@ -10,7 +10,7 @@
 <body>
 @include('layouts.header', array('title'=>'Profiel - '.Auth::user()->username))
 <div class="profile">
-	<div class="row"></div>
+	<div class="row">
 
 		<h1>Wachtwoord wijzigen</h1>
 	

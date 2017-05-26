@@ -172,6 +172,8 @@ Route::any('ReservationStep3', ['as' => 'ReservationStep_3', 'uses' => 'SessionC
 Route::any('ReservationStep4', ['as' => 'ReservationStep_4', 'uses' => 'SessionController@insertReservation']);
 
 Route::get('profiel', ['as' => 'profile', 'uses' => 'ProfileController@getProfile']);
+Route::get('gegevens_aanpassen', ['as' => 'edit_profile', 'uses' => 'ProfileController@getProfileEditor']);
+Route::post('gegevens_aanpassen_actie', ['as' => 'edit_profile_action', 'uses'=> 'ProfileController@editProfile']);
 
 Route::get('wachtwoord_wijzigen', ['as' => 'change_password', 'uses' => 'ProfileController@getChangePassword']);
 Route::post('wachtwoord_wijzigen_actie', ['as' => 'change_password_action', 'uses' => 'ProfileController@changePassword']);

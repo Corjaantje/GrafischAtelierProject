@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Course;
+use App\User;
 use App\IndividualReservation;
 use Illuminate\Http\Request;
 use Auth;
 use Redirect;
+use Hash;
 use Illuminate\Support\Facades\DB;
 
 class ProfileController extends Controller
@@ -99,6 +101,68 @@ class ProfileController extends Controller
     			return Redirect::to('wachtwoord_wijzigen'); 
     		}
     		
+    	}
+    }
+    
+
+    public function getProfileEditor()
+    {
+    	 
+    	if (!Auth::check())
+    	{
+    		return Redirect::to('login');
+    	}
+    	else
+    	{
+    		$userinfo = array(
+    				'username' => Auth::user()->username,
+    				'mail' => Auth::user()->email,
+    				'address' => Auth::user()->address
+    		);
+    	}
+    	return view('profile_editor', compact('userinfo'));
+    }
+    
+    public function editProfile(){
+    	 
+    	if (!Auth::check())
+    	{
+    		return Redirect::to('login');
+    	}
+    	else
+    	{
+    		$user_id = Auth::user()->id;
+    		$user = User::find($user_id);
+    		$userPassword = $user->password;
+    
+    		if(Hash::check($_POST['password'], $user->password))
+    		{
+    			$user->username = $_POST['username'];
+    			$user->email = $_POST['mail'];
+    			$user->address = $_POST['address'];
+    			$user->save();
+    			
+    			if(isset($_POST['newsletter']))
+    			{
+    				//input == true
+    			}
+    			else 
+    			{
+    				//input == false
+    			}
+    			return Redirect::to('profiel');
+    		}
+    		else
+    		{
+    			$error = "Voer het juiste wachtwoord in";
+    			$userinfo = array(
+    					'username' => Auth::user()->username,
+    					'mail' => Auth::user()->email,
+    					'address' => Auth::user()->address
+    			);
+    			return view('profile_editor', compact(['error', 'userinfo']));
+    		}
+    
     	}
     }
     
