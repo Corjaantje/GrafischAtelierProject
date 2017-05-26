@@ -7,13 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
 </head>
 <body class="body-cms">
 @if (Auth::check() && Auth::user()->role == "admin")
 @include('layouts.cms_navigation', array('currentPage'=>'Nieuws'))
 <div class="container-cms">
-
-	<h2><b>Nieuws overzicht</b></h2>
+    <br><br><br>
+	<h2><b>Nieuws overzicht</b> @include('tooltip', array('text'=>'Dit is het overzicht van nieuwsartikelen. Je kunt hier artikelen aanmaken, aanpassen en verwijderen.')) </h2>
     <!--CONTENT IN HERE-->
     <!-- Knop om nieuwe artikelen aan te maken -->
     <br>

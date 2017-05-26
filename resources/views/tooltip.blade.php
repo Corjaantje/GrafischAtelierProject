@@ -1,0 +1,1 @@
+<img width="30px" height="30px" src="{{URL::asset('img/tooltip.png')}}" data-toggle="tooltip" title="{{ $text }}">

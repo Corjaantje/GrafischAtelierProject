@@ -14,14 +14,20 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script>
+            $(document).ready(function(){
+                $('[data-toggle="tooltip"]').tooltip();
+            });
+		</script>
 	</head>
 	<body class="body-cms">
 	@if (Auth::check() && Auth::user()->role == "admin")
-		@include('layouts.cms_navigation', array('currentPage'=>'cmsProduct'))
+		@include('layouts.cms_navigation', array('currentPage'=>'Producten'))
 		
 		<div class="container-cms">
 
-			<h2><b>Product Bewerken</b></h2>
+			<br><br><br>
+			<h2><b>Product bewerken</b> @include('tooltip', array('text'=>'Hier kun je bestaande producten uit de webshop wijzigen.')) </h2>
 			<br>
 
 			{{ Form::open(['route' => 'edit_product']) }}
