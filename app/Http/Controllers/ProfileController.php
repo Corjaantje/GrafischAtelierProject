@@ -16,7 +16,8 @@ class ProfileController extends Controller
         if (!Auth::check())
         {
             return Redirect::to('login');
-        } else
+        }
+        else
         {
             switch (Auth::user()->role)
             {
@@ -54,7 +55,8 @@ class ProfileController extends Controller
             if (isset($_POST['wijzigen']))
             {
                 $subscriptionText = $_POST['wijzigen'];
-            } else
+            }
+            else
             {
                 $subscriptionText = null;
             }

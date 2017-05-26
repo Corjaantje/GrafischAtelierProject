@@ -8,13 +8,13 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-@include('layouts.header', array('title'=>'Aboneren'))
+@include('layouts.header', array('title'=>'Abonneren'))
 
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Aboneren</div>
+                <div class="panel-heading">Abonneren</div>
                 <div class="panel-body">
                     @php  if (isset($message)) {
                         if ($message == "U bent succesvol geaboneerd.")
@@ -32,10 +32,10 @@
                     <div class="row">
                         <div class="col-md-3 col-sm-3 col-xs-4">
                             <div style="text-align: end;">
-                                <label>Voor naam:</label>
+                                <label>Voornaam:</label>
                                 <br/>
                                 <br/>
-                                <label>Achter naam:</label>
+                                <label>Achternaam:</label>
                                 <br/>
                                 <br/>
                                 <label>Email:</label>

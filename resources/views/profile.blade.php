@@ -46,7 +46,7 @@
                 {
                     echo $course."<br>";
                 }
-            @endphpf
+            @endphp
         </div>
     </div>
     <div class="row">

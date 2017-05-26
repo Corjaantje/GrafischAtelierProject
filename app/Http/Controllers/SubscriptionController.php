@@ -13,9 +13,7 @@ class SubscriptionController extends Controller
     private $listID = '2d1e53d478';*/
 
 
-    // keys corrospond with test acount , not peters acount.
-    // username : jasperopstok
-    // password : Fratsbal1!
+    // keys correspond with test account , not peters account.
     private $apiKey = '6f9fd4af7d2ae16d0d6d2686266c03ac-us15';
     private $listID = '0f1d25b386';
 
@@ -35,14 +33,15 @@ class SubscriptionController extends Controller
     public function showSubscriptionPagePOST()
     {
         // error is also given in case of a non-complete post.
-        if (!$this->validateInformation()) return view('subscription_page', ['message' => 'Uw emailadress is niet geldig. Als uw emailadress wel geldig is neem dan contact op met het Grafische Atelier.']);
+        if (!$this->validateInformation()) return view('subscription_page', ['message' => 'Uw e-mailadres is niet geldig. Als uw e-mailadres wel geldig is neem dan contact op met het Grafische Atelier.']);
 
         $httpCode = $this->addSubscription('subscribed');
 
         if ($httpCode == 200)
         {
             return view('subscription_page', ['message' => 'U bent succesvol geabonneerd.']);
-        } else
+        }
+        else
         {
             switch ($httpCode)
             {
@@ -78,7 +77,8 @@ class SubscriptionController extends Controller
                         'status' => 'unsubscribed',
                     ]);
                     $subFlag = true;
-                } else
+                }
+                else
                 {
                     $json = json_encode([
                         'status' => 'subscribed',
@@ -103,19 +103,22 @@ class SubscriptionController extends Controller
                     {
                         $_POST['wijzigen'] = 'U bent succesvol uitgeschreven ';
 
-                    } else
+                    }
+                    else
                     {
                         $_POST['wijzigen'] = 'U bent succesvol geabonneerd ';
                     }
                     return app('App\Http\Controllers\ProfileController')->getProfile();
-                } else
+                }
+                else
                 {
                     $_POST['wijzigen'] = 'Er ging iets fout, probeer het later opnieuw.';
                     return app('App\Http\Controllers\ProfileController')->getProfile();
                 }
 
 
-            } else
+            }
+            else
             {
                 // user doesn't have a last name.
                 $_POST['email'] = $user->email;
@@ -128,7 +131,8 @@ class SubscriptionController extends Controller
                 {
                     $_POST['wijzigen'] = 'U bent succesvol geabonneerd.';
                     return app('App\Http\Controllers\ProfileController')->getProfile();
-                } else
+                }
+                else
                 {
                     switch ($httpCode)
                     {
@@ -194,7 +198,8 @@ class SubscriptionController extends Controller
         if ($status == 'subscribed' || $status == 'unsubscribed')
         {
             $tempStatus = $status;
-        } else
+        }
+        else
         {
             $tempStatus = 'unsubscribed';
         }
