@@ -11,6 +11,7 @@ class UsersTableSeeder extends Seeder {
         $users = array(
             array(
                 'name' => 'Jan',
+                'last_name' => 'pieter',
                 'email' => 'jan@gmail.com',
                 'username' => 'Jan',
                 'role' => '',
@@ -18,7 +19,8 @@ class UsersTableSeeder extends Seeder {
                 'address' => 'onderwijslaan 12'
             ),
             array(
-                'name' => 'Admin',
+                'name' => 'admin',
+                'last_name' => 'de beste',
                 'email' => 'admin@admin.com',
                 'username' => 'Admin',
                 'role' => 'admin',

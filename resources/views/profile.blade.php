@@ -47,12 +47,38 @@
                     echo $course."<br>";
                 }
             @endphp
-            
+
         </div>
     </div>
-    <a href="{{ route('edit_profile') }}" type="button" class="btn btn-primary">Gegevens wijzigen</a> 
-    <a href="{{ route('change_password') }}" type="button" class="btn btn-primary">Wachtwoord wijzigen</a>
-	
+    <div class="row">
+        {{Form::open(['route' => 'abonnement_wijzigen'])}}
+        @php
+
+            // zou een laad icoon kunnen gebruiken voor gebruiksvriendelijkheid
+            if ($subscriptionStatus == 'subscribed')
+            {
+            echo  '<input type="submit" class="btn btn-primary" name="wijzigen" value="Opzeggen">';
+            }
+            else
+            {
+             echo  '<input type="submit" class="btn btn-primary" name="wijzigen" value="Abonneren">';
+            }
+
+        @endphp
+        {{Form::close()}}
+        @php
+            if ($subscriptionText != null)
+                   echo '<p>' .$subscriptionText. '</p>';
+
+        @endphp
+
+    </div>
+
+    <div class="row">
+        <a href="{{ route('edit_profile') }}" type="button" class="btn btn-primary">Gegevens wijzigen</a>
+        <a href="{{ route('change_password') }}" type="button" class="btn btn-primary">Wachtwoord wijzigen</a>
+    </div>
+
 </div>
 
 @php
