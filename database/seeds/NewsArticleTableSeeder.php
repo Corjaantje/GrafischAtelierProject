@@ -16,6 +16,7 @@ class NewsArticleTableSeeder extends Seeder
         $news_articles = array(
             array (
                 'id' => 1,
+            	'filter_id' => 1,
                 'title' => "Textile Fascinated",
                 'description' => "Nieuwsartikel over Textile Fascinated",
                 'text' => "Het begon met textiel, een fascinatie van alle deelnemende kunstenaars illustratoren en ontwerpers. Het doel was een manier te ontwikkelen om je gevoel voor kleur, vorm en texturen afgebeeld te krijgen.
@@ -27,6 +28,7 @@ class NewsArticleTableSeeder extends Seeder
             ),
             array (
                 'id' => 2,
+            	'filter_id' => 1,
                 'title' => "Vrijwillgersvacatures GA Den Bosch",
                 'description' => "Alle vacatures van het Grafisch Atelier",
                 'text' => "Het Grafisch Atelier Den Bosch is een werkplaats waar geexperimenteerd kan worden met de grafische technieken. Een plek, in de Willem Twee, waar kunstenaars, vormgevers, studenten, scholieren, amateurs en andere geinteresseerden zelfstandig kunnen werken, cursussen en workshops kunnen volgen en exposities komen bekijken. 

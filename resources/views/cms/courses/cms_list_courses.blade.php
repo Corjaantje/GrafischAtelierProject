@@ -10,14 +10,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
 </head>
 <body class="body-cms">
 @if (Auth::check() && Auth::user()->role == "admin")
 
-    @include('layouts.cms_navigation', array('currentPage'=>'Cursus Overzicht'))
+    @include('layouts.cms_navigation', array('currentPage'=>'Cursussen'))
     <div class="container-cms">
-
-        <h2><b>Cursus overzicht</b></h2>
+        <br><br><br>
+        <h2><b>Cursus overzicht</b> @include('tooltip', array('text'=>'Dit is het overzicht van alle cursussen met hun titel, prijs, begin- en eindtijd.')) </h2>
         <!--CONTENT IN HERE-->
         <button type="button" class="btn btn-primary" onclick="window.location='{{URL::route('cms_courses_add')}}'">
             Nieuwe Cursus

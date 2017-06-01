@@ -11,19 +11,21 @@ class UsersTableSeeder extends Seeder {
         $users = array(
             array(
                 'name' => 'Jan',
+                'last_name' => 'pieter',
                 'email' => 'jan@gmail.com',
-                'username' => 'jan',
+                'username' => 'Jan',
                 'role' => '',
                 'password' => Hash::make('password'),
                 'address' => 'onderwijslaan 12'
             ),
             array(
                 'name' => 'admin',
+                'last_name' => 'de beste',
                 'email' => 'admin@admin.com',
-                'username' => 'admin',
+                'username' => 'Admin',
                 'role' => 'admin',
                 'password' => Hash::make('admin'),
-                'address' => 'admin'
+                'address' => 'Adminstraat 1337'
             )
         );
 

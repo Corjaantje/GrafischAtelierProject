@@ -80,15 +80,19 @@
                                 <li id="dropdown" class="auth_links"><b>{{ Auth::user()->name }} <span
                                                 class="caret"></span></b>
                                     <div id="dropdown-content">
+                                        <a href="{{ route('profile') }}">
+                                            Profiel
+                                        </a>
                                         @if (Auth::user()->role == "admin")
                                             <a href="{{ route('cms_home') }}">
-                                                CMS
+                                                Beheer
                                             </a>
                                         @endif
+                                        <br>
                                         <a href="{{ route('logout') }}"
                                            onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            Uitloggen
+                                            <i>Uitloggen</i>
                                         </a>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                               style="display: none;">
