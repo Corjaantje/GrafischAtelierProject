@@ -10,11 +10,11 @@
 </head>
 <body class="body-cms">
 @include('layouts.header', array('title'=>'Home'))
-<input type="button" class="btn btn-primary" onclick="window.location='/'" value="Terug">
 @if (!Auth::check())
     <script>window.location.href = "{{ route('login') }}"</script>
 @endif
 <div class="container">
+    <input type="button" class="btn btn-primary reservationBackButton" onclick="window.location='/'" value="Terug">
     <h1 class="title reservationTitles">Wat wilt u reserveren?</h1>
     <div class="row"><br />
         <div class="col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-6">
