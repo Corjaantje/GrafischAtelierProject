@@ -15,7 +15,7 @@
     <script>window.location.href = "{{ route('login') }}"</script>
 @endif
 <div class="container">
-    <h1 class="title reservationTitles">Voor wanneer wilt u reserveren?</h1>
+    <h1 class="title reservationTitles">Reserveren</h1>
     <div class="row"><br /><br />
         {{ Form::open(['route' => 'ReservationStep_3']) }}
     <p id="tafel"></p>
