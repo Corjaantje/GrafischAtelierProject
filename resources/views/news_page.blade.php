@@ -25,7 +25,7 @@
             <div class="row">
                 @endif
                 <div class="col-lg-4 col-md-4 col-sm-4 col-sm-offset-0 col-xs-10 col-xs-offset-1">
-                    <h1> {{ $article->title }}</h1>
+                    <h3> {{ $article->title }}</h3>
                     <h4> <i>{{ \App\Newsfilter::find($article->filter_id)->name }} - {{ $article->date }}</i></h4>
                     <p> {{ $article->description }}</p><br>
                     @php echo substr($article->text, 0, 500)."..." @endphp <br>

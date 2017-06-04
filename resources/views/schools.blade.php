@@ -36,7 +36,7 @@
         </div>
 
         <div class="col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-6">
-            <h1 class="subtitle">Workshop Krassen als Rembrandt</h1>
+            <h3 class="subtitle">Workshop Krassen als Rembrandt</h3>
             <p>
                 Duur: 2,5u<br />
                 Aantal leerlingen: 14<br />
@@ -55,7 +55,7 @@
         </div>
 
         <div class="col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-6">
-            <h1 class="subtitle">Workshop Zo plat als een dubbeltje</h1>
+            <h3 class="subtitle">Workshop Zo plat als een dubbeltje</h3>
             <p>
                 Duur 2,5 uur<br />
                 Aantal leerlingen: 14<br />
@@ -67,7 +67,7 @@
         </div>
 
         <div class="col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-6">
-            <h1 class="subtitle">Workshop Ontwerp je eigen logo</h1>
+            <h3 class="subtitle">Workshop Ontwerp je eigen logo</h3>
             <p>
                 <img src="http://www.gadenbosch.nl/fotoseducatie/4_IMG_1399_webok.jpg"><br /><br />
                 <img src="http://www.gadenbosch.nl/fotoseducatie/4_Zeefdruk%20St%20Jans%20mei%202014.jpg">

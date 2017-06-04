@@ -17,7 +17,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6">
-					<h1>Contact en Info</h1>
+					<h3>Contact en Info</h3>
 					<p>
 						<b>Kristel van Genugten</b> - Coördinator
                         <br>
@@ -30,9 +30,9 @@
 					</p>
 
 
-						<h3>
+						<h4>
 							Bestuursleden
-						</h3>
+						</h4>
                     <p>
 						<ul>
 							<li>Jan Ramaekers – voorzitter</li>
@@ -45,9 +45,9 @@
 					</p>
 
                     <p>
-                    <h3>
+                    <h4>
                         Doelstellingen Grafisch Atelier Den Bosch:
-                    </h3>
+                    </h4>
                     <ol>
                         <li>Het bieden van grafische werkplaatsfaciliteiten voor kunstenaars</li>
                         <li>Educatie en kennisoverdracht</li>
@@ -60,9 +60,9 @@
 
 				<div class="col-md-6">
                     <p>
-                    <h1>
+                    <h3>
                         Adresgegevens
-                    </h1>
+                    </h3>
                     Boschveldweg 471A<br>
                     5211 VK ‘s-Hertogenbosch<br>
                     T +31 (0)736 134 277<br>
@@ -75,14 +75,14 @@
                         <li>Kamer van Koophandel nummer: 41082086 0000</li>
                     </ul>
                     </p>
-					<h3>Openingstijden</h3>
+					<h4>Openingstijden</h4>
 					<p>
 						ma t/m vrij van 9:00 - 17:00<br>
 						za van 13:00 - 17:00<br>
 					</p>
-					<h3>
+					<h4>
 						GA Den Bosch Gesloten:
-					</h3>
+					</h4>
 					<p>Op 27 en 28 februari 2017, tijdens carnaval, zijn wij gesloten.</p>
 				</div>
 			</div>

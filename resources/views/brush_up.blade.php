@@ -35,14 +35,14 @@
         </div>
 
         <div class="col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-6">
-            <h1 class="subtitle">Basis</h1>
+            <h3 class="subtitle">Basis</h3>
             <p>
                 In deze workshop leer je de basisbeginselen van een grafische techniek. Je werkt met professionele materialen. Het avontuur zit hem in het creatieve proces dat je aangaat en dat je uitdrukking geeft aan een eigen idee. Je bent vooral aan het doen i.p.v. denken en gaat mét prent naar huis. Alle workshops worden gegeven door professionele kunstenaars met ruime ervaring in lesgeven aan groepen.
             </p>
         </div>
 
         <div class="col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-6">
-            <h1 class="subtitle">Kennis opfrissen</h1>
+            <h3 class="subtitle">Kennis opfrissen</h3>
             <p>
                 <b>Inhoud:</b> Een dagdeel (4 uur) waarin je onder begeleiding van een van onze ervaren drukkers met je eigen ontwerp aan de slag gaat. Na dit bijspijkerdagdeel kan je weer volledig zelfstandig aan de slag bij het GA.
             </p>
