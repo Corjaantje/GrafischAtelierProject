@@ -73,6 +73,9 @@ body {
   border-style: solid;
   border-color: lightgray;
   background: linear-gradient(to bottom, #ffffff 29%,#d6d6d6 99%);
+  position: fixed;
+  width: 100%;
+  z-index: 999;
 
   ul {
     margin-bottom: 0px;

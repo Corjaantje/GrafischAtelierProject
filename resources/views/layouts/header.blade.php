@@ -105,6 +105,7 @@
             </div>
         </div>
     </nav>
+    <br><br><br><br>
 @show
 
 <script src="{{ asset('js/app.js') }}"></script>
