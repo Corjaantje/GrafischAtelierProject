@@ -498,4 +498,8 @@ a.active {
 .reservationBackButton {
   float: right; }
 
+.headerSpace {
+  height: 100px;
+  margin: auto; }
+
 /*# sourceMappingURL=app.css.map */
