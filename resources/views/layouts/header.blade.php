@@ -105,7 +105,7 @@
             </div>
         </div>
     </nav>
-    <br><br><br><br><br>
+    <div style="height: 100px; margin: auto"></div>
 @show
 
 <script src="{{ asset('js/app.js') }}"></script>
