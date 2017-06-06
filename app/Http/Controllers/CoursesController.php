@@ -150,7 +150,7 @@ class CoursesController extends Controller
     public function setAdd()
     {
         Course::Insert(
-            [   'name' => $_POST['course_name'],
+            ['name' => $_POST['course_name'],
                 'description' => $_POST['description'],
                 'coursegiver_name' => $_POST['coursegiver_name'],
                 'max_signups' => $_POST['max_people'],
@@ -169,16 +169,32 @@ class CoursesController extends Controller
 
     public function createCourseReservationPage()
     {
-        return view('course_reservation');
+        if (isset($_POST['id']))
+        {
+
+            $course = Course::find($_POST['id']);
+
+            $controller = new CoursesController();
+
+            if (!Auth::check()) redirect('login');
+            if ($course != null)
+            {
+                return view('course_reservation', ['course' => $course, 'controller' => $controller]);
+            }
+        }
+        $this->createCoursesPage();
     }
 
-    public function deleteAction()
+
+    public
+    function deleteAction()
     {
         Course::destroy($_POST['id']);
         return Redirect::to('cms/cursus');
     }
 
-    public function insertUserIntoCourse()
+    public
+    function insertUserIntoCourse()
     {
         $courseID = $_POST['id'];
         $course = \App\Course::find($courseID);
@@ -188,9 +204,10 @@ class CoursesController extends Controller
         if (Auth::user()->role == 'admin')
         {
             if (Courses_has_user::where([
-                ['user_id', '=', Auth::user()->id],
-                ['course_id', '=', $courseID]
-            ])->count() === 0)
+                    ['user_id', '=', Auth::user()->id],
+                    ['course_id', '=', $courseID]
+                ])->count() === 0
+            )
             {
                 Courses_has_user::Insert(
                     [
@@ -199,19 +216,18 @@ class CoursesController extends Controller
                     ]
                 );
                 return Redirect::to('cursussen');
-            }
-            else
+            } else
             {
                 return Redirect::to('error');
             }
-        }
-        else
+        } else
         {
             if ($currentSignups < $maxSignups &&
                 Courses_has_user::where([
-                    [ 'user_id', '=', Auth::user()->id],
+                    ['user_id', '=', Auth::user()->id],
                     ['course_id', '=', $courseID]
-                ])->count() === 0)
+                ])->count() === 0
+            )
             {
                 Courses_has_user::Insert(
                     [
@@ -220,8 +236,7 @@ class CoursesController extends Controller
                     ]
                 );
                 return Redirect::to('cursussen');
-            }
-            else
+            } else
             {
                 return Redirect::to('404');
             }
