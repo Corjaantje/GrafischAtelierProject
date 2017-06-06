@@ -3,7 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class CheckAdminRole
 {
@@ -20,7 +20,7 @@ class CheckAdminRole
     	{
     		if(Auth::check())
     		{
-    			if(Auth::user()->role != "admin")
+    			if(!(Auth::user()->role == 'admin'))
     			{
     				return redirect('/home');
     			}
