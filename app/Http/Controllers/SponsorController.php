@@ -63,7 +63,7 @@ class SponsorController extends Controller
             $validator = Validator::make($request->all(), $rules);
 
             if ($validator->fails()) {
-                \Session()->flash('msg', 'Dit type bestand mag u niet uploaden! Probeer het nog eens met een .jpeg, .png, .gif of een .svg bestand!');
+                \Session()->flash('msg', 'Dit type bestand mag u niet uploaden! Probeer het nog eens met een .jpeg, .jpg of .png bestand!');
                 return Redirect::to('/cms_sponsor');
             }
             $imageName = $request->Image->getClientOriginalName();
@@ -96,7 +96,7 @@ class SponsorController extends Controller
             $validator = Validator::make($request->all(), $rules);
 
             if ($validator->fails()) {
-                \Session()->flash('msg', 'Dit type bestand mag u niet uploaden! Probeer het nog eens met een .jpeg, .png, .gif of een .svg bestand!');
+                \Session()->flash('msg', 'Dit type bestand mag u niet uploaden! Probeer het nog eens met een .jpeg, .jpg of .png bestand!');
                 return Redirect::to('/cms_sponsor');
             }
             $imageName = $request->Image->getClientOriginalName();
