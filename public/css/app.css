@@ -491,4 +491,8 @@ a.active {
   position: absolute;
   z-index: 99; }
 
+#tafel {
+  font-size: 18px;
+  font-weight: bold; }
+
 /*# sourceMappingURL=app.css.map */

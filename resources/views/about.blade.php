@@ -16,8 +16,7 @@
 
 		<div class="container">
 			<div class="row">
-				<div class="col-md-6">
-					<h1>Contact en Info</h1>
+				<div class="col-md-6"><br><br><br><br>
 					<p>
 						<b>Kristel van Genugten</b> - Coördinator
                         <br>

@@ -15,15 +15,16 @@
     <script>window.location.href = "{{ route('login') }}"</script>
 @endif
 <div class="container">
-    <h1 class="title reservationTitles">Voor wanneer wilt u reserveren?</h1>
-    <div class="row"><br /><br />
+    <h1 class="title reservationTitles">Reserveren</h1>
+    <div class="row"><br />
         {{ Form::open(['route' => 'ReservationStep_3']) }}
-    <p id="tafel"></p>
+        <p id="tafel"></p> <br/>
     <div class="row">
         <div class="col-lg-4 col-md-4 col-sm-4 col-sm-offset-0 col-xs-4">
             <img src="{{URL::to('/')}}/img/Reservation/imgTemp1.jpg" class="reservationImages">
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-sm-offset-0 col-xs-4">
+
             <b>Datum:</b><br /><input type="date" name="date" value="@php echo date("Y-m-d"); @endphp"><br /><br />
             <b>Starttijd:</b><br /><input type="time" name="start_time" value="12:00"><br /><br />
             <b>Eindtijd:</b><br /><input type="time" name="end_time" value="15:00"><br /><br />
@@ -38,6 +39,7 @@
     </div>
 </div>
 </div>
+<br>
 @include('layouts.footer')
 
 <script defer>

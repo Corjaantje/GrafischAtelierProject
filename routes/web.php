@@ -204,7 +204,7 @@ Route::get('wachtwoord_wijzigen', ['as' => 'change_password', 'uses' => 'Profile
 Route::post('wachtwoord_wijzigen_actie', ['as' => 'change_password_action', 'uses' => 'ProfileController@changePassword']);
 
 #----Sponsor CMS Routes----
-Route::get('cms_sponsor', ['as' => 'cms_sponsor', 'uses' => 'SponsorController@overview']);
+Route::get('cms/sponsor', ['as' => 'cms_sponsor', 'uses' => 'SponsorController@overview']);
 
 Route::get('cms/createSponsors', ['as' => 'cms_createSponsors', 'uses' => 'SponsorController@create']);
 Route::post('cms/cmsCreateSponsor', array('as' => 'create_sponsor', 'uses' => 'SponsorController@newSponsor'));
