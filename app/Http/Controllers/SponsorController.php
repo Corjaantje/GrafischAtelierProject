@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Auth;
+use Illuminate\Support\Facades\Validator;
 
 class SponsorController extends Controller
 {
@@ -55,9 +56,16 @@ class SponsorController extends Controller
         }
         else
         {
-            $this->validate($request, [
-                'Image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            ]);
+            $rules = array(
+                'Image' => 'required | mimes:jpeg,jpg,png',
+            );
+
+            $validator = Validator::make($request->all(), $rules);
+
+            if ($validator->fails()) {
+                \Session()->flash('msg', 'Dit type bestand mag u niet uploaden! Probeer het nog eens met een .jpeg, .png, .gif of een .svg bestand!');
+                return Redirect::to('/cms_sponsor');
+            }
             $imageName = $request->Image->getClientOriginalName();
 
             $request->Image->move(public_path('img\Sponsors'), $imageName);
@@ -81,9 +89,16 @@ class SponsorController extends Controller
         }
         else
         {
-            $this->validate($request, [
-                'Image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            ]);
+            $rules = array(
+                'Image' => 'required | mimes:jpeg,jpg,png',
+            );
+
+            $validator = Validator::make($request->all(), $rules);
+
+            if ($validator->fails()) {
+                \Session()->flash('msg', 'Dit type bestand mag u niet uploaden! Probeer het nog eens met een .jpeg, .png, .gif of een .svg bestand!');
+                return Redirect::to('/cms_sponsor');
+            }
             $imageName = $request->Image->getClientOriginalName();
 
             $request->Image->move(public_path('img\Sponsors'), $imageName);
