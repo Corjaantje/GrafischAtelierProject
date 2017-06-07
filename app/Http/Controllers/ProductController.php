@@ -7,6 +7,12 @@ use Illuminate\Support\Facades\Redirect;
 
 class ProductController extends Controller
 {
+
+    public function index()
+    {
+        $products = Product::all();
+        return view('webshop', compact('products'));
+    }
 	
 	public function newProduct()
 	{		

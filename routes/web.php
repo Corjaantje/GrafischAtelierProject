@@ -42,10 +42,7 @@ Route::get('werkplaats', array('as' => 'werkplaats', function ()
     return view('workplace');
 }));
 
-Route::get('winkel', array('as' => 'winkel', function ()
-{
-    return view('webshop');
-}));
+Route::get('winkel', array('as' => 'store', 'uses' => 'ProductController@index'));
 
 Route::get('archief', array('as' => 'archief', function ()
 {

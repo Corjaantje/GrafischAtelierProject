@@ -13,53 +13,25 @@ use App\ShopItemNames;
 
 </head>
 	<body>
-	
 		@include('layouts.header', array('title'=>'webshop'))
-	
 		<div class="container">
-		
-			@php
-
-
-			echo "<div class=\"row\">";
-			
-			$products = App\Product::all();
-			
-			foreach($products as $product){
-				
-				$productnr = $product->id;
-				
-				$productTitle = $product->name;
-				
-				$fileName = "img/WebshopImages/Shop$productnr.jpg";
-					
-				echo "<div class=\"col-lg-4 col-md-4 col-sm-4 col-sm-offset-0 col-xs-10 col-xs-offset-1\" >";
-				
-				echo "<a href=\"product/$productnr\">";
-				
-				echo "<img src=\"$fileName\" style=\"width: 100%;\">";
-				
-				echo "<br>";
-				
-				echo "$productTitle";
-				
-				echo "</a>";
-				
-				echo "</div>";
-				
-				
-			}
-			
-			
-			
-			echo "</div>";
-				
-			
-			@endphp
-		
+			<h1 class="title text-center">Webshop</h1>
+			@foreach ($products as $product)
+				@if( ($loop->index % 3) == 0 )
+					<div class="row">
+						@endif
+						<div class="col-lg-4 col-md-4 col-sm-4 col-sm-offset-0 col-xs-10 col-xs-offset-1">
+							<h2> {{ $product->name }}</h2>
+							<p> {{ $product->description }}</p>
+							<p> Prijs: &euro;{{$product->price }}</p>
+							<img  src="{{ URL::asset('img/WebshopImages/Shop'.$product->id.'.jpg') }}" alt="payments" width="225px">
+						</div>
+						@if( ($loop->index % 3) == 2)
+					</div>
+				@endif
+			@endforeach
 		</div>
-	
+	</div>
 		@include('layouts.footer')
 	</body>
-
 </html>
