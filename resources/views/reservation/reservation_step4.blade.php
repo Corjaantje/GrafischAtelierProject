@@ -14,11 +14,13 @@
     <script>window.location.href = "{{ route('login') }}"</script>
 @endif
 <div class="container">
-    <input type="button" class="btn btn-primary reservationBackButton" onclick="window.location='{{ route('reservationStep2') }}'" value="Terug">
+    <input type="button" class="btn btn-primary reservationBackButton"
+           onclick="window.location='{{ route('reservationStep2') }}'" value="Terug">
+    <h1 class="title reservationTitles">Reserveren</h1>
+
     @isset($error)
         <h2 class="reservationTitles">{{$error}}</h2>
     @endisset
-    <h1 class="title reservationTitles">Reserveren</h1>
     <div class="row"><br/><br/>
         {{ Form::open(['route' => 'ReservationStep_3']) }}
         <p id="tafel"></p>
