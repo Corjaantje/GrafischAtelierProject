@@ -18,7 +18,7 @@
            onclick="window.location='{{ route('reservationStep2') }}'" value="Terug">
     <h1 class="title reservationTitles">Reserveren</h1>
 
-    @isset($error)
+    @if(isset($error))
         <h2 class="reservationTitles">{{$error}}</h2>
     @endisset
     <div class="row"><br/><br/>
