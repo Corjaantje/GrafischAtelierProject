@@ -105,6 +105,7 @@
             </div>
         </div>
     </nav>
+    <div class="headerSpace"></div>
 @show
 
 <script src="{{ asset('js/app.js') }}"></script>
