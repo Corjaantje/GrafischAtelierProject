@@ -13,60 +13,54 @@ $products = App\Product::all();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $('[data-toggle="tooltip"]').tooltip();
-        });
-    </script>
 </head>
 <body class="body-cms">
-@if (Auth::check() && Auth::user()->role == "admin")
-    @include('layouts.cms_navigation', array('currentPage'=>'Producten'))
+@include('layouts.cms_navigation', array('currentPage'=>'Producten'))
 
-    <div class="container-cms">
-        <br><br><br>
-		<h2><b>Producten in de winkel</b> @include('tooltip', array('text'=>'Dit is het overzicht van alle producten in de webshop met hun titel en prijs.')) </h2>
-        <br>
-        <button type="button" class="btn btn-primary" onclick="window.location='{{URL::route('product_creator')}}'">Nieuw Product</button>
+<div class="container-cms">
+    <br><br><br>
+    <h2><b>Producten in de
+            winkel</b> @include('tooltip', array('text'=>'Dit is het overzicht van alle producten in de webshop met hun titel en prijs.'))
+    </h2>
+    <br>
+    <button type="button" class="btn btn-primary" onclick="window.location='{{URL::route('product_creator')}}'">Nieuw
+        Product
+    </button>
 
-        <table id="table-style">
+    <table id="table-style">
+
+        <tr id="table-row-style">
+
+            <th id="table-header-style">Titel</th>
+            <th id="table-header-style">Prijs</th>
+            <th></th>
+            <th></th>
+
+        </tr>
+
+        @foreach($products as $product)
 
             <tr id="table-row-style">
 
-                <th id="table-header-style">Titel</th>
-                <th id="table-header-style">Prijs</th>
-                <th></th>
-                <th></th>
+                <td id="table-data-style"> {{ $product->name }}</td>
+                <td id="table-data-style"> &euro; {{ number_format($product->price, 2) }}</td>
+
+                <td>
+                    <button type="button" class="btn btn-primary"
+                            onclick="window.location='{{URL::route('product_editor', $product->id)}}'">Bewerken
+                    </button>
+                </td>
+                <td>
+                    <form action="verwijderProduct/{{$product->id}}"><input type="submit" class="btn btn-danger"
+                                                                            value="Verwijderen"/></form>
+                </td>
 
             </tr>
 
-            @foreach($products as $product)
+        @endforeach
 
-                <tr id="table-row-style">
+    </table>
 
-                    <td id="table-data-style"> {{ $product->name }}</td>
-                    <td id="table-data-style"> &euro; {{ number_format($product->price, 2) }}</td>
-
-                    <td>
-                        <button type="button" class="btn btn-primary"
-                                onclick="window.location='{{URL::route('product_editor', $product->id)}}'">Bewerken
-                        </button>
-                    </td>
-                    <td>
-                        <form action="verwijderProduct/{{$product->id}}"><input type="submit" class="btn btn-danger" value="Verwijderen"/></form>
-                    </td>
-
-                </tr>
-
-            @endforeach
-
-        </table>
-
-    </div>
-@else
-
-    <script>window.location.href = "{{ route('login') }}"</script>
-
-@endif
+</div>
 </body>
 </html>

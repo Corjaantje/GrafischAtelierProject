@@ -7,14 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $('[data-toggle="tooltip"]').tooltip();
-        });
-    </script>
 </head>
 <body class="body-cms">
-@if (Auth::check() && Auth::user()->role == "admin")
 @include('layouts.cms_navigation', array('currentPage'=>'Header'))
 <div class="container-cms">
     @php
@@ -57,15 +51,8 @@
 
         {{ Form::close() }}
         <br>
-
     @endforeach
-
-
 </div>
-@else
 
-    <script>window.location.href = "{{ route('login') }}"</script>
-
-@endif
 </body>
 </html>
