@@ -186,15 +186,13 @@ class CoursesController extends Controller
     }
 
 
-    public
-    function deleteAction()
+    public function deleteAction()
     {
         Course::destroy($_POST['id']);
         return Redirect::to('cms/cursus');
     }
 
-    public
-    function insertUserIntoCourse()
+    public function insertUserIntoCourse()
     {
         $courseID = $_POST['id'];
         $course = \App\Course::find($courseID);
