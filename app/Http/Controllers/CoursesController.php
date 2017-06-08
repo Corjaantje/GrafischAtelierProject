@@ -46,7 +46,8 @@ class CoursesController extends Controller
                     'visible' => isset($_POST['visible'])]
             );
             return Redirect::to('cms/cursus');
-        } else
+        }
+        else
         {
             //not properly working yet
             //return Redirect::back()->withInput();
@@ -68,7 +69,8 @@ class CoursesController extends Controller
                 $isValid = false;
             }
 
-        } else
+        }
+        else
         {
             $isValid = false;
         }
@@ -81,7 +83,8 @@ class CoursesController extends Controller
                 $isValid = false;
             }
 
-        } else
+        }
+        else
         {
             $isValid = false;
         }
@@ -92,7 +95,8 @@ class CoursesController extends Controller
             if (!($_POST['max_signups'] > -1))
             {
                 $isValid = false;
-            } else
+            }
+            else
             {
 
                 if ($_POST['max_signups'] == 0)
@@ -102,7 +106,8 @@ class CoursesController extends Controller
 
             }
 
-        } else
+        }
+        else
         {
             $isValid = false;
         }
@@ -115,7 +120,8 @@ class CoursesController extends Controller
                 $isValid = false;
             }
 
-        } else
+        }
+        else
         {
             $isValid = false;
         }
@@ -214,11 +220,13 @@ class CoursesController extends Controller
                     ]
                 );
                 return Redirect::to('cursussen');
-            } else
+            }
+            else
             {
                 return Redirect::to('error');
             }
-        } else
+        }
+        else
         {
             if ($currentSignups < $maxSignups &&
                 Courses_has_user::where([
@@ -234,7 +242,8 @@ class CoursesController extends Controller
                     ]
                 );
                 return Redirect::to('cursussen');
-            } else
+            }
+            else
             {
                 return Redirect::to('404');
             }
