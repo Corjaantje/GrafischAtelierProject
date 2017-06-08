@@ -177,18 +177,15 @@ class CoursesController extends Controller
     {
         if (isset($_POST['id']))
         {
-
             $course = Course::find($_POST['id']);
-
-            $controller = new CoursesController();
 
             if (!Auth::check()) redirect('login');
             if ($course != null)
             {
-                return view('course_reservation', ['course' => $course, 'controller' => $controller]);
+                return view('course_reservation', ['course' => $course]);
             }
         }
-        $this->createCoursesPage();
+        return $this->createCoursesPage();
     }
 
 
