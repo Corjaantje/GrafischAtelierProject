@@ -13,7 +13,7 @@
 <div class="container-cms">
     <br><br><br>
     <h2><b>Cursus
-            overzicht</b> @include('tooltip', array('text'=>'Dit is het overzicht van alle cursussen met hun titel, prijs, begin- en eindtijd.'))
+            overzicht</b> @include('layouts.tooltip', array('text'=>'Dit is het overzicht van alle cursussen met hun titel, prijs, begin- en eindtijd.'))
     </h2>
     <button type="button" class="btn btn-primary" onclick="window.location='{{URL::route('cms_courses_add')}}'">
         Nieuwe Cursus

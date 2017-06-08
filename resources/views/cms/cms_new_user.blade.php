@@ -13,7 +13,7 @@
 
 <div class="container-cms">
     <br><br><br>
-    <h2><b>Nieuwe gebruiker</b> @include('tooltip', array('text'=>'Hier kun je handmatig een nieuwe gebruiker toevoegen aan het systeem. Deze gebruiker kan vervolgens zelf inloggen.')) </h2>
+    <h2><b>Nieuwe gebruiker</b> @include('layouts.tooltip', array('text'=>'Hier kun je handmatig een nieuwe gebruiker toevoegen aan het systeem. Deze gebruiker kan vervolgens zelf inloggen.')) </h2>
     <br>
     {{ Form::open(['route' => 'create_user']) }}
     {{ Form::hidden('_token', csrf_token()) }}

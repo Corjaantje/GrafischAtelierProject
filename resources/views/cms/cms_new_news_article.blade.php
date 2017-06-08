@@ -18,7 +18,7 @@
 @include('layouts.cms_navigation', array('currentPage'=>'Nieuws'))
 <div class="container-cms">
     <br><br><br>
-    <h2><b>Nieuw nieuwsartikel</b> @include('tooltip', array('text'=>'Hier kun je nieuwe nieuwsartikelen aanmaken.'))
+    <h2><b>Nieuw nieuwsartikel</b> @include('layouts.tooltip', array('text'=>'Hier kun je nieuwe nieuwsartikelen aanmaken.'))
     </h2>
     <form action="nieuw_artikel" method="post" enctype="multipart/form-data">
         <input type="hidden" name="_token" value=" {{ csrf_token() }} ">

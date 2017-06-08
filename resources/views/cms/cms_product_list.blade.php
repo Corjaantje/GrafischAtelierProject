@@ -20,7 +20,7 @@ $products = App\Product::all();
 <div class="container-cms">
     <br><br><br>
     <h2><b>Producten in de
-            winkel</b> @include('tooltip', array('text'=>'Dit is het overzicht van alle producten in de webshop met hun titel en prijs.'))
+            winkel</b> @include('layouts.tooltip', array('text'=>'Dit is het overzicht van alle producten in de webshop met hun titel en prijs.'))
     </h2>
     <br>
     <button type="button" class="btn btn-primary" onclick="window.location='{{URL::route('product_creator')}}'">Nieuw

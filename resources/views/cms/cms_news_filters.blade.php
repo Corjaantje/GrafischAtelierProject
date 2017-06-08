@@ -16,7 +16,7 @@
 <div class="container-cms">
     <br><br><br>
     <h2><b>Nieuwsfilters
-            overzicht</b> @include('tooltip', array('text'=>'Hier zie je het overzicht van de verschillende nieuwsfilters. Deze worden gebruikt om te filteren op bepaalde types nieuws.'))
+            overzicht</b> @include('layouts.tooltip', array('text'=>'Hier zie je het overzicht van de verschillende nieuwsfilters. Deze worden gebruikt om te filteren op bepaalde types nieuws.'))
     </h2>
     <!--CONTENT IN HERE-->
     <button type="button" class="btn btn-primary" onclick="window.location='{{URL::route('cms_newsfilters_add')}}'">

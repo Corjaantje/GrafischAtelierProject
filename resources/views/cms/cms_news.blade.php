@@ -13,7 +13,7 @@
 <div class="container-cms">
     <br><br><br>
     <h2><b>Nieuws
-            overzicht</b> @include('tooltip', array('text'=>'Dit is het overzicht van nieuwsartikelen. Je kunt hier artikelen aanmaken, aanpassen en verwijderen.'))
+            overzicht</b> @include('layouts.tooltip', array('text'=>'Dit is het overzicht van nieuwsartikelen. Je kunt hier artikelen aanmaken, aanpassen en verwijderen.'))
     </h2>
     <!--CONTENT IN HERE-->
     <!-- Knop om nieuwe artikelen aan te maken -->

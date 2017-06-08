@@ -17,7 +17,7 @@
 <div class="container-cms">
     <br><br><br>
     <h2><b>Nieuwe
-            reservering</b> @include('tooltip', array('text'=>'Hier kun je handmatig gebruikers toevoegen aan een cursus. Je kunt hiermee het maximaal aantal deelnemers overschrijven.'))
+            reservering</b> @include('layouts.tooltip', array('text'=>'Hier kun je handmatig gebruikers toevoegen aan een cursus. Je kunt hiermee het maximaal aantal deelnemers overschrijven.'))
     </h2>
     <br>
     {{ Form::open(['route' => 'create_reservation', 'onsubmit' => 'return confirm("Het kan zijn dat u het maximum aantal aanmeldingen gaat overschrijven. Weet u zeker dat u door wilt gaan?")']) }}

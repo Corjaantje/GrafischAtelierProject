@@ -17,7 +17,7 @@
     </button>
     <br><br>
     <h2><b>Cursus
-            toevoegen</b> @include('tooltip', array('text'=>'Hier kun je een nieuwe cursus aanmaken. Als je oneindig veel deelnemers wil, vul dan in het veld 0 in.'))
+            toevoegen</b> @include('layouts.tooltip', array('text'=>'Hier kun je een nieuwe cursus aanmaken. Als je oneindig veel deelnemers wil, vul dan in het veld 0 in.'))
     </h2>
     <br>
     {{ Form::open(['route' => 'cms_courses_add_confirmation']) }}

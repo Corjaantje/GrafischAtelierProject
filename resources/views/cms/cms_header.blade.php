@@ -17,7 +17,9 @@
         $disableDownArrow = App\HeaderNavigation::getDisabledPriorityDownArray();
     @endphp
     <br><br><br>
-    <h2 style="display:inline-block"><b>Header beheer</b> @include('tooltip', array('text'=>'Hier kun je de header van de website beheren. Je kunt de volgorde en de submenus aanpassen.')) &nbsp</h2>
+    <h2 style="display:inline-block"><b>Header
+            beheer</b> @include('layouts.tooltip', array('text'=>'Hier kun je de header van de website beheren. Je kunt de volgorde en de submenus aanpassen.'))
+        &nbsp</h2>
     <h2 style="display: inline-block;" class="greenText"> {{ $message }}</h2>
     <br>
     @foreach ($NavMainArray as $data)
@@ -38,7 +40,7 @@
         Item van {{  Form::select('parent_id', $options, $data->parent_id, array('class' => 'formText'))}}
 
         @if(!in_array($data->priority, $disableUpArrow))
-            <input type="submit" class="btn btn-basic"  name="priorityUp" id="priorityUp" value="▲">
+            <input type="submit" class="btn btn-basic" name="priorityUp" id="priorityUp" value="▲">
             @else
             &emsp; &emsp;
         @endif
@@ -47,12 +49,10 @@
             @else
             &emsp; &emsp;
         @endif
-        <input class="btn btn-primary"  type="submit" name="store" id="store" value="Opslaan">
-
+        <input class="btn btn-primary" type="submit" name="store" id="store" value="Opslaan">
         {{ Form::close() }}
         <br>
     @endforeach
 </div>
-
 </body>
 </html>

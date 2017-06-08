@@ -13,7 +13,7 @@
 <div class="container-cms">
     <br><br><br>
     <h2><b>Nieuwsartikel
-            bewerken</b> @include('tooltip', array('text'=>'Hier kun je de gegevens van bestaande nieuwsartikelen wijzigen.'))
+            bewerken</b> @include('layouts.tooltip', array('text'=>'Hier kun je de gegevens van bestaande nieuwsartikelen wijzigen.'))
     </h2>
     <form action="wijzig_artikel" method="post" enctype="multipart/form-data">
         <input type="hidden" name="_token" value=" {{ csrf_token() }} ">

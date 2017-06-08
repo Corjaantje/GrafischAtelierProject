@@ -14,7 +14,7 @@
     <br><br>
     <button class="btn btn-primary" onclick="goBack()">Terug</button>
     <h2><b>Cursus
-            Bevestiging</b>@include('tooltip', array('text'=>'Weet je zeker dat je deze cursus wil opslaan? Druk dan op "Bevestigen".'))
+            Bevestiging</b>@include('layouts.tooltip', array('text'=>'Weet je zeker dat je deze cursus wil opslaan? Druk dan op "Bevestigen".'))
     </h2><br>
     @php
         echo $request->course_name."<br>";

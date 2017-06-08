@@ -12,7 +12,7 @@
 @include('layouts.cms_navigation', array('currentPage'=>'Nieuwsfilters'))
 <div class="container-cms">
     <br><br><br>
-    <h2><b>Nieuwsfilter aanmaken</b> @include('tooltip', array('text'=>'Hier kun je nieuwe nieuwsfilters aanmaken.'))
+    <h2><b>Nieuwsfilter aanmaken</b> @include('layouts.tooltip', array('text'=>'Hier kun je nieuwe nieuwsfilters aanmaken.'))
     </h2>
     {{ Form::open(['route' => 'cms_newsfilters_add_save']) }}
 

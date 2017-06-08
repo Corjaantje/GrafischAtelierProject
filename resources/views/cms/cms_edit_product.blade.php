@@ -21,7 +21,7 @@
 		<div class="container-cms">
 
 			<br><br><br>
-			<h2><b>Product bewerken</b> @include('tooltip', array('text'=>'Hier kun je bestaande producten uit de webshop wijzigen.')) </h2>
+			<h2><b>Product bewerken</b> @include('layouts.tooltip', array('text'=>'Hier kun je bestaande producten uit de webshop wijzigen.')) </h2>
 			<br>
 
 			{{ Form::open(['route' => 'edit_product']) }}

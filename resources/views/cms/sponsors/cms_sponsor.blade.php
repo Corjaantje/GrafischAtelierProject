@@ -22,7 +22,7 @@
             </div>
         @endif
         <br><br><br>
-        <h2><b>Sponsor overzicht</b> @include('tooltip', array('text'=>'Dit is het overzicht van alle sponsors. Ook zie je het logo, de naam en hun website.')) </h2>
+        <h2><b>Sponsor overzicht</b> @include('layouts.tooltip', array('text'=>'Dit is het overzicht van alle sponsors. Ook zie je het logo, de naam en hun website.')) </h2>
         <button type="button" class="btn btn-primary"  onclick="window.location='{{URL::route('cms_createSponsors')}}'">Sponsor toevoegen</button>  <!--Todo: linken naar sponsor aanmaken-->
         <table id="table-style">
             <tr id="table-row-style">

@@ -16,7 +16,7 @@
         Terug
     </button>
     <br><br>
-    <h2><b>Cursus bewerken</b> @include('tooltip', array('text'=>'Hier kun je de gegevens van een cursus wijzigen.'))
+    <h2><b>Cursus bewerken</b> @include('layouts.tooltip', array('text'=>'Hier kun je de gegevens van een cursus wijzigen.'))
     </h2>
 
     {{ Form::open(array('url' => 'cms/cursus/bewerkenActie')) }}

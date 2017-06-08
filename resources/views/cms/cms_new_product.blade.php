@@ -20,7 +20,7 @@
 <div class="container-cms">
     <br><br><br>
     <h2><b>Nieuw
-            product</b> @include('tooltip', array('text'=>'Hier kun je nieuwe producten toevoegen aan de webshop.'))
+            product</b> @include('layouts.tooltip', array('text'=>'Hier kun je nieuwe producten toevoegen aan de webshop.'))
     </h2>
     <br>
 {{ Form::open(['route' => 'create_product']) }}
