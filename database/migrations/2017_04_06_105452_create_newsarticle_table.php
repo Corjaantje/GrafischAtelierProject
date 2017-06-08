@@ -18,6 +18,7 @@ class CreateNewsarticleTable extends Migration
         {
             $table->increments('id')->unique();
             $table->integer('filter_id')->unsigned();
+            $table->foreign('filter_id')->references('id')->on('newsfilters');
             $table->string('title');
             $table->string('image')->nullable();
             $table->longText('description');
@@ -25,10 +26,6 @@ class CreateNewsarticleTable extends Migration
             $table->date('date');
             $table->tinyInteger('visible');
             $table->timestamps();
-        });
-        
-        Schema::table('news_articles', function (Blueprint $table){
-        	$table->foreign('filter_id')->references('id')->on('newsfilters');
         });
     }
 
@@ -40,6 +37,5 @@ class CreateNewsarticleTable extends Migration
     public function down()
     {
         Schema::dropIfExists('news_articles');
-        //
     }
 }

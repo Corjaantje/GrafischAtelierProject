@@ -12,10 +12,9 @@ use Illuminate\Support\Facades\Redirect;
 
 class SessionController extends Controller
 {
-    // stap 4
     public function storeDateTime(Request $request)
     {
-        $date = date('Y-m-d H:i:s');
+        //$date = date('Y-m-d H:i:s');
         $usedTables = DB::table('individual_reservations')->where('table_id', session()->get('table_id'))/*->where('start_date', '>', $date)*/->get();
         $dateTimeStart = $request->get('date')." ".$request->get('start_time').":00";
         $dateTimeEnd = $request->get('date')." ".$request->get('end_time').":00";
@@ -54,7 +53,6 @@ class SessionController extends Controller
         return session()->get('table_id');
     }
 
-    // stap 5
     public function insertReservation(Request $request)
     {
         IndividualReservation::Insert(

@@ -8,46 +8,41 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
-        $(document).ready(function(){
+        $(document).ready(function () {
             $('[data-toggle="tooltip"]').tooltip();
         });
     </script>
 </head>
 <body class="body-cms">
-@if (Auth::check() && Auth::user()->role == "admin")
+@include('layouts.cms_navigation', array('currentPage'=>'Cursussen'))
+<div class="container-cms">
+    <br><br>
+    <button type="button" class="btn btn-primary" onclick="window.location='{{URL::route('cms_courses_list')}}'">
+        Terug
+    </button>
+    <br><br>
+    <h2><b>Cursus
+            toevoegen</b> @include('tooltip', array('text'=>'Hier kun je een nieuwe cursus aanmaken. Als je oneindig veel deelnemers wil, vul dan in het veld 0 in.'))
+    </h2>
+    <br>
+    {{ Form::open(['route' => 'cms_courses_add_confirmation']) }}
 
-    @include('layouts.cms_navigation', array('currentPage'=>'Cursussen'))
-    <div class="container-cms">
-        <!--CONTENT IN HERE-->
-        <button type="button" class="btn btn-primary" onclick="window.location='{{URL::route('cms_courses_list')}}'">
-            Terug
-        </button>
+    Cursus naam: {{ Form::text('course_name','',array('required' => 'required'))}} <br><br>
+    Docent naam: {{ Form::text('coursegiver_name','',array('required' => 'required')) }} <br><br>
+    Prijs: € <input type="number" name="price" min="0" value="0"/> <br><br>
+    (0 deelnemers betekent dat er geen limiet wordt gezet)<br>
+    Maximum deelnemers: <input type="number" name="max_people" min="0" value="0" step="any"/> <br><br>
+    Datum: <input type="date" name="date" id="date" required> <br><br>
+    Starttijd: <input type="time" name="start_time" required> <br><br>
+    Eindtijd: <input type="time" name="end_time" required> <br><br>
 
-        <br><br><br>
-        <h2><b>Cursus toevoegen</b> @include('tooltip', array('text'=>'Hier kun je een nieuwe cursus aanmaken. Als je oneindig veel deelnemers wil, vul dan in het veld 0 in.')) </h2>
-        <br>
-        {{ Form::open(['route' => 'cms_courses_add_confirmation']) }}
+    Beschrijving: <br>
+    {{ Form::textarea('description','',array('required' => 'required'))}} <br>
+    Openbaar {{ Form::checkbox('visible', 1, 1) }} <br><br>
 
-        Cursus naam: {{ Form::text('course_name','',array('required' => 'required'))}} <br><br>
-        Docent naam: {{ Form::text('coursegiver_name','',array('required' => 'required')) }} <br><br>
-        Prijs: € <input type="number" name="price" min="0" value="0"/> <br><br>
-        (0 deelnemers betekent dat er geen limiet wordt gezet)<br>
-        Maximum deelnemers: <input type="number" name="max_people" min="0" value="0" step="any"/> <br><br>
-        Datum: <input type="date" name="date" id="date" required> <br><br>
-        Starttijd: <input type="time" name="start_time" required> <br><br>
-        Eindtijd: <input type="time" name="end_time" required> <br><br>
-
-        Beschrijving: <br>
-        {{ Form::textarea('description','',array('required' => 'required'))}} <br>
-        Openbaar {{ Form::checkbox('visible', 1, 1) }} <br><br>
-
-        <input class="btn btn-primary" onclick="validate()" type="submit" value="Opslaan">
+    <input class="btn btn-primary" onclick="validate()" type="submit" value="Opslaan">
     {{ Form::close()}}
-    <!---->
-    </div>
-@else
-    <script>window.location.href = "{{ route('login') }}"</script>
-@endif
+</div>
 <script type="text/javascript">
     var today = new Date();
     var dd = today.getDate();
