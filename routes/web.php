@@ -126,10 +126,7 @@ Route::get('cms/nieuws', array('as' => 'cms_news', function ()
 Route::post('cms/wijzig_artikel/wijzig_artikel', 'NewsArticleController@insertNewsArticle');
 Route::post('cms/nieuw_artikel', 'NewsArticleController@insertNewsArticle');
 
-Route::get('cms/nieuw_artikel', array('as' => 'newNewsArticle', function ()
-{
-    return view('cms.cms_new_news_article');
-}));
+Route::get('cms/nieuw_artikel', array('as' => 'newNewsArticle', 'uses' => 'NewsArticleController@newNewsArticle'));
 
 Route::get('cms/wijzig_artikel/{artikelNummer}', array('as' => 'editNewsArticle', function ($artikelNummer)
 {

@@ -3,11 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\NewsArticle;
+use App\Newsfilter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
 class NewsArticleController extends Controller
 {
+
+    public function newNewsArticle()
+    {
+        foreach( Newsfilter::all() as $filter)
+        {
+            $filters[] = $filter->name;
+        }
+
+        return view('cms.cms_new_news_article', compact('filters'));
+    }
     //
     public function insertNewsArticle()
     {
