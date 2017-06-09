@@ -31,10 +31,9 @@ use App\ShopItemNames;
 				
 				$productTitle = $product->name;
 				
-				$fileName = "img/WebshopImages/Shop$productnr.jpg";
+				$fileName = URL::asset('img/Producten/'.$product->image);
 					
 				echo "<div class=\"col-lg-4 col-md-4 col-sm-4 col-sm-offset-0 col-xs-10 col-xs-offset-1\" >";
-				
 				echo "<a href=\"product/$productnr\">";
 				
 				echo "<img src=\"$fileName\" style=\"width: 100%;\">";

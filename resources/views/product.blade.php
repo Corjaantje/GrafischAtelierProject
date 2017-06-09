@@ -26,12 +26,13 @@ use App\ShopItemNames;
 				$name = $product->name;
 				$price = $product->price;
 				$description = $product->description;
+				$fileName = URL::asset('img/Producten/'.$product->image);
 				
 				echo "<h3>$name</h3>";
 
 				echo "<div class=\"col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-10 col-xs-offset-1\" >";
 				
-				echo "<img src=\"../img/WebshopImages/Shop$Id.jpg\" style=\"width: 50%;\">";
+				echo "<img src=\"$fileName\" width=\"100%\"/>";
 				
 				echo "</div>";
 
