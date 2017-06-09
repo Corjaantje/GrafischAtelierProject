@@ -10,11 +10,11 @@
 </head>
 <body class="body-cms">
 @include('layouts.header', array('title'=>'Home'))
-<input type="button" class="btn btn-primary" onclick="window.location='{{ route('reservationStep3') }}'" value="Terug">
 @if (!Auth::check())
     <script>window.location.href = "{{ route('login') }}"</script>
 @endif
 <div class="container">
+    <input type="button" class="btn btn-primary reservationBackButton" onclick="window.location='{{ route('reservationStep3') }}'" value="Terug">
     <h1 class="title reservationTitles">Controleer uw reservering</h1>
     <div class="row">
         {{ Form::open(['route' => 'ReservationStep_4']) }}

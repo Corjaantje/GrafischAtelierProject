@@ -30,7 +30,7 @@
             <input type="hidden" name="id" value="{{ $sponsor->id}}" />
             Naam: <input type="text" name="Name" value="{{ $sponsor->name }}" required /><br><br>
             Sponsor URL: <input type="url" name="URL" value="{{ $sponsor->sponsor_url }}" required  /><br><br>
-            Afbeelding: <input type="file" name="Image" value="{{ $sponsor->image }}" required /><br><br>
+            Afbeelding: <input type="file" name="Image" accept="image/*" value="{{ $sponsor->image }}" required /><br><br>
             <button type="submit" class="btn btn-primary">Upload</button>
         </form>
     </div>

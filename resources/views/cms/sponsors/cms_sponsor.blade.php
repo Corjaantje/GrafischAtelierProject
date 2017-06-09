@@ -19,6 +19,13 @@
 <body class="body-cms">
     @include('layouts.cms_navigation', array('currentPage'=>'Sponsors'))
     <div class="container-cms">
+        @if(Session::has('msg'))
+            <br>
+            <div class="alert alert-danger">
+                <a class="close" data-dismiss="alert"></a>
+                <strong>Verkeerd bestandstype</strong> {!! Session::get('msg') !!}
+            </div>
+        @endif
         <br><br><br>
         <h2><b>Sponsor overzicht</b> @include('tooltip', array('text'=>'Dit is het overzicht van alle sponsors. Ook zie je het logo, de naam en hun website.')) </h2>
         <button type="button" class="btn btn-primary"  onclick="window.location='{{URL::route('cms_createSponsors')}}'">Sponsor toevoegen</button>  <!--Todo: linken naar sponsor aanmaken-->

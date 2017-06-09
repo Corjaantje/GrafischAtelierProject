@@ -73,6 +73,9 @@ body {
   border-style: solid;
   border-color: lightgray;
   background: linear-gradient(to bottom, #ffffff 29%,#d6d6d6 99%);
+  position: fixed;
+  width: 100%;
+  z-index: 999;
 
   ul {
     margin-bottom: 0px;
@@ -152,7 +155,8 @@ li:hover #dropdown-content {
 
 #footer-links{
   display: inline-block;
-  font-size: 24px;
+  font-size: 18px;
+  margin: auto;
 }
 
 #footer-links ul li{
@@ -599,8 +603,15 @@ a.active {
   position: absolute;
   z-index: 99;
 }
+.reservationBackButton {
+  float: right;
+}
 
 #tafel{
   font-size: 18px;
   font-weight: bold;
+}
+.headerSpace {
+  height: 100px;
+  margin: auto;
 }

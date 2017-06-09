@@ -23,7 +23,7 @@
         {{ csrf_field() }}
         Naam: <input type="text" name="Name" required /><br><br>
         Sponsor URL: <input type="url" name="URL" required  /><br><br>
-        Afbeelding: <input type="file" name="Image" required /><br><br>
+        Afbeelding: <input type="file" name="Image" accept="image/*" required /><br><br>
         <button type="submit" class="btn btn-primary">Upload</button>
     </form>
 </div>
