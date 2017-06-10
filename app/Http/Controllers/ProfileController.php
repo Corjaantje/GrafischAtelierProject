@@ -202,7 +202,7 @@ class ProfileController extends Controller
 
     }
 
-    public function editReservation()
+    public function editReservation($error_message = null)
     {
         if (!Auth::check()) return Redirect::to('login');
         if (!isset($_POST['id'])) return Redirect::to('403');
@@ -223,6 +223,7 @@ class ProfileController extends Controller
             $end = substr($reservation->end_date, 11, 5);
         }
 
+        if ($error_message != null) $error = $error_message;
 
         return view('edit_reservation', ['error' => $error, 'date' => $date, 'start' => $start, 'end' => $end, 'id' => $reservation->id]);
 
@@ -242,11 +243,22 @@ class ProfileController extends Controller
         $start = $_POST['start_time'];
         $end = $_POST['end_time'];
 
-        $reservation->start_date = $date . " " . $start . ":00";
-        $reservation->end_date = $date . " " . $end . ":00";
-        $reservation->save();
+        $startDate = $date . " " . $start . ":00";
+        $endDate = $date . " " . $end . ":00";
 
-        $status = app('App\Http\Controllers\ReservationController')->reservationValidation($date, $start, $end);
+        $status = app('App\Http\Controllers\ReservationController')->reservationValidation($reservation, $startDate, $endDate);
+
+        if ($status == null)
+        {
+            $reservation->start_date = $startDate;
+            $reservation->end_date = $endDate;
+            $reservation->save();
+        }
+        else
+        {
+            $error = 'Deze tafel is al gereserveerd van ' . substr($status['start'], 11, 5) . ' tot ' . substr($status['end'], 11, 5);
+            return $this->editReservation($error);
+        }
 
         return $this->getProfile();
     }
