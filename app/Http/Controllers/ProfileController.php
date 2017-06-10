@@ -143,7 +143,6 @@ class ProfileController extends Controller
     {
         if (!Auth::check())
         {
-            return Redirect::to('login');
         }
         else
         {
@@ -152,20 +151,26 @@ class ProfileController extends Controller
 
             if (Hash::check($_POST['password'], $user->password))
             {
+                // change information in MailChimp
+                $newInfo = ['email' => $_POST['mail'], 'firstname' => $user->name, 'lastname' => $user->last_name];
+                $oldEmail = $user->email;
+                $httpCode = app('App\Http\Controllers\SubscriptionController')->changeSubscriberInfo($oldEmail, $newInfo);
+                
+                // change information is database
+   
                 $user->username = $_POST['username'];
-                $user->email = $_POST['mail'];
                 $user->address = $_POST['address'];
                 $user->save();
                 return Redirect::to('profiel');
             }
             else
             {
-                $error = "Voer het juiste wachtwoord in";
                 $userinfo = array(
-                    'username' => Auth::user()->username,
+                $error = "Voer het juiste wachtwoord in";
                     'mail' => Auth::user()->email,
-                    'address' => Auth::user()->address
+                    'username' => Auth::user()->username,
                 );
+                    'address' => Auth::user()->address
                 return view('profile_editor', compact('error', 'userinfo'));
             }
 
