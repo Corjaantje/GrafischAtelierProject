@@ -20,6 +20,7 @@
 
         {{ Form::close() }}
     </div>
+    @if ($articles->count() > 0)
     @foreach ($articles as $article)
         @if( ($loop->index % 3) == 0 )
             <div class="row">
@@ -35,7 +36,9 @@
             </div>
         @endif
     @endforeach
-</div>
+    @else
+        <h3>Er zijn geen nieuws artikellen om te laten zien.</h3>
+    @endif
 </div><br>
 @include('layouts.footer')
 <script> function sendForm(){document.getElementById('form').submit()}</script>

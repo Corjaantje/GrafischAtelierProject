@@ -17,22 +17,30 @@
 				{
 					$itemNr = intval($Id);
 					$article = App\NewsArticle::where('Id', '=', $Id)->first();
+					if ($article == NULL)
+					{
+						echo "<script type=\"text/javascript\">";
+                        echo "window.location = \"../errors/404\";";
+						echo "</script>";
+					}
+					else
+					{
+	                    echo "<div class=\"col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-10 col-xs-offset-1\">";
 
-                    echo "<div class=\"col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-10 col-xs-offset-1\">";
+	                    echo "<h1>";
+	                    echo $article->title;
+						echo "</h1>";
 
-                    echo "<h1>";
-                    echo $article->title;
-					echo "</h1>";
+						echo "<p> <br> <strong>";
+	                    echo $article->description;
+	                    echo "</strong> <br> </p>";
 
-					echo "<p> <br> <strong>";
-                    echo $article->description;
-                    echo "</strong> <br> </p>";
+	                    echo "<p> <br>";
+	                    echo $article->text;
+	                    echo "</p>";
 
-                    echo "<p> <br>";
-                    echo $article->text;
-                    echo "</p>";
-
-                    echo "</div>";
+	                    echo "</div>";
+                    }
 				}
 				else
 				{

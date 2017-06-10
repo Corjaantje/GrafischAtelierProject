@@ -24,35 +24,37 @@ use App\ShopItemNames;
 			echo "<div class=\"row\">";
 			
 			$products = App\Product::all();
-			
-			foreach($products as $product){
-				
-				$productnr = $product->id;
-				
-				$productTitle = $product->name;
-				
-				$fileName = "img/WebshopImages/Shop$productnr.jpg";
-					
-				echo "<div class=\"col-lg-4 col-md-4 col-sm-4 col-sm-offset-0 col-xs-10 col-xs-offset-1\" >";
-				
-				echo "<a href=\"product/$productnr\">";
-				
-				echo "<img src=\"$fileName\" style=\"width: 100%;\">";
-				
-				echo "<br>";
-				
-				echo "$productTitle";
-				
-				echo "</a>";
-				
+
+			if ($products->count() > 0)
+			{
+				foreach($products as $product){
+
+					$productnr = $product->id;
+
+					$productTitle = $product->name;
+
+					$fileName = "img/WebshopImages/Shop$productnr.jpg";
+
+					echo "<div class=\"col-lg-4 col-md-4 col-sm-4 col-sm-offset-0 col-xs-10 col-xs-offset-1\" >";
+
+					echo "<a href=\"product/$productnr\">";
+
+					echo "<img src=\"$fileName\" style=\"width: 100%;\">";
+
+					echo "<br>";
+
+					echo "$productTitle";
+
+					echo "</a>";
+
+					echo "</div>";
+				}
 				echo "</div>";
-				
-				
 			}
-			
-			
-			
-			echo "</div>";
+			else
+			{
+				echo "<h3>Er zijn geen producten om te laten zien.</h3>";
+			}
 				
 			
 			@endphp
