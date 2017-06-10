@@ -41,7 +41,7 @@ class ProfileController extends Controller
                 $matchingCourse = Course::find($course->course_id);
                 if ($matchingCourse->end_date > $date)
                 {
-                    array_push($signedupCourses, $matchingCourse->name);
+                    array_push($signedupCourses, $matchingCourse);
                 }
             }
 
@@ -185,20 +185,43 @@ class ProfileController extends Controller
     public function alterReservation()
     {
 
-        if (!isset($_POST['submit']) || ($_POST['submit'] != 'Opzeggen')) return Redirect::to('403');
+        if (!isset($_POST['submit']) || ($_POST['submit'] != 'Opzeggen' && $_POST['submit'] != 'Uitschrijven')) return Redirect::to('403');
 
+        if ($_POST['submit'] == 'Opzeggen')
+        {
+            if (!Auth::check()) return Redirect::to('login');
+            if (!isset($_POST['id'])) return Redirect::to('403');
 
-        if (!Auth::check()) return Redirect::to('login');
-        if (!isset($_POST['id'])) return Redirect::to('403');
+            $user = Auth::user();
+            $reservation = IndividualReservation::where('id', $_POST['id'])->where('user_id', $user->id)->firstOrfail();
+            if ($reservation == null) return Redirect::to('profile');
 
-        $user = Auth::user();
-        $reservation = IndividualReservation::where('id', $_POST['id'])->where('user_id', $user->id)->firstOrfail();
-        if ($reservation == null) return Redirect::to('profile');
+            $reservation->delete();
 
-        $reservation->delete();
+            return $this->getProfile();
+        }
+        else if ($_POST['submit'] == 'Uitschrijven')
+        {
+            if (!Auth::check()) return Redirect::to('login');
+            if (!isset($_POST['id'])) return Redirect::to('403');
 
-        return $this->getProfile();
+            $course = Course::where('id', $_POST['id'])->firstOrfail();
 
+            if ($course == null) return Redirect::to('profile');
+
+            $userList = $course->reservations;
+
+            foreach ($userList as $user)
+            {
+                if ($user->id == Auth::user()->id)
+                {
+                    $user->pivot->delete();
+                    break;
+                }
+            }
+
+            return $this->getProfile();
+        }
 
     }
 

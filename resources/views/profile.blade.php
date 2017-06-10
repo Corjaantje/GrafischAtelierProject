@@ -38,8 +38,8 @@
             @endphp
 
             <div>
-                <b>" {{$dateStart->format("d-m-Y")}}"</b> {{$dateStart->format("H:i")}} " - ".
-                {{$dateEnd->format("H:i")}} ( {{\App\Technique::getTechniqueByTableID($table->table_id)}} )
+                <p><b>" {{$dateStart->format("d-m-Y")}}"</b> {{$dateStart->format("H:i")}} " - ".
+                    {{$dateEnd->format("H:i")}} ( {{\App\Technique::getTechniqueByTableID($table->table_id)}} )</p>
                 {{Form::open(['method' => 'post', 'route' => 'edit_reservation'])}}
                 <input type="hidden" name="id" value="{{$table->id}}">
                 <input type="submit" class="btn btn-primary" name="submit" value="Wijzigen">
@@ -60,7 +60,13 @@
                 //Show all signed up courses with the end date in the future from the current date.
                 foreach ($signedupCourses as $course)
                 {
-                    echo $course."<br>";
+            @endphp
+            {{$course->name}}<br>
+            {{Form::open(['method' => 'delete', 'route' => 'alter_reservation'])}}
+            <input type="hidden" name="id" value="{{$course->id}}">
+            <input type="submit" class="btn btn-primary" name="submit" value="Uitschrijven">
+            {{Form::close()}}
+            @php
                 }
             @endphp
 
