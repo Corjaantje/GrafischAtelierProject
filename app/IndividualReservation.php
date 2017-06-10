@@ -12,9 +12,13 @@ class IndividualReservation extends Model
     public $timestamps = false;
 
 
-    function user()
+    public function user()
     {
         return $this->hasOne('App\User', 'id', 'user_id');
     }
 
+    public function table()
+    {
+        return $this->hasOne('App\Table', 'id', 'table_id');
+    }
 }

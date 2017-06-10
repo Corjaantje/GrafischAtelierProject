@@ -34,8 +34,24 @@
                     {
                         $dateStart = new DateTime($table->start_date);
                         $dateEnd = new DateTime($table->end_date);
-                        echo " <b>".$dateStart->format("d-m-Y")."</b> ".$dateStart->format("H:i")." - ". $dateEnd->format("H:i")." (".\App\Technique::getTechniqueByTableID($table->table_id).")<br>";
-                    }
+
+            @endphp
+
+            <div>
+                <b>" {{$dateStart->format("d-m-Y")}}"</b> {{$dateStart->format("H:i")}} " - ".
+                {{$dateEnd->format("H:i")}} ( {{\App\Technique::getTechniqueByTableID($table->table_id)}} )
+                {{Form::open(['method' => 'post', 'route' => 'edit_reservation'])}}
+                <input type="hidden" name="id" value="{{$table->id}}">
+                <input type="submit" class="btn btn-primary" name="submit" value="Wijzigen">
+                {{Form::close()}}
+
+                {{Form::open(['method' => 'delete', 'route' => 'alter_reservation'])}}
+                <input type="hidden" name="id" value="{{$table->id}}">
+                <input type="submit" class="btn btn-primary" name="submit" value="Opzeggen">
+                {{Form::close()}}
+            </div>
+            @php
+                }
             @endphp
         </div>
         <div class="userReservedCourses col-md-6">

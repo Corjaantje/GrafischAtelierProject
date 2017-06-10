@@ -13,9 +13,9 @@ class ReservationController extends Controller
 {
     private function validateUser()
     {
-        if(Auth::check())
+        if (Auth::check())
         {
-            if(Auth::user()->role == "admin")
+            if (Auth::user()->role == "admin")
             {
                 return true;
             }
@@ -25,7 +25,7 @@ class ReservationController extends Controller
 
     public function create()
     {
-        if(!$this->validateUser())
+        if (!$this->validateUser())
         {
             return Redirect::to('403');
         }
@@ -37,7 +37,7 @@ class ReservationController extends Controller
 
     public function newReservation(Request $request)
     {
-        if(!$this->validateUser())
+        if (!$this->validateUser())
         {
             return Redirect::to('403');
         }
@@ -49,7 +49,7 @@ class ReservationController extends Controller
                 ])->count() === 0
             )
             {
-                Courses_has_user::Insert(['course_id' => $request->cbCursus, 'user_id' => $request->cbUsers ]);
+                Courses_has_user::Insert(['course_id' => $request->cbCursus, 'user_id' => $request->cbUsers]);
                 return Redirect::to('/cms/reservations');
             }
             else
@@ -69,5 +69,10 @@ class ReservationController extends Controller
     {
         $courses = DB::table('courses')->get();
         return $courses;
+    }
+
+    public function reservationValidation($date, $start, $end)
+    {
+
     }
 }
