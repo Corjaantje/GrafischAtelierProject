@@ -18,7 +18,9 @@
 //
 //            });
         });
-
+        $(document).on('click','.navbar-toggle',function(e) {
+	        $('.navbar-collapse').collapse('toggle');
+        });
         window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),
         ]) !!};
@@ -26,7 +28,7 @@
     <nav id="nav" class="navbar">
         <div class="container-fluid">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <button type="button" class="navbar-toggle">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -34,7 +36,6 @@
                 <a href="/" id="logo"> <img src="{{ URL::asset('img/logo_ga.png') }}" width="250px"> </a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
-
                 <div class="socials">
                     <i class="fa fa-facebook" aria-hidden="true"></i>
                     <i class="fa fa-twitter" aria-hidden="true"></i>
