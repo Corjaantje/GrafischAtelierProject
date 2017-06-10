@@ -17,65 +17,55 @@ use App\ShopItemNames;
 		@include('layouts.header', array('title'=>'webshop'))
 	
 		<div class="container">
-		
-			@php
 
-			echo "<div class=\"row\">";
+			<div class="row">
 			
-			$products = App\Product::all();
+			@php
+				$products = App\Product::all()
+			@endphp
 			
-			foreach($products as $product){
-				
+			@foreach($products as $product)
+
+				@php
 				$productnr = $product->id;
 				$productTitle = $product->name;
 				$productPrice = $product->price;
 				$productDescription = $product->description;
 				$fileName = "img/WebshopImages/Shop$productnr.jpg";
-					
-				echo "<div class=\"col-lg-4 col-md-4 col-sm-4 col-sm-offset-0 col-xs-10 col-xs-offset-1\" >";
-				
-				echo "<img src=\"$fileName\" style=\"width: 100%;\" data-toggle='modal' data-target=\"#$productnr\">";
-				
-				echo "<br>";
-				
-				echo "<b>Productnaam</b>: $productTitle";
+				@endphp
 
-				echo "<br>";
+				<div class="col-lg-4 col-md-4 col-sm-4 col-sm-offset-0 col-xs-10 col-xs-offset-1">
+					<img src="{{$fileName}}" style="width: 100%;" data-toggle='modal' data-target="#{{$productnr}}">
+					<br>
+					<b>Productnaam</b>: {{$productTitle}}
+					<br>
+					<b>Prijs</b>: {{$productPrice}}
+					<br>
+					<b>Beschrijving</b>: {{$productDescription}}
+					<br>
 
-				echo "<b>Prijs</b>: $productPrice";
+					<div class='modal fade' id="{{$productnr}}" role='dialog'>
+						<div class='modal-dialog'>
+							<div class='modal-content'>
+								<div class='modal-header'>
+									<button type='button' class='close' data-dismiss='modal'>&times;</button>
+									<h4 class='modal-title'>"{{$productTitle}}"</h4>
+								</div>
+								<div class='modal-body'>
+									<img src="{{$fileName}}" class="modalImage">
+								</div>
+								<div class='modal-footer'>
+									<button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>
+								</div>
+							</div>
+						</div>
+					</div>
 
-				echo "<br>";
+				</div>
+			@endforeach
 
-				echo "<b>Beschrijving</b>: $productDescription";
-
-				echo "<br>";
-
-				echo "<div class='modal fade' id=\"$productnr\" role='dialog'>";
-					echo "<div class='modal-dialog'>";
-						echo "<div class='modal-content'>";
-							echo "<div class='modal-header'>";
-								echo "<button type='button' class='close' data-dismiss='modal'>&times;</button>";
-								echo "<h4 class='modal-title'>\"$productTitle\"</h4>";
-							echo "</div>";
-							echo "<div class='modal-body'>";
-								echo "<img src=\"$fileName\">";
-							echo "</div>";
-							echo "<div class='modal-footer'>";
-								echo "<button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>";
-							echo "</div>";
-						echo "</div>";
-					echo "</div>";
-				echo "</div>";
-
-				echo "</div>";
-			}
-
-			echo "</div>";
-
-			@endphp
-		
+			</div>
 		</div>
-	
 		@include('layouts.footer')
 	</body>
 
