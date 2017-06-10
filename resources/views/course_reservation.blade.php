@@ -1,16 +1,3 @@
-@php
-    use App\Http\Controllers\CoursesController;
-
-    if(isset($_POST['id'])){
-
-        $course = App\Course::find($_POST['id']);
-
-        $controller = new CoursesController();
-    }
-    else {
-        echo "<script>window.location.href = \"{{ route('courses') }}\"</script>";
-    }
-@endphp
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -24,26 +11,22 @@
 <body>
 @include('layouts.header', array('title'=>'Home'))
 
-@if (!Auth::check())
-    <script>window.location.href = "{{ route('login') }}"</script>
-@endif
 <div class="container">
 
-<div class="title">
-    <h1>Inschrijven voor de cursus "{{ $course->name }}"</h1>
-    <p><b>{{ $course->description }}</b></p>
-    <p>Door: <i>{{ $course->coursegiver_name }}</i></p>
-    <p><i>{{\App\Courses_has_user::getSignedUp($course->id)}}/{{$course->max_signups}} ingeschreven</i> </p>
-</div>
-<div class="row">
-    {{Form::open(['route' => 'submitCourseReservation'])}}
-    <input type="hidden" name="id"  value="{{$course->id}}">
-    <input type="submit" name="btnInsertReservation" value="Inschrijven" class="btn btn-primary">
-    {{Form::close()}}
-</div>
+    <div class="title">
+        <h1>Inschrijven voor de cursus "{{ $course->name }}"</h1>
+        <p><b>{{ $course->description }}</b></p>
+        <p>Door: <i>{{ $course->coursegiver_name }}</i></p>
+        <p><i>{{\App\Courses_has_user::getSignedUp($course->id)}}/{{$course->max_signups}} ingeschreven</i></p>
+    </div>
+    <div class="row">
+        {{Form::open(['route' => 'submitCourseReservation'])}}
+        <input type="hidden" name="id" value="{{$course->id}}">
+        <input type="submit" name="btnInsertReservation" value="Inschrijven" class="btn btn-primary">
+        {{Form::close()}}
+    </div>
 
 </div>
-
 
 
 @include('layouts.footer')
