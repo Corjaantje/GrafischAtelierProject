@@ -18,9 +18,6 @@
 //
 //            });
         });
-        $(document).on('click','.navbar-toggle',function(e) {
-	        $('.navbar-collapse').collapse('toggle');
-        });
         window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),
         ]) !!};
