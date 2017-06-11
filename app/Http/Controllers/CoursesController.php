@@ -46,7 +46,8 @@ class CoursesController extends Controller
                     'visible' => isset($_POST['visible'])]
             );
             return Redirect::to('cms/cursus');
-        } else
+        }
+        else
         {
             //not properly working yet
             //return Redirect::back()->withInput();
@@ -68,7 +69,8 @@ class CoursesController extends Controller
                 $isValid = false;
             }
 
-        } else
+        }
+        else
         {
             $isValid = false;
         }
@@ -81,7 +83,8 @@ class CoursesController extends Controller
                 $isValid = false;
             }
 
-        } else
+        }
+        else
         {
             $isValid = false;
         }
@@ -92,7 +95,8 @@ class CoursesController extends Controller
             if (!($_POST['max_signups'] > -1))
             {
                 $isValid = false;
-            } else
+            }
+            else
             {
 
                 if ($_POST['max_signups'] == 0)
@@ -102,7 +106,8 @@ class CoursesController extends Controller
 
             }
 
-        } else
+        }
+        else
         {
             $isValid = false;
         }
@@ -115,7 +120,8 @@ class CoursesController extends Controller
                 $isValid = false;
             }
 
-        } else
+        }
+        else
         {
             $isValid = false;
         }
@@ -150,7 +156,7 @@ class CoursesController extends Controller
     public function setAdd()
     {
         Course::Insert(
-            [   'name' => $_POST['course_name'],
+            ['name' => $_POST['course_name'],
                 'description' => $_POST['description'],
                 'coursegiver_name' => $_POST['coursegiver_name'],
                 'max_signups' => $_POST['max_people'],
@@ -169,8 +175,19 @@ class CoursesController extends Controller
 
     public function createCourseReservationPage()
     {
-        return view('course_reservation');
+        if (isset($_POST['id']))
+        {
+            $course = Course::find($_POST['id']);
+
+            if (!Auth::check()) redirect('login');
+            if ($course != null)
+            {
+                return view('course_reservation', ['course' => $course]);
+            }
+        }
+        return $this->createCoursesPage();
     }
+
 
     public function deleteAction()
     {
@@ -188,9 +205,10 @@ class CoursesController extends Controller
         if (Auth::user()->role == 'admin')
         {
             if (Courses_has_user::where([
-                ['user_id', '=', Auth::user()->id],
-                ['course_id', '=', $courseID]
-            ])->count() === 0)
+                    ['user_id', '=', Auth::user()->id],
+                    ['course_id', '=', $courseID]
+                ])->count() === 0
+            )
             {
                 Courses_has_user::Insert(
                     [
@@ -209,9 +227,10 @@ class CoursesController extends Controller
         {
             if ($currentSignups < $maxSignups &&
                 Courses_has_user::where([
-                    [ 'user_id', '=', Auth::user()->id],
+                    ['user_id', '=', Auth::user()->id],
                     ['course_id', '=', $courseID]
-                ])->count() === 0)
+                ])->count() === 0
+            )
             {
                 Courses_has_user::Insert(
                     [

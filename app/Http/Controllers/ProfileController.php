@@ -153,6 +153,13 @@ class ProfileController extends Controller
 
             if (Hash::check($_POST['password'], $user->password))
             {
+
+                // change information in MailChimp
+                $newInfo = ['email' => $_POST['mail'], 'firstname' => $user->name, 'lastname' => $user->last_name];
+                $oldEmail = $user->email;
+                $httpCode = app('App\Http\Controllers\SubscriptionController')->changeSubscriberInfo($oldEmail, $newInfo);
+
+                // change information is database
                 $user->username = $_POST['username'];
                 $user->email = $_POST['mail'];
                 $user->address = $_POST['address'];
