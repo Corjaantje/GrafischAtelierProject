@@ -52,7 +52,7 @@ use App\ShopItemNames;
 									<h4 class='modal-title'>"{{$productTitle}}"</h4>
 								</div>
 								<div class='modal-body'>
-									<img src="{{$fileName}}" class="modalImage" height="500px" width="500px">
+									<img src="{{$fileName}}" class="modalImage" height="50%" width="80%">
 								</div>
 								<div class='modal-footer'>
 									<button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>
