@@ -17,48 +17,55 @@ use App\ShopItemNames;
 		@include('layouts.header', array('title'=>'webshop'))
 	
 		<div class="container">
-		
+
+			<div class="row">
+			
 			@php
-
-
-			echo "<div class=\"row\">";
-			
-			$products = App\Product::all();
-			
-			foreach($products as $product){
-				
-				$productnr = $product->id;
-				
-				$productTitle = $product->name;
-				
-				$fileName = "img/WebshopImages/Shop$productnr.jpg";
-					
-				echo "<div class=\"col-lg-4 col-md-4 col-sm-4 col-sm-offset-0 col-xs-10 col-xs-offset-1\" >";
-				
-				echo "<a href=\"product/$productnr\">";
-				
-				echo "<img src=\"$fileName\" style=\"width: 100%;\">";
-				
-				echo "<br>";
-				
-				echo "$productTitle";
-				
-				echo "</a>";
-				
-				echo "</div>";
-				
-				
-			}
-			
-			
-			
-			echo "</div>";
-				
-			
+				$products = App\Product::all()
 			@endphp
-		
+			
+			@foreach($products as $product)
+
+				@php
+				$productnr = $product->id;
+				$productTitle = $product->name;
+				$productPrice = $product->price;
+				$productDescription = $product->description;
+				$fileName = "img/WebshopImages/Shop$productnr.jpg";
+				@endphp
+
+				<div class="col-lg-4 col-md-4 col-sm-4 col-sm-offset-0 col-xs-10 col-xs-offset-1">
+					<img src="{{$fileName}}" style="width: 100%;" data-toggle='modal' data-target="#{{$productnr}}">
+					<br>
+					<b>Productnaam</b>: {{$productTitle}}
+					<br>
+					<b>Prijs</b>: {{$productPrice}}
+					<br>
+					<b>Beschrijving</b>: {{$productDescription}}
+					<br>
+
+					<div class='modal fade' id="{{$productnr}}" role='dialog'>
+						<div class='modal-dialog'>
+							<div class='modal-content'>
+								<div class='modal-header'>
+									<button type='button' class='close' data-dismiss='modal'>&times;</button>
+									<h4 class='modal-title'>"{{$productTitle}}"</h4>
+								</div>
+								<div class='modal-body'>
+									<img src="{{$fileName}}" class="modalImage" height="50%" width="80%">
+								</div>
+								<div class='modal-footer'>
+									<button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			@endforeach
+
+			</div>
 		</div>
-	
 		@include('layouts.footer')
 	</body>
 
