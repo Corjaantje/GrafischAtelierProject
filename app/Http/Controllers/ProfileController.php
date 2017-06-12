@@ -41,7 +41,7 @@ class ProfileController extends Controller
                 $matchingCourse = Course::find($course->course_id);
                 if ($matchingCourse->end_date > $date)
                 {
-                    array_push($signedupCourses, $matchingCourse->name);
+                    array_push($signedupCourses, $matchingCourse);
                 }
             }
 
@@ -153,11 +153,12 @@ class ProfileController extends Controller
 
             if (Hash::check($_POST['password'], $user->password))
             {
+
                 // change information in MailChimp
                 $newInfo = ['email' => $_POST['mail'], 'firstname' => $user->name, 'lastname' => $user->last_name];
                 $oldEmail = $user->email;
                 $httpCode = app('App\Http\Controllers\SubscriptionController')->changeSubscriberInfo($oldEmail, $newInfo);
-                
+
                 // change information is database
                 $user->username = $_POST['username'];
                 $user->email = $_POST['mail'];
@@ -187,5 +188,110 @@ class ProfileController extends Controller
 
         }
     }
+
+    public function alterReservation()
+    {
+
+        if (!isset($_POST['submit']) || ($_POST['submit'] != 'Opzeggen' && $_POST['submit'] != 'Uitschrijven')) return Redirect::to('403');
+
+        if ($_POST['submit'] == 'Opzeggen')
+        {
+            if (!Auth::check()) return Redirect::to('login');
+            if (!isset($_POST['id'])) return Redirect::to('403');
+
+            $user = Auth::user();
+            $reservation = IndividualReservation::where('id', $_POST['id'])->where('user_id', $user->id)->firstOrfail();
+            if ($reservation == null) return Redirect::to('profile');
+
+            $reservation->delete();
+
+            return $this->getProfile();
+        }
+        else if ($_POST['submit'] == 'Uitschrijven')
+        {
+            if (!Auth::check()) return Redirect::to('login');
+            if (!isset($_POST['id'])) return Redirect::to('403');
+
+            $course = Course::where('id', $_POST['id'])->firstOrfail();
+
+            if ($course == null) return Redirect::to('profile');
+
+            $userList = $course->reservations;
+
+            foreach ($userList as $user)
+            {
+                if ($user->id == Auth::user()->id)
+                {
+                    $user->pivot->delete();
+                    break;
+                }
+            }
+
+            return $this->getProfile();
+        }
+
+    }
+
+    public function editReservation($error_message = null)
+    {
+        if (!Auth::check()) return Redirect::to('login');
+        if (!isset($_POST['id'])) return Redirect::to('403');
+
+        $user = Auth::user();
+        $reservation = IndividualReservation::first()->where('id', $_POST['id'])->where('user_id', $user->id)->firstOrfail();
+        $date = '';
+        $start = '';
+        $end = '';
+
+        if ($reservation == null) $error = 'Uw reservering kon niet gevonden worden.';
+        else
+        {
+            $error = 'U wijzigt uw reservering op Tafel ' . $reservation->table->id . " " . $reservation->table->tech->name;
+
+            $date = substr($reservation->start_date, 0, 10);
+            $start = substr($reservation->start_date, 11, 5);
+            $end = substr($reservation->end_date, 11, 5);
+        }
+
+        if ($error_message != null) $error = $error_message;
+
+        return view('edit_reservation', ['error' => $error, 'date' => $date, 'start' => $start, 'end' => $end, 'id' => $reservation->id]);
+
+    }
+
+    public function editReservationAction()
+    {
+        if (!Auth::check()) return Redirect::to('login');
+        if (!isset($_POST['id']) || !isset($_POST['date']) || !isset($_POST['start_time']) || !isset($_POST['end_time'])) return Redirect::to('403');
+
+        $user = Auth::user();
+        $reservation = IndividualReservation::first()->where('id', $_POST['id'])->where('user_id', $user->id)->firstOrfail();
+
+        if ($reservation == null) return Redirect::to('403');
+
+        $date = $_POST['date'];
+        $start = $_POST['start_time'];
+        $end = $_POST['end_time'];
+
+        $startDate = $date . " " . $start . ":00";
+        $endDate = $date . " " . $end . ":00";
+
+        $status = app('App\Http\Controllers\ReservationController')->reservationValidation($reservation, $startDate, $endDate);
+
+        if ($status == null)
+        {
+            $reservation->start_date = $startDate;
+            $reservation->end_date = $endDate;
+            $reservation->save();
+        }
+        else
+        {
+            $error = 'Deze tafel is al gereserveerd van ' . substr($status['start'], 11, 5) . ' tot ' . substr($status['end'], 11, 5);
+            return $this->editReservation($error);
+        }
+
+        return $this->getProfile();
+    }
+
 
 }
