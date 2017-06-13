@@ -145,8 +145,15 @@ Route::get('cms/wijzig_artikel/{artikelNummer}', array('as' => 'editNewsArticle'
 Route::get('cms/reservations', ['as' => 'cms_reservations', 'uses' => 'ReservationController@create']);
 Route::post('cms/cmsCreateReservation', array('as' => 'create_reservation', 'uses' => 'ReservationController@newReservation'));
 
-Route::get('cms/users', ['as' => 'cms_users', 'uses' => 'UserController@create']);
-Route::post('cms/cmsCreateUser', array('as' => 'create_user', 'uses' => 'UserController@newUser'));
+#-------Users----------
+Route::get('cms/gebruikers', array('as' => 'cms_users', 'uses' => 'UserController@createList'));
+Route::get('cms/gebruikers/toevoegen', array('as' => 'cms_users_add', 'uses' => 'UserController@createAdd'));
+Route::post('cms/gebruikers/bewerken', array('as' => 'cms_users_edit', 'uses' => 'UserController@createEdit'));
+Route::post('cms/gebruikers/verwijderen', array('as' => 'cms_users_remove', 'uses' => 'UserController@removeUser'));
+
+Route::post('cms/gebruikers/toevoegen/opslaan', array('as' => 'cms_users_add_save', 'uses' => 'UserController@newUser'));
+Route::post('cms/gebruikers/bewerken/opslaan', array('as' => 'cms_users_edit_save', 'uses' => 'UserController@editUser'));
+
 #-------Nieuwsfilter-------
 Route::get('cms/nieuwsfilters', array('as' => 'cms_newsfilters', 'uses' => 'NewsfilterController@createList'));
 Route::get('cms/nieuwsfilters/toevoegen', array('as' => 'cms_newsfilters_add', 'uses' => 'NewsfilterController@createAdd'));

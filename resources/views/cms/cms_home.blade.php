@@ -15,7 +15,7 @@
     <div class="container-cms">
         <!--CONTENT IN HERE-->
         <br>
-        <h1>Welkom <b>@php echo Auth::user()->name; @endphp</b>!</h1>
+        <h1>Welkom <b>{{  Auth::user()->first_name.' '.Auth::user()->last_name }}</b>!</h1>
         <h3>Handleiding link: </h3>
     </div>
     </div>
