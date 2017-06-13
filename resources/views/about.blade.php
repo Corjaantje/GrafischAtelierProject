@@ -12,11 +12,11 @@
 	@include('layouts.header', array('title'=>'Over Ons'))
 		<div class="container">
 			<div class="title">
-				<h1>Over ons</h1>
+				<h3>Over ons</h3>
 			</div>
 			<div class="row">
 				<div class="col-md-6">
-					<h1>Contact en Info</h1>
+					<p>Contact en Info</p>
 					<p>
 						<b>Kristel van Genugten</b> - Coördinator
                         <br>
@@ -29,9 +29,9 @@
 					</p>
 
 
-						<h3>
+						<p>
 							Bestuursleden
-						</h3>
+						</p>
                     <p>
 						<ul>
 							<li>Jan Ramaekers – voorzitter</li>
@@ -44,9 +44,9 @@
 					</p>
 
                     <p>
-                    <h3>
+                    <p>
                         Doelstellingen Grafisch Atelier Den Bosch:
-                    </h3>
+                    </p>
                     <ol>
                         <li>Het bieden van grafische werkplaatsfaciliteiten voor kunstenaars</li>
                         <li>Educatie en kennisoverdracht</li>
@@ -59,9 +59,9 @@
 
 				<div class="col-md-6">
                     <p>
-                    <h1>
+                    <p>
                         Adresgegevens
-                    </h1>
+                    </p>
                     Boschveldweg 471A<br>
                     5211 VK ‘s-Hertogenbosch<br>
                     T +31 (0)736 134 277<br>
@@ -74,14 +74,14 @@
                         <li>Kamer van Koophandel nummer: 41082086 0000</li>
                     </ul>
                     </p>
-					<h3>Openingstijden</h3>
+					<p>Openingstijden</p>
 					<p>
 						ma t/m vrij van 9:00 - 17:00<br>
 						za van 13:00 - 17:00<br>
 					</p>
-					<h3>
+					<p>
 						GA Den Bosch Gesloten:
-					</h3>
+					</p>
 					<p>Op 27 en 28 februari 2017, tijdens carnaval, zijn wij gesloten.</p>
 				</div>
 			</div>
