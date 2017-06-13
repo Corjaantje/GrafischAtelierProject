@@ -19,7 +19,7 @@
     </p>
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-6">
-            <p class="subtitle">Watervrije non toxische Lithografie</p>
+            <b><p class="subtitle">Watervrije non toxische Lithografie</p></b>
             <p>
             10 maart van 09.30-16.00<br />
             door Ingrid Menge<br /><br />
@@ -29,7 +29,7 @@
         </div>
 
         <div class="col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-6">
-            <p class="subtitle">Boekbinden</p>
+            <b><p class="subtitle">Boekbinden</p></b>
             <p>
             27 mei van 09.00-16.30<br />
             door Truzanne Lousberg<br /><br />
@@ -39,7 +39,7 @@
         </div>
         
         <div class="col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-6">
-            <p class="subtitle">Kitchenlitho</p>
+            <b><p class="subtitle">Kitchenlitho</p></b>
             <p>
             18 maart van 10.00-13.00<br />
             door Hannah de Haan<br /><br />
@@ -49,7 +49,7 @@
         </div>
 
         <div class="col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-6">
-            <p class="subtitle">Basiscursus zeefdruk</p>
+            <b><p class="subtitle">Basiscursus zeefdruk</p></b>
             <p>
             22, 29 maart en 5 april van 10.00-16.00<br /><br />
 
@@ -58,7 +58,7 @@
         </div>
 
         <div class="col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-6">
-            <p class="subtitle">Cyanotype</p>
+            <b><p class="subtitle">Cyanotype</p></b>
             <p>
             13 mei van 10.00-12.30<br />
             door Rens Horn<br /><br />
@@ -68,7 +68,7 @@
         </div>
 
         <div class="col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-6">
-            <p class="subtitle">Aankomende workshops;</p>
+            <b><p class="subtitle">Aankomende workshops;</p></b>
             <p>
             • Materiaaldruk - Roos Terra <br />
             • Basiscursus Etsen - Peter Koene <br />

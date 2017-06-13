@@ -21,7 +21,7 @@
         </div>
 
         <div class="col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-6">
-            <p class="subtitle">Op maat</p>
+            <b><p class="subtitle">Op maat</p></b>
             <p>
                 Workshops kunnen op maat worden gemaakt.<br /><br />
 
@@ -32,14 +32,14 @@
         </div>
 
         <div class="col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-6">
-            <p class="subtitle">Basis</p>
+            <b><p class="subtitle">Basis</p></b>
             <p>
                 In deze workshop leer je de basisbeginselen van een grafische techniek. Je werkt met professionele materialen. Het avontuur zit hem in het creatieve proces dat je aangaat en dat je uitdrukking geeft aan een eigen idee. Je bent vooral aan het doen i.p.v. denken en gaat mét prent naar huis. Alle workshops worden gegeven door professionele kunstenaars met ruime ervaring in lesgeven aan groepen.
             </p>
         </div>
 
         <div class="col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-6">
-            <p class="subtitle">Plus arrangementen</p>
+            <b><p class="subtitle">Plus arrangementen</p></b>
             <p>
                 Deze arrangementen zijn extra bij een workshop te boeken.<br /><br />
 
@@ -56,7 +56,7 @@
         </div>
 
         <div class="col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-6">
-            <p class="subtitle">Aanbod</p>
+            <b><p class="subtitle">Aanbod</p></b>
             <p>
                 • Zeefdruk: Bedruk je eigen tas of t-shirt; Experimenteren met kleur; Ruimer denken<br />
                 • Materiaaldruk: Groene vingers; Onkruid vergaat niet<br />

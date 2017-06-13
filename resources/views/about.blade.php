@@ -16,22 +16,22 @@
 			</div>
 			<div class="row">
 				<div class="col-md-6">
-					<p>Contact en Info</p>
+					<b><p>Contact en Info</p></b>
 					<p>
-						<b>Kristel van Genugten</b> - Coördinator
+						Kristel van Genugten - Coördinator
                         <br>
-						<b>Peter Koene</b> - Algemeen werkplaatsbeheer
+						Peter Koene - Algemeen werkplaatsbeheer
 						<br>
-                        <b>Maartje van der Kruijs</b> - Beheer zeefdrukafdeling
+                        Maartje van der Kruijs - Beheer zeefdrukafdeling
 						<br>
-                        <b>Nico Thöne</b> - Projectmedewerker Educatie
+                        Nico Thöne - Projectmedewerker Educatie
                         <br>
 					</p>
 
 
-						<p>
+					<b><p>
 							Bestuursleden
-						</p>
+						</p></b>
                     <p>
 						<ul>
 							<li>Jan Ramaekers – voorzitter</li>
@@ -43,10 +43,10 @@
 						</ul>
 					</p>
 
-                    <p>
-                    <p>
+
+						<b><p>
                         Doelstellingen Grafisch Atelier Den Bosch:
-                    </p>
+							</p></b></div>
                     <ol>
                         <li>Het bieden van grafische werkplaatsfaciliteiten voor kunstenaars</li>
                         <li>Educatie en kennisoverdracht</li>
@@ -58,10 +58,10 @@
 				</div>
 
 				<div class="col-md-6">
-                    <p>
-                    <p>
+                    <b>
+					<p>
                         Adresgegevens
-                    </p>
+					</p></b>
                     Boschveldweg 471A<br>
                     5211 VK ‘s-Hertogenbosch<br>
                     T +31 (0)736 134 277<br>
@@ -74,7 +74,7 @@
                         <li>Kamer van Koophandel nummer: 41082086 0000</li>
                     </ul>
                     </p>
-					<p>Openingstijden</p>
+					<b><p>Openingstijden</p></b>
 					<p>
 						ma t/m vrij van 9:00 - 17:00<br>
 						za van 13:00 - 17:00<br>
