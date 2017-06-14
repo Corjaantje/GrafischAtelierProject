@@ -27,7 +27,7 @@
         Titel: <br>
         <input type="text" name="title" value="" required> <br> <br>
         Afbeelding:
-        <input type="file" accept=".jpeg, .jpg, .png" name="image" value=""> <br>
+        <input type="file" accept=".jpeg, .jpg, .png" name="Image" value=""> <br>
         Omschrijving: <br>
         <textarea rows="5" cols="60" name="description" required></textarea> <br>
         Tekst: <br>

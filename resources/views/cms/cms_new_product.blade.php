@@ -23,7 +23,7 @@
             product</b> @include('layouts.tooltip', array('text'=>'Hier kun je nieuwe producten toevoegen aan de webshop.'))
     </h2>
     <br>
-{{ Form::open(['route' => 'create_product']) }}
+{{ Form::open(['route' => 'create_product', 'files' => true]) }}
 
 <!-- hidden "_token" is necessary for laravel, will throw tokenmismatch exception if not included -->
     {{ Form::hidden('_token', csrf_token()) }}
@@ -32,7 +32,9 @@
     Prijs: <input type="number" name="Price" min="0" step="any" required/> <br><br>
     Beschrijving <br><br>
     {{ Form::textarea('Description','', array('required' => 'required'))}} <br>
-
+    Afbeelding:
+    <input type="file" accept=".jpeg, .jpg, .png" name="Image" value=""> <br>
+    
     <input class="btn btn-primary" type="submit" value="Opslaan">
 
     {{ Form::close() }}

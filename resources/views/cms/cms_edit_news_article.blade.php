@@ -31,34 +31,33 @@
                 }
                 $currentFilter = App\Newsfilter::find($article->filter_id);
         @endphp
-
-        <input type="hidden" name="id" value="{{ $article->id}}"/>
-        <br> <br>
-        Titel: <br>
-        <input type="text" name="title" value="{{$article->title}}" required> <br> <br>
-        Afbeelding:
-        <input type="file" accept=".jpeg, .jpg, .png" name="image" value="{{$article->image}}"> <br>
-        Omschrijving: <br>
-        <textarea rows="5" cols="60" name="description" required>{{$article->description}} </textarea> <br>
-        Tekst: <br>
-        <textarea rows="5" cols="60" name="text" required> {{$article->text}} </textarea> <br>
-        Datum:
-        <input type="date" name="date" value="{{$article->date}}" required/> <br>
-        @php
-            if($article->visible == 1)
-            {
-                  echo 'Zichtbaar <input type="checkbox" checked="true"name="visible"/> <br>';
-            }
-            else
-            {
-                  echo 'Zichtbaar <input type="checkbox" name="visible"/> <br>';
-            }
-        @endphp
-        Categorie:
-        {{ Form::select('filter_id', $filters, --$currentFilter->id) }} <br>
-        <br>
-        <input class="btn btn-primary" type="submit" value="Opslaan"/>
-    </form>
-</div>
-</body>
+                    <input type="hidden" name="id" value="{{ $article->id}}" />
+                    <br> <br>
+                    Titel: <br>
+                        <input type="text" name="title" value="{{$article->title}}" required> <br> <br>
+                    Afbeelding:
+                        <input type="file" accept=".jpeg, .jpg, .png" name="Image" value="{{$article->image}}"> <br>
+                    Omschrijving: <br>
+                        <textarea rows="5" cols="60" name="description" required>{{$article->description}} </textarea> <br>
+                    Tekst: <br>
+                        <textarea rows="5" cols="60" name="text" required> {{$article->text}} </textarea>  <br>
+                    Datum:
+                        <input type="date" name="date" value="{{$article->date}}" required/> <br>
+                    @php
+                        if($article->visible == 1)
+                        {
+                              echo 'Zichtbaar <input type="checkbox" checked="true"name="visible"/> <br>';
+                        }
+                        else
+                        {
+                              echo 'Zichtbaar <input type="checkbox" name="visible"/> <br>';
+                        }
+                    @endphp
+                    Categorie: 
+                    	{{ Form::select('filter_id', $filters, --$currentFilter->id) }} <br>
+                    <br>
+                    <input class="btn btn-primary" type="submit" value="Opslaan"/>
+                </form>
+            </div>
+    </body>
 </html>

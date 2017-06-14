@@ -8,38 +8,55 @@ use Illuminate\Support\Facades\Redirect;
 
 class NewsArticleController extends Controller
 {
-    public function insertNewsArticle()
+    public function insertNewsArticle(Request $request)
+
     {
         /*The database ID's start at 0 while the dropdown indexes at 0, for conversion sake are the id's incremented by 1*/
     	$_POST['filter_id']++;
         if ($_POST['id'] == -1 )
         {
-            $this->newArticle();
+            $this->newArticle($request);
         }
         else
         {
-            $this->editArticle();
+            $this->editArticle($request);
         }
 
         return Redirect::to('cms/nieuws');
     }
 
-    /*Creates a new article*/
-    private function newArticle()
+    // Creates a new article
+    private function newArticle(Request $request)
     {
         $checked = (isset($_POST['visible'])) ? 1 : 0;
-        NewsArticle::Insert(['filter_id' => $_POST['filter_id'], 'title' => $_POST['title'], 'description' => $_POST['description'], 'text' => $_POST['text'],
+        
+        $this->validate($request, [
+        		'Image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+        $imageName = $request->Image->getClientOriginalName();
+        
+        $request->Image->move(public_path('img\NieuwsArtikelen'), $imageName);
+        
+        NewsArticle::Insert(['filter_id' => $_POST['filter_id'], 'title' => $_POST['title'], 'image' => $imageName, 'description' => $_POST['description'], 'text' => $_POST['text'],
                              'date' => $_POST['date'], 'visible' => $checked ]);
 
     }
 
-    /*Edits an article
-    Currently it checks the ID in the Post, in the future the article will be given as an argument.*/
-    private function editArticle() //TODO add argument that will be edited
+    // Edits an article
+    // Currently it checks the ID in the Post, in the future the article will be given as an argument.
+    private function editArticle(Request $request) //TODO add argument that will be edited
     {
         $checked = (isset($_POST['visible'])) ? 1 : 0;
+        
+        $this->validate($request, [
+        		'Image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+        $imageName = $request->Image->getClientOriginalName();
+        
+        $request->Image->move(public_path('img\NieuwsArtikelen'), $imageName);
+        
         NewsArticle::Where('id', '=', $_POST['id'])->update(['filter_id' => $_POST['filter_id'], 'title' => $_POST['title'],
-                           'description' => $_POST['description'], 'text' => $_POST['text'], 'date' => $_POST['date'], 'visible' => $checked ]);
+                           'image' => $imageName, 'description' => $_POST['description'], 'text' => $_POST['text'], 'date' => $_POST['date'], 'visible' => $checked ]);
     }
 
     /* Returns all news articles from the database. */

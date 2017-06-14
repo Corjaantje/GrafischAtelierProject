@@ -42,3 +42,6 @@ update:Ne},Po={create:Re,update:Re},Fo={create:Le,update:Le},qo=u(function(t){va
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
 });
+$(document).on('click','.navbar-toggle',function(e) {
+	$('.navbar-collapse').collapse('toggle');
+});
