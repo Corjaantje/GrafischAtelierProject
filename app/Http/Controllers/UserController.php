@@ -27,9 +27,12 @@ class UserController extends Controller
     {
         if ($this->checkAdmin())
         {
-            $matchingUser = User::find($_POST['id']);
-            //Todo get user id
-            return view("cms.users.cms_edit_user", compact('matchingUser'));
+            if (isset($_POST['id']))
+            {
+                $matchingUser = User::find($_POST['id']);
+                return view("cms.users.cms_edit_user", compact('matchingUser'));
+            }
+
         }
         else
         {
@@ -54,7 +57,10 @@ class UserController extends Controller
         }
         else
         {
-            User::destroy($_POST['id']);
+            if (isset($_POST['id']))
+            {
+                User::destroy($_POST['id']);
+            }
             return Redirect::to("cms/gebruikers");
         }
     }
@@ -69,8 +75,8 @@ class UserController extends Controller
         }
 
         //validate if post is set correctly
-        if ($_POST['first_name'] != null && $_POST['last_name'] != null && $_POST['email'] != null &&
-            $_POST['username'] != null && $_POST['password'] != null && $_POST['address'] != null)
+        if (isset($_POST['first_name']) && isset($_POST['last_name']) && isset($_POST['email'])
+            && isset($_POST['username']) && isset($_POST['password']) && isset($_POST['address']))
         {
             if (isset($_POST['role'])) //also validate if role is set
             {
@@ -101,8 +107,8 @@ class UserController extends Controller
         }
 
         //validate if post is set correctly
-        if ($_POST['first_name'] != null && $_POST['last_name'] != null && $_POST['email'] != null &&
-            $_POST['username'] != null  && $_POST['address'] != null)
+        if (isset($_POST['first_name']) && isset($_POST['last_name']) && isset($_POST['email'])
+            && isset($_POST['username']) && isset($_POST['address']) && isset($_POST['id']))
         {
             $user = User::find($_POST['id']);
 
