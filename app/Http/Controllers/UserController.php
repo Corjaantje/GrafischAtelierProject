@@ -30,9 +30,15 @@ class UserController extends Controller
             if (isset($_POST['id']))
             {
                 $matchingUser = User::find($_POST['id']);
-                return view("cms.users.cms_edit_user", compact('matchingUser'));
+                if ($matchingUser !== null)
+                {
+                    return view("cms.users.cms_edit_user", compact('matchingUser'));
+                }
+                else
+                {
+                    return view("cms.users.cms_user_list");
+                }
             }
-
         }
         else
         {
@@ -59,7 +65,11 @@ class UserController extends Controller
         {
             if (isset($_POST['id']))
             {
-                User::destroy($_POST['id']);
+                $user = User::find($_POST['id']);
+                if ($user->role != "admin")
+                {
+                    User::destroy($_POST['id']);
+                }
             }
             return Redirect::to("cms/gebruikers");
         }

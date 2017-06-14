@@ -49,7 +49,7 @@ class NewsfilterController extends Controller
         if (!$this->checkAdmin()) {
             return Redirect::to('403');
         }
-        if ($_POST['id'] != 1 && isset($_POST['id']))
+        if (isset($_POST['id']) && $_POST['id'] != 1 )
         {
             NewsArticle::where('filter_id', '=', $_POST['id'])->update(['filter_id' => 1]);
 
