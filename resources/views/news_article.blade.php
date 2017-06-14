@@ -40,6 +40,9 @@
 	                    echo "</p>";
 
 	                    echo "</div>";
+	                    echo "<div class=\"col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-10 col-xs-offset-1\">";
+						echo "<img src=\"{{ URL::asset('img/NieuwsArtikelen/'.$article->image) }}\" width=\"100%\"/>";
+						echo "</div>";
                     }
 				}
 				else
@@ -53,9 +56,7 @@
 				}
 
 			@endphp
-			<div class="col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-10 col-xs-offset-1">
-				<img src="{{ URL::asset('img/NieuwsArtikelen/'.$article->image) }}" width="100%"/>
-			</div>
+
 		</div>
 	</div>
 @include('layouts.footer')
