@@ -12,7 +12,7 @@
     @include('layouts.cms_navigation', array('currentPage'=>'Sponsors'))
     <div  class="container-cms">
         <br><br><br>
-        <h2><b>Sponsor bewerken</b> @include('layouts.tooltip', array('text'=>'Hier kun je een bestaande sponsor bewerken.')) </h2>
+        <h2><b>Sponsor bewerken</b> @include('tooltip', array('text'=>'Hier kun je een bestaande sponsor bewerken. Let erop dat de URL nog steeds moet beginnen met "http://".')) </h2>
         <form action="{{ route('edit_sponsor') }}" enctype="multipart/form-data" method="post">
             {{ csrf_field() }}
             <!-- $parts takes the current url, the url will be split on '/' and the last part will be taken, the ID -->

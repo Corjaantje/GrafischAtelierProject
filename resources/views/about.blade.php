@@ -15,6 +15,7 @@
 				<h3>Over ons</h3>
 			</div>
 			<div class="row">
+
 				<div class="col-md-6">
 					<b><p>Contact en Info</p></b>
 					<p>
@@ -84,7 +85,7 @@
 					</p>
 					<p>Op 27 en 28 februari 2017, tijdens carnaval, zijn wij gesloten.</p>
 				</div>
-			</div>
+
 
 			<!-- Google Maps -->
 			<div id="google-map"></div>
@@ -106,6 +107,7 @@
 			</script>
 			<br>
 			<br>
+		</div>
 		</div>
 	@include('layouts.footer')
 	</body>

@@ -17,14 +17,15 @@
     <input type="button" class="btn btn-primary reservationBackButton" onclick="window.location='/'" value="Terug">
     <h1 class="title reservationTitles">Wat wilt u reserveren?</h1>
     <div class="row"><br />
-        <div class="col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-6">
+        <div class="col-lg-5 col-md-5 col-sm-5 col-sm-offset-0 col-xs-6">
             <a href="{{URL::route('reservationStep2')}}">
-                <img src="{{URL::to('/')}}/img/Reservation/werkplaats.png" class="reservationImages">
+                <img src="{{URL::to('/')}}/img/Reservation/werkplaats.png" class="reservationImages" height="400px" width="400px">
             </a>
         </div>
-        <div class="col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-6">
+        <div class="col-lg-2 col-md-2 col-sm-2 col-sm-offset-0 col-xs-6"></div>
+        <div class="col-lg-5 col-md-5 col-sm-5 col-sm-offset-0 col-xs-6">
             <a href="{{URL::route('courses')}}">
-                <img src="{{URL::to('/')}}/img/Reservation/cursus.png" class="reservationImages">
+                <img src="{{URL::to('/')}}/img/Reservation/cursus.png" class="reservationImages" height="400px" width="400px">
             </a>
         </div>
     </div>

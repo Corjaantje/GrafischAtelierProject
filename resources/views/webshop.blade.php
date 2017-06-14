@@ -13,11 +13,8 @@ use App\ShopItemNames;
 
 </head>
 	<body>
-	
 		@include('layouts.header', array('title'=>'webshop'))
-	
 		<div class="container">
-
 			<div class="row">
 			
 			@php
@@ -39,11 +36,10 @@ use App\ShopItemNames;
 					<br>
 					<b>Productnaam</b>: {{$productTitle}}
 					<br>
-					<b>Prijs</b>: {{$productPrice}}
+					<b>Prijs</b>: &euro;{{ $productPrice }}
 					<br>
 					<b>Beschrijving</b>: {{$productDescription}}
 					<br>
-
 					<div class='modal fade' id="{{$productnr}}" role='dialog'>
 						<div class='modal-dialog'>
 							<div class='modal-content'>
@@ -60,14 +56,10 @@ use App\ShopItemNames;
 							</div>
 						</div>
 					</div>
-
 				</div>
 			@endforeach
-
 			</div>
->>>>>>> develop
 		</div>
 		@include('layouts.footer')
 	</body>
-
 </html>

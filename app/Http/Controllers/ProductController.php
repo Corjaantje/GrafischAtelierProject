@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+
+    public function index()
+    {
+        $products = Product::all();
+        return view('webshop', compact('products'));
+    }
 	
 	public function newProduct(Request $request)
 	{		
