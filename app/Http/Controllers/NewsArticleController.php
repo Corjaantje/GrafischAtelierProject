@@ -21,9 +21,9 @@ class NewsArticleController extends Controller
     }
     //
     public function insertNewsArticle(Request $request)
+
     {
-    	//de array van de filter dropdown heeft als eerste index 0, de database heeft als eerste index 1.
-    	//voor conversie wordt het filter id met 1 verhoogd
+        /*The database ID's start at 0 while the dropdown indexes at 0, for conversion sake are the id's incremented by 1*/
     	$_POST['filter_id']++;
         if ($_POST['id'] == -1 )
         {
@@ -71,17 +71,16 @@ class NewsArticleController extends Controller
                            'image' => $imageName, 'description' => $_POST['description'], 'text' => $_POST['text'], 'date' => $_POST['date'], 'visible' => $checked ]);
     }
 
-    // Returns all news articles from the database.
+    /* Returns all news articles from the database. */
     public function getAllArticles()
     {
         return App\NewsArticle::all();
     }
 
-    // Removes a news article from the database, currently not in use
+    /* Removes a news article from the database, currently not in use */
     public function deleteArticle($id)
     {
         NewsArticle::Where('id', '=', $id)->Delete();
-
         return redirect('cms');
     }
 }

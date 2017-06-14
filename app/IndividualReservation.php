@@ -11,7 +11,6 @@ class IndividualReservation extends Model
     public $incrementing = true;
     public $timestamps = false;
 
-
     public function user()
     {
         return $this->hasOne('App\User', 'id', 'user_id');
