@@ -194,6 +194,11 @@ Route::get('profiel', ['as' => 'profile', 'uses' => 'ProfileController@getProfil
 Route::get('gegevens_aanpassen', ['as' => 'edit_profile', 'uses' => 'ProfileController@getProfileEditor']);
 Route::post('gegevens_aanpassen_actie', ['as' => 'edit_profile_action', 'uses'=> 'ProfileController@editProfile']);
 
+Route::delete('profiel', ['as' => 'alter_reservation', 'uses'=> 'ProfileController@alterReservation']);
+Route::post('profiel/reservering_wijzigen', ['as' => 'edit_reservation', 'uses'=> 'ProfileController@editReservation']);
+Route::patch('profiel/reservering_wijzigen', ['as' => 'edit_reservation_action', 'uses'=> 'ProfileController@editReservationAction']);
+
+
 Route::get('wachtwoord_wijzigen', ['as' => 'change_password', 'uses' => 'ProfileController@getChangePassword']);
 Route::post('wachtwoord_wijzigen_actie', ['as' => 'change_password_action', 'uses' => 'ProfileController@changePassword']);
 

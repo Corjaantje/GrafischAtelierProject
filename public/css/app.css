@@ -506,4 +506,9 @@ a.active {
   font-size: 18px;
   font-weight: bold; }
 
+.modalImage {
+  margin: auto;
+  display: block; }
+
+
 /*# sourceMappingURL=app.css.map */

@@ -15,23 +15,50 @@ use App\ShopItemNames;
 	<body>
 		@include('layouts.header', array('title'=>'webshop'))
 		<div class="container">
-			<h1 class="title text-center">Webshop</h1>
-			@foreach ($products as $product)
-				@if( ($loop->index % 3) == 0 )
-					<div class="row">
-						@endif
-						<div class="col-lg-4 col-md-4 col-sm-4 col-sm-offset-0 col-xs-10 col-xs-offset-1">
-							<h2> {{ $product->name }}</h2>
-							<p> {{ $product->description }}</p>
-							<p> Prijs: &euro;{{$product->price }}</p>
-							<img  src="{{ URL::asset('img/WebshopImages/Shop'.$product->id.'.jpg') }}" alt="payments" width="225px">
+			<div class="row">
+			
+			@php
+				$products = App\Product::all()
+			@endphp
+			
+			@foreach($products as $product)
+
+				@php
+				$productnr = $product->id;
+				$productTitle = $product->name;
+				$productPrice = $product->price;
+				$productDescription = $product->description;
+				$fileName = URL::asset('img/Producten/'.$product->image);
+				@endphp
+
+				<div class="col-lg-4 col-md-4 col-sm-4 col-sm-offset-0 col-xs-10 col-xs-offset-1">
+					<img src="{{$fileName}}" style="width: 100%;" data-toggle='modal' data-target="#{{$productnr}}">
+					<br>
+					<b>Productnaam</b>: {{$productTitle}}
+					<br>
+					<b>Prijs</b>: {{$productPrice}}
+					<br>
+					<b>Beschrijving</b>: {{$productDescription}}
+					<br>
+					<div class='modal fade' id="{{$productnr}}" role='dialog'>
+						<div class='modal-dialog'>
+							<div class='modal-content'>
+								<div class='modal-header'>
+									<button type='button' class='close' data-dismiss='modal'>&times;</button>
+									<h4 class='modal-title'>"{{$productTitle}}"</h4>
+								</div>
+								<div class='modal-body'>
+									<img src="{{$fileName}}" class="modalImage" height="50%" width="80%">
+								</div>
+								<div class='modal-footer'>
+									<button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>
+								</div>
+							</div>
 						</div>
-						@if( ($loop->index % 3) == 2)
 					</div>
-				@endif
+				</div>
 			@endforeach
-		</div>
-	</div>
+			</div>
 		@include('layouts.footer')
 	</body>
 </html>
