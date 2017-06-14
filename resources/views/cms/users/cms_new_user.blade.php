@@ -15,13 +15,15 @@
     <br><br><br>
     <h2><b>Nieuwe gebruiker</b> @include('layouts.tooltip', array('text'=>'Hier kun je handmatig een nieuwe gebruiker toevoegen aan het systeem. Deze gebruiker kan vervolgens zelf inloggen.')) </h2>
     <br>
-    {{ Form::open(['route' => 'create_user']) }}
+    {{ Form::open(['route' => 'cms_users_add_save']) }}
     {{ Form::hidden('_token', csrf_token()) }}
-    Naam: {{ Form::text('Name','',array('required' => 'required')) }} <br><br>
-    Email: <input type="email" name="email" required /> <br><br>
-    Accountnaam: {{ Form::text('AccountName','',array('required' => 'required')) }} <br><br>
+    Voornaam: {{ Form::text('first_name','',array('required' => 'required')) }} <br><br>
+    Achternaam: {{ Form::text('last_name','',array('required' => 'required')) }} <br><br>
+    Email: <input type="email" name="email" pattern="\w+@\w+\.\w+" required /> <br><br>
+    Gebruikersnaam: {{ Form::text('username','',array('required' => 'required')) }} <br><br>
     Wachtwoord: <input type="password" name="password" required /> <br><br>
-    Adres: {{ Form::text('Address','',array('required' => 'required')) }} <br><br>
+    Adres: {{ Form::text('address','',array('required' => 'required')) }} <br><br>
+    Beheerder: {{ Form::checkbox('role') }}
     <input class="btn btn-primary" type="submit" value="Opslaan">
     {{ Form::close() }}
 </div>

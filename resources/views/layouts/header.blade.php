@@ -75,7 +75,7 @@
                                 <li class="auth_links"><a href="{{ route('login') }}"><b>Inloggen</b></a> -</li>
 
                             @else
-                                <li id="dropdown" class="auth_links"><b>{{ Auth::user()->name }} <span
+                                <li id="dropdown" class="auth_links"><b>{{ Auth::user()->first_name.' '.Auth::user()->last_name }} <span
                                                 class="caret"></span></b>
                                     <div id="dropdown-content">
                                         <a href="{{ route('profile') }}">

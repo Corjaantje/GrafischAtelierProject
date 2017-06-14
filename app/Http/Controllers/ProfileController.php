@@ -153,7 +153,7 @@ class ProfileController extends Controller
             {
 
                 // change information in MailChimp
-                $newInfo = ['email' => $_POST['mail'], 'firstname' => $user->name, 'lastname' => $user->last_name];
+                $newInfo = ['email' => $_POST['mail'], 'firstname' => $user->first_name, 'lastname' => $user->last_name];
                 $oldEmail = $user->email;
                 $httpCode = app('App\Http\Controllers\SubscriptionController')->changeSubscriberInfo($oldEmail, $newInfo);
 

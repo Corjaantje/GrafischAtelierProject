@@ -122,7 +122,7 @@ class SubscriptionController extends Controller
             {
                 // user doesn't have a last name.
                 $_POST['email'] = $user->email;
-                $_POST['firstName'] = $user->name;
+                $_POST['firstName'] = $user->first_name;
                 $_POST['lastName'] = '';
 
                 $httpCode = $this->addSubscription('subscribed');
