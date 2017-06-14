@@ -7,54 +7,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $('[data-toggle="tooltip"]').tooltip();
-        });
-    </script>
 </head>
 <body class="body-cms">
-@if (Auth::check() && Auth::user()->role == "admin")
-
-    @include('layouts.cms_navigation', array('currentPage'=>'Cursussen'))
-    <div class="container-cms">
-        <!--CONTENT IN HERE-->
-        <br><br><br>
-        <h2><b>Cursus overzicht</b>  </h2> <!-- wat doet dit hier -->
-        <button class="btn btn-primary" onclick="goBack()">Terug</button>
-        <h2><b>Cursus Bevestiging</b>@include('tooltip', array('text'=>'Weet je zeker dat je deze cursus wil opslaan? Druk dan op "Bevestigen".'))</h2><br>
-        @php
-            echo $request->course_name."<br>";
-            echo $request->date." van ".$request->start_time." - ".$request->end_time."<br>";
-            echo "Gegeven door ".$request->coursegiver_name."<br>";
-            if($request->max_people == 0)
-            {
-                echo "Limiet is onbeperkt"."<br><br>";
-            }
-            else
-            {
-                echo "Limiet is ".$request->max_people." personen"."<br><br>";
-            }
-            echo nl2br($request->description)."<br><br>";
-        @endphp
+@include('layouts.cms_navigation', array('currentPage'=>'Cursussen'))
+<div class="container-cms">
+    <br><br>
+    <button class="btn btn-primary" onclick="goBack()">Terug</button>
+    <h2><b>Cursus
+            Bevestiging</b>@include('layouts.tooltip', array('text'=>'Weet je zeker dat je deze cursus wil opslaan? Druk dan op "Bevestigen".'))
+    </h2><br>
+    @php
+        echo $request->course_name."<br>";
+        echo $request->date." van ".$request->start_time." - ".$request->end_time."<br>";
+        echo "Gegeven door ".$request->coursegiver_name."<br>";
+        if($request->max_people == 0)
+        {
+            echo "Limiet is onbeperkt"."<br><br>";
+        }
+        else
+        {
+            echo "Limiet is ".$request->max_people." personen"."<br><br>";
+        }
+        echo nl2br($request->description)."<br><br>";
+    @endphp
     {{ Form::open(['route' => 'cms_courses_add_confirmed']) }}
-        {{Form::hidden('course_name', $request->course_name)}}
-        {{Form::hidden('coursegiver_name', $request->coursegiver_name)}}
-        {{Form::hidden('price', $request->price)}}
-        {{Form::hidden('max_people', $request->max_people)}}
-        {{Form::hidden('date', $request->date)}}
-        {{Form::hidden('start_time', $request->start_time)}}
-        {{Form::hidden('end_time', $request->end_time)}}
-        {{Form::hidden('description', $request->description)}}
-        {{Form::hidden('visible', $request->visible)}}
-        <input class="btn btn-primary" type="submit" value="Bevestigen">
-    {{ Form::close()}}
-    <!---->
-    </div>
-@else
-    <script>window.location.href = "{{ route('login') }}"</script>
-@endif
-
+    {{Form::hidden('course_name', $request->course_name)}}
+    {{Form::hidden('coursegiver_name', $request->coursegiver_name)}}
+    {{Form::hidden('price', $request->price)}}
+    {{Form::hidden('max_people', $request->max_people)}}
+    {{Form::hidden('date', $request->date)}}
+    {{Form::hidden('start_time', $request->start_time)}}
+    {{Form::hidden('end_time', $request->end_time)}}
+    {{Form::hidden('description', $request->description)}}
+    {{Form::hidden('visible', $request->visible)}}
+    <input class="btn btn-primary" type="submit" value="Bevestigen">
+{{ Form::close()}}
+</div>
 <script>
     function goBack() {
         window.history.back();

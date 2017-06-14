@@ -25,7 +25,7 @@ class NavigationTableSeeder extends Seeder
             array(
                 'id' => 2,
                 'name' => 'Webshop',
-                'link_as' => 'winkel',
+                'link_as' => 'store',
                 'parent_id' => null,
                 'priority' => 6,
                 'visible' => 1

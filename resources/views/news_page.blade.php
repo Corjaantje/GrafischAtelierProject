@@ -36,6 +36,7 @@
             </div>
         @endif
     @endforeach
+</div>
     @else
         <h3>Er zijn geen nieuws artikellen om te laten zien.</h3>
     @endif
