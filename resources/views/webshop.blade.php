@@ -36,7 +36,7 @@ use App\ShopItemNames;
 					<br>
 					<b>Productnaam</b>: {{$productTitle}}
 					<br>
-					<b>Prijs</b>: {{$productPrice}}
+					<b>Prijs</b>: &euro;{{ $productPrice }}
 					<br>
 					<b>Beschrijving</b>: {{$productDescription}}
 					<br>
