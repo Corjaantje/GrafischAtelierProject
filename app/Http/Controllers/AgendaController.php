@@ -82,7 +82,7 @@ class AgendaController extends Controller
                 {
                     $tableID = $tableID . $table->id . ",";
                 }
-                // prevents corupted week overview on the webpage.
+                // prevents corrupted week overview on the webpage.
                 if ($tableID == "")
                 {
                     foreach ($this->data['tables'] as $table)
