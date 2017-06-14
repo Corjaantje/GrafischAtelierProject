@@ -42,10 +42,7 @@ Route::get('werkplaats', array('as' => 'werkplaats', function ()
     return view('workplace');
 }));
 
-Route::get('winkel', array('as' => 'winkel', function ()
-{
-    return view('webshop');
-}));
+Route::get('winkel', array('as' => 'store', 'uses' => 'ProductController@index'));
 
 Route::get('archief', array('as' => 'archief', function ()
 {
@@ -129,10 +126,7 @@ Route::get('cms/nieuws', array('as' => 'cms_news', function ()
 Route::post('cms/wijzig_artikel/wijzig_artikel', 'NewsArticleController@insertNewsArticle');
 Route::post('cms/nieuw_artikel', 'NewsArticleController@insertNewsArticle');
 
-Route::get('cms/nieuw_artikel', array('as' => 'newNewsArticle', function ()
-{
-    return view('cms.cms_new_news_article');
-}));
+Route::get('cms/nieuw_artikel', array('as' => 'newNewsArticle', 'uses' => 'NewsArticleController@newNewsArticle'));
 
 Route::get('cms/wijzig_artikel/{artikelNummer}', array('as' => 'editNewsArticle', function ($artikelNummer)
 {
@@ -216,7 +210,7 @@ Route::get('wachtwoord_wijzigen', ['as' => 'change_password', 'uses' => 'Profile
 Route::post('wachtwoord_wijzigen_actie', ['as' => 'change_password_action', 'uses' => 'ProfileController@changePassword']);
 
 #----Sponsor CMS Routes----
-Route::get('cms_sponsor', ['as' => 'cms_sponsor', 'uses' => 'SponsorController@overview']);
+Route::get('cms/sponsor', ['as' => 'cms_sponsor', 'uses' => 'SponsorController@overview']);
 
 Route::get('cms/createSponsors', ['as' => 'cms_createSponsors', 'uses' => 'SponsorController@create']);
 Route::post('cms/cmsCreateSponsor', array('as' => 'create_sponsor', 'uses' => 'SponsorController@newSponsor'));

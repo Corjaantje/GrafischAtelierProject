@@ -13,11 +13,8 @@ use App\ShopItemNames;
 
 </head>
 	<body>
-	
 		@include('layouts.header', array('title'=>'webshop'))
-	
 		<div class="container">
-
 			<div class="row">
 			
 			@php
@@ -31,7 +28,7 @@ use App\ShopItemNames;
 				$productTitle = $product->name;
 				$productPrice = $product->price;
 				$productDescription = $product->description;
-				$fileName = "img/WebshopImages/Shop$productnr.jpg";
+				$fileName = URL::asset('img/Producten/'.$product->image);
 				@endphp
 
 				<div class="col-lg-4 col-md-4 col-sm-4 col-sm-offset-0 col-xs-10 col-xs-offset-1">
@@ -39,11 +36,10 @@ use App\ShopItemNames;
 					<br>
 					<b>Productnaam</b>: {{$productTitle}}
 					<br>
-					<b>Prijs</b>: {{$productPrice}}
+					<b>Prijs</b>: &euro;{{ $productPrice }}
 					<br>
 					<b>Beschrijving</b>: {{$productDescription}}
 					<br>
-
 					<div class='modal fade' id="{{$productnr}}" role='dialog'>
 						<div class='modal-dialog'>
 							<div class='modal-content'>
@@ -60,13 +56,10 @@ use App\ShopItemNames;
 							</div>
 						</div>
 					</div>
-
 				</div>
 			@endforeach
-
 			</div>
 		</div>
 		@include('layouts.footer')
 	</body>
-
 </html>

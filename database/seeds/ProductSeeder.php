@@ -19,13 +19,15 @@ class ProductSeeder extends Seeder
         				'id' => 1,
         				'name' => "Het eerste product",
         				'price' => 12.40,
-        				'description' => "Dit is een product voor de database. Dit product is alleen een testproduct en dient meteen weggegooid te worden"
+        				'description' => "testproduct voor showcasing",
+						'image' => "imgTemp1.jpg"
         		),
         		array(
         				'id' => 2,
         				'name' => "Het tweede product",
         				'price' => 40.12,
-        				'description' => "Dit is een product voor de database. Dit product is alleen een testproduct en dient meteen weggegooid te worden"
+        				'description' => "testproduct voor showcasing",
+						'image' => "imgTemp2.jpg"
         		)
         );
         

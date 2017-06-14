@@ -4,31 +4,52 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+
+    public function index()
+    {
+        $products = Product::all();
+        return view('webshop', compact('products'));
+    }
 	
-	public function newProduct()
+	public function newProduct(Request $request)
 	{		
 		if(!$this->formValid()){
 					
 			return Redirect::to('cms/product_lijst');
 					
 		}
+		$this->validate($request, [
+				'Image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+		]);
+		$imageName = $request->Image->getClientOriginalName();
 		
-		Product::Insert(['name' => $_POST['Name'], 'price' =>$_POST['Price'], 'description' => $_POST['Description'] ]);
+		$request->Image->move(public_path('img\Producten'), $imageName);
+		
+		Product::Insert(['name' => $_POST['Name'], 'price' =>$_POST['Price'], 'description' => $_POST['Description'], 'image' => $imageName ]);
 		
 		return Redirect::to('cms/product_lijst');
 	}
 	
-	public function editProduct()
+	public function editProduct(Request $request)
 	{
 		if(!$this->formValid()){
 				
 			return Redirect::to('cms/product_lijst');
 				
 		}
-		Product::Where('id', '=', $_POST['Id'])->update(['name' => $_POST['Name'], 'price' =>$_POST['Price'], 'description' => $_POST['Description'] ]);
+		var_dump($request->Image);
+		$this->validate($request, [
+				'Image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+		]);
+		$imageName = $request->Image->getClientOriginalName();
+		
+		$request->Image->move(public_path('img\Producten'), $imageName);
+		
+		Product::Where('id', '=', $_POST['Id'])->update(['name' => $_POST['Name'], 'price' =>$_POST['Price'], 'description' => $_POST['Description'], 'image' => $imageName ]);
 		
 		return Redirect::to('cms/product_lijst');
 	}

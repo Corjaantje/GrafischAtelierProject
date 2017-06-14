@@ -29,7 +29,6 @@ class CreateCoursesTable extends Migration
 
         Schema::create('course_has_tables', function (Blueprint $table)
         {
-
             $table->integer('course_id')->references('id')->on('courses');
             $table->integer('table_id')->references('id')->on('tables');
         });

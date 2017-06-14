@@ -37,7 +37,7 @@
 	scheduler.config.default_date = "%l %j %F %Y";
 	scheduler.config.multisection = true;
 
-    var step = 30;
+    var step = 60;
     var format = scheduler.date.date_to_str("%H:%i");
 
     scheduler.templates.hour_scale = function(date){

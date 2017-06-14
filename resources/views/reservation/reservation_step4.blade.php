@@ -19,7 +19,7 @@
     <h1 class="title reservationTitles">Reserveren</h1>
 
     @if(isset($error))
-        <h2 class="reservationTitles">{{$error}}</h2>
+        <p class="reservationTitles">{{$error}}</p>
     @endisset
     <div class="row"><br/><br/>
         {{ Form::open(['route' => 'ReservationStep_3']) }}
