@@ -85,7 +85,7 @@
 					</p>
 					<p>Op 27 en 28 februari 2017, tijdens carnaval, zijn wij gesloten.</p>
 				</div>
-			</div>
+
 
 			<!-- Google Maps -->
 			<div id="google-map"></div>
@@ -107,6 +107,7 @@
 			</script>
 			<br>
 			<br>
+		</div>
 		</div>
 	@include('layouts.footer')
 	</body>
