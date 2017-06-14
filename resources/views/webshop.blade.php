@@ -59,6 +59,7 @@ use App\ShopItemNames;
 				</div>
 			@endforeach
 			</div>
+		</div>
 		@include('layouts.footer')
 	</body>
 </html>
