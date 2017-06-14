@@ -143,13 +143,11 @@ class ProfileController extends Controller
     {
         if (!Auth::check())
         {
-            return Redirect::to('login');
         }
         else
         {
             $user_id = Auth::user()->id;
             $user = User::find($user_id);
-            $userPassword = $user->password;
 
             if (Hash::check($_POST['password'], $user->password))
             {
@@ -160,30 +158,21 @@ class ProfileController extends Controller
                 $httpCode = app('App\Http\Controllers\SubscriptionController')->changeSubscriberInfo($oldEmail, $newInfo);
 
                 // change information is database
+   
                 $user->username = $_POST['username'];
-                $user->email = $_POST['mail'];
                 $user->address = $_POST['address'];
                 $user->save();
-
-                if (isset($_POST['newsletter']))
-                {
-                    //input == true
-                }
-                else
-                {
-                    //input == false
-                }
                 return Redirect::to('profiel');
             }
             else
             {
-                $error = "Voer het juiste wachtwoord in";
                 $userinfo = array(
-                    'username' => Auth::user()->username,
+                $error = "Voer het juiste wachtwoord in";
                     'mail' => Auth::user()->email,
-                    'address' => Auth::user()->address
+                    'username' => Auth::user()->username,
                 );
-                return view('profile_editor', compact(['error', 'userinfo']));
+                    'address' => Auth::user()->address
+                return view('profile_editor', compact('error', 'userinfo'));
             }
 
         }

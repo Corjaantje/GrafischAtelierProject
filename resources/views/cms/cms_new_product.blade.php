@@ -14,18 +14,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $('[data-toggle="tooltip"]').tooltip();
-        });
-    </script>
 </head>
 <body class="body-cms">
 @include('layouts.cms_navigation', array('currentPage'=>'Producten'))
-
 <div class="container-cms">
     <br><br><br>
-    <h2><b>Nieuw product</b> @include('tooltip', array('text'=>'Hier kun je nieuwe producten toevoegen aan de webshop.')) </h2>
+    <h2><b>Nieuw
+            product</b> @include('layouts.tooltip', array('text'=>'Hier kun je nieuwe producten toevoegen aan de webshop.'))
+    </h2>
     <br>
 {{ Form::open(['route' => 'create_product', 'files' => true]) }}
 
@@ -42,8 +38,6 @@
     <input class="btn btn-primary" type="submit" value="Opslaan">
 
     {{ Form::close() }}
-
 </div>
-
 </body>
 </html>
