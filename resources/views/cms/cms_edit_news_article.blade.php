@@ -41,7 +41,7 @@
                     Titel: <br>
                         <input type="text" name="title" value="{{$article->title}}" required> <br> <br>
                     Afbeelding:
-                        <input type="file" accept=".jpeg, .jpg, .png" name="image" value="{{$article->image}}"> <br>
+                        <input type="file" accept=".jpeg, .jpg, .png" name="Image" value="{{$article->image}}"> <br>
                     Omschrijving: <br>
                         <textarea rows="5" cols="60" name="description" required>{{$article->description}} </textarea> <br>
                     Tekst: <br>

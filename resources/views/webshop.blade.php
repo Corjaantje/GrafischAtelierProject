@@ -31,7 +31,7 @@ use App\ShopItemNames;
 				$productTitle = $product->name;
 				$productPrice = $product->price;
 				$productDescription = $product->description;
-				$fileName = "img/WebshopImages/Shop$productnr.jpg";
+				$fileName = URL::asset('img/Producten/'.$product->image);
 				@endphp
 
 				<div class="col-lg-4 col-md-4 col-sm-4 col-sm-offset-0 col-xs-10 col-xs-offset-1">
@@ -65,6 +65,7 @@ use App\ShopItemNames;
 			@endforeach
 
 			</div>
+>>>>>>> develop
 		</div>
 		@include('layouts.footer')
 	</body>
