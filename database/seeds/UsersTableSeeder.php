@@ -19,8 +19,8 @@ class UsersTableSeeder extends Seeder {
                 'address' => 'onderwijslaan 12'
             ),
             array(
-                'first_name' => 'admin',
-                'last_name' => 'de beste',
+                'first_name' => 'Admin',
+                'last_name' => 'de Admin',
                 'email' => 'admin@admin.com',
                 'username' => 'Admin',
                 'role' => 'admin',
