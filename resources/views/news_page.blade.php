@@ -38,7 +38,7 @@
     @endforeach
 </div>
     @else
-        <h3>Er zijn geen nieuws artikellen om te laten zien.</h3>
+        <h3>Er zijn geen nieuws artikelen om te laten zien.</h3>
     @endif
 </div><br>
 @include('layouts.footer')
