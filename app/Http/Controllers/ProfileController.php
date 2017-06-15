@@ -167,11 +167,12 @@ class ProfileController extends Controller
             else
             {
                 $userinfo = array(
-                $error = "Voer het juiste wachtwoord in";
+                    $error = "Voer het juiste wachtwoord in",
                     'mail' => Auth::user()->email,
                     'username' => Auth::user()->username,
-                );
                     'address' => Auth::user()->address
+                );
+
                 return view('profile_editor', compact('error', 'userinfo'));
             }
 
