@@ -25,7 +25,13 @@
 
     {{Form::open(['route' => 'submitCourseReservation'])}}
     <input type="hidden" name="id"  value="{{$course->id}}">
-    <input type="submit" name="btnInsertReservation" value="Inschrijven" class="btn btn-primary">
+    @if (\App\Courses_has_user::all()->where("user_id", "=", Auth::user()->id)->where("course_id", "=", $course->id)->count() > 0)
+        <div style="color: red;">U hebt al ingeschreven voor deze cursus.</div>
+    @elseif (\App\Courses_has_user::getSignedUp($course->id) >= $course->max_signups)
+        <div style="color: red;">De cursus is al vol</div>
+    @else
+        <input type="submit" name="btnInsertReservation" value="Inschrijven" class="btn btn-primary">
+    @endif
     {{Form::close()}}
     </div>
     <div class="col-lg-3 col-md-3 col-sm-3 col-sm-offset-0 col-xs-4"></div>
