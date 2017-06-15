@@ -16,6 +16,7 @@
         @php
             $products = App\Product::all()
         @endphp
+        <h1 class="title text-center">Webshop</h1>
         @if ($products->count() > 0)
 
             @foreach($products as $product)
