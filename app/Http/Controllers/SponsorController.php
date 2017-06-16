@@ -78,7 +78,7 @@ class SponsorController extends Controller
                 Sponsor::Insert(['name' => $_POST['Name'], 'image' => $imageName, 'sponsor_url' => $_POST['URL']]);
             }
 
-            return Redirect::to('/cms_sponsor');
+            return Redirect::to('cms/sponsor');
         }
     }
 
@@ -113,7 +113,7 @@ class SponsorController extends Controller
                     'image' => $imageName, 'sponsor_url' => $_POST['URL']]);
             }
 
-            return Redirect::to('/cms_sponsor');
+            return Redirect::to('cms/sponsor');
         }
     }
 
@@ -147,7 +147,7 @@ class SponsorController extends Controller
                 Sponsor::destroy($_POST['id']);
             }
 
-            return Redirect::to('cms_sponsor');
+            return Redirect::to('cms/sponsor');
         }
     }
 }
