@@ -38,8 +38,7 @@
 			@endphp
 
 			<div>
-				<div style="margin-top:20px;"><span><b>" {{$dateStart->format("d-m-Y")}}"</b> {{$dateStart->format("H:i")}} " - ".
-						{{$dateEnd->format("H:i")}} ( {{\App\Technique::getTechniqueByTableID($table->table_id)}}
+				<div style="margin-top:20px;"><span><b>{{$dateStart->format("d-m-Y")}}</b> {{$dateStart->format("H:i")}}-{{$dateEnd->format("H:i")}} ( {{\App\Technique::getTechniqueByTableID($table->table_id)}}
 						)</span>
 					{{Form::open(['method' => 'delete', 'route' => 'alter_reservation', 'style'=>'float:right;'])}}
 					<input type="hidden" name="id" value="{{$table->id}}">
