@@ -12,9 +12,9 @@
 		<div class="col-lg-3 col-md-3 col-sm-4 col-sm-offset-0 col-xs-4"></div>
 
 		<div class="col-lg-6 col-md-6 col-sm-4 col-sm-offset-0 col-xs-4">
-		<h3>{{$article->title}}</h3><br>
-		<p><i>{{$article->date}}</i></p><br>
-			<p><b>{{$article->description}}</b></p><br>
+		<h3>{{$article->title}}</h3>
+		<p><i>{{$article->date}}</i></p>
+			<p><b>{{$article->description}}</b></p>
 		<p>{{$article->text}}<br></p>
 		</div>
 
