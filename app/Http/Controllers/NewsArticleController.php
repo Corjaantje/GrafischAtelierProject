@@ -12,18 +12,17 @@ class NewsArticleController extends Controller
 
     public function newNewsArticle()
     {
-        foreach( Newsfilter::all() as $filter)
+        foreach(Newsfilter::all() as $filter)
         {
             $filters[] = $filter->name;
         }
-
         return view('cms.cms_new_news_article', compact('filters'));
     }
-    //
+
     public function insertNewsArticle(Request $request)
 
     {
-        /*The database ID's start at 0 while the dropdown indexes at 0, for conversion sake are the id's incremented by 1*/
+        /*The database ID's start at 1 while the dropdown indexes at 0, for conversion sake are the id's incremented by 1*/
     	$_POST['filter_id']++;
         if ($_POST['id'] == -1 )
         {

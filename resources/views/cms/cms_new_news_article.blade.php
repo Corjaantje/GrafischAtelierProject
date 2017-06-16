@@ -1,10 +1,4 @@
-@php
-    foreach(App\Newsfilter::all() as $filter)
-    {
-        $filters[] = $filter->name;
-    }
-@endphp
-        <!DOCTYPE html>
+<!DOCTYPE html>
 <html class="html-cms">
 <head>
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/app.css') }}">
