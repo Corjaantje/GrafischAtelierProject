@@ -17,7 +17,7 @@
     @include('layouts.cms_navigation', array('currentPage'=>'Gebruikers'))
     <div class="container-cms">
         <br><br><br>
-        <h2><b>Gebruiker overzicht</b> @include('tooltip', array('text'=>'Hier zie je het overzicht van alle gebruikers.')) </h2>
+        <h2><b>Gebruiker overzicht</b> @include('layouts.tooltip', array('text'=>'Hier zie je het overzicht van alle gebruikers.')) </h2>
         <!--CONTENT IN HERE-->
         <button type="button" class="btn btn-primary" onclick="window.location='{{URL::route('cms_users_add')}}'">Nieuwe Gebruiker</button>
         <br>
