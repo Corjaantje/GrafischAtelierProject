@@ -80,11 +80,11 @@
 		@php
 			if ($subscriptionStatus == 'subscribed')
 			{
-			echo  '<input type="submit" class="btn btn-primary" name="wijzigen" value="Opzeggen">';
+			echo  '<input type="submit" class="btn btn-primary" name="wijzigen" value="Nieuwsbrief opzeggen">';
 			}
 			else
 			{
-			 echo  '<input type="submit" class="btn btn-primary" name="wijzigen" value="Abonneren">';
+			 echo  '<input type="submit" class="btn btn-primary" name="wijzigen" value="Abonneren op nieuwsbrief">';
 			}
 
 		@endphp

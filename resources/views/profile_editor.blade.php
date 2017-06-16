@@ -30,10 +30,7 @@
 				<input type="text" value="{{ $userinfo['address'] }}" name="address" required/><br>
 				
 			Huidig wachtwoord:<br>
-				<input type="password" name="password" required/><br>
-				
-			Nieuwsbrief:
-				<input type="checkbox" name="newsletter" value="true"/><br>
+				<input type="password" name="password" required/><br> <br>
 			
 			<input class="btn btn-primary"  type="submit" value="Opslaan">
 		

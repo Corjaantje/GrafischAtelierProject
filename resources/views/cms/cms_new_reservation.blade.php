@@ -32,7 +32,9 @@
             <option name="{{ $course->id }}" value="{{ $course->id }}">{{ $course->name }}</option>
         @endforeach
     </select><br/><br/>
-    <input class="btn btn-primary" type="submit" value="Opslaan">
+    @if (count($userArray) > 0 && count($courseArray) > 0)
+        <input class="btn btn-primary" type="submit" value="Opslaan">
+    @endif
     {{ Form::close() }}
     <br>
 </div>
