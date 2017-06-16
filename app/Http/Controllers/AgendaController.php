@@ -21,13 +21,13 @@ class AgendaController extends Controller
 
         // time limitation for longterm efficiency.
         $this->data['reservations'] = $this->reservationsConverter(IndividualReservation::where([
-            ['start_date', '>', Date('Y-m-d H:i:s', strtotime('-1 month'))],
-            ['start_date', '<', Date('Y-m-d H:i:s', strtotime('+1 month'))],
+            ['start_date', '>', Date('Y-m-d H:i:s', strtotime('-6 month'))],
+            ['start_date', '<', Date('Y-m-d H:i:s', strtotime('+6 month'))],
         ])->get());
 
         $this->data['workshops'] = $this->workshopsConverter(Course::where([
-            ['start_date', '>', Date('Y-m-d H:i:s', strtotime('-1 month'))],
-            ['start_date', '<', Date('Y-m-d H:i:s', strtotime('+1 month'))],
+            ['start_date', '>', Date('Y-m-d H:i:s', strtotime('-6 month'))],
+            ['start_date', '<', Date('Y-m-d H:i:s', strtotime('+6 month'))],
         ])->get());
 
         return view('agenda', $this->data);
@@ -42,7 +42,7 @@ class AgendaController extends Controller
             $newItem = [
                 'start_date' => $item->start_date,
                 'end_date' => $item->end_date,
-                'text' => "Gereserveerd door: " . $item->user->first_name,
+                'text' => "Gereserveerd door: " . $item->user->first_name." ".$item->user->last_name,
                 'type' => $item->table_id,
                 'color' => "#009966",
             ];
