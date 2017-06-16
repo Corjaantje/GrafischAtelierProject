@@ -10,7 +10,7 @@
 </head>
 <body>
 @include('layouts.header', array('title'=>'workplace'))
-<div class="jumbotron text-center">
+<div class="title text-center">
     <h1>Werkplaats</h1>
 </div>
 

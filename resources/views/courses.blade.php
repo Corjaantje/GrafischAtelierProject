@@ -9,10 +9,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-@include('layouts.header', array('title'=>'Home'))
+@include('layouts.header', array('title'=>'Cursuspagina'))
 <div class="container">
     @php
-        $courses = App\Course::Where('visible', '1')->get();
+
     @endphp
     <h1>Cursussen</h1>
     @foreach ($courses as $course)

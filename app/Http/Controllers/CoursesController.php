@@ -154,12 +154,19 @@ class CoursesController extends Controller
 
     public function createCoursesPage()
     {
-        return view('courses');
+        $courses = Course::Where('visible', '1')->get();
+        return view('courses', compact('courses'));
     }
 
     public function createCourseReservationPage()
     {
-        return view('course_reservation');
+        if (isset($_POST['id']))
+        {
+            $course = Course::find($_POST['id']);
+            return view('course_reservation', compact('course'));
+        }
+        return view('courses');
+
     }
 
     public function deleteAction()
