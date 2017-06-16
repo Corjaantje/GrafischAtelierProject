@@ -42,7 +42,7 @@ class AgendaController extends Controller
             $newItem = [
                 'start_date' => $item->start_date,
                 'end_date' => $item->end_date,
-                'text' => "Gereserveerd door: " . $item->user->name,
+                'text' => "Gereserveerd door: " . $item->user->first_name,
                 'type' => $item->table_id,
                 'color' => "#009966",
             ];
