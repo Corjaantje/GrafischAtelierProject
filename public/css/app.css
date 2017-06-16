@@ -59,7 +59,10 @@ body {
   font-size: 14px;
   border-style: solid;
   border-color: lightgray;
-  background: linear-gradient(to bottom, #ffffff 29%, #d6d6d6 99%); }
+  background: linear-gradient(to bottom, #ffffff 29%, #d6d6d6 99%);
+  position: fixed;
+  width: 100%;
+  z-index: 999; }
   #nav ul {
     margin-bottom: 0px;
     margin-top: 50px; }
@@ -122,7 +125,8 @@ li:hover #dropdown-content {
 
 #footer-links {
   display: inline-block;
-  font-size: 24px; }
+  font-size: 18px;
+  margin: auto; }
 
 #footer-links ul li {
   list-style: none; }
@@ -490,5 +494,21 @@ a.active {
   content: "";
   position: absolute;
   z-index: 99; }
+
+.reservationBackButton {
+  float: right; }
+
+.headerSpace {
+  height: 100px;
+  margin: auto; }
+
+#tafel {
+  font-size: 18px;
+  font-weight: bold; }
+
+.modalImage {
+  margin: auto;
+  display: block; }
+
 
 /*# sourceMappingURL=app.css.map */

@@ -22,7 +22,7 @@ class CreateWorkshopsTable extends Migration
             $table->boolean('visible');
             $table->dateTime('start_date');
             $table->dateTime('end_date');
-            $table->float('cost');
+            $table->double('cost');
             $table->integer('template');
             $table->timestamps();
         });

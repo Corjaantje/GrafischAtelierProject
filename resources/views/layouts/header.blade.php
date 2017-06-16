@@ -18,7 +18,6 @@
 //
 //            });
         });
-
         window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),
         ]) !!};
@@ -26,7 +25,7 @@
     <nav id="nav" class="navbar">
         <div class="container-fluid">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <button type="button" class="navbar-toggle">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -34,7 +33,6 @@
                 <a href="/" id="logo"> <img src="{{ URL::asset('img/logo_ga.png') }}" width="250px"> </a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
-
                 <div class="socials">
                     <i class="fa fa-facebook" aria-hidden="true"></i>
                     <i class="fa fa-twitter" aria-hidden="true"></i>
@@ -77,7 +75,7 @@
                                 <li class="auth_links"><a href="{{ route('login') }}"><b>Inloggen</b></a> -</li>
 
                             @else
-                                <li id="dropdown" class="auth_links"><b>{{ Auth::user()->name }} <span
+                                <li id="dropdown" class="auth_links"><b>{{ Auth::user()->first_name.' '.Auth::user()->last_name }} <span
                                                 class="caret"></span></b>
                                     <div id="dropdown-content">
                                         <a href="{{ route('profile') }}">
@@ -105,6 +103,7 @@
             </div>
         </div>
     </nav>
+    <div class="headerSpace"></div>
 @show
 
 <script src="{{ asset('js/app.js') }}"></script>

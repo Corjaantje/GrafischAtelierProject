@@ -10,29 +10,29 @@
 	</head>
 	<body>
 	@include('layouts.header', array('title'=>'Over Ons'))
-		<div class="title text-center">
-			<h1>Over het Grafisch Atelier Den Bosch</h1>
-		</div>
-
 		<div class="container">
+			<div class="title">
+				<h3>Over ons</h3>
+			</div>
 			<div class="row">
+
 				<div class="col-md-6">
-					<h1>Contact en Info</h1>
+					<b><p>Contact en Info</p></b>
 					<p>
-						<b>Kristel van Genugten</b> - Coördinator
+						Kristel van Genugten - Coördinator
                         <br>
-						<b>Peter Koene</b> - Algemeen werkplaatsbeheer
+						Peter Koene - Algemeen werkplaatsbeheer
 						<br>
-                        <b>Maartje van der Kruijs</b> - Beheer zeefdrukafdeling
+                        Maartje van der Kruijs - Beheer zeefdrukafdeling
 						<br>
-                        <b>Nico Thöne</b> - Projectmedewerker Educatie
+                        Nico Thöne - Projectmedewerker Educatie
                         <br>
 					</p>
 
 
-						<h3>
+					<b><p>
 							Bestuursleden
-						</h3>
+						</p></b>
                     <p>
 						<ul>
 							<li>Jan Ramaekers – voorzitter</li>
@@ -44,10 +44,10 @@
 						</ul>
 					</p>
 
-                    <p>
-                    <h3>
+
+						<b><p>
                         Doelstellingen Grafisch Atelier Den Bosch:
-                    </h3>
+							</p></b></div>
                     <ol>
                         <li>Het bieden van grafische werkplaatsfaciliteiten voor kunstenaars</li>
                         <li>Educatie en kennisoverdracht</li>
@@ -59,10 +59,10 @@
 				</div>
 
 				<div class="col-md-6">
-                    <p>
-                    <h1>
+                    <b>
+					<p>
                         Adresgegevens
-                    </h1>
+					</p></b>
                     Boschveldweg 471A<br>
                     5211 VK ‘s-Hertogenbosch<br>
                     T +31 (0)736 134 277<br>
@@ -75,17 +75,17 @@
                         <li>Kamer van Koophandel nummer: 41082086 0000</li>
                     </ul>
                     </p>
-					<h3>Openingstijden</h3>
+					<b><p>Openingstijden</p></b>
 					<p>
 						ma t/m vrij van 9:00 - 17:00<br>
 						za van 13:00 - 17:00<br>
 					</p>
-					<h3>
+					<p>
 						GA Den Bosch Gesloten:
-					</h3>
+					</p>
 					<p>Op 27 en 28 februari 2017, tijdens carnaval, zijn wij gesloten.</p>
 				</div>
-			</div>
+
 
 			<!-- Google Maps -->
 			<div id="google-map"></div>
@@ -107,6 +107,7 @@
 			</script>
 			<br>
 			<br>
+		</div>
 		</div>
 	@include('layouts.footer')
 	</body>

@@ -42,10 +42,7 @@ Route::get('werkplaats', array('as' => 'werkplaats', function ()
     return view('workplace');
 }));
 
-Route::get('winkel', array('as' => 'winkel', function ()
-{
-    return view('webshop');
-}));
+Route::get('winkel', array('as' => 'store', 'uses' => 'ProductController@index'));
 
 Route::get('archief', array('as' => 'archief', function ()
 {
@@ -129,10 +126,7 @@ Route::get('cms/nieuws', array('as' => 'cms_news', function ()
 Route::post('cms/wijzig_artikel/wijzig_artikel', 'NewsArticleController@insertNewsArticle');
 Route::post('cms/nieuw_artikel', 'NewsArticleController@insertNewsArticle');
 
-Route::get('cms/nieuw_artikel', array('as' => 'newNewsArticle', function ()
-{
-    return view('cms.cms_new_news_article');
-}));
+Route::get('cms/nieuw_artikel', array('as' => 'newNewsArticle', 'uses' => 'NewsArticleController@newNewsArticle'));
 
 Route::get('cms/wijzig_artikel/{artikelNummer}', array('as' => 'editNewsArticle', function ($artikelNummer)
 {
@@ -145,8 +139,15 @@ Route::get('cms/wijzig_artikel/{artikelNummer}', array('as' => 'editNewsArticle'
 Route::get('cms/reservations', ['as' => 'cms_reservations', 'uses' => 'ReservationController@create']);
 Route::post('cms/cmsCreateReservation', array('as' => 'create_reservation', 'uses' => 'ReservationController@newReservation'));
 
-Route::get('cms/users', ['as' => 'cms_users', 'uses' => 'UserController@create']);
-Route::post('cms/cmsCreateUser', array('as' => 'create_user', 'uses' => 'UserController@newUser'));
+#-------Users----------
+Route::get('cms/gebruikers', array('as' => 'cms_users', 'uses' => 'UserController@createList'));
+Route::get('cms/gebruikers/toevoegen', array('as' => 'cms_users_add', 'uses' => 'UserController@createAdd'));
+Route::post('cms/gebruikers/bewerken', array('as' => 'cms_users_edit', 'uses' => 'UserController@createEdit'));
+Route::post('cms/gebruikers/verwijderen', array('as' => 'cms_users_remove', 'uses' => 'UserController@removeUser'));
+
+Route::post('cms/gebruikers/toevoegen/opslaan', array('as' => 'cms_users_add_save', 'uses' => 'UserController@newUser'));
+Route::post('cms/gebruikers/bewerken/opslaan', array('as' => 'cms_users_edit_save', 'uses' => 'UserController@editUser'));
+
 #-------Nieuwsfilter-------
 Route::get('cms/nieuwsfilters', array('as' => 'cms_newsfilters', 'uses' => 'NewsfilterController@createList'));
 Route::get('cms/nieuwsfilters/toevoegen', array('as' => 'cms_newsfilters_add', 'uses' => 'NewsfilterController@createAdd'));
@@ -200,11 +201,16 @@ Route::get('profiel', ['as' => 'profile', 'uses' => 'ProfileController@getProfil
 Route::get('gegevens_aanpassen', ['as' => 'edit_profile', 'uses' => 'ProfileController@getProfileEditor']);
 Route::post('gegevens_aanpassen_actie', ['as' => 'edit_profile_action', 'uses'=> 'ProfileController@editProfile']);
 
+Route::delete('profiel', ['as' => 'alter_reservation', 'uses'=> 'ProfileController@alterReservation']);
+Route::post('profiel/reservering_wijzigen', ['as' => 'edit_reservation', 'uses'=> 'ProfileController@editReservation']);
+Route::patch('profiel/reservering_wijzigen', ['as' => 'edit_reservation_action', 'uses'=> 'ProfileController@editReservationAction']);
+
+
 Route::get('wachtwoord_wijzigen', ['as' => 'change_password', 'uses' => 'ProfileController@getChangePassword']);
 Route::post('wachtwoord_wijzigen_actie', ['as' => 'change_password_action', 'uses' => 'ProfileController@changePassword']);
 
 #----Sponsor CMS Routes----
-Route::get('cms_sponsor', ['as' => 'cms_sponsor', 'uses' => 'SponsorController@overview']);
+Route::get('cms/sponsor', ['as' => 'cms_sponsor', 'uses' => 'SponsorController@overview']);
 
 Route::get('cms/createSponsors', ['as' => 'cms_createSponsors', 'uses' => 'SponsorController@create']);
 Route::post('cms/cmsCreateSponsor', array('as' => 'create_sponsor', 'uses' => 'SponsorController@newSponsor'));
