@@ -10,18 +10,14 @@
 
 	<div class="container">
 		<div class="col-lg-3 col-md-3 col-sm-4 col-sm-offset-0 col-xs-4"></div>
+
 		<div class="col-lg-6 col-md-6 col-sm-4 col-sm-offset-0 col-xs-4">
-
-		<h3>{{$article->title}}</h3>
-		<p>{{$article->description}}<br>
-		{{$article->text}}<br>
-		{{$article->date}}
-
-		</p>
-
-
-
+		<h3>{{$article->title}}</h3><br>
+		<p><i>{{$article->date}}</i></p><br>
+			<p><b>{{$article->description}}</b></p><br>
+		<p>{{$article->text}}<br></p>
 		</div>
+
 		<div class="col-lg-3 col-md-3 col-sm-4 col-sm-offset-0 col-xs-4">
 			<img src="{{URL::asset('img/NieuwsArtikelen/'.$article->image)}}"/>
 		</div>
