@@ -16,7 +16,7 @@
         @php
             $products = App\Product::all()
         @endphp
-        <h1 class="title text-center">Webshop</h1>
+        <h3 class="title">&nbsp Webshop</h3>
         @if ($products->count() > 0)
 
             @foreach($products as $product)
@@ -32,6 +32,7 @@
                 <div class="col-lg-4 col-md-4 col-sm-4 col-sm-offset-0 col-xs-10 col-xs-offset-1">
                     <img src="{{$fileName}}" style="width: 100%;" data-toggle='modal' data-target="#{{$productnr}}">
                     <br>
+                    <br>
                     <b>Productnaam</b>: {{$productTitle}}
                     <br>
                     <b>Prijs</b>: &euro;{{ $productPrice }}
@@ -43,7 +44,7 @@
                             <div class='modal-content'>
                                 <div class='modal-header'>
                                     <button type='button' class='close' data-dismiss='modal'>&times;</button>
-                                    <h4 class='modal-title'>"{{$productTitle}}"</h4>
+                                    <h4 class='modal-title modalProductTitle'>{{$productTitle}}</h4>
                                 </div>
                                 <div class='modal-body'>
                                     <img src="{{$fileName}}" class="modalImage" height="50%" width="80%">
@@ -61,6 +62,7 @@
         @endif
     </div>
 </div>
+<br>
 @include('layouts.footer')
 </body>
 </html>

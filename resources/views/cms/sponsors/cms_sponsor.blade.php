@@ -37,7 +37,12 @@
                     <td id="table-data-style"><img src="{{URL::asset('/img/Sponsors/'.$sponsor->image)}}" height="50px" width="100px"/></td>
                     <td id="table-data-style">{{$sponsor->name}}</td>
                     <td id="table-data-style">{{$sponsor->sponsor_url}}</td>
-                    <td id="table-data-style"><button type="button" class="btn btn-primary" onclick="window.location='{{URL::route('editSponsor', $sponsor->id)}}'">Bewerken</button></td> <!--Todo: linken naar sponsor wijzigen-->
+                    <td id="table-data-style">
+                        {{ Form::open(['route' => 'editSponsor']) }}
+                        {{ Form::hidden('id', $sponsor->id) }}
+                        <input class="btn btn-primary" type="submit" value="Bewerken">
+                        {{ Form::close()}}
+                    </td>
                     <td id="table-data-style">
                         {{ Form::open(['route' => 'cms_sponsor_delete', 'onsubmit' => 'return confirm("Weet u zeker dat u deze sponsor wilt verwijderen?")']) }}
                         {{ Form::hidden('id', $sponsor->id) }}

@@ -22,11 +22,12 @@ Route::get('product/{ProductNr}', function ($ProductNr)
     );
     return view('product', $data);
 });
-
+//Route::post('cursus_reserveren', ['as' => 'course_reservation', 'uses' => 'CoursesController@createCourseReservationPage']);
+Route::post('nieuws_artikel', ['as' => 'news_article', 'uses' => 'NewsArticleController@createNewsArticlePage']);
 Route::get('artikel/{ArtikelNr}', function ($ArtikelNr)
 {
     $data = array(
-        'Id' => $ArtikelNr
+        'id' => $ArtikelNr
     );
     return view('news_article', $data);
 });
@@ -212,11 +213,11 @@ Route::post('wachtwoord_wijzigen_actie', ['as' => 'change_password_action', 'use
 #----Sponsor CMS Routes----
 Route::get('cms/sponsor', ['as' => 'cms_sponsor', 'uses' => 'SponsorController@overview']);
 
-Route::get('cms/createSponsors', ['as' => 'cms_createSponsors', 'uses' => 'SponsorController@create']);
+Route::get('cms/sponsor/toevoegen', ['as' => 'cms_createSponsors', 'uses' => 'SponsorController@create']);
 Route::post('cms/cmsCreateSponsor', array('as' => 'create_sponsor', 'uses' => 'SponsorController@newSponsor'));
-Route::post('cms/cmsEditSponsor', array('as' => 'edit_sponsor', 'uses' => 'SponsorController@edit'));
+Route::post('cms/sponsor/wijzigen/opslaan', array('as' => 'edit_sponsor', 'uses' => 'SponsorController@edit'));
 
-Route::get('cms/edit_sponsor/{sponsorNumber}', ['as' => 'editSponsor', 'uses' => 'SponsorController@editView']);
+Route::post('cms/sponsor/wijzigen', ['as' => 'editSponsor', 'uses' => 'SponsorController@editView']);
 
 Route::post('cms_sponsor/verwijderen', ['as' => 'cms_sponsor_delete', 'uses' => 'SponsorController@delete']);
 

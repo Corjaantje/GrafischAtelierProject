@@ -14,7 +14,7 @@
     <h3 class="title">Dagje uit</h3>
     <div class="row"><br />
         <div class="col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-6">
-            <p class="subtitle">Grafiek als avontuur</p>
+            <p class="subtitle"><b>Grafiek als avontuur</b></p>
             <p>
                 Maak kennis met eeuwenoude en toch zeer moderne grafische technieken. Bijvoorbeeld een vriend(inn)en club, reünie, vrijgezellendag, familie, voetbalteam etc. Daarnaast kunnen bedrijven bij ons terecht voor een bedrijfsuitje, training of teambuilding.
             </p>

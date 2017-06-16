@@ -16,12 +16,13 @@
 <div class="container">
     <input type="button" class="btn btn-primary reservationBackButton"
            onclick="window.location='{{ route('reservationStep2') }}'" value="Terug">
-    <h1 class="title reservationTitles">Reserveren</h1>
+
 
     @if(isset($error))
         <p class="reservationTitles">{{$error}}</p>
     @endisset
     <div class="row"><br/><br/>
+        <h3 class="title">Reserveren</h3>
         {{ Form::open(['route' => 'ReservationStep_3']) }}
         <p id="tafel"></p>
         <div class="row">

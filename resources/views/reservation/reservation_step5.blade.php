@@ -15,8 +15,9 @@
 @endif
 <div class="container">
     <input type="button" class="btn btn-primary reservationBackButton" onclick="window.location='{{ route('reservationStep3') }}'" value="Terug">
-    <h1 class="title reservationTitles">Controleer uw reservering</h1>
+
     <div class="row">
+        <h3 class="title">Controleer uw reservering</h3>
         {{ Form::open(['route' => 'ReservationStep_4']) }}
         {{ Form::hidden('_token', csrf_token()) }}
         {{ Form::label('date', 'Datum: '. \App\Http\Controllers\SessionController::getDate()) }}<br />

@@ -66,7 +66,7 @@ class SponsorController extends Controller
             if ($validator->fails())
             {
                 Session()->flash('msg', 'Dit type bestand mag u niet uploaden! Probeer het nog eens met een .jpeg, .jpg of .png bestand!');
-                return Redirect::to('/cms_sponsor');
+                return Redirect::to('/cms/sponsor');
             }
             $imageName = $request->Image->getClientOriginalName();
 
@@ -100,7 +100,7 @@ class SponsorController extends Controller
             if ($validator->fails())
             {
                 \Session()->flash('msg', 'Dit type bestand mag u niet uploaden! Probeer het nog eens met een .jpeg, .jpg of .png bestand!');
-                return Redirect::to('/cms_sponsor');
+                return Redirect::to('/cms/sponsor');
             }
             $imageName = $request->Image->getClientOriginalName();
 
@@ -117,7 +117,7 @@ class SponsorController extends Controller
         }
     }
 
-    function editView($sponsorNumber)
+    function editView()
     {
         /*Authentication*/
         if (!$this->validateUser())
@@ -126,8 +126,12 @@ class SponsorController extends Controller
         }
         else
         {
+            $matchingSponsor = Sponsor::find($_POST['id']);
+            return view("cms.sponsors.cms_edit_sponsor", compact('matchingSponsor'));
+            /*
             $data = ['number' => $sponsorNumber];
             return view('cms.sponsors.cms_edit_sponsor', $data);
+            */
         }
     }
 

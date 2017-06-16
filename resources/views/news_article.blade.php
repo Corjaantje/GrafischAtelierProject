@@ -9,54 +9,21 @@
 @include('layouts.header', array('title'=>'Artikel'))
 
 	<div class="container">
+		<div class="col-lg-3 col-md-3 col-sm-4 col-sm-offset-0 col-xs-4"></div>
+		<div class="col-lg-6 col-md-6 col-sm-4 col-sm-offset-0 col-xs-4">
 
-		<div class="row">
-			@php
-				
-				if ($Id !== null && ctype_digit($Id))
-				{
-					$itemNr = intval($Id);
-					$article = App\NewsArticle::where('Id', '=', $Id)->first();
-					if ($article == NULL)
-					{
-						echo "<script type=\"text/javascript\">";
-                        echo "window.location = \"../errors/404\";";
-						echo "</script>";
-					}
-					else
-					{
-	                    echo "<div class=\"col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-10 col-xs-offset-1\">";
+		<h3>{{$article->title}}</h3>
+		<p>{{$article->description}}<br>
+		{{$article->text}}<br>
+		{{$article->date}}
 
-	                    echo "<h1>";
-	                    echo $article->title;
-						echo "</h1>";
+		</p>
 
-						echo "<p> <br> <strong>";
-	                    echo $article->description;
-	                    echo "</strong> <br> </p>";
 
-	                    echo "<p> <br>";
-	                    echo $article->text;
-	                    echo "</p>";
 
-	                    echo "</div>";
-	                    echo "<div class=\"col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-10 col-xs-offset-1\">";
-						echo "<img src=\"{{ URL::asset('img/NieuwsArtikelen/'.$article->image) }}\" width=\"100%\"/>";
-						echo "</div>";
-                    }
-				}
-				else
-				{
-
-					echo "<div class=\"col-lg-12 col-md-12 col-sm-12 col-sm-offset-0 col-xs-10 col-xs-offset-1\">";
-
-					echo "<h1>Oops something went wrong</h1>";
-
-					echo "</div>";
-				}
-
-			@endphp
-
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-4 col-sm-offset-0 col-xs-4">
+			<img src="{{URL::asset('img/NieuwsArtikelen/'.$article->image)}}"/>
 		</div>
 	</div>
 @include('layouts.footer')

@@ -62,11 +62,13 @@
 				foreach ($signedupCourses as $course)
 				{
 			@endphp
-			{{$course->name}}<br>
-			{{Form::open(['method' => 'delete', 'route' => 'alter_reservation'])}}
-			<input type="hidden" name="id" value="{{$course->id}}">
-			<input type="submit" class="btn btn-primary" name="submit" value="Uitschrijven">
-			{{Form::close()}}
+			<div class="row">
+				{{$course->name}}
+				{{Form::open(['method' => 'delete', 'route' => 'alter_reservation'])}}
+				<input type="hidden" name="id" value="{{$course->id}}">
+				<input type="submit" class="btn btn-primary" name="submit" value="Uitschrijven">
+				{{Form::close()}}
+			</div>
 			@php
 				}
 			@endphp
@@ -76,8 +78,6 @@
 	<div class="row">
 		{{Form::open(['route' => 'abonnement_wijzigen'])}}
 		@php
-
-			// zou een laad icoon kunnen gebruiken voor gebruiksvriendelijkheid
 			if ($subscriptionStatus == 'subscribed')
 			{
 			echo  '<input type="submit" class="btn btn-primary" name="wijzigen" value="Opzeggen">';
