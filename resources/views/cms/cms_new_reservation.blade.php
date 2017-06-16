@@ -24,7 +24,7 @@
     {{ Form::hidden('_token', csrf_token()) }}
     User: <select name="cbUsers">
         @foreach($userArray as $user)
-            <option name="{{ $user->id }}" value="{{ $user->id }}">{{ $user->name }}</option>
+            <option name="{{ $user->id }}" value="{{ $user->id }}">{{ $user->first_name }}</option>
         @endforeach
     </select><br/><br/>
     Cursus: <select name="cbCursus">
