@@ -30,7 +30,8 @@
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-sm-offset-0 col-xs-4">
             <b>Datum:</b><br /><input type="date" name="date" value="@php echo date("Y-m-d"); @endphp" required><br /><br />
-            <b>Starttijd:</b><br /><input type="time" name="start_time" value="12:00" min="9:00" max="16:59" id="startTime" required><br /><br />
+			<!-- the minimum time has to be 09:00 instead of 9:00 or else the browser ignores the minimum time-->
+            <b>Starttijd:</b><br /><input type="time" name="start_time" value="12:00" min="09:00" max="16:59" id="startTime" required><br /><br />
             <b>Eindtijd:</b><br /><input type="time" name="end_time" value="15:00" min="12:00" max="17:00" id="endTime" required><br /><br />
                 <input type="hidden" name="table_id" id="table_id" value="">
                 <input type="submit" name="btnDateTime" value="Naar volgende stap" class="btn btn-primary">
