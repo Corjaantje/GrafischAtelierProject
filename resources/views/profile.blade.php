@@ -38,8 +38,7 @@
 			@endphp
 
 			<div>
-				<div style="margin-top:20px;"><span><b>" {{$dateStart->format("d-m-Y")}}"</b> {{$dateStart->format("H:i")}} " - ".
-						{{$dateEnd->format("H:i")}} ( {{\App\Technique::getTechniqueByTableID($table->table_id)}}
+				<div style="margin-top:20px;"><span><b>{{$dateStart->format("d-m-Y")}}</b> {{$dateStart->format("H:i")}}-{{$dateEnd->format("H:i")}} ( {{\App\Technique::getTechniqueByTableID($table->table_id)}}
 						)</span>
 					{{Form::open(['method' => 'delete', 'route' => 'alter_reservation', 'style'=>'float:right;'])}}
 					<input type="hidden" name="id" value="{{$table->id}}">
@@ -63,11 +62,13 @@
 				foreach ($signedupCourses as $course)
 				{
 			@endphp
-			{{$course->name}}<br>
-			{{Form::open(['method' => 'delete', 'route' => 'alter_reservation'])}}
-			<input type="hidden" name="id" value="{{$course->id}}">
-			<input type="submit" class="btn btn-primary" name="submit" value="Uitschrijven">
-			{{Form::close()}}
+			<div class="row">
+				{{$course->name}}
+				{{Form::open(['method' => 'delete', 'route' => 'alter_reservation'])}}
+				<input type="hidden" name="id" value="{{$course->id}}">
+				<input type="submit" class="btn btn-primary" name="submit" value="Uitschrijven">
+				{{Form::close()}}
+			</div>
 			@php
 				}
 			@endphp
@@ -77,15 +78,13 @@
 	<div class="row">
 		{{Form::open(['route' => 'abonnement_wijzigen'])}}
 		@php
-
-			// zou een laad icoon kunnen gebruiken voor gebruiksvriendelijkheid
 			if ($subscriptionStatus == 'subscribed')
 			{
-			echo  '<input type="submit" class="btn btn-primary" name="wijzigen" value="Opzeggen">';
+			echo  '<input type="submit" class="btn btn-primary" name="wijzigen" value="Nieuwsbrief opzeggen">';
 			}
 			else
 			{
-			 echo  '<input type="submit" class="btn btn-primary" name="wijzigen" value="Abonneren">';
+			 echo  '<input type="submit" class="btn btn-primary" name="wijzigen" value="Abonneren op nieuwsbrief">';
 			}
 
 		@endphp

@@ -14,11 +14,11 @@
     </script>
 </head>
 <body class="body-cms">
-@include('layouts.cms_navigation', array('currentPage'=>'Nieuwsfilters'))
+@include('layouts.cms_navigation', array('currentPage'=>'Gebruikers'))
 <div class="container-cms">
 
     <br><br><br>
-    <h2><b>Gebruiker bewerken</b> @include('tooltip', array('text'=>'Hier kun je bestaande gebruiker wijzigen.')) </h2>
+    <h2><b>Gebruiker bewerken</b> @include('layouts.tooltip', array('text'=>'Hier kun je bestaande gebruiker wijzigen.')) </h2>
 {{ Form::open(['route' => 'cms_users_edit_save']) }}
 {{ Form::hidden('id', $matchingUser->id) }}
 <!-- hidden "_token" is necessary for laravel, will throw tokenmismatch exception if not included -->

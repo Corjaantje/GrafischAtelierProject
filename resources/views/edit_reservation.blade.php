@@ -12,12 +12,12 @@
 @include('layouts.header', array('title'=>'Home'))
 <div class="container">
     <input type="button" class="btn btn-primary reservationBackButton"
-           onclick="window.location='{{ route('profile') }}'" value="Terug naar profiel">
-    <h1 class="title reservationTitles">Reservering wijzigen</h1>
+           onclick="window.location='{{ route('profile') }}'" value="Terug"/>
+    <h3>Reservering wijzigen</h3>
 
     @if(isset($error))
-        <h2 class="reservationTitles">{{$error}}</h2>
-        @endisset
+        <p>{{$error}}</p>
+    @endisset
         <div class="row"><br/><br/>
             {{ Form::open(['method' => 'patch', 'route' => 'edit_reservation_action']) }}
             <p id="tafel"></p>

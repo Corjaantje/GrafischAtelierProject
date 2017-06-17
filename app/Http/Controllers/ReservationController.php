@@ -71,7 +71,7 @@ class ReservationController extends Controller
         return $courses;
     }
 
-    // return null if validation if correct, returns other reservation start and enddate if incorrect.
+    // return null if validation is correct, returns other reservation start and enddate if incorrect.
     public function reservationValidation($reservation, $start, $end)
     {
         $usedTables = DB::table('individual_reservations')->where('table_id', $reservation->table_id)->where('id', '!=', $reservation->id)/*->where('start_date', '>', $date)*/

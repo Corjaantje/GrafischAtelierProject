@@ -29,8 +29,8 @@ class NewsArticleTableSeeder extends Seeder
             ),
             array (
                 'id' => 2,
-            	'filter_id' => 1,
-                'title' => "Vrijwillgersvacatures GA Den Bosch",
+            	'filter_id' => 2,
+                'title' => "Vrijwilligersvacatures GA Den Bosch",
                 'description' => "Alle vacatures van het Grafisch Atelier",
                 'text' => "Het Grafisch Atelier Den Bosch is een werkplaats waar geexperimenteerd kan worden met de grafische technieken. Een plek, in de Willem Twee, waar kunstenaars, vormgevers, studenten, scholieren, amateurs en andere geinteresseerden zelfstandig kunnen werken, cursussen en workshops kunnen volgen en exposities komen bekijken. 
                 Het atelier is zes dagen per week geopend en dit zou niet mogelijk zijn zonder de inzet van onze vrijwilligers. Om de gasten zo goed mogelijk van dienst te kunnen zijn zouden wij ons vrijwilligersteam graag uitbreiden met een aantal oproepkrachten en een vrijwilliger marketing & communicatie.",

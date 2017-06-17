@@ -15,7 +15,7 @@
 @endif
 <div class="container">
     <input type="button" class="btn btn-primary reservationBackButton" onclick="window.location='{{ route('reservationStep1') }}'" value="Terug">
-    <h1>Selecteer een tafel</h1>
+    <h3>Selecteer een tafel</h3>
     <p>Per techniek zijn een aantal tafels aanwezig. Selecteer aub een tafel die past bij de techniek die u wilt hanteren.</p>
 
         <img src="{{URL::to('/')}}/img/werkplaats_ga.png" alt="" usemap="#Map" />

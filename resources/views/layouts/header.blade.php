@@ -49,25 +49,26 @@
                     @foreach ($NavMainArray as $data)
 
                         @if($data->visible)
-                            <li id="dropdown"><a href="{{URL::route($data->link_as)}}"> <b>{{ $data->name }}</b> </a>
+                            <li id="dropdown"><h4><a href="{{URL::route($data->link_as)}}"> <b>{{ $data->name }}</b> </a>
                                 @php
                                     $MainNavSubcounter += 1;
                                     if($MainNavSubcounter < $MainNavCount)
                                     {
-                                    echo "-";
+                                        echo "-";
                                     }
                                 @endphp
-                                @endif
+                                </h4>
+                        @endif
 
                                 <div id="dropdown-content">
                                     @foreach($NavSubArray as $subdata)
                                         @if($subdata->parent_id == $data->id && $subdata->visible)
-                                            <a href="{{URL::route($subdata->link_as)}}"><b> {{ $subdata->name }}</b></a>
+                                            <h5><a href="{{URL::route($subdata->link_as)}}"><b> {{ $subdata->name }}</b></a></h5>
                                         @endif
                                     @endforeach
                                 </div>
                             </li>
-                            @endforeach
+                    @endforeach
 
                         <!-- Authentication Links -->
                             @if (Auth::guest())

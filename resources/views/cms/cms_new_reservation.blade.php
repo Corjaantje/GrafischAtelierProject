@@ -24,7 +24,7 @@
     {{ Form::hidden('_token', csrf_token()) }}
     User: <select name="cbUsers">
         @foreach($userArray as $user)
-            <option name="{{ $user->id }}" value="{{ $user->id }}">{{ $user->name }}</option>
+            <option name="{{ $user->id }}" value="{{ $user->id }}">{{ $user->first_name }}</option>
         @endforeach
     </select><br/><br/>
     Cursus: <select name="cbCursus">
@@ -32,7 +32,9 @@
             <option name="{{ $course->id }}" value="{{ $course->id }}">{{ $course->name }}</option>
         @endforeach
     </select><br/><br/>
-    <input class="btn btn-primary" type="submit" value="Opslaan">
+    @if (count($userArray) > 0 && count($courseArray) > 0)
+        <input class="btn btn-primary" type="submit" value="Opslaan">
+    @endif
     {{ Form::close() }}
     <br>
 </div>

@@ -9,12 +9,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-@include('layouts.header', array('title'=>'Home'))
+@include('layouts.header', array('title'=>'Cursuspagina'))
 <div class="container">
-    @php
-        $courses = App\Course::Where('visible', '1')->get();
-    @endphp
-    <h1>Cursussen</h1>
+    <h3>Cursussen</h3>
     @foreach ($courses as $course)
         @if( ($loop->index % 3) == 0 )
             <div class="row">
@@ -25,9 +22,9 @@
                     {
                         $course->max_signups = "∞";
                     }
-                    echo "<h3>".$course->name." - ".\App\Courses_has_user::getSignedUp($course->id)."/".$course->max_signups." ingeschreven </h3>";
-                    echo "<h4>".substr($course->start_date,0,-3)." - ".substr($course->end_date,0,-3)."</h4>";
-                    echo "<h4>Door ".$course->coursegiver_name."</h4>";
+                    echo "<h4>".$course->name." - ".\App\Courses_has_user::getSignedUp($course->id)."/".$course->max_signups." ingeschreven </h4>";
+                    echo "<p>".substr($course->start_date,0,-3)." - ".substr($course->end_date,0,-3)."</p>";
+                    echo "<p>Door ".$course->coursegiver_name."</p>";
                     echo "<p>".$course->description." </p>";
 
                     @endphp

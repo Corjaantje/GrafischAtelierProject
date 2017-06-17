@@ -9,7 +9,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body class="body-cms">
-@include('layouts.cms_navigation', array('currentPage'=>'Header'))
+@include('layouts.cms_navigation', array('currentPage'=>'Navigatie'))
 <div class="container-cms">
     @php
         $NavMainArray = App\HeaderNavigation::getAllNavigationArray();

@@ -11,7 +11,7 @@
 </head>
 <body>
 @include('layouts.header', array('title'=>'Aan de slag'))
-<div class="container bigText">
+<div class="container">
     <h3 class="title">Workshops & Cursusaanbod</h3>
     <p class="nv-subtitle text-center">
         Op deze pagina vindt u de komende workshops en cursussen die aangeboden worden binnen het Grafisch Atelier Den Bosch.

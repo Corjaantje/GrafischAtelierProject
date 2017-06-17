@@ -10,15 +10,14 @@
 </head>
 <body>
 @include('layouts.header', array('title'=>'workplace'))
-<div class="jumbotron text-center">
-    <h1>Werkplaats</h1>
-</div>
+
 
 <div class="container">
+    <h3 class="title">Werkplaats</h3>
     <div class="row">
         <div class="col-md-9">
             <div>
-                <h3><b>Welkom in de mooiste grafiekwerkplaats van Nederland!</b> </h3>
+                <p><b>Welkom in de mooiste grafiekwerkplaats van Nederland!</b> </p>
                 <p>Het Grafisch Atelier biedt kunstenaars, vormgevers en creatieven een goed geoutilleerde werkplaats met deskundige ondersteuning en een omgeving om te experimenteren. In het GA wordt zoveel mogelijk gewerkt met non-toxic materialen.</p>
             </div>
 
@@ -26,11 +25,11 @@
                 <b><p>Aan de slag</p></b>
                 <p>Reserveer van te voren een werkplek. Dit kan telefonisch, via de email of middels de agenda die in de werkplaats ligt. Kun je niet komen? Meld je dan af. Anders zijn wij genoodzaakt kosten in rekening te brengen voor de tijd dat je de werkplek hebt gereserveerd.</p>
 
-                <h3>Voor het eerst aan de slag in het GA? </h3>
+                <p>Voor het eerst aan de slag in het GA? </p>
                 <p>Je bent verplicht een introductie te volgen. Als je in het GA een cursus hebt gevolgd in de techniek waarin je aan de slag gaat, dan staat dit gelijk aan een introductie.</p>
             </div>
-
-            <p><b>Technieken</b></p>
+            <br>
+            <h4>Technieken</h4>
             <b><p>Zeefdruk</p></b>
             <p>Er zijn 5 zeefdruktafels met vacuümafzuiging: een zeefdruktafel voor maximaal A1 formaat, drie tafels voor A2 formaat  en een tafel voor A3 formaat. Verder hebben we een grote collectie zeeframen in allerlei formaten.</p>
 
@@ -108,7 +107,7 @@
             <b><p>Zaterdagmiddag</p></b>
             <p>Wisselende bezetting</p>
             <p>Kosten</p>
-            <p> <a href="fedha.nl/prijzen">Prijslijst 2017</a></p>
+            <p> <a href="https://www.fedha.nl/prijzen">Prijslijst 2017</a></p>
         </div>
     </div>
 </div>

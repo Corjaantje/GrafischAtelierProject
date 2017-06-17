@@ -31,8 +31,10 @@
                 Maak voor deze een van deze introducties een afspraak: info@gadenbosch.nl of 073-6134277<br /><br />
 
                 Voor meer opties in begeleiding, het prepareren van zeven en drukwerk in opdracht zie Service & diensten.
+                <br><br>
             </p>
         </div>
+
 
         <div class="col-lg-6 col-md-6 col-sm-6 col-sm-offset-0 col-xs-6">
             <b><p class="subtitle">Basis</p></b>

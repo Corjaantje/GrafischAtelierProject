@@ -395,9 +395,6 @@ a.active {
   border: solid #aaaaaa 1px;
   min-height: 75%; }
 
-.reservationTitles {
-  text-align: center; }
-
 .reservationButtons {
   width: 100%; }
 
@@ -502,13 +499,11 @@ a.active {
   height: 100px;
   margin: auto; }
 
-#tafel {
-  font-size: 18px;
-  font-weight: bold; }
-
 .modalImage {
   margin: auto;
   display: block; }
 
+.modalProductTitle {
+  text-align: center; }
 
 /*# sourceMappingURL=app.css.map */

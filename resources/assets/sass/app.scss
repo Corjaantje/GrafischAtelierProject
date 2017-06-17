@@ -491,10 +491,6 @@ a.active {
   min-height: 75%;
 }
 
-.reservationTitles {
-  text-align: center;
-}
-
 .reservationButtons {
   width: 100%;
 }
@@ -606,11 +602,6 @@ a.active {
 .reservationBackButton {
   float: right;
 }
-
-#tafel{
-  font-size: 18px;
-  font-weight: bold;
-}
 .headerSpace {
   height: 100px;
   margin: auto;
@@ -619,4 +610,8 @@ a.active {
 .modalImage {
   margin: auto;
   display: block;
+}
+
+.modalProductTitle{
+  text-align: center;
 }
