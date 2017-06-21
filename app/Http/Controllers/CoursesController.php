@@ -13,7 +13,8 @@ class CoursesController extends Controller
     /** Returns the main course pages which has buttons to the other subcourse pages*/
     public function createList()
     {
-        return view('cms.courses.cms_list_courses');
+        $courses = Course::all();
+        return view('cms.courses.cms_list_courses', compact('courses'));
     }
 
     /** Returns the course subpage for creating a new course*/
@@ -25,7 +26,15 @@ class CoursesController extends Controller
     /** Returns the course subpage for editing an existing course*/
     public function createEdit()
     {
-        return view('cms.courses.cms_edit_courses');
+        if (isset($_POST['id']))
+        {
+            $course = Course::find($_POST['id']);
+            $signupsIsNotNull = ($course->max_signups != null);
+            $preppedStartDate = self::prepareDatetime($course->start_date);
+            $preppedEndDate = self::prepareDatetime($course->end_date);
+            return view('cms.courses.cms_edit_courses', compact('course', 'signupsIsNotNull', 'preppedStartDate', 'preppedEndDate'));
+        }
+        return view('cms_courses_list');
     }
 
     /** Gets all the data from the POST variable and updates the database*/
@@ -46,80 +55,65 @@ class CoursesController extends Controller
                     'visible' => isset($_POST['visible'])]
             );
             return Redirect::to('cms/cursus');
-        } else
-        {
-            //not properly working yet
-            //return Redirect::back()->withInput();
         }
-
         return Redirect::to('cms/cursus');
     }
 
     private function validateForm()
     {
-
         $isValid = true;
 
         if (isset($_POST['name']))
         {
-
             if (!(strlen($_POST['name']) > 0))
             {
                 $isValid = false;
             }
-
-        } else
+        }
+        else
         {
             $isValid = false;
         }
-
         if (isset($_POST['coursegiver_name']))
         {
-
             if (!(strlen($_POST['coursegiver_name']) > 0))
             {
                 $isValid = false;
             }
-
-        } else
+        }
+        else
         {
             $isValid = false;
         }
-
         if (isset($_POST['max_signups']))
         {
-
             if (!($_POST['max_signups'] > -1))
             {
                 $isValid = false;
-            } else
+            }
+            else
             {
-
-                if ($_POST['max_signups'] == 0)
+                if ($_POST['max_signups'] === 0)
                 {
                     $_POST['max_signups'] = null;
                 }
-
             }
-
-        } else
+        }
+        else
         {
             $isValid = false;
         }
-
         if (isset($_POST['price']))
         {
-
             if (!($_POST['price'] > -1))
             {
                 $isValid = false;
             }
-
-        } else
+        }
+        else
         {
             $isValid = false;
         }
-
         return $isValid;
     }
 
@@ -135,13 +129,9 @@ class CoursesController extends Controller
      */
     public function prepareDatetime($input)
     {
-
         $pieces = explode(" ", $input);
-
         $date = $pieces[0];
-
         $time = substr($pieces[1], 0, -3);
-
         $datetime = $date . "T" . $time;
 
         return $datetime;
@@ -150,7 +140,7 @@ class CoursesController extends Controller
     public function setAdd()
     {
         Course::Insert(
-            [   'name' => $_POST['course_name'],
+            ['name' => $_POST['course_name'],
                 'description' => $_POST['description'],
                 'coursegiver_name' => $_POST['coursegiver_name'],
                 'max_signups' => $_POST['max_people'],
@@ -164,12 +154,19 @@ class CoursesController extends Controller
 
     public function createCoursesPage()
     {
-        return view('courses');
+        $courses = Course::Where('visible', '1')->get();
+        return view('courses', compact('courses'));
     }
 
     public function createCourseReservationPage()
     {
-        return view('course_reservation');
+        if (isset($_POST['id']))
+        {
+            $course = Course::find($_POST['id']);
+            return view('course_reservation', compact('course'));
+        }
+        return view('courses');
+
     }
 
     public function deleteAction()
@@ -188,9 +185,10 @@ class CoursesController extends Controller
         if (Auth::user()->role == 'admin')
         {
             if (Courses_has_user::where([
-                ['user_id', '=', Auth::user()->id],
-                ['course_id', '=', $courseID]
-            ])->count() === 0)
+                    ['user_id', '=', Auth::user()->id],
+                    ['course_id', '=', $courseID]
+                ])->count() === 0
+            )
             {
                 Courses_has_user::Insert(
                     [
@@ -209,9 +207,10 @@ class CoursesController extends Controller
         {
             if ($currentSignups < $maxSignups &&
                 Courses_has_user::where([
-                    [ 'user_id', '=', Auth::user()->id],
+                    ['user_id', '=', Auth::user()->id],
                     ['course_id', '=', $courseID]
-                ])->count() === 0)
+                ])->count() === 0
+            )
             {
                 Courses_has_user::Insert(
                     [

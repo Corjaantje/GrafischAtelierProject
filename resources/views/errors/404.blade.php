@@ -9,12 +9,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-@include('layouts.header', array('title'=>'404 - Page not found'))
+@include('layouts.header_errors', array('title'=>'404 - Page not found'))
 <div class="container">
-    <div class="text-center">
         <h1>404!</h1>
         <div>De pagina die u zocht is niet hier!</div>
-    </div>
 </div>
 @include('layouts.footer')
 </body>

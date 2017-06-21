@@ -10,13 +10,14 @@
 </head>
 <body class="body-cms">
 @include('layouts.header', array('title'=>'Home'))
-<input type="button" class="btn btn-primary" onclick="window.location='{{ route('reservationStep3') }}'" value="Terug">
 @if (!Auth::check())
     <script>window.location.href = "{{ route('login') }}"</script>
 @endif
 <div class="container">
-    <h1 class="title reservationTitles">Controleer uw reservering</h1>
+    <input type="button" class="btn btn-primary reservationBackButton" onclick="window.location='{{ route('reservationStep3') }}'" value="Terug">
+
     <div class="row">
+        <h3 class="title">Controleer uw reservering</h3>
         {{ Form::open(['route' => 'ReservationStep_4']) }}
         {{ Form::hidden('_token', csrf_token()) }}
         {{ Form::label('date', 'Datum: '. \App\Http\Controllers\SessionController::getDate()) }}<br />

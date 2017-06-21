@@ -18,7 +18,6 @@
 //
 //            });
         });
-
         window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),
         ]) !!};
@@ -26,7 +25,7 @@
     <nav id="nav" class="navbar">
         <div class="container-fluid">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <button type="button" class="navbar-toggle">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -34,7 +33,6 @@
                 <a href="/" id="logo"> <img src="{{ URL::asset('img/logo_ga.png') }}" width="250px"> </a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
-
                 <div class="socials">
                     <i class="fa fa-facebook" aria-hidden="true"></i>
                     <i class="fa fa-twitter" aria-hidden="true"></i>
@@ -51,25 +49,26 @@
                     @foreach ($NavMainArray as $data)
 
                         @if($data->visible)
-                            <li id="dropdown"><a href="{{URL::route($data->link_as)}}"> <b>{{ $data->name }}</b> </a>
+                            <li id="dropdown"><h4><a href="{{URL::route($data->link_as)}}"> <b>{{ $data->name }}</b> </a>
                                 @php
                                     $MainNavSubcounter += 1;
                                     if($MainNavSubcounter < $MainNavCount)
                                     {
-                                    echo "-";
+                                        echo "-";
                                     }
                                 @endphp
-                                @endif
+                                </h4>
+                        @endif
 
                                 <div id="dropdown-content">
                                     @foreach($NavSubArray as $subdata)
                                         @if($subdata->parent_id == $data->id && $subdata->visible)
-                                            <a href="{{URL::route($subdata->link_as)}}"><b> {{ $subdata->name }}</b></a>
+                                            <h5><a href="{{URL::route($subdata->link_as)}}"><b> {{ $subdata->name }}</b></a></h5>
                                         @endif
                                     @endforeach
                                 </div>
                             </li>
-                            @endforeach
+                    @endforeach
 
                         <!-- Authentication Links -->
                             @if (Auth::guest())
@@ -77,7 +76,7 @@
                                 <li class="auth_links"><a href="{{ route('login') }}"><b>Inloggen</b></a> -</li>
 
                             @else
-                                <li id="dropdown" class="auth_links"><b>{{ Auth::user()->name }} <span
+                                <li id="dropdown" class="auth_links"><b>{{ Auth::user()->first_name.' '.Auth::user()->last_name }} <span
                                                 class="caret"></span></b>
                                     <div id="dropdown-content">
                                         <a href="{{ route('profile') }}">
@@ -105,6 +104,7 @@
             </div>
         </div>
     </nav>
+    <div class="headerSpace"></div>
 @show
 
 <script src="{{ asset('js/app.js') }}"></script>

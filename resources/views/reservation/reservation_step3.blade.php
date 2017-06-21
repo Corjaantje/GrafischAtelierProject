@@ -10,12 +10,12 @@
 </head>
 <body class="body-cms">
 @include('layouts.header', array('title'=>'Home'))
-<input type="button" class="btn btn-primary" onclick="window.location='{{ route('reservationStep1') }}'" value="Terug">
 @if (!Auth::check())
     <script>window.location.href = "{{ route('login') }}"</script>
 @endif
 <div class="container">
-    <h1>Selecteer een tafel</h1>
+    <input type="button" class="btn btn-primary reservationBackButton" onclick="window.location='{{ route('reservationStep1') }}'" value="Terug">
+    <h3>Selecteer een tafel</h3>
     <p>Per techniek zijn een aantal tafels aanwezig. Selecteer aub een tafel die past bij de techniek die u wilt hanteren.</p>
 
         <img src="{{URL::to('/')}}/img/werkplaats_ga.png" alt="" usemap="#Map" />

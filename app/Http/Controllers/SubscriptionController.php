@@ -122,7 +122,7 @@ class SubscriptionController extends Controller
             {
                 // user doesn't have a last name.
                 $_POST['email'] = $user->email;
-                $_POST['firstName'] = $user->name;
+                $_POST['firstName'] = $user->first_name;
                 $_POST['lastName'] = '';
 
                 $httpCode = $this->addSubscription('subscribed');
@@ -226,6 +226,38 @@ class SubscriptionController extends Controller
         $result = curl_exec($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
+
+        return $httpCode;
+    }
+
+    public function changeSubscriberInfo($email, $newInfo)
+    {
+
+        $status = $this->getStatus($email);
+
+        $url = 'https://' . $this->dataCenter . '.api.mailchimp.com/3.0/lists/' . $this->listID . '/members/' . md5(strtolower($email));
+
+        $json = json_encode(null);
+
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_USERPWD, 'SOQ:' . $this->apiKey);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $json);
+        $result = curl_exec($ch);
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+
+        $_POST['email'] = $this->cleanData($newInfo['email']);
+        $_POST['firstName'] = $newInfo['firstname'];
+        $_POST['lastName'] = $newInfo['lastname'];
+
+
+        if ($status == null) $this->addSubscription();
+        else $this->addSubscription($status);
 
         return $httpCode;
     }

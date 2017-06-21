@@ -49,7 +49,8 @@ class NewsfilterController extends Controller
         if (!$this->checkAdmin()) {
             return Redirect::to('403');
         }
-        if ($_POST['id'] != 1) {
+        if (isset($_POST['id']) && $_POST['id'] != 1 )
+        {
             NewsArticle::where('filter_id', '=', $_POST['id'])->update(['filter_id' => 1]);
 
             Newsfilter::destroy($_POST['id']);
@@ -62,10 +63,14 @@ class NewsfilterController extends Controller
         if (!$this->checkAdmin()) {
             return Redirect::to('403');
         }
-        if ($_POST['name'] != null) {
-            Newsfilter::Insert(
-                ['name' => $_POST['name']]
-            );
+        if ($_POST['name'] != null)
+        {
+            if (!(Newsfilter::where('name', '=', $_POST['name'])->exists()))
+            {
+                Newsfilter::Insert(
+                    ['name' => $_POST['name']]
+                );
+            }
             return Redirect::to("cms/nieuwsfilters");
         }
     }
@@ -75,10 +80,14 @@ class NewsfilterController extends Controller
         if (!$this->checkAdmin()) {
             return Redirect::to('403');
         }
-        if ($_POST['name'] != null && $_POST['id'] != null) {
-            $filter = Newsfilter::find($_POST['id']);
-            $filter->name = $_POST['name'];
-            $filter->save();
+        if ($_POST['name'] != null && $_POST['id'] != null)
+        {
+            if (!(Newsfilter::where('name', '=', $_POST['name'])->exists()))
+            {
+                $filter = Newsfilter::find($_POST['id']);
+                $filter->name = $_POST['name'];
+                $filter->save();
+            }
             return Redirect::to("cms/nieuwsfilters");
         }
     }

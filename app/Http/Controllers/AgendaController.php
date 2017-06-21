@@ -21,90 +21,87 @@ class AgendaController extends Controller
 
         // time limitation for longterm efficiency.
         $this->data['reservations'] = $this->reservationsConverter(IndividualReservation::where([
-            ['start_date', '>', Date('Y-m-d H:i:s', strtotime('-1 month'))],
-            ['start_date', '<', Date('Y-m-d H:i:s', strtotime('+1 month'))],
+            ['start_date', '>', Date('Y-m-d H:i:s', strtotime('-6 month'))],
+            ['start_date', '<', Date('Y-m-d H:i:s', strtotime('+6 month'))],
         ])->get());
 
         $this->data['workshops'] = $this->workshopsConverter(Course::where([
-            ['start_date', '>', Date('Y-m-d H:i:s', strtotime('-1 month'))],
-            ['start_date', '<', Date('Y-m-d H:i:s', strtotime('+1 month'))],
+            ['start_date', '>', Date('Y-m-d H:i:s', strtotime('-6 month'))],
+            ['start_date', '<', Date('Y-m-d H:i:s', strtotime('+6 month'))],
         ])->get());
 
         return view('agenda', $this->data);
     }
 
-
     private function reservationsConverter($list)
     {
-
         $newData = [];
         $x = 0;
-        foreach ($list as $item) {
+        foreach ($list as $item)
+        {
             $newItem = [
                 'start_date' => $item->start_date,
                 'end_date' => $item->end_date,
-                'text' => "Gereserveerd door: " . $item->user->name,
+                'text' => "Gereserveerd door: " . $item->user->first_name." ".$item->user->last_name,
                 'type' => $item->table_id,
-	            'color' => "#009966",
+                'color' => "#009966",
             ];
             $newData[$x] = $newItem;
             $x++;
         }
-
         return $newData;
     }
 
 
     private function tableConverter($listTable)
     {
-
         $newData = [];
         $x = 0;
-        foreach ($listTable as $item) {
+        foreach ($listTable as $item)
+        {
             $newItem = [
                 'key' => $item->id,
-                'label' => $item->tech->name." ".$item->id];
+                'label' => $item->tech->name . " " . $item->id];
             $newData[$x] = $newItem;
             $x++;
         }
-
-
         return $newData;
     }
 
-
     private function workshopsConverter($list)
     {
-
         $newData = [];
         $x = 0;
-        foreach ($list as $item) {
-            if ($item->visible) {
+        foreach ($list as $item)
+        {
+            if ($item->visible)
+            {
                 $tables = $item->tables;
                 $tableID = "";
-                foreach ($tables as $table) {
-                    $tableID = $tableID.$table->id.",";
+                foreach ($tables as $table)
+                {
+                    $tableID = $tableID . $table->id . ",";
                 }
-                // prevents corupted week overview on the webpage.
-                if ($tableID == "") {
-                    foreach ($this->data['tables'] as $table) {
-                        $tableID = $tableID.$table['key'].",";
+                // prevents corrupted week overview on the webpage.
+                if ($tableID == "")
+                {
+                    foreach ($this->data['tables'] as $table)
+                    {
+                        $tableID = $tableID . $table['key'] . ",";
                     }
                 }
-	            $tableID = rtrim($tableID,",");
+                $tableID = rtrim($tableID, ",");
                 $newItem = [
                     'start_date' => $item->start_date,
                     'end_date' => $item->end_date,
                     'text' => "Workshop: " . $item->name,
                     'type' => $tableID,
-	                'color' => "#FF9933",
+                    'color' => "#FF9933",
                 ];
                 $newData[$x] = $newItem;
                 $x++;
             }
         }
-
         return $newData;
     }
-
 }

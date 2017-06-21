@@ -10,22 +10,22 @@ class UsersTableSeeder extends Seeder {
 
         $users = array(
             array(
-                'name' => 'Jan',
+                'first_name' => 'Admin',
+                'last_name' => 'de Admin',
+                'email' => 'admin@admin.com',
+                'username' => 'Admin',
+                'role' => 'admin',
+                'password' => Hash::make('admin'),
+                'address' => 'Adminstraat 1337'
+            ),
+            array(
+                'first_name' => 'Jan',
                 'last_name' => 'pieter',
                 'email' => 'jan@gmail.com',
                 'username' => 'Jan',
                 'role' => '',
                 'password' => Hash::make('password'),
                 'address' => 'onderwijslaan 12'
-            ),
-            array(
-                'name' => 'admin',
-                'last_name' => 'de beste',
-                'email' => 'admin@admin.com',
-                'username' => 'Admin',
-                'role' => 'admin',
-                'password' => Hash::make('admin'),
-                'address' => 'Adminstraat 1337'
             )
         );
 

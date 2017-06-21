@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\NewsArticle;
-use App\newsFilter;
+use App\Newsfilter;
 use Illuminate\Http\Request;
 
 class NewsPageController extends Controller

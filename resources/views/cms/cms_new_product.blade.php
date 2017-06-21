@@ -14,20 +14,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $('[data-toggle="tooltip"]').tooltip();
-        });
-    </script>
 </head>
 <body class="body-cms">
 @include('layouts.cms_navigation', array('currentPage'=>'Producten'))
-
 <div class="container-cms">
     <br><br><br>
-    <h2><b>Nieuw product</b> @include('tooltip', array('text'=>'Hier kun je nieuwe producten toevoegen aan de webshop.')) </h2>
+    <h2><b>Nieuw
+            product</b> @include('layouts.tooltip', array('text'=>'Hier kun je nieuwe producten toevoegen aan de webshop.'))
+    </h2>
     <br>
-{{ Form::open(['route' => 'create_product']) }}
+{{ Form::open(['route' => 'create_product', 'files' => true]) }}
 
 <!-- hidden "_token" is necessary for laravel, will throw tokenmismatch exception if not included -->
     {{ Form::hidden('_token', csrf_token()) }}
@@ -36,12 +32,12 @@
     Prijs: <input type="number" name="Price" min="0" step="any" required/> <br><br>
     Beschrijving <br><br>
     {{ Form::textarea('Description','', array('required' => 'required'))}} <br>
-
+    Afbeelding:
+    <input type="file" accept=".jpeg, .jpg, .png" name="Image" value=""> <br>
+    
     <input class="btn btn-primary" type="submit" value="Opslaan">
 
     {{ Form::close() }}
-
 </div>
-
 </body>
 </html>
